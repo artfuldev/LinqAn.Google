@@ -35,7 +35,7 @@ namespace DotNetAnalytics.Google.Generator
             Directory.CreateDirectory(metricsPath);
             foreach (var metric in metrics)
             {
-                var name = metric.Attributes.UiName.Dehumanize();
+                var name = MetricFileContentGenerator.GetFileName(metric);
                 var filePath = $"{metricsPath}\\{name}.cs";
                 var fileContent = MetricFileContentGenerator.GenerateFileContent(metric);
                 var tw = !File.Exists(filePath) ? File.CreateText(filePath) : new StreamWriter(filePath);

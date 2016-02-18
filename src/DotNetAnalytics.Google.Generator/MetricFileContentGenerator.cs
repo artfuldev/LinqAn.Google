@@ -1,10 +1,24 @@
-﻿using System.Text;
+﻿using System;
+using System.Text;
+using System.Text.RegularExpressions;
 using Humanizer;
 
 namespace DotNetAnalytics.Google.Generator
 {
     public class MetricFileContentGenerator : IFileContentGenerator
     {
+        public string GetFileName(Column column)
+        {
+            var fileName = column.Attributes.UiName.Dehumanize();
+            var match = Regex.Match(fileName, "^[0-9]");
+            if (!match.Success) return fileName;
+            var number = match.ToString();
+            var numberAsInt = Convert.ToInt32(number);
+            var replacement = numberAsInt.ToWords().Dehumanize();
+            fileName = fileName.Replace(number, replacement);
+            return fileName;
+        }
+
         public string GenerateFileContent(Column column)
         {
             var valueTypeName = column.Attributes.DestinationTypeName;
@@ -16,10 +30,10 @@ namespace DotNetAnalytics.Google.Generator
             }
             fileContent.AppendLine("namespace DotNetAnalytics.Google.Metrics");
             fileContent.AppendLine("{");
-            var className = column.Attributes.UiName.Dehumanize();
+            var className = GetFileName(column);
             var name = column.Attributes.UiName;
             var description = column.Attributes.Description;
-            var isAllowedInSegments = column.Attributes.AllowedInSegments;
+            var isAllowedInSegments = column.Attributes.IsAllowedInSegments.ToString().ToLowerInvariant();
             var id = column.Id;
             fileContent.AppendLine($"\tpublic class {className}: Metric<{valueTypeName}>");
             fileContent.AppendLine("\t{");

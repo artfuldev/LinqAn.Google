@@ -7,6 +7,9 @@
 *.userosscache
 *.sln.docstates
 
+## GA Config
+**/ga.config
+
 # User-specific files (MonoDevelop/Xamarin Studio)
 *.userprefs
 

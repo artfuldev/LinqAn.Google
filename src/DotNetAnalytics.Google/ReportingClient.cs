@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using DotNetAnalytics.Google.Dimensions;
 using DotNetAnalytics.Google.Metrics;
 using DotNetAnalytics.Google.Profiles;
 using DotNetAnalytics.Google.Records;
+using DotNetAnalytics.Google.Extensions;
 using Google.Apis.Analytics.v3;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Services;
@@ -13,8 +15,9 @@ namespace DotNetAnalytics.Google
 {
     public class ReportingClient : IReportingClient
     {
-        private readonly string _viewId;
         private readonly AnalyticsService _service;
+        private readonly string _viewId;
+
         public ReportingClient(IAnalyticsProfile profile)
         {
             _viewId = "ga:" + profile.ViewId;
@@ -30,33 +33,59 @@ namespace DotNetAnalytics.Google
                         Scopes = new[] {AnalyticsService.Scope.Analytics}
                     }.FromCertificate(certificate));
             _service =
-                new AnalyticsService(new BaseClientService.Initializer()
+                new AnalyticsService(new BaseClientService.Initializer
                 {
                     HttpClientInitializer = credential,
-                    ApplicationName = applicationName,
+                    ApplicationName = applicationName
                 });
         }
 
-        public IEnumerable<IRecord> GetAllRecords(DateTime date, IEnumerable<IMetric> metrics, IEnumerable<IDimension> dimensions)
+        public IEnumerable<IRecord> GetAllRecords(DateTime date, IEnumerable<IMetric> metrics,
+            IEnumerable<IDimension> dimensions)
         {
-            throw new NotImplementedException();
+            return GetAllRecords(date, date, metrics, dimensions);
         }
 
-        public IEnumerable<IRecord> GetRecords(DateTime date, IEnumerable<IMetric> metrics, IEnumerable<IDimension> dimensions, int startIndex = 1,
-            int maxRecordsCount = 10000)
+        public IEnumerable<IRecord> GetRecords(DateTime date, IEnumerable<IMetric> metrics, out int? totalRecords, IEnumerable<IDimension> dimensions = null,  int startIndex = 1, int maxRecordsCount = 10000)
         {
-            throw new NotImplementedException();
+            return GetRecords(date, date, metrics, out totalRecords, dimensions, startIndex, maxRecordsCount);
         }
 
-        public IEnumerable<IRecord> GetAllRecords(DateTime startDate, DateTime endDate, IEnumerable<IMetric> metrics, IEnumerable<IDimension> dimensions)
+        public IEnumerable<IRecord> GetAllRecords(DateTime startDate, DateTime endDate, IEnumerable<IMetric> metrics,
+            IEnumerable<IDimension> dimensions)
         {
-            throw new NotImplementedException();
+            var records = new List<IRecord>();
+            int? totalRecords;
+            var metricsList = metrics as IList<IMetric> ?? metrics.ToList();
+            var dimensionsList = dimensions as IList<IDimension> ?? dimensions.ToList();
+            records.AddRange(GetRecords(startDate, endDate, metricsList, out totalRecords, dimensionsList));
+            if (totalRecords == null || totalRecords < 10000)
+                return records;
+            while (totalRecords > records.Count)
+            {
+                records.AddRange(GetRecords(startDate, endDate, metricsList, out totalRecords, dimensionsList, records.Count+1));
+            }
+            return records;
         }
 
-        public IEnumerable<IRecord> GetRecords(DateTime startDate, DateTime endDate, IEnumerable<IMetric> metrics, IEnumerable<IDimension> dimensions,
-            int startIndex = 1, int maxRecordsCount = 10000)
+        public IEnumerable<IRecord> GetRecords(DateTime startDate, DateTime endDate, IEnumerable<IMetric> metrics, out int? totalRecords, IEnumerable<IDimension> dimensions = null, int startIndex = 1, int maxRecordsCount = 10000)
         {
-            throw new NotImplementedException();
+            dimensions = dimensions ?? Enumerable.Empty<IDimension>();
+            var start = startDate.ToString("yyyy-MM-dd");
+            var end = endDate.ToString("yyyy-MM-dd");
+            var metricsList = metrics as IList<IMetric> ?? metrics.ToList();
+            var metricsString = metricsList.ToStringRepresentation();
+            var query = _service.Data.Ga.Get(_viewId, start, end, metricsString);
+            var dimensionsList = dimensions as IList<IDimension> ?? dimensions.ToList();
+            query.Dimensions = dimensionsList.ToStringRepresentation();
+            query.StartIndex = startIndex;
+            query.MaxResults = maxRecordsCount;
+            //if (!String.IsNullOrEmpty(filters))
+            //    query.Filters = filters;
+            query.SamplingLevel = DataResource.GaResource.GetRequest.SamplingLevelEnum.HIGHERPRECISION;
+            var queryResult = query.Execute();
+            totalRecords = queryResult.TotalResults;
+            return queryResult.Rows.Select(row => row.ToRecord(metricsList, dimensionsList));
         }
     }
 }

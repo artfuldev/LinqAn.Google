@@ -6,14 +6,14 @@ namespace DotNetAnalytics.Google.Generator
 {
 	public class ColumnAttributes
 	{
-	    private static readonly IDictionary<string, Type> TypeMapping = new Dictionary<string, Type>()
+	    private static readonly IDictionary<string, string> TypeMapping = new Dictionary<string, string>()
 	    {
-	        {"STRING", typeof (string)},
-	        {"INTEGER", typeof (int)},
-	        {"PERCENT", typeof (float)},
-	        {"TIME", typeof (TimeSpan)},
-	        {"CURRENCY", typeof (decimal)},
-	        {"FLOAT", typeof (float)}
+	        {"STRING", "string"},
+	        {"INTEGER", "int"},
+	        {"PERCENT", "float"},
+	        {"TIME", "TimeSpan"},
+	        {"CURRENCY", "decimal"},
+	        {"FLOAT", "float"}
 	    };
 
 		public string ReplacedBy { get; set; }
@@ -26,7 +26,7 @@ namespace DotNetAnalytics.Google.Generator
 		public string AllowedInSegments { get; set; }
 	    public bool IsDeprecated => Status == "DEPRECATED";
 	    public bool IsAllowedInSegments => AllowedInSegments == "true";
-	    public Type DestinationType
+	    public string DestinationTypeName
 	        => string.IsNullOrWhiteSpace(DataType) ? null : TypeMapping.ContainsKey(DataType) ? TypeMapping[DataType] : null;
 	    public string Type { get; set; }
         public string MinTemplateIndex { get; set; }

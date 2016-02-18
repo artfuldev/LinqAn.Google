@@ -7,13 +7,16 @@ namespace DotNetAnalytics.Google.Generator
     {
         public string GenerateFileContent(Column column)
         {
+            var valueTypeName = column.Attributes.DestinationTypeName;
             var fileContent = new StringBuilder();
-            fileContent.AppendLine("using System;");
-            fileContent.AppendLine();
+            if (IsUsingSystemRequired(valueTypeName))
+            {
+                fileContent.AppendLine("using System;");
+                fileContent.AppendLine();
+            }
             fileContent.AppendLine("namespace DotNetAnalytics.Google.Metrics");
             fileContent.AppendLine("{");
             var className = column.Attributes.UiName.Dehumanize();
-            var valueTypeName = column.Attributes.DestinationType.Name;
             var name = column.Attributes.UiName;
             var description = column.Attributes.Description;
             var isAllowedInSegments = column.Attributes.AllowedInSegments;
@@ -27,6 +30,11 @@ namespace DotNetAnalytics.Google.Generator
             fileContent.AppendLine("\t}");
             fileContent.AppendLine("}");
             return fileContent.ToString();
+        }
+
+        private static bool IsUsingSystemRequired(string typeName)
+        {
+            return typeName != "int" && typeName != "float" && typeName != "double" && typeName != "string" && typeName != "decimal";
         }
     }
 }

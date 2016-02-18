@@ -10,7 +10,7 @@ namespace DotNetAnalytics.Google.Dimensions
     public interface IDimension<T> : IDescribable, ISupportSegmentation, IIndexable
     {
         /// <summary>
-        ///     The value measured by this <seealso cref="IMetric{T}"/>.
+        ///     The value measured by this <seealso cref="IMetric{T}" />.
         /// </summary>
         T Value { get; set; }
     }

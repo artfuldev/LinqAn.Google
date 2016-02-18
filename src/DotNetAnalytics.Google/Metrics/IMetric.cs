@@ -9,7 +9,7 @@ namespace DotNetAnalytics.Google.Metrics
     public interface IMetric<T> : IDescribable, ISupportSegmentation, IIndexable
     {
         /// <summary>
-        ///     The value measured by this <seealso cref="IMetric{T}"/>.
+        ///     The value measured by this <seealso cref="IMetric{T}" />.
         /// </summary>
         T Value { get; set; }
     }

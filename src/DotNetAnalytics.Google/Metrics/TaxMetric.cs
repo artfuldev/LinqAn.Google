@@ -1,9 +1,12 @@
 namespace DotNetAnalytics.Google.Metrics
 {
+	/// <summary>
+	/// 	The total amount of tax.
+	/// </summary>
 	public class TaxMetric: Metric<decimal>
 	{
 		/// <summary>
-		/// 	The total amount of tax.
+	/// 	Instantiates a <seealso cref="TaxMetric" />.
 		/// </summary>
 		public TaxMetric(): base("Tax","The total amount of tax.",true,"ga:transactionTax")
 		{

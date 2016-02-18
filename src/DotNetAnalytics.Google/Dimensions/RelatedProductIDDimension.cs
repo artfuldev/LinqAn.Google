@@ -1,9 +1,12 @@
 namespace DotNetAnalytics.Google.Dimensions
 {
+	/// <summary>
+	/// 	ID of the related product.
+	/// </summary>
 	public class RelatedProductIDDimension: Dimension<string>
 	{
 		/// <summary>
-		/// 	ID of the related product.
+	/// 	Instantiates a <seealso cref="RelatedProductIDDimension" />.
 		/// </summary>
 		public RelatedProductIDDimension(): base("Related Product ID","ID of the related product.",false,"ga:relatedProductId")
 		{

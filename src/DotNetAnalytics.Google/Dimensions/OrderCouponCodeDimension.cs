@@ -1,9 +1,12 @@
 namespace DotNetAnalytics.Google.Dimensions
 {
+	/// <summary>
+	/// 	Code for the order-level coupon (Enhanced Ecommerce).
+	/// </summary>
 	public class OrderCouponCodeDimension: Dimension<string>
 	{
 		/// <summary>
-		/// 	Code for the order-level coupon (Enhanced Ecommerce).
+	/// 	Instantiates a <seealso cref="OrderCouponCodeDimension" />.
 		/// </summary>
 		public OrderCouponCodeDimension(): base("Order Coupon Code","Code for the order-level coupon (Enhanced Ecommerce).",true,"ga:orderCouponCode")
 		{

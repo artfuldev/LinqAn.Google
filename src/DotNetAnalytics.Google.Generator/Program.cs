@@ -12,6 +12,7 @@ namespace DotNetAnalytics.Google.Generator
     class Program
     {
         private static readonly IFileContentGenerator MetricFileContentGenerator = new MetricFileContentGenerator();
+        private static readonly IFileContentGenerator DimensionFileContentGenerator = new DimensionFileContentGenerator();
         static void Main(string[] args)
         {
             var currentDirectory = Directory.GetCurrentDirectory() + @"\";
@@ -29,8 +30,6 @@ namespace DotNetAnalytics.Google.Generator
                 .ToList();
 
             var metrics = selectedColumns.Where(x => x.Attributes.Type == "METRIC");
-            var dimensions = selectedColumns.Where(x => x.Attributes.Type == "DIMENSION");
-            
             var metricsPath = currentDirectory.Replace(@"\DotNetAnalytics.Google.Generator\bin\Debug", @"\DotNetAnalytics.Google\Metrics");
             Directory.CreateDirectory(metricsPath);
             var files = new DirectoryInfo(metricsPath).GetFiles();
@@ -42,6 +41,23 @@ namespace DotNetAnalytics.Google.Generator
                 var name = MetricFileContentGenerator.GetFileName(metric);
                 var filePath = $"{metricsPath}\\{name}.cs";
                 var fileContent = MetricFileContentGenerator.GenerateFileContent(metric);
+                var tw = !File.Exists(filePath) ? File.CreateText(filePath) : new StreamWriter(filePath);
+                tw.WriteLine(fileContent);
+                tw.Close();
+            }
+
+            var dimensions = selectedColumns.Where(x => x.Attributes.Type == "DIMENSION");
+            var dimensionsPath = currentDirectory.Replace(@"\DotNetAnalytics.Google.Generator\bin\Debug", @"\DotNetAnalytics.Google\Dimensions");
+            Directory.CreateDirectory(dimensionsPath);
+            var existingDimensionFiles = new DirectoryInfo(dimensionsPath).GetFiles();
+            var dimensionFiles = existingDimensionFiles.Where(x => x.Name != "IDimension.cs" && x.Name != "Dimension.cs");
+            foreach (var file in dimensionFiles)
+                file.Delete();
+            foreach (var dimension in dimensions)
+            {
+                var name = DimensionFileContentGenerator.GetFileName(dimension);
+                var filePath = $"{dimensionsPath}\\{name}.cs";
+                var fileContent = DimensionFileContentGenerator.GenerateFileContent(dimension);
                 var tw = !File.Exists(filePath) ? File.CreateText(filePath) : new StreamWriter(filePath);
                 tw.WriteLine(fileContent);
                 tw.Close();

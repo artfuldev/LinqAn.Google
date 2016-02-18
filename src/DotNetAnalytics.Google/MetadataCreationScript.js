@@ -34,6 +34,8 @@ var dimensions = [];
 var metrics = [];
 for (var i in metaData.items) {
     var item = metaData.items[i];
+    if (item.attributes.status == "DEPRECATED")
+        continue;
     if (item.attributes.type == "DIMENSION") {
         dimensions.push(item);
         continue;
@@ -43,6 +45,4 @@ for (var i in metaData.items) {
         continue;
     }
 }
-
-
 

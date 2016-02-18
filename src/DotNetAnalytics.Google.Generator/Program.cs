@@ -23,6 +23,8 @@ namespace DotNetAnalytics.Google.Generator
                 .Where(x => !x.Attributes.IsDeprecated)
                 // Remove calculated
                 .Where(x => string.IsNullOrWhiteSpace(x.Attributes.Calculation))
+                // Remove templates
+                .Where(x => !x.Attributes.UiName.Contains("X"))
                 .ToList();
 
             var metrics = selectedColumns.Where(x => x.Attributes.Type == "METRIC");
@@ -34,14 +36,10 @@ namespace DotNetAnalytics.Google.Generator
             {
                 var name = metric.Attributes.UiName.Pascalize();
                 var filePath = $"{metricsPath}\\{name}.cs";
-                if (!File.Exists(filePath))
-                    File.Create(filePath);
                 var fileContent = "This is the metric file for " + name;
-                using (var tw = new StreamWriter(filePath))
-                {
-                    tw.WriteLine(fileContent);
-                    tw.Close();
-                }
+                var tw = !File.Exists(filePath) ? File.CreateText(filePath) : new StreamWriter(filePath);
+                tw.WriteLine(fileContent);
+                tw.Close();
             }
         }
     }

@@ -17,7 +17,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Nuget.config = Nuget.config
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAnalytics.Google.Generator", "DotNetAnalytics.Google.Generator\DotNetAnalytics.Google.Generator.csproj", "{00660C18-438C-4FD3-9729-7F871A8DB464}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAnalytics.Google.Generator", "src\DotNetAnalytics.Google.Generator\DotNetAnalytics.Google.Generator.csproj", "{00660C18-438C-4FD3-9729-7F871A8DB464}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

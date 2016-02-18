@@ -41,10 +41,13 @@ namespace DotNetAnalytics.Google.Records
             foreach (var metric in metricsList)
             {
                 var newMetric = Activator.CreateInstance(metric.GetType()) as IMetric;
-                var valueType = metric.GetType().GenericTypeArguments[0];
+                var valueType = metric.GetType().BaseType.GenericTypeArguments[0];
                 var value = row[iterator++];
                 var valuePropertyInfo = metric.GetType().GetRuntimeProperty("Value");
-                valuePropertyInfo.SetValue(newMetric, Convert.ChangeType(value, valueType));
+                var newValue = valueType.Name == "TimeSpan"
+                    ? TimeSpan.FromSeconds(Convert.ToDouble(value))
+                    : Convert.ChangeType(value, valueType);
+                valuePropertyInfo.SetValue(newMetric, newValue);
                 recordMetrics.Add(newMetric);
             }
 

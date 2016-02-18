@@ -53,7 +53,9 @@
   <ItemGroup>
     <Compile Include="Column.cs" />
     <Compile Include="ColumnAttributes.cs" />
+    <Compile Include="IFileContentGenerator.cs" />
     <Compile Include="MetaData.cs" />
+    <Compile Include="MetricFileContentGenerator.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

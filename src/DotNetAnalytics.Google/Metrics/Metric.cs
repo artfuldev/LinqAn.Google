@@ -2,7 +2,7 @@
 {
     public abstract class Metric<T> : IMetric<T>
     {
-        protected Metric(string name, string description, bool allowedInSegments, string id)
+        internal Metric(string name, string description, bool allowedInSegments, string id)
         {
             Name = name;
             Description = description;

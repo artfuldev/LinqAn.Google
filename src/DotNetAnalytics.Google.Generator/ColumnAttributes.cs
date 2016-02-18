@@ -27,7 +27,7 @@ namespace DotNetAnalytics.Google.Generator
 	    public bool IsDeprecated => Status == "DEPRECATED";
 	    public bool IsAllowedInSegments => AllowedInSegments == "true";
 	    public Type DestinationType
-	        => string.IsNullOrWhiteSpace(Type) ? null : TypeMapping.ContainsKey(Type) ? TypeMapping[Type] : null;
+	        => string.IsNullOrWhiteSpace(DataType) ? null : TypeMapping.ContainsKey(DataType) ? TypeMapping[DataType] : null;
 	    public string Type { get; set; }
         public string MinTemplateIndex { get; set; }
         public string MaxTemplateIndex { get; set; }

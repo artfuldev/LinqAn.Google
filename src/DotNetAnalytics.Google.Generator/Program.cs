@@ -34,7 +34,7 @@ namespace DotNetAnalytics.Google.Generator
             var metricsPath = currentDirectory.Replace(@"\DotNetAnalytics.Google.Generator\bin\Debug", @"\DotNetAnalytics.Google\Metrics");
             Directory.CreateDirectory(metricsPath);
             var files = new DirectoryInfo(metricsPath).GetFiles();
-            var metricFiles = files.Where(x=>x.Name!="IMetric.cs" && x.Name!="Metric.cs");
+            var metricFiles = files.Where(x => x.Name != "IMetric.cs" && x.Name != "Metric.cs");
             foreach (var file in metricFiles)
                 file.Delete();
             foreach (var metric in metrics)

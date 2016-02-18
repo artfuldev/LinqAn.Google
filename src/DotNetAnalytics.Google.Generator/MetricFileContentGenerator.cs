@@ -10,13 +10,13 @@ namespace DotNetAnalytics.Google.Generator
         public string GetFileName(Column column)
         {
             var fileName = column.Attributes.UiName.Dehumanize();
-            var match = Regex.Match(fileName, "^[0-9]");
-            if (!match.Success) return fileName;
+            var match = Regex.Match(fileName, "^[0-9]+");
+            if (!match.Success) return fileName + "Metric";
             var number = match.ToString();
             var numberAsInt = Convert.ToInt32(number);
             var replacement = numberAsInt.ToWords().Dehumanize();
             fileName = fileName.Replace(number, replacement);
-            return fileName;
+            return fileName + "Metric";
         }
 
         public string GenerateFileContent(Column column)

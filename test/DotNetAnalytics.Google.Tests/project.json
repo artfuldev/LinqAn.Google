@@ -1,0 +1,17 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "DotNetAnalytics.Google.Tests Class Library",
+  "authors": [ "Kenshin" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+  "dependencies": {
+    "DotNetAnalytics.Google": ""
+  },
+  "frameworks": {
+    "net45": { },
+    "net451": { },
+    "net452": { },
+    "net46": { }
+  }
+}

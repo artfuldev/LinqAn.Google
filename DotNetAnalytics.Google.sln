@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.24720.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "src", "src", "{34C4F9B5-2F0D-404E-9CB0-EE24810CA4ED}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{3A346B6C-99A5-4682-A1B4-B89F234E418B}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DotNetAnalytics.Google.Tests", "test\DotNetAnalytics.Google.Tests\DotNetAnalytics.Google.Tests.xproj", "{9DA01AA3-34F0-41FA-A2BD-0B5A50D13CAD}"
+EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DotNetAnalytics.Google", "src\DotNetAnalytics.Google\DotNetAnalytics.Google.xproj", "{6477F6C3-9339-46F8-8E17-76379A5797AD}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{4731A24A-1EAE-450F-9A15-E88D8E7267CA}"
+	ProjectSection(SolutionItems) = preProject
+		global.json = global.json
+		Nuget.config = Nuget.config
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9DA01AA3-34F0-41FA-A2BD-0B5A50D13CAD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9DA01AA3-34F0-41FA-A2BD-0B5A50D13CAD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9DA01AA3-34F0-41FA-A2BD-0B5A50D13CAD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9DA01AA3-34F0-41FA-A2BD-0B5A50D13CAD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6477F6C3-9339-46F8-8E17-76379A5797AD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6477F6C3-9339-46F8-8E17-76379A5797AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6477F6C3-9339-46F8-8E17-76379A5797AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6477F6C3-9339-46F8-8E17-76379A5797AD}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9DA01AA3-34F0-41FA-A2BD-0B5A50D13CAD} = {3A346B6C-99A5-4682-A1B4-B89F234E418B}
+		{6477F6C3-9339-46F8-8E17-76379A5797AD} = {34C4F9B5-2F0D-404E-9CB0-EE24810CA4ED}
+	EndGlobalSection
+	GlobalSection(CodealikeProperties) = postSolution
+		SolutionGuid = 55245f6b-4637-468b-950b-8362e9e3fea8
+	EndGlobalSection
+EndGlobal

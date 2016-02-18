@@ -37,6 +37,9 @@ namespace DotNetAnalytics.Google.Generator
             var id = column.Id;
             fileContent.AppendLine($"\tpublic class {className}: Metric<{valueTypeName}>");
             fileContent.AppendLine("\t{");
+            fileContent.AppendLine("\t\t/// <summary>");
+            fileContent.AppendLine($"\t\t/// \t{description}");
+            fileContent.AppendLine("\t\t/// </summary>");
             fileContent.AppendLine($"\t\tpublic {className}(): base(\"{name}\",\"{description}\",{isAllowedInSegments},\"{id}\")");
             fileContent.AppendLine("\t\t{");
             fileContent.AppendLine("\t\t\t");

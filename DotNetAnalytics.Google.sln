@@ -17,6 +17,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		Nuget.config = Nuget.config
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAnalytics.Google.Generator", "DotNetAnalytics.Google.Generator\DotNetAnalytics.Google.Generator.csproj", "{00660C18-438C-4FD3-9729-7F871A8DB464}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,6 +33,10 @@ Global
 		{6477F6C3-9339-46F8-8E17-76379A5797AD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6477F6C3-9339-46F8-8E17-76379A5797AD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6477F6C3-9339-46F8-8E17-76379A5797AD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{00660C18-438C-4FD3-9729-7F871A8DB464}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{00660C18-438C-4FD3-9729-7F871A8DB464}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{00660C18-438C-4FD3-9729-7F871A8DB464}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{00660C18-438C-4FD3-9729-7F871A8DB464}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -38,6 +44,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{9DA01AA3-34F0-41FA-A2BD-0B5A50D13CAD} = {3A346B6C-99A5-4682-A1B4-B89F234E418B}
 		{6477F6C3-9339-46F8-8E17-76379A5797AD} = {34C4F9B5-2F0D-404E-9CB0-EE24810CA4ED}
+		{00660C18-438C-4FD3-9729-7F871A8DB464} = {34C4F9B5-2F0D-404E-9CB0-EE24810CA4ED}
 	EndGlobalSection
 	GlobalSection(CodealikeProperties) = postSolution
 		SolutionGuid = 55245f6b-4637-468b-950b-8362e9e3fea8

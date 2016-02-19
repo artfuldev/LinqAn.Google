@@ -103,9 +103,27 @@ namespace DotNetAnalytics.Google.Linq.Queryables
             return b;
         }
 
-        private static void UpdateQuery(Expression left, Expression right, ExpressionType nodeType)
+        private void UpdateQuery(Expression left, Expression right, ExpressionType nodeType)
         {
-            throw new NotImplementedException();
+            // x=>x.Property==constant, Reverse call if otherwise
+            var memberExpression = left as MemberExpression;
+            var constantExpression = right as ConstantExpression;
+            if (memberExpression == null || constantExpression == null)
+            {
+                if (!(left is ConstantExpression) || !(right is MemberExpression))
+                    throw new InvalidOperationException("one should be member, other should be constant");
+                UpdateQuery(right, left, Reverse(nodeType));
+                return;
+            }
+
+            // View Id
+            if (memberExpression.Member.Name == "ViewId")
+            {
+                if(nodeType != ExpressionType.Equal)
+                    throw new InvalidOperationException("ViewId can only be queried for Equal condition.");
+                _query.ViewId = (uint) constantExpression.Value;
+                return;
+            }
         }
 
         private static ExpressionType Reverse(ExpressionType eType)

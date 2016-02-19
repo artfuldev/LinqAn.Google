@@ -7,6 +7,7 @@ namespace DotNetAnalytics.Google.Linq.Queryables
 {
     public class RecordsDataSet : Query<IRecord>
     {
+        private RecordsQueryProvider<IRecord> _provider => Provider as RecordsQueryProvider<IRecord>; 
         public RecordsDataSet(IReportingClient client)
             : base(new RecordsQueryProvider<IRecord>(client))
         {
@@ -20,6 +21,11 @@ namespace DotNetAnalytics.Google.Linq.Queryables
         public RecordsDataSet(IReportingClient client, Expression expression)
             : base(new RecordsQueryProvider<IRecord>(client), expression)
         {
+        }
+
+        public void Include(object inclusion)
+        {
+            _provider.Includes.Add(inclusion);
         }
     }
 }

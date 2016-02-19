@@ -10,45 +10,46 @@ using DotNetAnalytics.Google.Records;
 
 namespace DotNetAnalytics.Google.Linq.Repositories
 {
-    public class Repository : IAllowFluentQueries<IRecord>
+    public class Repository : IAllowFluentQueries
     {
-        private readonly RecordsDataSet _items;
-        protected Repository(IReportingClient client)
+        private RecordsDataSet Items=>new RecordsDataSet(_client);
+        private readonly IReportingClient _client;
+
+        public Repository(IReportingClient client)
         {
-            _items = new RecordsDataSet(client);
+            _client = client;
         }
-        public IQueryFluent<IRecord> Query(IQueryObject<IRecord> queryObject)
+
+        public IQueryFluent Query(IQueryObject queryObject)
         {
             return Query(queryObject.Query());
         }
 
-        public IQueryFluent<IRecord> Query(Expression<Func<IRecord, bool>> query)
+        public IQueryFluent Query(Expression<Func<IRecord, bool>> query)
         {
             return new QueryFluent(this, query);
         }
 
-        public IQueryFluent<IRecord> Query()
+        public IQueryFluent Query()
         {
             return new QueryFluent(this);
         }
 
-        public IQueryable<IRecord> SelectQuery(string query, params object[] parameters)
-        {
-            throw new NotImplementedException();
-        }
-
-        public IQueryable<IRecord> Queryable()
-        {
-            return _items;
-        }
+        public IQueryable<IRecord> Queryable() => Items;
 
         internal IQueryable<IRecord> Select(
             Expression<Func<IRecord, bool>> filter = null,
+            List<object> includes = null,
             Func<IQueryable<IRecord>, IOrderedQueryable<IRecord>> orderBy = null,
             int? page = null,
             int? pageSize = null)
         {
-            IQueryable<IRecord> query = _items;
+            IQueryable<IRecord> query = Items;
+            if (includes != null)
+            {
+                foreach (var inclusion in includes)
+                    ((RecordsDataSet)query).Include(inclusion);
+            }
             if (orderBy != null)
             {
                 query = orderBy(query);
@@ -66,11 +67,12 @@ namespace DotNetAnalytics.Google.Linq.Repositories
 
         internal async Task<IEnumerable<IRecord>> SelectAsync(
             Expression<Func<IRecord, bool>> filter = null,
+            List<object> includes = null,
             Func<IQueryable<IRecord>, IOrderedQueryable<IRecord>> orderBy = null,
             int? page = null,
             int? pageSize = null)
         {
-            return await Select(filter, orderBy, page, pageSize).ToListAsync().ConfigureAwait(false);
+            return await Select(filter, includes, orderBy, page, pageSize).ToListAsync().ConfigureAwait(false);
         }
     }
 }

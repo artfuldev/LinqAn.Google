@@ -17,6 +17,7 @@ namespace DotNetAnalytics.Google
     public class ReportingClient : IReportingClient
     {
         private readonly AnalyticsService _service;
+        private readonly DateTime _minimumDate = new DateTime(2000, 1, 1);
 
         public ReportingClient(IAnalyticsProfile profile)
         {
@@ -85,11 +86,14 @@ namespace DotNetAnalytics.Google
             uint startIndex = 1, uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
         {
             dimensions = dimensions ?? Enumerable.Empty<IDimension>();
+            if (startDate < _minimumDate)
+                throw new ArgumentOutOfRangeException(nameof(startDate),
+                    "start date cannot be less than " + _minimumDate.ToShortDateString());
             var start = startDate.ToString("yyyy-MM-dd");
             var end = endDate.ToString("yyyy-MM-dd");
             var metricsList = metrics as IList<IMetric> ?? metrics.ToList();
             var metricsString = metricsList.ToStringRepresentation();
-            var query = _service.Data.Ga.Get("ga: " + viewId, start, end, metricsString);
+            var query = _service.Data.Ga.Get("ga:" + viewId, start, end, metricsString);
             var dimensionsList = dimensions as IList<IDimension> ?? dimensions.ToList();
             query.Dimensions = dimensionsList.ToStringRepresentation();
             query.StartIndex = Convert.ToInt32(startIndex);

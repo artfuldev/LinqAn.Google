@@ -11,18 +11,16 @@ namespace DotNetAnalytics.Google.Linq.Queries
 {
     /// <summary>
     /// Allows fluent querying of an <seealso cref="IRecord"/> by chaining
-    /// and also the use of <seealso cref="IQueryObject{T}"/> instances.
+    /// and also the use of <seealso cref="IQueryObject"/> instances.
     /// </summary>
-    /// <typeparam name="T">The <seealso cref="IRecord"/> for which the fluent querying
-    /// is done.</typeparam>
-    public interface IQueryFluent<T>  where T : IRecord
+    public interface IQueryFluent
     {
-        IQueryFluent<T> OrderBy(Func<IQueryable<T>, IOrderedQueryable<T>> orderBy);
-        IQueryFluent<T> Include(Expression<Func<T, IDimension>> dimensionExpression);
-        IQueryFluent<T> Include(Expression<Func<T, IMetric>> metricExpression);
-        IEnumerable<T> SelectPage(int page, int pageSize, out int totalCount);
-        IEnumerable<TResult> Select<TResult>(Expression<Func<T, TResult>> selector = null);
-        IEnumerable<T> Select();
-        Task<IEnumerable<T>> SelectAsync();
+        IQueryFluent OrderBy(Func<IQueryable<IRecord>, IOrderedQueryable<IRecord>> orderBy);
+        IQueryFluent Include(Expression<Func<IRecord, IDimension>> dimensionExpression);
+        IQueryFluent Include(Expression<Func<IRecord, IMetric>> metricExpression);
+        IEnumerable<IRecord> SelectPage(int page, int pageSize, out int totalCount);
+        IEnumerable<TResult> Select<TResult>(Expression<Func<IRecord, TResult>> selector = null);
+        IEnumerable<IRecord> Select();
+        Task<IEnumerable<IRecord>> SelectAsync();
     }
 }

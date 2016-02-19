@@ -39,6 +39,9 @@
       <HintPath>..\..\packages\BouncyCastle.1.7.0\lib\Net40-Client\BouncyCastle.Crypto.dll</HintPath>
       <Private>True</Private>
     </Reference>
+    <Reference Include="DotNetAnalytics.Google">
+      <HintPath>..\..\src\artifacts\bin\DotNetAnalytics.Google\Debug\net46\DotNetAnalytics.Google.dll</HintPath>
+    </Reference>
     <Reference Include="DotNetAnalytics.Google.Linq">
       <HintPath>..\..\artifacts\bin\DotNetAnalytics.Google.Linq\Debug\net46\DotNetAnalytics.Google.Linq.dll</HintPath>
     </Reference>

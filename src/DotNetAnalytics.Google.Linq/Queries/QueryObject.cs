@@ -4,45 +4,45 @@ using DotNetAnalytics.Google.Records;
 
 namespace DotNetAnalytics.Google.Linq.Queries
 {
-    public abstract class QueryObject<T> : IQueryObject<T> where T : IRecord
+    public abstract class QueryObject : IQueryObject
     {
-        private Expression<Func<T, bool>> _query;
+        private Expression<Func<IRecord, bool>> _query;
 
-        private static Expression<Func<T, bool>> And(Expression<Func<T, bool>> left, Expression<Func<T, bool>> right)
+        private static Expression<Func<IRecord, bool>> And(Expression<Func<IRecord, bool>> left, Expression<Func<IRecord, bool>> right)
         {
             var body = Expression.AndAlso(left.Body, right.Body);
-            var lambda = Expression.Lambda<Func<T, bool>>(body, left.Parameters[0]);
+            var lambda = Expression.Lambda<Func<IRecord, bool>>(body, left.Parameters[0]);
             return lambda;
         }
 
-        private static Expression<Func<T, bool>> Or(Expression<Func<T, bool>> left, Expression<Func<T, bool>> right)
+        private static Expression<Func<IRecord, bool>> Or(Expression<Func<IRecord, bool>> left, Expression<Func<IRecord, bool>> right)
         {
             var body = Expression.OrElse(left.Body, right.Body);
-            var lambda = Expression.Lambda<Func<T, bool>>(body, left.Parameters[0]);
+            var lambda = Expression.Lambda<Func<IRecord, bool>>(body, left.Parameters[0]);
             return lambda;
         }
 
-        public Expression<Func<T, bool>> Query()
+        public Expression<Func<IRecord, bool>> Query()
         {
             return _query;
         }
 
-        public Expression<Func<T, bool>> And(Expression<Func<T, bool>> query)
+        public Expression<Func<IRecord, bool>> And(Expression<Func<IRecord, bool>> query)
         {
             return _query = _query == null ? query : And(_query, query);
         }
 
-        public Expression<Func<T, bool>> Or(Expression<Func<T, bool>> query)
+        public Expression<Func<IRecord, bool>> Or(Expression<Func<IRecord, bool>> query)
         {
             return _query = _query == null ? query : Or(_query, query);
         }
 
-        public Expression<Func<T, bool>> And(IQueryObject<T> queryObject)
+        public Expression<Func<IRecord, bool>> And(IQueryObject queryObject)
         {
             return And(queryObject.Query());
         }
 
-        public Expression<Func<T, bool>> Or(IQueryObject<T> queryObject)
+        public Expression<Func<IRecord, bool>> Or(IQueryObject queryObject)
         {
             return Or(queryObject.Query());
         }

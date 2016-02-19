@@ -5,10 +5,10 @@ using DotNetAnalytics.Google.Records;
 
 namespace DotNetAnalytics.Google.Linq.Repositories
 {
-    public interface IAllowFluentQueries<T> where T : IRecord
+    public interface IAllowFluentQueries
     {
-        IQueryFluent<T> Query(IQueryObject<T> queryObject);
-        IQueryFluent<T> Query(Expression<Func<T, bool>> query);
-        IQueryFluent<T> Query();
+        IQueryFluent Query(IQueryObject queryObject);
+        IQueryFluent Query(Expression<Func<IRecord, bool>> query);
+        IQueryFluent Query();
     }
 }

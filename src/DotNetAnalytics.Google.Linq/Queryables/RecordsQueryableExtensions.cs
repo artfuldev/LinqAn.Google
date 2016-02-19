@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using DotNetAnalytics.Google.Dimensions;
 using DotNetAnalytics.Google.Records;
 
 namespace DotNetAnalytics.Google.Linq.Queryables

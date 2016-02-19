@@ -24,9 +24,6 @@ EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "DotNetAnalytics.Google.Linq", "src\DotNetAnalytics.Google.Linq\DotNetAnalytics.Google.Linq.xproj", "{327534C6-B2DA-4539-9D00-8AC05CB84849}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DotNetAnalytics.Google.Linq.Sample", "samples\DotNetAnalytics.Google.Linq.Sample\DotNetAnalytics.Google.Linq.Sample.csproj", "{DFD97984-75E6-4DF7-A2D2-77A4BCA01CB1}"
-	ProjectSection(ProjectDependencies) = postProject
-		{327534C6-B2DA-4539-9D00-8AC05CB84849} = {327534C6-B2DA-4539-9D00-8AC05CB84849}
-	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

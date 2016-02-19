@@ -22,7 +22,7 @@ namespace DotNetAnalytics.Google.Sample
             var applicationName = (string)appSettingsReader.GetValue("ApplicationName", typeof (string));
             var keyFilePath = Directory.GetCurrentDirectory() + @"\key.p12";
             var profile = new AnalyticsProfile(serviceEmail, keyFilePath, applicationName);
-            var reportingClient = new ReportingClient(profile) {ViewId = viewId};
+            var reportingClient = new ReportingClient(profile);
             var metrics = new IMetric[]
             {
                 new HitsMetric(),
@@ -34,7 +34,7 @@ namespace DotNetAnalytics.Google.Sample
                 new SourceDimension(),
                 new MediumDimension(),
             };
-            var records = reportingClient.GetAllRecords(DateTime.Today, metrics, dimensions);
+            var records = reportingClient.GetAllRecords(viewId, DateTime.Today, metrics, dimensions);
             foreach (var record in records)
             {
                 Console.WriteLine(JsonConvert.SerializeObject(record));

@@ -8,6 +8,7 @@ namespace DotNetAnalytics.Google
 {
     public interface IReportingClient
     {
+        uint ViewId { get; set; }
         IEnumerable<IRecord> GetAllRecords(DateTime date, IEnumerable<IMetric> metrics,
             IEnumerable<IDimension> dimensions);
 

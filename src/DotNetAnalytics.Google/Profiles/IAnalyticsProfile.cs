@@ -6,11 +6,6 @@
     public interface IAnalyticsProfile
     {
         /// <summary>
-        ///     The numeric id number of the View to connect to.
-        /// </summary>
-        uint ViewId { get; }
-
-        /// <summary>
         ///     The email address of the service account connected to the View.
         /// </summary>
         string ServiceAccountEmail { get; }

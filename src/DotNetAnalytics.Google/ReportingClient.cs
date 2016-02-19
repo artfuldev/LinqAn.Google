@@ -16,11 +16,11 @@ namespace DotNetAnalytics.Google
     public class ReportingClient : IReportingClient
     {
         private readonly AnalyticsService _service;
-        private readonly string _viewId;
+        public uint ViewId { get; set; }
+        private string View => "ga:" + ViewId;
 
         public ReportingClient(IAnalyticsProfile profile)
         {
-            _viewId = "ga:" + profile.ViewId;
             var serviceAccountEmail = profile.ServiceAccountEmail;
             var keyFile = profile.KeyFilePath;
             var applicationName = profile.ApplicationName;
@@ -75,7 +75,7 @@ namespace DotNetAnalytics.Google
             var end = endDate.ToString("yyyy-MM-dd");
             var metricsList = metrics as IList<IMetric> ?? metrics.ToList();
             var metricsString = metricsList.ToStringRepresentation();
-            var query = _service.Data.Ga.Get(_viewId, start, end, metricsString);
+            var query = _service.Data.Ga.Get(View, start, end, metricsString);
             var dimensionsList = dimensions as IList<IDimension> ?? dimensions.ToList();
             query.Dimensions = dimensionsList.ToStringRepresentation();
             query.StartIndex = startIndex;

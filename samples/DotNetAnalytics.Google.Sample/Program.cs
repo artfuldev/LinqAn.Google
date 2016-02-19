@@ -21,8 +21,8 @@ namespace DotNetAnalytics.Google.Sample
             var serviceEmail = (string)appSettingsReader.GetValue("ServiceEmail", typeof(string));
             var applicationName = (string)appSettingsReader.GetValue("ApplicationName", typeof (string));
             var keyFilePath = Directory.GetCurrentDirectory() + @"\key.p12";
-            var profile = new AnalyticsProfile(viewId, serviceEmail, keyFilePath, applicationName);
-            var reportingClient = new ReportingClient(profile);
+            var profile = new AnalyticsProfile(serviceEmail, keyFilePath, applicationName);
+            var reportingClient = new ReportingClient(profile) {ViewId = viewId};
             var metrics = new IMetric[]
             {
                 new HitsMetric(),

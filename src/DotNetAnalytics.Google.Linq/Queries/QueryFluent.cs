@@ -4,71 +4,69 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
 using DotNetAnalytics.Google.Dimensions;
+using DotNetAnalytics.Google.Linq.Repositories;
 using DotNetAnalytics.Google.Metrics;
 using DotNetAnalytics.Google.Records;
 
 namespace DotNetAnalytics.Google.Linq.Queries
 {
-    public class QueryFluent<T> : IQueryFluent<T> where T : IRecord
+    public class QueryFluent : IQueryFluent<IRecord>
     {
-        #region Private Fields
-        private readonly Expression<Func<T, bool>> _expression;
-        private readonly RepositoryAsync<T> _repository;
-        private Func<IQueryable<T>, IOrderedQueryable<T>> _orderBy;
-        #endregion Private Fields
+        private readonly Expression<Func<IRecord, bool>> _expression;
+        private readonly Repository _repository;
+        private Func<IQueryable<IRecord>, IOrderedQueryable<IRecord>> _orderBy;
 
-        #region Constructors
-        public QueryFluent(RepositoryAsync<T> repository)
+        public QueryFluent(Repository repository)
         {
             _repository = repository;
         }
 
-        public QueryFluent(RepositoryAsync<T> repository, IQueryObject<T> queryObject)
+        public QueryFluent(Repository repository, IQueryObject<IRecord> queryObject)
             : this(repository)
         {
             _expression = queryObject.Query();
         }
 
-        public QueryFluent(RepositoryAsync<T> repository, Expression<Func<T, bool>> expression)
+        public QueryFluent(Repository repository, Expression<Func<IRecord, bool>> expression)
             : this(repository)
         {
             _expression = expression;
         }
 
-        #endregion Constructors
-        public IQueryFluent<T> OrderBy(Func<IQueryable<T>, IOrderedQueryable<T>> orderBy)
+        public IQueryFluent<IRecord> OrderBy(Func<IQueryable<IRecord>, IOrderedQueryable<IRecord>> orderBy)
         {
             _orderBy = orderBy;
             return this;
         }
 
-        public IQueryFluent<T> Include(Expression<Func<T, IDimension>> dimensionExpression)
-        {
-            throw new NotImplementedException();
-        }
-        public IQueryFluent<T> Include(Expression<Func<T, IMetric>> metricExpression)
+        public IQueryFluent<IRecord> Include(Expression<Func<IRecord, IDimension>> dimensionExpression)
         {
             throw new NotImplementedException();
         }
 
-        public IEnumerable<T> SelectPage(int page, int pageSize, out int totalCount)
+        public IQueryFluent<IRecord> Include(Expression<Func<IRecord, IMetric>> metricExpression)
         {
-            // TODO: Change Total Count Later
-            totalCount = 0;//_repository.Select(_expression).Count();
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<IRecord> SelectPage(int page, int pageSize, out int totalCount)
+        {
+            // IRecordODO: Change IRecordotal Count Later
+            totalCount = 0; //_repository.Select(_expression).Count();
             return _repository.Select(_expression, _orderBy, page, pageSize);
         }
 
-        public IEnumerable<T> Select()
+        public IEnumerable<IRecord> Select()
         {
             return _repository.Select(_expression, _orderBy);
         }
 
-        public IEnumerable<TResult> Select<TResult>(Expression<Func<T, TResult>> selector)
+        public IEnumerable<IRecordResult> Select<IRecordResult>(Expression<Func<IRecord, IRecordResult>> selector)
         {
             return _repository.Select(_expression, _orderBy).Select(selector);
         }
 
-        public async Task<IEnumerable<T>> SelectAsync()
+        public async Task<IEnumerable<IRecord>> SelectAsync()
         {
             return await _repository.SelectAsync(_expression, _orderBy).ConfigureAwait(false);
         }

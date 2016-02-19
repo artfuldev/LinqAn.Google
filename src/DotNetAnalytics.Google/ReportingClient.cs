@@ -6,6 +6,7 @@ using DotNetAnalytics.Google.Dimensions;
 using DotNetAnalytics.Google.Extensions;
 using DotNetAnalytics.Google.Metrics;
 using DotNetAnalytics.Google.Profiles;
+using DotNetAnalytics.Google.Queries;
 using DotNetAnalytics.Google.Records;
 using Google.Apis.Analytics.v3;
 using Google.Apis.Auth.OAuth2;
@@ -45,8 +46,8 @@ namespace DotNetAnalytics.Google
         }
 
         public IEnumerable<IRecord> GetRecords(uint viewId, DateTime date, IEnumerable<IMetric> metrics,
-            out int? totalRecords, IEnumerable<IDimension> dimensions = null, int startIndex = 1,
-            int maxRecordsCount = 10000)
+            out int? totalRecords, IEnumerable<IDimension> dimensions = null, uint startIndex = 1,
+            uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
         {
             return GetRecords(viewId, date, date, metrics, out totalRecords, dimensions, startIndex, maxRecordsCount);
         }
@@ -64,14 +65,14 @@ namespace DotNetAnalytics.Google
             while (totalRecords > records.Count)
             {
                 records.AddRange(GetRecords(viewId, startDate, endDate, metricsList, out totalRecords, dimensionsList,
-                    records.Count + 1));
+                    Convert.ToUInt32(records.Count + 1)));
             }
             return records;
         }
 
         public IEnumerable<IRecord> GetRecords(uint viewId, DateTime startDate, DateTime endDate,
             IEnumerable<IMetric> metrics, out int? totalRecords, IEnumerable<IDimension> dimensions = null,
-            int startIndex = 1, int maxRecordsCount = 10000)
+            uint startIndex = 1, uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
         {
             dimensions = dimensions ?? Enumerable.Empty<IDimension>();
             var start = startDate.ToString("yyyy-MM-dd");
@@ -81,8 +82,8 @@ namespace DotNetAnalytics.Google
             var query = _service.Data.Ga.Get("ga: " + viewId, start, end, metricsString);
             var dimensionsList = dimensions as IList<IDimension> ?? dimensions.ToList();
             query.Dimensions = dimensionsList.ToStringRepresentation();
-            query.StartIndex = startIndex;
-            query.MaxResults = maxRecordsCount;
+            query.StartIndex = Convert.ToInt32(startIndex);
+            query.MaxResults = Convert.ToInt32(maxRecordsCount);
             //if (!String.IsNullOrEmpty(filters))
             //    query.Filters = filters;
             query.SamplingLevel = DataResource.GaResource.GetRequest.SamplingLevelEnum.HIGHERPRECISION;

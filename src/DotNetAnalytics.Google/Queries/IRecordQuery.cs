@@ -12,7 +12,5 @@ namespace DotNetAnalytics.Google.Queries
         DateTime EndDate { get; }
         IEnumerable<IMetric> Metrics { get; }
         IEnumerable<IDimension> Dimensions { get; }
-        uint StartIndex { get; }
-        uint RecordsCount { get; }
     }
 }

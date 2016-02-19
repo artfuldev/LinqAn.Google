@@ -39,6 +39,16 @@ namespace DotNetAnalytics.Google
                 });
         }
 
+        public IEnumerable<IRecord> GetAllRecords(IRecordQuery query)
+        {
+            return GetAllRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, query.Dimensions);
+        }
+
+        public IEnumerable<IRecord> GetRecords(IRecordQuery query, out int? totalRecords, uint startIndex = 1, uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
+        {
+            return GetRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, out totalRecords, query.Dimensions, startIndex, maxRecordsCount);
+        }
+
         public IEnumerable<IRecord> GetAllRecords(uint viewId, DateTime date, IEnumerable<IMetric> metrics,
             IEnumerable<IDimension> dimensions)
         {

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Threading.Tasks;
+using DotNetAnalytics.Google.Dimensions;
+using DotNetAnalytics.Google.Metrics;
 using DotNetAnalytics.Google.Records;
 
 namespace DotNetAnalytics.Google.Linq.Queries
@@ -40,7 +42,11 @@ namespace DotNetAnalytics.Google.Linq.Queries
             return this;
         }
 
-        public IQueryFluent<T> Include(Expression<Func<T, object>> expression)
+        public IQueryFluent<T> Include(Expression<Func<T, IDimension>> dimensionExpression)
+        {
+            throw new NotImplementedException();
+        }
+        public IQueryFluent<T> Include(Expression<Func<T, IMetric>> metricExpression)
         {
             throw new NotImplementedException();
         }

@@ -13,7 +13,7 @@ namespace DotNetAnalytics.Google.Records
     /// </summary>
     public static class RecordExtensions
     {
-        public static IRecord ToRecord(this IList<string> row, IEnumerable<IMetric> metrics,
+        public static IRecord ToRecord(this IList<string> row, IEnumerable<IMetric> metrics, uint viewId,
             IEnumerable<IDimension> dimensions = null)
         {
             dimensions = dimensions ?? Enumerable.Empty<IDimension>();
@@ -51,7 +51,7 @@ namespace DotNetAnalytics.Google.Records
                 recordMetrics.Add(newMetric);
             }
 
-            return new Record(recordMetrics.AsReadOnly(), recordDimensions.AsReadOnly());
+            return new Record(recordMetrics.AsReadOnly(), recordDimensions.AsReadOnly(), viewId);
         }
     }
 }

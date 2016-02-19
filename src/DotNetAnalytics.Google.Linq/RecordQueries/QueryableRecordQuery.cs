@@ -34,5 +34,8 @@ namespace DotNetAnalytics.Google.Linq.RecordQueries
         public IEnumerable<IMetric> Metrics => MetricsList;
 
         public IEnumerable<IDimension> Dimensions => DimensionsList;
+        public bool QueryAll { get; set; } = true;
+        public uint? StartIndex { get; set; } = 1U;
+        public uint? RecordsCount { get; set; } = RecordQuery.MaxRecordsPerQuery;
     }
 }

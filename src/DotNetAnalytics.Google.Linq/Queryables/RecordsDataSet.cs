@@ -5,20 +5,20 @@ using DotNetAnalytics.Google.Records;
 
 namespace DotNetAnalytics.Google.Linq.Queryables
 {
-    public class RecordsDataSet<T> : Query<T> where T : IRecord
+    public class RecordsDataSet : Query<IRecord>
     {
-        public RecordsDataSet(IClient<T> client)
-            : base(new RecordsQueryProvider<T>(client))
+        public RecordsDataSet(IReportingClient client)
+            : base(new RecordsQueryProvider<IRecord>(client))
         {
         }
 
-        public RecordsDataSet(IClient<T> client, Type staticType)
-            : base(new RecordsQueryProvider<T>(client), staticType)
+        public RecordsDataSet(IReportingClient client, Type staticType)
+            : base(new RecordsQueryProvider<IRecord>(client), staticType)
         {
         }
 
-        public RecordsDataSet(IClient<T> client, Expression expression)
-            : base(new RecordsQueryProvider<T>(client), expression)
+        public RecordsDataSet(IReportingClient client, Expression expression)
+            : base(new RecordsQueryProvider<IRecord>(client), expression)
         {
         }
     }

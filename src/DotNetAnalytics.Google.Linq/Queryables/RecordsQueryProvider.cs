@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using System.Linq.Expressions;
 using DotNetAnalytics.Google.Linq.Core;
+using DotNetAnalytics.Google.Linq.RecordQueries;
+using DotNetAnalytics.Google.Queries;
 using DotNetAnalytics.Google.Records;
 
 namespace DotNetAnalytics.Google.Linq.Queryables
@@ -10,14 +12,14 @@ namespace DotNetAnalytics.Google.Linq.Queryables
     /// </summary>
     public class RecordsQueryProvider<T> : QueryProvider where T : IRecord
     {
-        private readonly IClient<T> _client;
+        private readonly IReportingClient _client;
 
-        public RecordsQueryProvider(IClient<T> client)
+        public RecordsQueryProvider(IReportingClient client)
         {
             _client = client;
         }
 
-        private static IDictionary<string, string> Translate(Expression expression)
+        private static QueryableRecordQuery Translate(Expression expression)
         {
             expression = Evaluator.PartialEval(expression);
             return new RecordsQueryTranslator().Translate(expression);
@@ -25,12 +27,12 @@ namespace DotNetAnalytics.Google.Linq.Queryables
 
         public override object Execute(Expression expression)
         {
-            var dictionary = Translate(expression);
-            var filter = new SearchFilter(dictionary);
-            string id;
-            if (dictionary.TryGetValue("Id", out id))
-                return _client.GetAsync(int.Parse(id));
-            return _client.GetAsync(filter);
+            var query = Translate(expression);
+            int? totalRecords;
+            return query.QueryAll
+                ? _client.GetAllRecords(query)
+                : _client.GetRecords(query, out totalRecords, query.StartIndex ?? 1,
+                    query.RecordsCount ?? RecordQuery.MaxRecordsPerQuery);
         }
     }
 }

@@ -3,23 +3,25 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using DotNetAnalytics.Google.Linq.RecordQueries;
+using DotNetAnalytics.Google.Queries;
 using ExpressionVisitor = DotNetAnalytics.Google.Linq.Core.ExpressionVisitor;
 
 namespace DotNetAnalytics.Google.Linq.Queryables
 {
     internal class RecordsQueryTranslator : ExpressionVisitor
     {
-        private readonly IDictionary<string, string> _dictionary;
+        private readonly QueryableRecordQuery _query;
 
         internal RecordsQueryTranslator()
         {
-            _dictionary = new Dictionary<string, string>();
+            _query = new QueryableRecordQuery();
         }
 
-        internal IDictionary<string, string> Translate(Expression expression)
+        internal QueryableRecordQuery Translate(Expression expression)
         {
             Visit(expression);
-            return _dictionary;
+            return _query;
         }
 
         private static Expression StripQuotes(Expression e)
@@ -51,6 +53,8 @@ namespace DotNetAnalytics.Google.Linq.Queryables
                     if (skip != null)
                     {
                         var startIndex = (int)(skip.Value) + 1;
+                        _query.StartIndex = Convert.ToUInt32(startIndex);
+                        _query.QueryAll = false;
                     }
                     break;
                 case "Take":
@@ -59,6 +63,8 @@ namespace DotNetAnalytics.Google.Linq.Queryables
                     if (take != null)
                     {
                         var recordsCount = (int)(take.Value);
+                        _query.RecordsCount = Convert.ToUInt32(recordsCount);
+                        _query.QueryAll = false;
                     }
                     break;
                 default:

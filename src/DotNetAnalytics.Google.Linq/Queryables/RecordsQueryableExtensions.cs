@@ -11,10 +11,5 @@ namespace DotNetAnalytics.Google.Linq.Queryables
         {
             return (await source.Provider.Execute<Task<IEnumerable<T>>>(source.Expression)).ToList();
         }
-
-        public static async Task<T> FirstAsync<T>(this IQueryable<T> source) where T : IRecord
-        {
-            return (await source.Provider.Execute<Task<T>>(source.Expression));
-        }
     }
 }

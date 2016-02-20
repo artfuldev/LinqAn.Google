@@ -2,10 +2,11 @@
 using System.Linq;
 using System.Linq.Expressions;
 using LinqAn.Google.Linq.RecordQueries;
+using ExpressionVisitor = LinqAn.Google.Linq.Core.ExpressionVisitor;
 
 namespace LinqAn.Google.Linq.Queryables
 {
-    internal class RecordsQueryTranslator : Core.ExpressionVisitor
+    internal class RecordsQueryTranslator : ExpressionVisitor
     {
         private readonly QueryableRecordQuery _query;
 
@@ -24,7 +25,7 @@ namespace LinqAn.Google.Linq.Queryables
         {
             while (e.NodeType == ExpressionType.Quote)
             {
-                e = ((UnaryExpression)e).Operand;
+                e = ((UnaryExpression) e).Operand;
             }
             return e;
         }
@@ -34,7 +35,8 @@ namespace LinqAn.Google.Linq.Queryables
             if (m.Method.DeclaringType != typeof (Queryable))
                 throw new NotSupportedException($"The method '{m.Method.Name}' is not supported");
 
-            switch(m.Method.Name) {
+            switch (m.Method.Name)
+            {
                 case "Where":
                     Visit(m.Arguments[0]);
                     var lambda = (LambdaExpression) StripQuotes(m.Arguments[1]);
@@ -48,7 +50,7 @@ namespace LinqAn.Google.Linq.Queryables
                     var skip = m.Arguments[1] as ConstantExpression;
                     if (skip != null)
                     {
-                        var startIndex = (int)(skip.Value) + 1;
+                        var startIndex = (int) skip.Value + 1;
                         _query.StartIndex = Convert.ToUInt32(startIndex);
                         _query.QueryAll = false;
                     }
@@ -58,7 +60,7 @@ namespace LinqAn.Google.Linq.Queryables
                     var take = m.Arguments[1] as ConstantExpression;
                     if (take != null)
                     {
-                        var recordsCount = (int)(take.Value);
+                        var recordsCount = (int) take.Value;
                         _query.RecordsCount = Convert.ToUInt32(recordsCount);
                         _query.QueryAll = false;
                     }
@@ -115,10 +117,9 @@ namespace LinqAn.Google.Linq.Queryables
             // View Id
             if (memberExpression.Member.Name == "ViewId")
             {
-                if(nodeType != ExpressionType.Equal)
+                if (nodeType != ExpressionType.Equal)
                     throw new InvalidOperationException("ViewId can only be queried for Equal condition.");
                 _query.ViewId = (uint) constantExpression.Value;
-                return;
             }
         }
 

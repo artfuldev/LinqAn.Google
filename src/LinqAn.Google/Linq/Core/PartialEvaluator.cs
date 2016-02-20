@@ -6,12 +6,13 @@ using System.Reflection;
 namespace LinqAn.Google.Linq.Core
 {
     /// <summary>
-    /// Rewrites an expression tree so that locally isolatable sub-expressions are evaluated and converted into ConstantExpression nodes.
+    ///     Rewrites an expression tree so that locally isolatable sub-expressions are evaluated and converted into
+    ///     ConstantExpression nodes.
     /// </summary>
     public static class PartialEvaluator
     {
         /// <summary>
-        /// Performs evaluation & replacement of independent sub-trees
+        ///     Performs evaluation & replacement of independent sub-trees
         /// </summary>
         /// <param name="expression">The root of the expression tree.</param>
         /// <returns>A new tree with sub-trees evaluated and replaced.</returns>
@@ -21,17 +22,21 @@ namespace LinqAn.Google.Linq.Core
         }
 
         /// <summary>
-        /// Performs evaluation & replacement of independent sub-trees
+        ///     Performs evaluation & replacement of independent sub-trees
         /// </summary>
         /// <param name="expression">The root of the expression tree.</param>
-        /// <param name="fnCanBeEvaluated">A function that decides whether a given expression node can be part of the local function.</param>
+        /// <param name="fnCanBeEvaluated">
+        ///     A function that decides whether a given expression node can be part of the local
+        ///     function.
+        /// </param>
         /// <returns>A new tree with sub-trees evaluated and replaced.</returns>
         public static Expression Eval(Expression expression, Func<Expression, bool> fnCanBeEvaluated)
         {
             return Eval(expression, fnCanBeEvaluated, null);
         }
 
-        public static Expression Eval(Expression expression, Func<Expression, bool> fnCanBeEvaluated, Func<ConstantExpression, Expression> fnPostEval)
+        public static Expression Eval(Expression expression, Func<Expression, bool> fnCanBeEvaluated,
+            Func<ConstantExpression, Expression> fnPostEval)
         {
             if (fnCanBeEvaluated == null)
                 fnCanBeEvaluated = CanBeEvaluatedLocally;
@@ -44,12 +49,12 @@ namespace LinqAn.Google.Linq.Core
         }
 
         /// <summary>
-        /// Evaluates & replaces sub-trees when first candidate is reached (top-down)
+        ///     Evaluates & replaces sub-trees when first candidate is reached (top-down)
         /// </summary>
-        class SubtreeEvaluator : System.Linq.Expressions.ExpressionVisitor
+        private class SubtreeEvaluator : System.Linq.Expressions.ExpressionVisitor
         {
-            readonly HashSet<Expression> _candidates;
-            readonly Func<ConstantExpression, Expression> _onEval;
+            private readonly HashSet<Expression> _candidates;
+            private readonly Func<ConstantExpression, Expression> _onEval;
 
             private SubtreeEvaluator(HashSet<Expression> candidates, Func<ConstantExpression, Expression> onEval)
             {
@@ -57,7 +62,8 @@ namespace LinqAn.Google.Linq.Core
                 _onEval = onEval;
             }
 
-            internal static Expression Eval(HashSet<Expression> candidates, Func<ConstantExpression, Expression> onEval, Expression exp)
+            internal static Expression Eval(HashSet<Expression> candidates, Func<ConstantExpression, Expression> onEval,
+                Expression exp)
             {
                 return new SubtreeEvaluator(candidates, onEval).Visit(exp);
             }
@@ -90,10 +96,10 @@ namespace LinqAn.Google.Linq.Core
                 if (e.NodeType == ExpressionType.Convert)
                 {
                     // check for unnecessary convert & strip them
-                    var u = (UnaryExpression)e;
+                    var u = (UnaryExpression) e;
                     if (u.Operand.Type.GetNonNullableType() == type.GetNonNullableType())
                     {
-                        e = ((UnaryExpression)e).Operand;
+                        e = ((UnaryExpression) e).Operand;
                     }
                 }
                 if (e.NodeType == ExpressionType.Constant)
@@ -106,7 +112,7 @@ namespace LinqAn.Google.Linq.Core
                     }
                     if (e.Type.GetNonNullableType() == type.GetNonNullableType())
                     {
-                        return Expression.Constant(((ConstantExpression)e).Value, type);
+                        return Expression.Constant(((ConstantExpression) e).Value, type);
                     }
                 }
                 var me = e as MemberExpression;
@@ -123,7 +129,7 @@ namespace LinqAn.Google.Linq.Core
                 }
                 if (type.GetTypeInfo().IsValueType)
                 {
-                    e = Expression.Convert(e, typeof(object));
+                    e = Expression.Convert(e, typeof (object));
                 }
                 var lambda = Expression.Lambda<Func<object>>(e);
                 var fn = lambda.Compile();
@@ -132,14 +138,14 @@ namespace LinqAn.Google.Linq.Core
         }
 
         /// <summary>
-        /// Performs bottom-up analysis to determine which nodes can possibly
-        /// be part of an evaluated sub-tree.
+        ///     Performs bottom-up analysis to determine which nodes can possibly
+        ///     be part of an evaluated sub-tree.
         /// </summary>
-        class Nominator : System.Linq.Expressions.ExpressionVisitor
+        private class Nominator : System.Linq.Expressions.ExpressionVisitor
         {
-            readonly Func<Expression, bool> _fnCanBeEvaluated;
-            readonly HashSet<Expression> _candidates;
-            bool _cannotBeEvaluated;
+            private readonly HashSet<Expression> _candidates;
+            private readonly Func<Expression, bool> _fnCanBeEvaluated;
+            private bool _cannotBeEvaluated;
 
             private Nominator(Func<Expression, bool> fnCanBeEvaluated)
             {

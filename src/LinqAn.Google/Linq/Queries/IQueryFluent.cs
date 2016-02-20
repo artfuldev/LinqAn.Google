@@ -10,8 +10,8 @@ using LinqAn.Google.Records;
 namespace LinqAn.Google.Linq.Queries
 {
     /// <summary>
-    /// Allows fluent querying of an <seealso cref="IRecord"/> by chaining
-    /// and also the use of <seealso cref="IQueryObject"/> instances.
+    ///     Allows fluent querying of an <seealso cref="IRecord" /> by chaining
+    ///     and also the use of <seealso cref="IQueryObject" /> instances.
     /// </summary>
     public interface IQueryFluent
     {

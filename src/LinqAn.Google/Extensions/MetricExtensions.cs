@@ -6,7 +6,7 @@ using LinqAn.Google.Metrics;
 namespace LinqAn.Google.Extensions
 {
     /// <summary>
-    ///     Useful extensions for the <seealso cref="IMetric"/>.
+    ///     Useful extensions for the <seealso cref="IMetric" />.
     /// </summary>
     public static class MetricExtensions
     {

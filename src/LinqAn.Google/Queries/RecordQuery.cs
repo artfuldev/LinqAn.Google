@@ -9,6 +9,7 @@ namespace LinqAn.Google.Queries
     public class RecordQuery : IRecordQuery
     {
         public const uint MaxRecordsPerQuery = 10000U;
+
         public RecordQuery(uint viewId, DateTime startDate, DateTime endDate, IEnumerable<IMetric> metrics,
             IEnumerable<IDimension> dimensions = null)
         {

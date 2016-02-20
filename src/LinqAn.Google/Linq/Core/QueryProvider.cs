@@ -6,7 +6,7 @@ using System.Reflection;
 namespace LinqAn.Google.Linq.Core
 {
     /// <summary>
-    /// A basic abstract LINQ query provider
+    ///     A basic abstract LINQ query provider
     /// </summary>
     public abstract class QueryProvider : IQueryProvider
     {
@@ -17,10 +17,12 @@ namespace LinqAn.Google.Linq.Core
 
         IQueryable IQueryProvider.CreateQuery(Expression expression)
         {
-            Type elementType = expression.Type.GetElementType();
+            var elementType = expression.Type.GetElementType();
             try
             {
-                return (IQueryable)Activator.CreateInstance(typeof(Query<>).MakeGenericType(elementType), this, expression);
+                return
+                    (IQueryable)
+                        Activator.CreateInstance(typeof (Query<>).MakeGenericType(elementType), this, expression);
             }
             catch (TargetInvocationException tie)
             {
@@ -30,13 +32,14 @@ namespace LinqAn.Google.Linq.Core
 
         S IQueryProvider.Execute<S>(Expression expression)
         {
-            return (S)Execute(expression);
+            return (S) Execute(expression);
         }
 
         object IQueryProvider.Execute(Expression expression)
         {
             return Execute(expression);
         }
+
         public abstract object Execute(Expression expression);
     }
 }

@@ -13,8 +13,8 @@ namespace LinqAn.Google.Linq.Queries
     public class QueryFluent : IQueryFluent
     {
         private readonly Expression<Func<IRecord, bool>> _expression;
-        private readonly Repository _repository;
         private readonly List<object> _includes = new List<object>();
+        private readonly Repository _repository;
         private Func<IQueryable<IRecord>, IOrderedQueryable<IRecord>> _orderBy;
 
         public QueryFluent(Repository repository)

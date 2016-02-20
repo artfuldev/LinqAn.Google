@@ -1,10 +1,13 @@
 ﻿using System;
 using System.IO;
+using LinqAn.Google.Dimensions;
 using LinqAn.Google.Linq.Clients;
 using LinqAn.Google.Linq.Repositories;
+using LinqAn.Google.Metrics;
 using LinqAn.Google.Profiles;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
+using System.Linq;
 
 namespace LinqAn.Google.Sample
 {
@@ -30,7 +33,7 @@ namespace LinqAn.Google.Sample
                 // Include Metrics
                 .Include(x => new Hits())
                 .Include(x => new Sessions())
-                .Include(x => new SessionDuration());
+                .Include(x => new Metrics.SessionDuration());
 
             var records = query.Select().ToList();
             foreach (var record in records)

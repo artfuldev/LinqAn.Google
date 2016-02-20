@@ -27,6 +27,10 @@ namespace LinqAn.Google.Linq.RecordQueries
             set { _dimensionsList = value; }
         }
 
+        public bool QueryAll { get; set; } = true;
+        public uint? StartIndex { get; set; } = 1U;
+        public uint? RecordsCount { get; set; } = RecordQuery.MaxRecordsPerQuery;
+
         public uint ViewId { get; set; }
         public DateTime StartDate { get; set; }
         public DateTime EndDate => OptionalEndDate ?? StartDate;
@@ -34,8 +38,5 @@ namespace LinqAn.Google.Linq.RecordQueries
         public IEnumerable<IMetric> Metrics => MetricsList;
 
         public IEnumerable<IDimension> Dimensions => DimensionsList;
-        public bool QueryAll { get; set; } = true;
-        public uint? StartIndex { get; set; } = 1U;
-        public uint? RecordsCount { get; set; } = RecordQuery.MaxRecordsPerQuery;
     }
 }

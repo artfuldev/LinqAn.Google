@@ -1,12 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using LinqAn.Google.Dimensions;
+using System.Linq;
 
 namespace LinqAn.Google.Extensions
 {
     /// <summary>
-    ///     Useful extensions for the <seealso cref="IDimension"/>.
+    ///     Useful extensions for the <seealso cref="IDimension" />.
     /// </summary>
     public static class DimensionExtensions
     {

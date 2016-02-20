@@ -16,8 +16,8 @@ namespace LinqAn.Google.Linq.Clients
 {
     public class ReportingClient : IReportingClient
     {
-        private readonly AnalyticsService _service;
         private readonly DateTime _minimumDate = new DateTime(2000, 1, 1);
+        private readonly AnalyticsService _service;
 
         public ReportingClient(IAnalyticsProfile profile)
         {
@@ -45,9 +45,11 @@ namespace LinqAn.Google.Linq.Clients
             return GetAllRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, query.Dimensions);
         }
 
-        public IEnumerable<IRecord> GetRecords(IRecordQuery query, out int? totalRecords, uint startIndex = 1, uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
+        public IEnumerable<IRecord> GetRecords(IRecordQuery query, out int? totalRecords, uint startIndex = 1,
+            uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
         {
-            return GetRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, out totalRecords, query.Dimensions, startIndex, maxRecordsCount);
+            return GetRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, out totalRecords,
+                query.Dimensions, startIndex, maxRecordsCount);
         }
 
         public IEnumerable<IRecord> GetAllRecords(uint viewId, DateTime date, IEnumerable<IMetric> metrics,

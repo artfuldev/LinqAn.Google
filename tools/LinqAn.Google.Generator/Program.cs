@@ -25,7 +25,7 @@ namespace LinqAn.Google.Generator
                 .ToList();
 
             var metrics = selectedColumns.Where(x => x.Attributes.Type == "METRIC");
-            var metricsPath = currentDirectory.Replace(@"\tools\LinqAn.Google.Generator\bin\Debug", @"\src\LinqAn.Google\Metrics");
+            var metricsPath = currentDirectory.Replace(@"\tools\LinqAn.Google.Generator", @"\src\LinqAn.Google\Metrics");
             Directory.CreateDirectory(metricsPath);
             var files = new DirectoryInfo(metricsPath).GetFiles();
             var metricFiles = files.Where(x => x.Name != "IMetric.cs" && x.Name != "Metric.cs");
@@ -43,7 +43,7 @@ namespace LinqAn.Google.Generator
             }
 
             var dimensions = selectedColumns.Where(x => x.Attributes.Type == "DIMENSION");
-            var dimensionsPath = currentDirectory.Replace(@"\tools\LinqAn.Google.Generator\bin\Debug", @"\src\LinqAn.Google\Dimensions");
+            var dimensionsPath = currentDirectory.Replace(@"\tools\LinqAn.Google.Generator", @"\src\LinqAn.Google\Dimensions");
             Directory.CreateDirectory(dimensionsPath);
             var existingDimensionFiles = new DirectoryInfo(dimensionsPath).GetFiles();
             var dimensionFiles = existingDimensionFiles.Where(x => x.Name != "IDimension.cs" && x.Name != "Dimension.cs");

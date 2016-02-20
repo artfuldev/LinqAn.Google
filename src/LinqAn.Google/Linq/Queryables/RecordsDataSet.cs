@@ -8,7 +8,6 @@ namespace LinqAn.Google.Linq.Queryables
 {
     public class RecordsDataSet : Query<IRecord>
     {
-        private RecordsQueryProvider<IRecord> _provider => Provider as RecordsQueryProvider<IRecord>; 
         public RecordsDataSet(IReportingClient client)
             : base(new RecordsQueryProvider<IRecord>(client))
         {
@@ -23,6 +22,8 @@ namespace LinqAn.Google.Linq.Queryables
             : base(new RecordsQueryProvider<IRecord>(client), expression)
         {
         }
+
+        private RecordsQueryProvider<IRecord> _provider => Provider as RecordsQueryProvider<IRecord>;
 
         public void Include(object inclusion)
         {

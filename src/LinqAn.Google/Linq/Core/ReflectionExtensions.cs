@@ -8,6 +8,18 @@ namespace LinqAn.Google.Linq.Core
 {
     public static class ReflectionExtensions
     {
+        private static readonly HashSet<Type> IntegralTypes = new HashSet<Type>
+        {
+            typeof (sbyte),
+            typeof (short),
+            typeof (int),
+            typeof (long),
+            typeof (byte),
+            typeof (ushort),
+            typeof (uint),
+            typeof (ulong)
+        };
+
         public static bool IsAssignableFrom(this Type type, Type other)
         {
             return type.GetTypeInfo().IsAssignableFrom(other.GetTypeInfo());
@@ -108,18 +120,6 @@ namespace LinqAn.Google.Linq.Core
             var isNullable = !type.GetTypeInfo().IsValueType || type.IsNullableType();
             return !isNullable ? Activator.CreateInstance(type) : null;
         }
-
-        private static readonly HashSet<Type> IntegralTypes = new HashSet<Type>()
-        {
-            typeof (sbyte),
-            typeof (short),
-            typeof (int),
-            typeof (long),
-            typeof (byte),
-            typeof (ushort),
-            typeof (uint),
-            typeof (ulong)
-        };
 
         public static bool IsInteger(this Type type)
         {

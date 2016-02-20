@@ -12,7 +12,7 @@ using LinqAn.Google.Records;
 namespace LinqAn.Google.Linq.Queryables
 {
     /// <summary>
-    /// A LINQ Provider that executes API Queries over an API Client
+    ///     A LINQ Provider that executes API Queries over an API Client
     /// </summary>
     internal class RecordsQueryProvider<T> : QueryProvider where T : IRecord
     {
@@ -24,16 +24,16 @@ namespace LinqAn.Google.Linq.Queryables
             _client = client;
         }
 
-        private static QueryableRecordQuery Translate(Expression expression)
-        {
-            expression = Evaluator.PartialEval(expression);
-            return new RecordsQueryTranslator().Translate(expression);
-        }
-
         public List<object> Includes
         {
             get { return _includes ?? (_includes = new List<object>()); }
             set { _includes = value; }
+        }
+
+        private static QueryableRecordQuery Translate(Expression expression)
+        {
+            expression = Evaluator.PartialEval(expression);
+            return new RecordsQueryTranslator().Translate(expression);
         }
 
         public override object Execute(Expression expression)

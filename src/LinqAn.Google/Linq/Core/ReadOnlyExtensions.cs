@@ -13,10 +13,10 @@ namespace LinqAn.Google.Linq.Core
         public static ReadOnlyCollection<T> ToReadOnly<T>(this IEnumerable<T> collection)
         {
             if (ReferenceEquals(null, collection)) return EmptyReadOnlyCollection<T>.Empty;
-            return collection as ReadOnlyCollection<T> ?? (new List<T>(collection).AsReadOnly());
+            return collection as ReadOnlyCollection<T> ?? new List<T>(collection).AsReadOnly();
         }
 
-        class EmptyReadOnlyCollection<T>
+        private class EmptyReadOnlyCollection<T>
         {
             internal static readonly ReadOnlyCollection<T> Empty = new List<T>().AsReadOnly();
         }

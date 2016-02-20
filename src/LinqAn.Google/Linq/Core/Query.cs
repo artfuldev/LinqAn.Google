@@ -7,12 +7,12 @@ using System.Linq.Expressions;
 namespace LinqAn.Google.Linq.Core
 {
     /// <summary>
-    /// A default implementation of <seealso cref="IQueryable"/> for use with <seealso cref="QueryProvider"/>
+    ///     A default implementation of <seealso cref="IQueryable" /> for use with <seealso cref="QueryProvider" />
     /// </summary>
     public class Query<T> : IOrderedQueryable<T>
     {
         public Query(QueryProvider provider)
-            : this(provider, (Type)null)
+            : this(provider, (Type) null)
         {
         }
 
@@ -36,38 +36,12 @@ namespace LinqAn.Google.Linq.Core
             {
                 throw new ArgumentNullException(nameof(expression));
             }
-            if (!typeof(IQueryable<T>).IsAssignableFrom(expression.Type))
+            if (!typeof (IQueryable<T>).IsAssignableFrom(expression.Type))
             {
                 throw new ArgumentOutOfRangeException(nameof(expression));
             }
             Provider = provider;
             Expression = expression;
-        }
-
-        public Expression Expression { get; }
-
-        public Type ElementType => typeof(T);
-
-        public IQueryProvider Provider { get; }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            return ((IEnumerable<T>)Provider.Execute(Expression)).GetEnumerator();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            return ((IEnumerable)Provider.Execute(Expression)).GetEnumerator();
-        }
-
-        public override string ToString()
-        {
-            if (Expression.NodeType == ExpressionType.Constant &&
-                ((ConstantExpression)Expression).Value == this)
-            {
-                return "Query(" + typeof(T) + ")";
-            }
-            return Expression.ToString();
         }
 
         public string QueryText
@@ -77,6 +51,32 @@ namespace LinqAn.Google.Linq.Core
                 var iqt = Provider as IQueryText;
                 return iqt != null ? iqt.GetQueryText(Expression) : "";
             }
+        }
+
+        public Expression Expression { get; }
+
+        public Type ElementType => typeof (T);
+
+        public IQueryProvider Provider { get; }
+
+        public IEnumerator<T> GetEnumerator()
+        {
+            return ((IEnumerable<T>) Provider.Execute(Expression)).GetEnumerator();
+        }
+
+        IEnumerator IEnumerable.GetEnumerator()
+        {
+            return ((IEnumerable) Provider.Execute(Expression)).GetEnumerator();
+        }
+
+        public override string ToString()
+        {
+            if (Expression.NodeType == ExpressionType.Constant &&
+                ((ConstantExpression) Expression).Value == this)
+            {
+                return "Query(" + typeof (T) + ")";
+            }
+            return Expression.ToString();
         }
     }
 }

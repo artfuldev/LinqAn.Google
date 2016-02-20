@@ -8,7 +8,7 @@ using LinqAn.Google.Metrics;
 namespace LinqAn.Google.Records
 {
     /// <summary>
-    ///     Useful extensions for <seealso cref="IRecord"/>.
+    ///     Useful extensions for <seealso cref="IRecord" />.
     /// </summary>
     public static class RecordExtensions
     {

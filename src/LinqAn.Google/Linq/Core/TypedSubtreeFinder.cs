@@ -4,12 +4,12 @@ using System.Linq.Expressions;
 namespace LinqAn.Google.Linq.Core
 {
     /// <summary>
-    /// Finds the first sub-expression that is of a specified type
+    ///     Finds the first sub-expression that is of a specified type
     /// </summary>
     public class TypedSubtreeFinder : ExpressionVisitor
     {
-        Expression _root;
-        readonly Type _type;
+        private readonly Type _type;
+        private Expression _root;
 
         private TypedSubtreeFinder(Type type)
         {

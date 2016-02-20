@@ -22,5 +22,5 @@ var records = client.Records
                 .Where(x=> x.Country == "India")
                 // Sort
                 .OrderByDescending(x => x.SessionDuration)
-                .ThenBy(x=>x.Hits);
+                .ThenBy(x => x.Hits);
 ```

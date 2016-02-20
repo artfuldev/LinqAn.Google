@@ -1,13 +1,11 @@
 ﻿using System;
 using System.IO;
-using LinqAn.Google.Dimensions;
 using LinqAn.Google.Linq.Clients;
-using LinqAn.Google.Linq.Repositories;
-using LinqAn.Google.Metrics;
 using LinqAn.Google.Profiles;
 using Microsoft.Extensions.Configuration;
 using Newtonsoft.Json;
 using System.Linq;
+using LinqAn.Google.Linq.Queryables;
 
 namespace LinqAn.Google.Sample
 {
@@ -23,19 +21,12 @@ namespace LinqAn.Google.Sample
             var keyFilePath = Directory.GetCurrentDirectory() + "\\" + config["profile:key_file_name"];
             var profile = new AnalyticsProfile(serviceEmail, keyFilePath, applicationName);
             var reportingClient = new ReportingClient(profile);
-            var repository = new Repository(reportingClient);
-            var query = repository
+            var recordsDataSet = new RecordsDataSet(reportingClient);
+            var query = recordsDataSet
                 // View Id
-                .Query(x => x.ViewId == viewId)
-                // Include Dimensions
-                .Include(x => new Source())
-                .Include(x => new Medium())
-                // Include Metrics
-                .Include(x => new Hits())
-                .Include(x => new Sessions())
-                .Include(x => new Metrics.SessionDuration());
+                .Where(x => x.ViewId == viewId);
 
-            var records = query.Select().ToList();
+            var records = query.ToList();
             foreach (var record in records)
             {
                 Console.WriteLine(JsonConvert.SerializeObject(record));

@@ -58,8 +58,11 @@ namespace LinqAn.Google.Generator
             foreach (var dimension in dimensionList.Where(dimension => metricsList.Select(x => x.Attributes.UiName).Contains(dimension.Attributes.UiName)))
                 dimension.Attributes.UiName = dimension.Id.Replace("ga:", "").Pascalize().Humanize().Titleize();
 
+            // Generate Metric files
             var metricsPath = currentDirectory.Replace(@"\tools\LinqAn.Google.Generator", @"\src\LinqAn.Google\Metrics");
             GenerateFiles(metricsPath, metricsList, MetricFileContentGenerator, "IMetric.cs", "Metric.cs");
+
+            // Generate Dimension files
             var dimensionsPath = currentDirectory.Replace(@"\tools\LinqAn.Google.Generator", @"\src\LinqAn.Google\Dimensions");
             GenerateFiles(dimensionsPath, dimensionList, DimensionFileContentGenerator, "IDimension.cs", "Dimension.cs");
         }

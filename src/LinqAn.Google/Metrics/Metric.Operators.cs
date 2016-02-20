@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace LinqAn.Google.Metrics
 {
@@ -14,6 +15,17 @@ namespace LinqAn.Google.Metrics
         }
 
         public static bool operator !=(Metric<T> metric, T value)
+        {
+            return !(metric == value);
+        }
+
+        public static bool operator ==(Metric<T> metric, Regex value)
+        {
+            return !ReferenceEquals(metric, null) && !ReferenceEquals(value, null) &&
+                   value.IsMatch(metric.Value.ToString());
+        }
+
+        public static bool operator !=(Metric<T> metric, Regex value)
         {
             return !(metric == value);
         }

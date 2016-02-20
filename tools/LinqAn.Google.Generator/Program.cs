@@ -1,4 +1,5 @@
-﻿using System.IO;
+﻿using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using Newtonsoft.Json;
 
@@ -31,7 +32,8 @@ namespace LinqAn.Google.Generator
             var metricFiles = files.Where(x => x.Name != "IMetric.cs" && x.Name != "Metric.cs");
             foreach (var file in metricFiles)
                 file.Delete();
-            foreach (var metric in metrics)
+            var metricsList = metrics as IList<Column> ?? metrics.ToList();
+            foreach (var metric in metricsList)
             {
                 var name = MetricFileContentGenerator.GetFileName(metric);
                 var filePath = $"{metricsPath}\\{name}.cs";
@@ -51,6 +53,8 @@ namespace LinqAn.Google.Generator
                 file.Delete();
             foreach (var dimension in dimensions)
             {
+                if (metricsList.Select(x => x.Id).Contains(dimension.Id))
+                    dimension.Attributes.DataType = metricsList.First(x => x.Id == dimension.Id).Attributes.DataType;
                 var name = DimensionFileContentGenerator.GetFileName(dimension);
                 var filePath = $"{dimensionsPath}\\{name}.cs";
                 var fileContent = DimensionFileContentGenerator.GenerateFileContent(dimension);

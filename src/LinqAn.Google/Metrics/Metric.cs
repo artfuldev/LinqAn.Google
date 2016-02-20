@@ -1,6 +1,8 @@
 ﻿namespace LinqAn.Google.Metrics
 {
+#pragma warning disable 660,661
     public abstract class Metric<T> : IMetric<T>
+#pragma warning restore 660,661
     {
         internal Metric(string name, string description, bool allowedInSegments, string id)
         {
@@ -15,5 +17,19 @@
         public bool AllowedInSegments { get; }
         public string Id { get; }
         public T Value { get; set; }
+
+        // For Linq
+        public static bool operator ==(Metric<T> metric, T value)
+        {
+            if (ReferenceEquals(metric, value))
+                return true;
+            return !ReferenceEquals(metric, null) && Equals(metric.Value, value);
+        }
+
+        // For Linq
+        public static bool operator !=(Metric<T> dimension, T value)
+        {
+            return !(dimension == value);
+        }
     }
 }

@@ -1,7 +1,7 @@
 ﻿{
   "version": "1.0.0-*",
   "description": "LinqAn.Google.Generator Console Application",
-  "authors": [ "Kenshin" ],
+  "authors": [ "Sudarsan Balaji" ],
   "tags": [ "" ],
   "projectUrl": "",
   "licenseUrl": "",
@@ -26,6 +26,8 @@
   },
 
   "frameworks": {
-    "dnxcore50": {}
-  }
+    "dnxcore50": { }
+  },
+
+  "releaseNotes": "If metric exists with same name, dimension will use its type"
 }

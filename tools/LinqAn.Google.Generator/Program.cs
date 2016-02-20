@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Humanizer;
+using LinqAn.Google.Generator.Generators;
 using Newtonsoft.Json;
 
 namespace LinqAn.Google.Generator
@@ -11,27 +12,6 @@ namespace LinqAn.Google.Generator
         private static readonly IFileContentGenerator MetricFileContentGenerator = new MetricFileContentGenerator();
         private static readonly IFileContentGenerator DimensionFileContentGenerator = new DimensionFileContentGenerator();
 
-        private static void GenerateFiles(string path, IEnumerable<Column> columns, IFileContentGenerator generator,
-            params string[] exlusions)
-        {
-            Directory.CreateDirectory(path);
-            var allFiles = new DirectoryInfo(path).GetFiles();
-            exlusions = exlusions ?? new string[0];
-            var files = allFiles.Where(x => !exlusions.Contains(x.Name));
-            foreach (var file in files)
-                file.Delete();
-            foreach (var column in columns)
-            {
-                var name = generator.GetFileName(column);
-                var filePath = $"{path}\\{name}.cs";
-                var fileContent = generator.GenerateFileContent(column);
-                using (var tw = new StreamWriter(File.OpenWrite(filePath)))
-                {
-                    tw.WriteLine(fileContent);
-                }
-            }
-
-        }
         static void Main(string[] args)
         {
             var currentDirectory = Directory.GetCurrentDirectory() + @"\";
@@ -60,11 +40,11 @@ namespace LinqAn.Google.Generator
 
             // Generate Metric files
             var metricsPath = currentDirectory.Replace(@"\tools\LinqAn.Google.Generator", @"\src\LinqAn.Google\Metrics");
-            GenerateFiles(metricsPath, metricsList, MetricFileContentGenerator, "IMetric.cs", "Metric.cs");
+            MetricFileContentGenerator.GenerateFiles(metricsPath, metricsList, "IMetric.cs", "Metric.cs");
 
             // Generate Dimension files
             var dimensionsPath = currentDirectory.Replace(@"\tools\LinqAn.Google.Generator", @"\src\LinqAn.Google\Dimensions");
-            GenerateFiles(dimensionsPath, dimensionList, DimensionFileContentGenerator, "IDimension.cs", "Dimension.cs");
+            DimensionFileContentGenerator.GenerateFiles(dimensionsPath, dimensionList, "IDimension.cs", "Dimension.cs");
         }
     }
 }

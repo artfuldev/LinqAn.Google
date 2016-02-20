@@ -3,11 +3,11 @@ using System.Text;
 using System.Text.RegularExpressions;
 using Humanizer;
 
-namespace LinqAn.Google.Generator
+namespace LinqAn.Google.Generator.Generators
 {
-    public class MetricFileContentGenerator : IFileContentGenerator
+    public class DimensionFileContentGenerator : FileContentGenerator
     {
-        public string GetFileName(Column column)
+        protected override string GetFileName(Column column)
         {
             var fileName = column.Attributes.UiName.Dehumanize();
             var match = Regex.Match(fileName, "^[0-9]+");
@@ -19,7 +19,7 @@ namespace LinqAn.Google.Generator
             return fileName;
         }
 
-        public string GenerateFileContent(Column column)
+        protected override string GenerateFileContent(Column column)
         {
             var valueTypeName = column.Attributes.DestinationTypeName;
             var fileContent = new StringBuilder();
@@ -28,7 +28,7 @@ namespace LinqAn.Google.Generator
                 fileContent.AppendLine("using System;");
                 fileContent.AppendLine();
             }
-            fileContent.AppendLine("namespace LinqAn.Google.Metrics");
+            fileContent.AppendLine("namespace LinqAn.Google.Dimensions");
             fileContent.AppendLine("{");
             var className = GetFileName(column);
             var name = column.Attributes.UiName;
@@ -39,7 +39,7 @@ namespace LinqAn.Google.Generator
             fileContent.AppendLine("\t/// <summary>");
             fileContent.AppendLine($"\t/// \t{description}");
             fileContent.AppendLine("\t/// </summary>");
-            fileContent.AppendLine($"\tpublic class {className}: Metric<{valueTypeName}>");
+            fileContent.AppendLine($"\tpublic class {className}: Dimension<{valueTypeName}>");
             fileContent.AppendLine("\t{");
             fileContent.AppendLine("\t\t/// <summary>");
             fileContent.AppendLine($"\t/// \tInstantiates a <seealso cref=\"{className}\" />.");

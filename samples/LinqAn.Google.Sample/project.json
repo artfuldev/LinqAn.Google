@@ -1,6 +1,7 @@
 ﻿{
   "dependencies": {
-    "Newtonsoft.Json": "8.0.2"
+    "Newtonsoft.Json": "8.0.2",
+    "LinqAn.Google": ""
   },
   "frameworks": {
     "net461": { }

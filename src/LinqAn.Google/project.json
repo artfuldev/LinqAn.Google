@@ -1,5 +1,5 @@
 ﻿{
-  "version": "1.0.0-*",
+  "version": "1.0.0-alpha1",
   "description": "LinqAn.Google Class Library",
   "authors": [ "Sudarsan Balaji" ],
   "tags": [ "anlaytics", "linqan", "google", "google analytics", "helper", "ga", "linq" ],
@@ -9,9 +9,12 @@
     "Google.Apis.Analytics.v3": "1.10.0.1240"
   },
   "frameworks": {
+    "dnx50": {},
+    "dnx451": { },
     "net45": { },
     "net451": { },
     "net452": { },
-    "net46": { }
+    "net46": { },
+    "net461": { }
   }
 }

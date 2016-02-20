@@ -1,6 +1,7 @@
 ﻿using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using Humanizer;
 using Newtonsoft.Json;
 
 namespace LinqAn.Google.Generator
@@ -53,8 +54,8 @@ namespace LinqAn.Google.Generator
                 file.Delete();
             foreach (var dimension in dimensions)
             {
-                if (metricsList.Select(x => x.Id).Contains(dimension.Id))
-                    dimension.Attributes.DataType = metricsList.First(x => x.Id == dimension.Id).Attributes.DataType;
+                if (metricsList.Select(x => x.Attributes.UiName).Contains(dimension.Attributes.UiName))
+                    dimension.Attributes.UiName = dimension.Id.Replace("ga:", "").Pascalize().Humanize().Titleize();
                 var name = DimensionFileContentGenerator.GetFileName(dimension);
                 var filePath = $"{dimensionsPath}\\{name}.cs";
                 var fileContent = DimensionFileContentGenerator.GenerateFileContent(dimension);

@@ -1,7 +1,7 @@
 ﻿namespace LinqAn.Google.Metrics
 {
 #pragma warning disable 660,661
-    public abstract partial class Metric<T> : IMetric<T>
+    public abstract class Metric<T> : IMetric<T>
 #pragma warning restore 660,661
     {
         internal Metric(string name, string description, bool allowedInSegments, string id)

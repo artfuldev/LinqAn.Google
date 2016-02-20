@@ -3,14 +3,14 @@ namespace LinqAn.Google.Dimensions
     /// <summary>
     ///     The length of a session measured in seconds and reported in second increments. The value returned is a string.
     /// </summary>
-    public class SessionDuration : Dimension<string>
+    public class SessionDurationBucket : Dimension<string>
     {
         /// <summary>
-        ///     Instantiates a <seealso cref="SessionDuration" />.
+        ///     Instantiates a <seealso cref="SessionDurationBucket" />.
         /// </summary>
-        public SessionDuration()
+        public SessionDurationBucket()
             : base(
-                "Session Duration",
+                "Session Duration Bucket",
                 "The length of a session measured in seconds and reported in second increments. The value returned is a string.",
                 true, "ga:sessionDurationBucket")
         {

@@ -1,7 +1,7 @@
 ﻿namespace LinqAn.Google.Dimensions
 {
 #pragma warning disable 660,661
-    public abstract partial class Dimension<T> : IDimension<T>
+    public abstract class Dimension<T> : IDimension<T>
 #pragma warning restore 660,661
     {
         internal Dimension(string name, string description, bool allowedInSegments, string id)

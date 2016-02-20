@@ -1,0 +1,30 @@
+﻿{
+  "version": "1.0.0-*",
+  "description": "LinqAn.Google.Generator Console Application",
+  "authors": [ "Kenshin" ],
+  "tags": [ "" ],
+  "projectUrl": "",
+  "licenseUrl": "",
+
+  "compilationOptions": {
+    "emitEntryPoint": true
+  },
+
+  "dependencies": {
+    "Microsoft.CSharp": "4.0.1-beta-23516",
+    "System.Collections": "4.0.11-beta-23516",
+    "System.Console": "4.0.0-beta-23516",
+    "System.Linq": "4.0.1-beta-23516",
+    "System.Threading": "4.0.11-beta-23516",
+    "Humanizer.Core": "2.0.1",
+    "Newtonsoft.Json": "8.0.2"
+  },
+
+  "commands": {
+    "LinqAn.Google.Generator": "LinqAn.Google.Generator"
+  },
+
+  "frameworks": {
+    "dnxcore50": {}
+  }
+}

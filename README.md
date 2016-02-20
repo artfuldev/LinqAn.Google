@@ -11,6 +11,8 @@ var client = new LinqAn.Google.Client(profile);
 var records = client.Records
                 // Sample View Id
                 .Where(x => x.ViewId == 1351215)
+                // Dates
+                .Where(x => x.Date == DateTime.Today)
                 // Dimensions
                 .Include(x => x.Source)
                 .Include(x => x.Medium)

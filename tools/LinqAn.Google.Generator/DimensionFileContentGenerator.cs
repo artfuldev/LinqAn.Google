@@ -11,12 +11,12 @@ namespace LinqAn.Google.Generator
         {
             var fileName = column.Attributes.UiName.Dehumanize();
             var match = Regex.Match(fileName, "^[0-9]+");
-            if (!match.Success) return fileName + "Dimension";
+            if (!match.Success) return fileName;
             var number = match.ToString();
             var numberAsInt = Convert.ToInt32(number);
             var replacement = numberAsInt.ToWords().Dehumanize();
             fileName = fileName.Replace(number, replacement);
-            return fileName + "Dimension";
+            return fileName;
         }
 
         public string GenerateFileContent(Column column)
@@ -28,7 +28,7 @@ namespace LinqAn.Google.Generator
                 fileContent.AppendLine("using System;");
                 fileContent.AppendLine();
             }
-            fileContent.AppendLine("namespace DotNetAnalytics.Google.Dimensions");
+            fileContent.AppendLine("namespace LinqAn.Google.Dimensions");
             fileContent.AppendLine("{");
             var className = GetFileName(column);
             var name = column.Attributes.UiName;

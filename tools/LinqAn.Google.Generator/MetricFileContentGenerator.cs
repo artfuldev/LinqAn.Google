@@ -11,12 +11,12 @@ namespace LinqAn.Google.Generator
         {
             var fileName = column.Attributes.UiName.Dehumanize();
             var match = Regex.Match(fileName, "^[0-9]+");
-            if (!match.Success) return fileName + "Metric";
+            if (!match.Success) return fileName;
             var number = match.ToString();
             var numberAsInt = Convert.ToInt32(number);
             var replacement = numberAsInt.ToWords().Dehumanize();
             fileName = fileName.Replace(number, replacement);
-            return fileName + "Metric";
+            return fileName;
         }
 
         public string GenerateFileContent(Column column)
@@ -28,7 +28,7 @@ namespace LinqAn.Google.Generator
                 fileContent.AppendLine("using System;");
                 fileContent.AppendLine();
             }
-            fileContent.AppendLine("namespace DotNetAnalytics.Google.Metrics");
+            fileContent.AppendLine("namespace LinqAn.Google.Metrics");
             fileContent.AppendLine("{");
             var className = GetFileName(column);
             var name = column.Attributes.UiName;

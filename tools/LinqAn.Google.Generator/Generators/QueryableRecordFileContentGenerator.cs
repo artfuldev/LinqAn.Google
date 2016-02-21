@@ -24,8 +24,8 @@ namespace LinqAn.Google.Generator.Generators
             queryableContent.AppendLine("\t{");
             iQueryableContent.AppendLine("\t\tuint ViewId { get; }");
             queryableContent.AppendLine("\t\tpublic uint ViewId { get; set; }");
-            iQueryableContent.AppendLine("\t\tDateTime RecordDate { get; }");
-            queryableContent.AppendLine("\t\tpublic DateTime RecordDate { get; set; }");
+            iQueryableContent.AppendLine("\t\tSystem.DateTime RecordDate { get; }");
+            queryableContent.AppendLine("\t\tpublic System.DateTime RecordDate { get; set; }");
             foreach (var column in columns)
             {
                 var name = column.ToClassName();

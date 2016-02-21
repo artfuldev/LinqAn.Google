@@ -24,12 +24,14 @@ namespace LinqAn.Google.Extensions
 
         public static IRecord ToRecord(this IQueryableRecord source)
         {
-            var metrics = (from property in source.GetType().GetProperties()
-                where typeof (IMetric).IsAssignableFrom(property.PropertyType)
-                select (IMetric) property.GetValue(source)).ToList();
-            var dimensions = (from property in source.GetType().GetProperties()
-                           where typeof(IDimension).IsAssignableFrom(property.PropertyType)
-                           select (IDimension)property.GetValue(source)).ToList();
+            var metrics = source.GetType()
+                .GetProperties()
+                .Where(property => typeof (IMetric).IsAssignableFrom(property.PropertyType))
+                .Select(property => (IMetric) property.GetValue(source)).Where(x => x != null).ToList();
+            var dimensions = source.GetType()
+                .GetProperties()
+                .Where(property => typeof (IDimension).IsAssignableFrom(property.PropertyType))
+                .Select(property => (IDimension) property.GetValue(source)).Where(x => x != null).ToList();
             return new Record(metrics, dimensions, source.ViewId);
         }
     }

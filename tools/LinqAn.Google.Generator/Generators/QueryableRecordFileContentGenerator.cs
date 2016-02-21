@@ -18,7 +18,7 @@ namespace LinqAn.Google.Generator.Generators
             iQueryableContent.AppendLine("\tpublic interface IQueryableRecord");
             iQueryableContent.AppendLine("\t{\n\t\t/// <summary>\n\t\t /// \tThe id of the view to query.\n\t\t/// </summary>");
             iQueryableContent.AppendLine("\t\tuint ViewId { get; }");
-            iQueryableContent.AppendLine("\t{\n\t\t/// <summary>\n\t\t /// \tThe date of the record to query.\n\t\t/// </summary>");
+            iQueryableContent.AppendLine("\t\t/// <summary>\n\t\t /// \tThe date of the record to query.\n\t\t/// </summary>");
             iQueryableContent.AppendLine("\t\tSystem.DateTime RecordDate { get; }");
 
             var queryableContent = new StringBuilder();
@@ -28,7 +28,7 @@ namespace LinqAn.Google.Generator.Generators
             queryableContent.AppendLine("\tpublic class QueryableRecord : IQueryableRecord");
             queryableContent.AppendLine("\t{\n\t\t/// <summary>\n\t\t /// \tThe id of the view to query.\n\t\t/// </summary>");
             queryableContent.AppendLine("\t\tpublic uint ViewId { get; set; }");
-            queryableContent.AppendLine("\t{\n\t\t/// <summary>\n\t\t /// \tThe date of the record to query.\n\t\t/// </summary>");
+            queryableContent.AppendLine("\t\t/// <summary>\n\t\t /// \tThe date of the record to query.\n\t\t/// </summary>");
             queryableContent.AppendLine("\t\tpublic System.DateTime RecordDate { get; set; }");
 
             foreach (var column in columns)

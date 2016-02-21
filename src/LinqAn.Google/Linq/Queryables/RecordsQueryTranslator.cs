@@ -113,14 +113,34 @@ namespace LinqAn.Google.Linq.Queryables
                 UpdateQuery(right, left, Reverse(nodeType));
                 return;
             }
-
-            // View Id
-            if (memberExpression.Member.Name == "ViewId")
+            
+            switch (memberExpression.Member.Name)
             {
-                if (nodeType != ExpressionType.Equal)
-                    throw new InvalidOperationException("ViewId can only be queried for Equal condition.");
-                _query.ViewId = (uint) constantExpression.Value;
+                case "ViewId":
+                    if (nodeType != ExpressionType.Equal)
+                        throw new InvalidOperationException("ViewId can only be queried for Equal condition.");
+                    _query.ViewId = (uint) constantExpression.Value;
+                    return;
+                case "RecordDate":
+                    switch (nodeType)
+                    {
+                        case ExpressionType.Equal:
+                        case ExpressionType.GreaterThan:
+                        case ExpressionType.GreaterThanOrEqual:
+                            _query.StartDate = (DateTime) constantExpression.Value;
+                            break;
+                        case ExpressionType.LessThan:
+                        case ExpressionType.LessThanOrEqual:
+                            _query.OptionalEndDate = (DateTime) constantExpression.Value;
+                            break;
+                        default:
+                            throw new ArgumentOutOfRangeException(nameof(nodeType),
+                                "Expression type has to be ==,>,<,>=, or <= for record date.");
+                    }
+                    return;
             }
+
+            // Start Date, End Date
         }
 
         private static ExpressionType Reverse(ExpressionType eType)

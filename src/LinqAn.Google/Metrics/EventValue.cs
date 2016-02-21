@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class EventValue: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="EventValue" />.
+		/// 	Instantiates a <seealso cref="EventValue" />.
 		/// </summary>
 		public EventValue(): base("Event Value","The total value of events for the profile.",true,"ga:eventValue")
 		{

@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class CorrelationScore: Metric<decimal>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="CorrelationScore" />.
+		/// 	Instantiates a <seealso cref="CorrelationScore" />.
 		/// </summary>
 		public CorrelationScore(): base("Correlation Score","Correlation Score for related products.",false,"ga:correlationScore")
 		{

@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class EventLabel: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="EventLabel" />.
+		/// 	Instantiates a <seealso cref="EventLabel" />.
 		/// </summary>
 		public EventLabel(): base("Event Label","The label of the event.",true,"ga:eventLabel")
 		{

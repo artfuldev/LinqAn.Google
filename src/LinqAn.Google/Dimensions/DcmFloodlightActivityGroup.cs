@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class DcmFloodlightActivityGroup: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="DcmFloodlightActivityGroup" />.
+		/// 	Instantiates a <seealso cref="DcmFloodlightActivityGroup" />.
 		/// </summary>
 		public DcmFloodlightActivityGroup(): base("DFA Activity Group","DCM Floodlight activity group name associated with the floodlight conversion (premium only).",false,"ga:dcmFloodlightActivityGroup")
 		{

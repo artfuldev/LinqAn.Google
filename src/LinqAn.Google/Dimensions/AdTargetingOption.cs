@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class AdTargetingOption: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="AdTargetingOption" />.
+		/// 	Instantiates a <seealso cref="AdTargetingOption" />.
 		/// </summary>
 		public AdTargetingOption(): base("Placement Type","How you manage your ads on the content network. Values are Automatic placements or Managed placements.",false,"ga:adTargetingOption")
 		{

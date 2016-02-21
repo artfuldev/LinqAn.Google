@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class Screenviews: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="Screenviews" />.
+		/// 	Instantiates a <seealso cref="Screenviews" />.
 		/// </summary>
 		public Screenviews(): base("Screen Views","The total number of screenviews.",true,"ga:screenviews")
 		{

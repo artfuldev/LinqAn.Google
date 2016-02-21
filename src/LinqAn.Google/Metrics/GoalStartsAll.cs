@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class GoalStartsAll: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="GoalStartsAll" />.
+		/// 	Instantiates a <seealso cref="GoalStartsAll" />.
 		/// </summary>
 		public GoalStartsAll(): base("Goal Starts","The total number of starts for all goals defined for your profile.",true,"ga:goalStartsAll")
 		{

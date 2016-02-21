@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class AdsenseAdsViewed: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="AdsenseAdsViewed" />.
+		/// 	Instantiates a <seealso cref="AdsenseAdsViewed" />.
 		/// </summary>
 		public AdsenseAdsViewed(): base("AdSense Impressions","The number of AdSense ads viewed. Multiple ads can be displayed within an Ad Unit.",true,"ga:adsenseAdsViewed")
 		{

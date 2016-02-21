@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class DcmFloodlightRevenue: Metric<decimal>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="DcmFloodlightRevenue" />.
+		/// 	Instantiates a <seealso cref="DcmFloodlightRevenue" />.
 		/// </summary>
 		public DcmFloodlightRevenue(): base("DFA Revenue","DCM Floodlight revenue (premium only).",false,"ga:dcmFloodlightRevenue")
 		{

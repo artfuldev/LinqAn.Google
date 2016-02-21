@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class FatalExceptions: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="FatalExceptions" />.
+		/// 	Instantiates a <seealso cref="FatalExceptions" />.
 		/// </summary>
 		public FatalExceptions(): base("Crashes","The number of exceptions where isFatal is set to true.",true,"ga:fatalExceptions")
 		{

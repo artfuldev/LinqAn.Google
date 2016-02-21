@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class ExceptionDescription: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="ExceptionDescription" />.
+		/// 	Instantiates a <seealso cref="ExceptionDescription" />.
 		/// </summary>
 		public ExceptionDescription(): base("Exception Description","The description for the exception.",true,"ga:exceptionDescription")
 		{

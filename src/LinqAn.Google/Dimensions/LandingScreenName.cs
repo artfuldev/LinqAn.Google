@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class LandingScreenName: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="LandingScreenName" />.
+		/// 	Instantiates a <seealso cref="LandingScreenName" />.
 		/// </summary>
 		public LandingScreenName(): base("Landing Screen","The name of the first screen viewed.",true,"ga:landingScreenName")
 		{

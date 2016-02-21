@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class ProductBrand: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="ProductBrand" />.
+		/// 	Instantiates a <seealso cref="ProductBrand" />.
 		/// </summary>
 		public ProductBrand(): base("Product Brand","The brand name under which the product is sold (Enhanced Ecommerce).",true,"ga:productBrand")
 		{

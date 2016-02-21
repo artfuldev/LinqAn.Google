@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class SocialInteractionTarget: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="SocialInteractionTarget" />.
+		/// 	Instantiates a <seealso cref="SocialInteractionTarget" />.
 		/// </summary>
 		public SocialInteractionTarget(): base("Social Entity","For social interactions, a value representing the URL (or resource) which receives the social network action.",false,"ga:socialInteractionTarget")
 		{

@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class CorrelationModelId: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="CorrelationModelId" />.
+		/// 	Instantiates a <seealso cref="CorrelationModelId" />.
 		/// </summary>
 		public CorrelationModelId(): base("Correlation Model ID","Correlation Model ID for related products.",false,"ga:correlationModelId")
 		{

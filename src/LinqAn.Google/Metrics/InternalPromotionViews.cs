@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class InternalPromotionViews: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="InternalPromotionViews" />.
+		/// 	Instantiates a <seealso cref="InternalPromotionViews" />.
 		/// </summary>
 		public InternalPromotionViews(): base("Internal Promotion Views","The number of views of an internal promotion (Enhanced Ecommerce).",true,"ga:internalPromotionViews")
 		{

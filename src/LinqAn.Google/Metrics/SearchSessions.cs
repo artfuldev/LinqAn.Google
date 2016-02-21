@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class SearchSessions: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="SearchSessions" />.
+		/// 	Instantiates a <seealso cref="SearchSessions" />.
 		/// </summary>
 		public SearchSessions(): base("Sessions with Search","The total number of sessions that included an internal search",true,"ga:searchSessions")
 		{

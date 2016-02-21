@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class ScreenDepth: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="ScreenDepth" />.
+		/// 	Instantiates a <seealso cref="ScreenDepth" />.
 		/// </summary>
 		public ScreenDepth(): base("Screen Depth","The number of screenviews per session reported as a string. Can be useful for historgrams.",true,"ga:screenDepth")
 		{

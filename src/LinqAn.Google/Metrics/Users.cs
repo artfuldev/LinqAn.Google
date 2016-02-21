@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class Users: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="Users" />.
+		/// 	Instantiates a <seealso cref="Users" />.
 		/// </summary>
 		public Users(): base("Users","The total number of users for the requested time period.",false,"ga:users")
 		{

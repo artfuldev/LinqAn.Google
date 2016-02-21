@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class YearWeek: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="YearWeek" />.
+		/// 	Instantiates a <seealso cref="YearWeek" />.
 		/// </summary>
 		public YearWeek(): base("Week of Year","Combined values of ga:year and ga:week.",false,"ga:yearWeek")
 		{

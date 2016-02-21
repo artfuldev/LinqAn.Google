@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class Transactions: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="Transactions" />.
+		/// 	Instantiates a <seealso cref="Transactions" />.
 		/// </summary>
 		public Transactions(): base("Transactions","The total number of transactions.",true,"ga:transactions")
 		{

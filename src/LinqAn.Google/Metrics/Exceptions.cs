@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class Exceptions: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="Exceptions" />.
+		/// 	Instantiates a <seealso cref="Exceptions" />.
 		/// </summary>
 		public Exceptions(): base("Exceptions","The number of exceptions that were sent to Google Analytics.",true,"ga:exceptions")
 		{

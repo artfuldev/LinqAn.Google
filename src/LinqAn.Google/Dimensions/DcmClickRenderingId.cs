@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class DcmClickRenderingId: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="DcmClickRenderingId" />.
+		/// 	Instantiates a <seealso cref="DcmClickRenderingId" />.
 		/// </summary>
 		public DcmClickRenderingId(): base("DFA Rendering ID (GA Model)","DCM rendering ID of the DCM click matching the Google Analytics session (premium only).",false,"ga:dcmClickRenderingId")
 		{

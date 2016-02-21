@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class UniqueEvents: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="UniqueEvents" />.
+		/// 	Instantiates a <seealso cref="UniqueEvents" />.
 		/// </summary>
 		public UniqueEvents(): base("Unique Events","The number of unique events. Events in different sessions count as separate events.",false,"ga:uniqueEvents")
 		{

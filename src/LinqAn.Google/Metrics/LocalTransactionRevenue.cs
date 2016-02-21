@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class LocalTransactionRevenue: Metric<decimal>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="LocalTransactionRevenue" />.
+		/// 	Instantiates a <seealso cref="LocalTransactionRevenue" />.
 		/// </summary>
 		public LocalTransactionRevenue(): base("Local Revenue","Transaction revenue in local currency.",false,"ga:localTransactionRevenue")
 		{

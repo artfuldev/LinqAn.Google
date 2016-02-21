@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class DateHour: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="DateHour" />.
+		/// 	Instantiates a <seealso cref="DateHour" />.
 		/// </summary>
 		public DateHour(): base("Hour of Day","Combined values of ga:date and ga:hour.",false,"ga:dateHour")
 		{

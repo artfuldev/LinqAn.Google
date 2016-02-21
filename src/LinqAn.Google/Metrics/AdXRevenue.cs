@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class AdxRevenue: Metric<decimal>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="AdxRevenue" />.
+		/// 	Instantiates a <seealso cref="AdxRevenue" />.
 		/// </summary>
 		public AdxRevenue(): base("AdX Revenue","The total estimated revenue from AdX ads.",true,"ga:adxRevenue")
 		{

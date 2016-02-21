@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class DcmClicks: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="DcmClicks" />.
+		/// 	Instantiates a <seealso cref="DcmClicks" />.
 		/// </summary>
 		public DcmClicks(): base("DFA Clicks","DCM Total Clicks (premium only).",false,"ga:dcmClicks")
 		{

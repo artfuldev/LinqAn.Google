@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class SecondPagePath: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="SecondPagePath" />.
+		/// 	Instantiates a <seealso cref="SecondPagePath" />.
 		/// </summary>
 		public SecondPagePath(): base("Second Page","The second page in a user's session.",false,"ga:secondPagePath")
 		{

@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class YearMonth: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="YearMonth" />.
+		/// 	Instantiates a <seealso cref="YearMonth" />.
 		/// </summary>
 		public YearMonth(): base("Month of Year","Combined values of ga:year and ga:month.",false,"ga:yearMonth")
 		{

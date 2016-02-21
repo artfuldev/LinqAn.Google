@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class Year: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="Year" />.
+		/// 	Instantiates a <seealso cref="Year" />.
 		/// </summary>
 		public Year(): base("Year","The year of the session. A four-digit year from 2005 to the current year.",false,"ga:year")
 		{

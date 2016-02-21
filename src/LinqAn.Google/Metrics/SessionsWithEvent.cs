@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class SessionsWithEvent: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="SessionsWithEvent" />.
+		/// 	Instantiates a <seealso cref="SessionsWithEvent" />.
 		/// </summary>
 		public SessionsWithEvent(): base("Sessions with Event","The total number of sessions with events.",true,"ga:sessionsWithEvent")
 		{

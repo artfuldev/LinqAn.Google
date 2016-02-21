@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class SocialActivityAction: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="SocialActivityAction" />.
+		/// 	Instantiates a <seealso cref="SocialActivityAction" />.
 		/// </summary>
 		public SocialActivityAction(): base("Originating Social Action","For a social data hub activity, this value represents the type of social action associated with the activity (e.g. vote, comment, +1, etc.).",false,"ga:socialActivityAction")
 		{

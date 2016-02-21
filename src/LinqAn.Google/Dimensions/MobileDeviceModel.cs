@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class MobileDeviceModel: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="MobileDeviceModel" />.
+		/// 	Instantiates a <seealso cref="MobileDeviceModel" />.
 		/// </summary>
 		public MobileDeviceModel(): base("Mobile Device Model","Mobile device model.",true,"ga:mobileDeviceModel")
 		{

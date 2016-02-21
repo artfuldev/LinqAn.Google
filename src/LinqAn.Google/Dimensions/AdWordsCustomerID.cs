@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class AdwordsCustomerId: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="AdwordsCustomerId" />.
+		/// 	Instantiates a <seealso cref="AdwordsCustomerId" />.
 		/// </summary>
 		public AdwordsCustomerId(): base("AdWords Customer ID","A string. Corresponds to AdWords API AccountInfo.customerId.",false,"ga:adwordsCustomerID")
 		{

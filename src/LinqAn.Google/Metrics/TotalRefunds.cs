@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class TotalRefunds: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="TotalRefunds" />.
+		/// 	Instantiates a <seealso cref="TotalRefunds" />.
 		/// </summary>
 		public TotalRefunds(): base("Refunds","Number of refunds that have been issued (Enhanced Ecommerce).",true,"ga:totalRefunds")
 		{

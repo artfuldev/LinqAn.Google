@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class QueryProductQuantity: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="QueryProductQuantity" />.
+		/// 	Instantiates a <seealso cref="QueryProductQuantity" />.
 		/// </summary>
 		public QueryProductQuantity(): base("Queried Product Quantity","Quantity of the product being queried.",false,"ga:queryProductQuantity")
 		{

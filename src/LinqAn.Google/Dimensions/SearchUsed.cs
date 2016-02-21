@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class SearchUsed: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="SearchUsed" />.
+		/// 	Instantiates a <seealso cref="SearchUsed" />.
 		/// </summary>
 		public SearchUsed(): base("Site Search Status","A boolean to distinguish whether internal search was used in a session. Values are Visits With Site Search and Visits Without Site Search.",true,"ga:searchUsed")
 		{

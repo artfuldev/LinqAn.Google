@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class UserGender: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="UserGender" />.
+		/// 	Instantiates a <seealso cref="UserGender" />.
 		/// </summary>
 		public UserGender(): base("Gender","Gender of user.",false,"ga:userGender")
 		{

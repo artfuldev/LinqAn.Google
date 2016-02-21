@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class AdsenseAdsClicks: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="AdsenseAdsClicks" />.
+		/// 	Instantiates a <seealso cref="AdsenseAdsClicks" />.
 		/// </summary>
 		public AdsenseAdsClicks(): base("AdSense Ads Clicked","The number of times AdSense ads on your site were clicked.",true,"ga:adsenseAdsClicks")
 		{

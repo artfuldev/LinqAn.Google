@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class UserTimingValue: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="UserTimingValue" />.
+		/// 	Instantiates a <seealso cref="UserTimingValue" />.
 		/// </summary>
 		public UserTimingValue(): base("User Timing (ms)","The total number of milliseconds for a user timing.",false,"ga:userTimingValue")
 		{

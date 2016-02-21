@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class Continent: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="Continent" />.
+		/// 	Instantiates a <seealso cref="Continent" />.
 		/// </summary>
 		public Continent(): base("Continent","The continents of users, derived from IP addresses or Geographical IDs.",true,"ga:continent")
 		{

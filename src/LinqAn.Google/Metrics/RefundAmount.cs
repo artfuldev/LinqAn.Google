@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class RefundAmount: Metric<decimal>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="RefundAmount" />.
+		/// 	Instantiates a <seealso cref="RefundAmount" />.
 		/// </summary>
 		public RefundAmount(): base("Refund Amount","Currency amount refunded for a transaction (Enhanced Ecommerce).",true,"ga:refundAmount")
 		{

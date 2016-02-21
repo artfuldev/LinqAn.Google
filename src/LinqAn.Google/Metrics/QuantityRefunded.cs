@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class QuantityRefunded: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="QuantityRefunded" />.
+		/// 	Instantiates a <seealso cref="QuantityRefunded" />.
 		/// </summary>
 		public QuantityRefunded(): base("Quantity Refunded","Number of product units refunded (Enhanced Ecommerce).",true,"ga:quantityRefunded")
 		{

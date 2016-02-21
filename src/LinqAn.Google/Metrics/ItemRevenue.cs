@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class ItemRevenue: Metric<decimal>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="ItemRevenue" />.
+		/// 	Instantiates a <seealso cref="ItemRevenue" />.
 		/// </summary>
 		public ItemRevenue(): base("Product Revenue","The total revenue from purchased product items.",true,"ga:itemRevenue")
 		{

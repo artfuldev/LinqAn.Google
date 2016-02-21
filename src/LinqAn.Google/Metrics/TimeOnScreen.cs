@@ -8,7 +8,7 @@ namespace LinqAn.Google.Metrics
 	public class TimeOnScreen: Metric<TimeSpan>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="TimeOnScreen" />.
+		/// 	Instantiates a <seealso cref="TimeOnScreen" />.
 		/// </summary>
 		public TimeOnScreen(): base("Time on Screen","The time spent viewing the current screen.",true,"ga:timeOnScreen")
 		{

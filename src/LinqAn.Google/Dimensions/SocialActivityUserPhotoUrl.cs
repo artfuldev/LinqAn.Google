@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class SocialActivityUserPhotoUrl: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="SocialActivityUserPhotoUrl" />.
+		/// 	Instantiates a <seealso cref="SocialActivityUserPhotoUrl" />.
 		/// </summary>
 		public SocialActivityUserPhotoUrl(): base("User Photo URL","For a social data hub activity, this value represents the URL of the photo associated with the user's social network profile.",false,"ga:socialActivityUserPhotoUrl")
 		{

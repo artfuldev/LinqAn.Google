@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class SocialActivityTimestamp: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="SocialActivityTimestamp" />.
+		/// 	Instantiates a <seealso cref="SocialActivityTimestamp" />.
 		/// </summary>
 		public SocialActivityTimestamp(): base("Social Activity Timestamp","For a social data hub activity, this value represents when the social activity occurred on the social network.",false,"ga:socialActivityTimestamp")
 		{

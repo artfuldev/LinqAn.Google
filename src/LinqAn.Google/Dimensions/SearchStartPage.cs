@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class SearchStartPage: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="SearchStartPage" />.
+		/// 	Instantiates a <seealso cref="SearchStartPage" />.
 		/// </summary>
 		public SearchStartPage(): base("Start Page","A page where the user initiated an internal search.",false,"ga:searchStartPage")
 		{

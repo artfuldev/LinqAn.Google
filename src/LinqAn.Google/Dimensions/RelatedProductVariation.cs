@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class RelatedProductVariation: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="RelatedProductVariation" />.
+		/// 	Instantiates a <seealso cref="RelatedProductVariation" />.
 		/// </summary>
 		public RelatedProductVariation(): base("Related Product Variation","Variation of the related product.",false,"ga:relatedProductVariation")
 		{

@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class SocialInteractions: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="SocialInteractions" />.
+		/// 	Instantiates a <seealso cref="SocialInteractions" />.
 		/// </summary>
 		public SocialInteractions(): base("Social Actions","The total number of social interactions.",false,"ga:socialInteractions")
 		{

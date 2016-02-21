@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class SocialInteractionNetwork: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="SocialInteractionNetwork" />.
+		/// 	Instantiates a <seealso cref="SocialInteractionNetwork" />.
 		/// </summary>
 		public SocialInteractionNetwork(): base("Social Network","For social interactions, a value representing the social network being tracked.",false,"ga:socialInteractionNetwork")
 		{

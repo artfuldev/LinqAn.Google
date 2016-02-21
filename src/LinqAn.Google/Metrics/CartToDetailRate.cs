@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class CartToDetailRate: Metric<float>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="CartToDetailRate" />.
+		/// 	Instantiates a <seealso cref="CartToDetailRate" />.
 		/// </summary>
 		public CartToDetailRate(): base("Cart-to-Detail Rate","Product adds divided by views of product details (Enhanced Ecommerce).",false,"ga:cartToDetailRate")
 		{

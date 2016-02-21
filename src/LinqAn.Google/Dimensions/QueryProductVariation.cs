@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class QueryProductVariation: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="QueryProductVariation" />.
+		/// 	Instantiates a <seealso cref="QueryProductVariation" />.
 		/// </summary>
 		public QueryProductVariation(): base("Queried Product Variation","Variation of the product being queried.",false,"ga:queryProductVariation")
 		{

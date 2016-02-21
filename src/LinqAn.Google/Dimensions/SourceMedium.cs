@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class SourceMedium: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="SourceMedium" />.
+		/// 	Instantiates a <seealso cref="SourceMedium" />.
 		/// </summary>
 		public SourceMedium(): base("Source / Medium","Combined values of ga:source and ga:medium.",true,"ga:sourceMedium")
 		{

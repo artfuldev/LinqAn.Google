@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class Entrances: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="Entrances" />.
+		/// 	Instantiates a <seealso cref="Entrances" />.
 		/// </summary>
 		public Entrances(): base("Entrances","The number of entrances to your property measured as the first pageview in a session. Typically used with landingPagePath",true,"ga:entrances")
 		{

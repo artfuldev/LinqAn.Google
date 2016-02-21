@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class ProductAddsToCart: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="ProductAddsToCart" />.
+		/// 	Instantiates a <seealso cref="ProductAddsToCart" />.
 		/// </summary>
 		public ProductAddsToCart(): base("Product Adds To Cart","Number of times the product was added to the shopping cart (Enhanced Ecommerce).",true,"ga:productAddsToCart")
 		{

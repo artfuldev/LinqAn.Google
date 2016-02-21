@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class SocialEngagementType: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="SocialEngagementType" />.
+		/// 	Instantiates a <seealso cref="SocialEngagementType" />.
 		/// </summary>
 		public SocialEngagementType(): base("Social Type","Engagement type. Possible values are \"Socially Engaged\" or \"Not Socially Engaged\".",false,"ga:socialEngagementType")
 		{

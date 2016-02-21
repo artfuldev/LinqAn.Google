@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class DayOfWeekName: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="DayOfWeekName" />.
+		/// 	Instantiates a <seealso cref="DayOfWeekName" />.
 		/// </summary>
 		public DayOfWeekName(): base("Day of Week Name","The name of the day of the week (in English).",false,"ga:dayOfWeekName")
 		{

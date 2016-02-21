@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class TransactionShipping: Metric<decimal>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="TransactionShipping" />.
+		/// 	Instantiates a <seealso cref="TransactionShipping" />.
 		/// </summary>
 		public TransactionShipping(): base("Shipping","The total cost of shipping.",true,"ga:transactionShipping")
 		{

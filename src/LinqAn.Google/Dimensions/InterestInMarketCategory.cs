@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class InterestInMarketCategory: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="InterestInMarketCategory" />.
+		/// 	Instantiates a <seealso cref="InterestInMarketCategory" />.
 		/// </summary>
 		public InterestInMarketCategory(): base("In-Market Segment","Indicates that users are more likely to be ready to purchase products or services in the specified category.",false,"ga:interestInMarketCategory")
 		{

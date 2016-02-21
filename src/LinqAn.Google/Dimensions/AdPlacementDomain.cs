@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class AdPlacementDomain: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="AdPlacementDomain" />.
+		/// 	Instantiates a <seealso cref="AdPlacementDomain" />.
 		/// </summary>
 		public AdPlacementDomain(): base("Placement Domain","The domains where your ads on the content network were placed.",false,"ga:adPlacementDomain")
 		{

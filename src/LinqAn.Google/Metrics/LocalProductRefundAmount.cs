@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class LocalProductRefundAmount: Metric<decimal>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="LocalProductRefundAmount" />.
+		/// 	Instantiates a <seealso cref="LocalProductRefundAmount" />.
 		/// </summary>
 		public LocalProductRefundAmount(): base("Local Product Refund Amount","Refund amount for a given product in the local currency (Enhanced Ecommerce).",true,"ga:localProductRefundAmount")
 		{

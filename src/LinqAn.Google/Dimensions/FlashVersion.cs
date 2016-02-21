@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class FlashVersion: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="FlashVersion" />.
+		/// 	Instantiates a <seealso cref="FlashVersion" />.
 		/// </summary>
 		public FlashVersion(): base("Flash Version","The versions of Flash supported by users' browsers, including minor versions.",true,"ga:flashVersion")
 		{

@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class Pageviews: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="Pageviews" />.
+		/// 	Instantiates a <seealso cref="Pageviews" />.
 		/// </summary>
 		public Pageviews(): base("Pageviews","The total number of pageviews for your property.",true,"ga:pageviews")
 		{

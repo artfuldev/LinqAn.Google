@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class InterestOtherCategory: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="InterestOtherCategory" />.
+		/// 	Instantiates a <seealso cref="InterestOtherCategory" />.
 		/// </summary>
 		public InterestOtherCategory(): base("Other Category","Indicates that users are more likely to be interested in learning about the specified category, and more likely to be ready to purchase.",false,"ga:interestOtherCategory")
 		{

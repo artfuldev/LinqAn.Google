@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class MobileDeviceBranding: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="MobileDeviceBranding" />.
+		/// 	Instantiates a <seealso cref="MobileDeviceBranding" />.
 		/// </summary>
 		public MobileDeviceBranding(): base("Mobile Device Branding","Mobile manufacturer or branded name.",true,"ga:mobileDeviceBranding")
 		{

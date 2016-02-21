@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class OrganicSearches: Metric<int>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="OrganicSearches" />.
+		/// 	Instantiates a <seealso cref="OrganicSearches" />.
 		/// </summary>
 		public OrganicSearches(): base("Organic Searches","The number of organic searches that happened within a session. This metric is search engine agnostic.",false,"ga:organicSearches")
 		{

@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class ExitPagePath: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="ExitPagePath" />.
+		/// 	Instantiates a <seealso cref="ExitPagePath" />.
 		/// </summary>
 		public ExitPagePath(): base("Exit Page","The last page in a user's session, or exit page.",true,"ga:exitPagePath")
 		{

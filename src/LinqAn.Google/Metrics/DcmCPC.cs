@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	public class DcmCPC: Metric<decimal>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="DcmCPC" />.
+		/// 	Instantiates a <seealso cref="DcmCPC" />.
 		/// </summary>
 		public DcmCPC(): base("DFA CPC","DCM Cost Per Click (premium only).",false,"ga:dcmCPC")
 		{

@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class AdwordsCreativeId: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="AdwordsCreativeId" />.
+		/// 	Instantiates a <seealso cref="AdwordsCreativeId" />.
 		/// </summary>
 		public AdwordsCreativeId(): base("AdWords Creative ID","A string. Corresponds to AdWords API Ad.id.",false,"ga:adwordsCreativeID")
 		{

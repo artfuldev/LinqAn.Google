@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class Hostname: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="Hostname" />.
+		/// 	Instantiates a <seealso cref="Hostname" />.
 		/// </summary>
 		public Hostname(): base("Hostname","The hostname from which the tracking request was made.",true,"ga:hostname")
 		{

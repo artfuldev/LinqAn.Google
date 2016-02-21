@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class AdQueryWordCount: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="AdQueryWordCount" />.
+		/// 	Instantiates a <seealso cref="AdQueryWordCount" />.
 		/// </summary>
 		public AdQueryWordCount(): base("Query Word Count","The number of words in the search query.",false,"ga:adQueryWordCount")
 		{

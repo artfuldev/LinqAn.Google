@@ -6,7 +6,7 @@ namespace LinqAn.Google.Dimensions
 	public class EventAction: Dimension<string>
 	{
 		/// <summary>
-	/// 	Instantiates a <seealso cref="EventAction" />.
+		/// 	Instantiates a <seealso cref="EventAction" />.
 		/// </summary>
 		public EventAction(): base("Event Action","The action of the event.",true,"ga:eventAction")
 		{

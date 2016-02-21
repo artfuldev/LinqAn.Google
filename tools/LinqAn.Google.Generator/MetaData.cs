@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using LinqAn.Google.Generator.Core;
 
 namespace LinqAn.Google.Generator
 {

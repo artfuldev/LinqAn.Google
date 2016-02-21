@@ -2,23 +2,12 @@
 using System.Text;
 using System.Text.RegularExpressions;
 using Humanizer;
+using LinqAn.Google.Generator.Core;
 
 namespace LinqAn.Google.Generator.Generators
 {
     public class DimensionFileContentGenerator : FileContentGenerator
     {
-        protected override string GetFileName(Column column)
-        {
-            var fileName = column.Attributes.UiName.Dehumanize();
-            var match = Regex.Match(fileName, "^[0-9]+");
-            if (!match.Success) return fileName;
-            var number = match.ToString();
-            var numberAsInt = Convert.ToInt32(number);
-            var replacement = numberAsInt.ToWords().Dehumanize();
-            fileName = fileName.Replace(number, replacement);
-            return fileName;
-        }
-
         protected override string GenerateFileContent(Column column)
         {
             var valueTypeName = column.Attributes.DestinationTypeName;
@@ -30,7 +19,7 @@ namespace LinqAn.Google.Generator.Generators
             }
             fileContent.AppendLine("namespace LinqAn.Google.Dimensions");
             fileContent.AppendLine("{");
-            var className = GetFileName(column);
+            var className = column.ToClassName();
             var name = column.Attributes.UiName;
             var description = column.Attributes.Description;
             var escapedDescription = description.Replace("\"", "\\\"");

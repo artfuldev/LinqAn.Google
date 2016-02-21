@@ -1,4 +1,4 @@
-﻿namespace LinqAn.Google.Generator
+﻿namespace LinqAn.Google.Generator.Core
 {
     public class Column
     {

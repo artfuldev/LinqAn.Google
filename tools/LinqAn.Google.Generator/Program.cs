@@ -2,6 +2,7 @@
 using System.IO;
 using System.Linq;
 using Humanizer;
+using LinqAn.Google.Generator.Core;
 using LinqAn.Google.Generator.Generators;
 using Newtonsoft.Json;
 
@@ -9,8 +10,9 @@ namespace LinqAn.Google.Generator
 {
     class Program
     {
-        private static readonly IFileContentGenerator MetricFileContentGenerator = new MetricFileContentGenerator();
-        private static readonly IFileContentGenerator DimensionFileContentGenerator = new DimensionFileContentGenerator();
+        private static readonly IFileContentGenerator MetricsGenerator = new MetricFileContentGenerator();
+        private static readonly IFileContentGenerator DimensionsGenerator = new DimensionFileContentGenerator();
+        private static readonly IFileContentGenerator QueryableRecordsGenerator =new QueryableRecordFileContentGenerator();
 
         static void Main(string[] args)
         {
@@ -34,17 +36,21 @@ namespace LinqAn.Google.Generator
             var dimensions = selectedColumns.Where(x => x.Attributes.Type == "DIMENSION");
             var dimensionList = dimensions as IList<Column> ?? dimensions.ToList();
 
-            // Clean up dimensions list
-            foreach (var dimension in dimensionList.Where(dimension => metricsList.Select(x => x.Attributes.UiName).Contains(dimension.Attributes.UiName)))
-                dimension.Attributes.UiName = dimension.Id.Replace("ga:", "").Pascalize().Humanize().Titleize();
+            // Make sure dimensions and filters are unique
+            if (dimensionList.Count(dimension => metricsList.Select(metric => metric.ToClassName()).Contains(dimension.ToClassName())) != 0)
+                throw new InvalidDataException("metrics and dimensions have the same names");
 
             // Generate Metric files
             var metricsPath = currentDirectory.Replace(@"\tools\LinqAn.Google.Generator", @"\src\LinqAn.Google\Metrics");
-            MetricFileContentGenerator.GenerateFiles(metricsPath, metricsList, "IMetric.cs", "Metric.cs");
+            MetricsGenerator.GenerateFiles(metricsPath, metricsList, true, "IMetric.cs", "Metric.cs");
 
             // Generate Dimension files
             var dimensionsPath = currentDirectory.Replace(@"\tools\LinqAn.Google.Generator", @"\src\LinqAn.Google\Dimensions");
-            DimensionFileContentGenerator.GenerateFiles(dimensionsPath, dimensionList, "IDimension.cs", "Dimension.cs");
+            DimensionsGenerator.GenerateFiles(dimensionsPath, dimensionList, true, "IDimension.cs", "Dimension.cs");
+
+            // Generate queryable record files
+            var queryableRecordsPath = currentDirectory.Replace(@"\tools\LinqAn.Google.Generator", @"\src\LinqAn.Google\Records");
+            QueryableRecordsGenerator.GenerateFiles(queryableRecordsPath, metricsList.Concat(dimensionList));
         }
     }
 }

@@ -3,7 +3,6 @@ using System.IO;
 using LinqAn.Google.Linq.Clients;
 using LinqAn.Google.Profiles;
 using Microsoft.Extensions.Configuration;
-using Newtonsoft.Json;
 using System.Linq;
 using LinqAn.Google.Extensions;
 using LinqAn.Google.Linq.Queryables;

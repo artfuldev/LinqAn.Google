@@ -35,13 +35,13 @@ namespace LinqAn.Google.Sample
                 .Include(x => x.Hits)
                 .Include(x => x.Sessions)
                 .Include(x => x.SessionDuration)
-                // Take only 2 records
-                .Take(2);
+                // Take only 20 records
+                .Take(20);
 
             var records = query.ToList().Select(x => x.ToRecord());
             foreach (var record in records)
             {
-                Console.WriteLine(JsonConvert.SerializeObject(record));
+                Console.WriteLine(record.ToStringRepresentation());
             }
             Console.ReadLine();
         }

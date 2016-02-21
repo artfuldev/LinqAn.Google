@@ -31,7 +31,7 @@ namespace LinqAn.Google.Generator.Generators
             fileContent.AppendLine($"\tpublic class {className}: Dimension<{valueTypeName}>");
             fileContent.AppendLine("\t{");
             fileContent.AppendLine("\t\t/// <summary>");
-            fileContent.AppendLine($"\t/// \tInstantiates a <seealso cref=\"{className}\" />.");
+            fileContent.AppendLine($"\t\t/// \tInstantiates a <seealso cref=\"{className}\" />.");
             fileContent.AppendLine("\t\t/// </summary>");
             fileContent.AppendLine($"\t\tpublic {className}(): base(\"{name}\",\"{escapedDescription}\",{isAllowedInSegments},\"{id}\")");
             fileContent.AppendLine("\t\t{");

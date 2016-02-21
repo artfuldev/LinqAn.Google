@@ -37,8 +37,6 @@ namespace LinqAn.Google.Linq.Queryables
 
             switch (m.Method.Name)
             {
-                case "Include":
-                    break;
                 case "Where":
                     Visit(m.Arguments[0]);
                     var lambda = (LambdaExpression) StripQuotes(m.Arguments[1]);

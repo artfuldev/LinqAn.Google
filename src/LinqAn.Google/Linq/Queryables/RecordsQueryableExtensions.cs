@@ -23,8 +23,8 @@ namespace LinqAn.Google.Linq.Queryables
         public static IQueryable<IQueryableRecord> Include<T>(this IQueryable<IQueryableRecord> source,
             Expression<Func<IQueryableRecord, T>> includeExpression)
         {
-            var method = source.Provider.GetType()
-                .GetRuntimeMethod("Include", new[] { typeof(Expression<Func<IQueryableRecord, T>>) });
+            var method = source.Provider.GetType().GetMethod("Include");
+            method = method.MakeGenericMethod(typeof(T));
             method?.Invoke(source, new object[] { includeExpression });
             return source;
         }

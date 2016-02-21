@@ -54,8 +54,8 @@ namespace LinqAn.Google.Linq.Queryables
             query.MetricsList = Includes.OfType<IMetric>().ToList();
             int? totalRecords;
             return query.QueryAll
-                ? _client.GetAllRecords(query)
-                : _client.GetRecords(query, out totalRecords, query.StartIndex ?? 1,
+                ? _client.GetAllQueryableRecords(query)
+                : _client.GetQueryableRecords(query, out totalRecords, query.StartIndex ?? 1,
                     query.RecordsCount ?? RecordQuery.MaxRecordsPerQuery);
         }
     }

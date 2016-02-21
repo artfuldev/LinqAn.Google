@@ -28,5 +28,10 @@ namespace LinqAn.Google.Linq.Clients
         IEnumerable<IRecord> GetRecords(uint viewId, DateTime startDate, DateTime endDate, IEnumerable<IMetric> metrics,
             out int? totalRecords, IEnumerable<IDimension> dimensions = null, uint startIndex = 1,
             uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery);
+
+        IEnumerable<IQueryableRecord> GetAllQueryableRecords(IRecordQuery query);
+
+        IEnumerable<IQueryableRecord> GetQueryableRecords(IRecordQuery query, out int? totalRecords, uint startIndex = 1,
+            uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery);
     }
 }

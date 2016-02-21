@@ -107,5 +107,19 @@ namespace LinqAn.Google.Linq.Clients
             totalRecords = queryResult.TotalResults;
             return queryResult.Rows.Select(row => row.ToRecord(metricsList, viewId, dimensionsList));
         }
+
+        public IEnumerable<IQueryableRecord> GetAllQueryableRecords(IRecordQuery query)
+        {
+            return
+                GetAllRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, query.Dimensions)
+                    .Select(x => x.ToQueryableRecord());
+        }
+
+        public IEnumerable<IQueryableRecord> GetQueryableRecords(IRecordQuery query, out int? totalRecords, uint startIndex = 1,
+            uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
+        {
+            return GetRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, out totalRecords,
+                query.Dimensions, startIndex, maxRecordsCount).Select(x => x.ToQueryableRecord());
+        }
     }
 }

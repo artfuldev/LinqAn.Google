@@ -1,19 +1,17 @@
 namespace LinqAn.Google.Dimensions
 {
-    /// <summary>
-    ///     A page that the user visited after performing an internal search on your site.
-    /// </summary>
-    public class SearchDestinationPage : Dimension<string>
-    {
-        /// <summary>
-        ///     Instantiates a <seealso cref="SearchDestinationPage" />.
-        /// </summary>
-        public SearchDestinationPage()
-            : base(
-                "Search Destination Page",
-                "A page that the user visited after performing an internal search on your site.", true,
-                "ga:searchAfterDestinationPage")
-        {
-        }
-    }
+	/// <summary>
+	/// 	The page the user immediately visited after performing an internal search on your site. (Usually the search results page).
+	/// </summary>
+	public class SearchDestinationPage: Dimension<string>
+	{
+		/// <summary>
+	/// 	Instantiates a <seealso cref="SearchDestinationPage" />.
+		/// </summary>
+		public SearchDestinationPage(): base("Destination Page","The page the user immediately visited after performing an internal search on your site. (Usually the search results page).",false,"ga:searchDestinationPage")
+		{
+			
+		}
+	}
 }
+

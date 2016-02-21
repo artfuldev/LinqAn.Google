@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using LinqAn.Google.Dimensions;
@@ -28,6 +29,16 @@ namespace LinqAn.Google.Linq.Queryables
         {
             get { return _includes ?? (_includes = new List<object>()); }
             set { _includes = value; }
+        }
+
+        public void Include<TProperty>(Expression<Func<IQueryableRecord, TProperty>> includeExpression)
+        {
+            if (includeExpression == null)
+                throw new ArgumentNullException(nameof(includeExpression));
+            if (!typeof(IDimension).IsAssignableFrom(typeof(TProperty)) && !typeof(IMetric).IsAssignableFrom(typeof(TProperty)))
+                throw new InvalidOperationException("Only metrics and dimensions can be included.");
+            var instance = Activator.CreateInstance<TProperty>();
+            Includes.Add(instance);
         }
 
         private static QueryableRecordQuery Translate(Expression expression)

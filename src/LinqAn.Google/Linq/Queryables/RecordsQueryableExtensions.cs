@@ -7,12 +7,12 @@ namespace LinqAn.Google.Linq.Queryables
 {
     public static class RecordsQueryableExtensions
     {
-        public static IEnumerable<IRecord> AsEnumerable(this IQueryable<IRecord> source)
+        public static IEnumerable<IQueryableRecord> AsEnumerable(this IQueryable<IQueryableRecord> source)
         {
-            return source.Provider.Execute<IEnumerable<IRecord>>(source.Expression);
+            return source.Provider.Execute<IEnumerable<IQueryableRecord>>(source.Expression);
         }
 
-        public static Task<List<IRecord>> ToListAsync(this IQueryable<IRecord> source)
+        public static Task<List<IQueryableRecord>> ToListAsync(this IQueryable<IQueryableRecord> source)
         {
             return Task.FromResult(source.AsEnumerable().ToList());
         }

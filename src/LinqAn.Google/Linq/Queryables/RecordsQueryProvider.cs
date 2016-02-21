@@ -14,7 +14,7 @@ namespace LinqAn.Google.Linq.Queryables
     /// <summary>
     ///     A LINQ Provider that executes API Queries over an API Client
     /// </summary>
-    internal class RecordsQueryProvider<T> : QueryProvider where T : IRecord
+    internal class RecordsQueryProvider : QueryProvider
     {
         private readonly IReportingClient _client;
         private List<object> _includes;

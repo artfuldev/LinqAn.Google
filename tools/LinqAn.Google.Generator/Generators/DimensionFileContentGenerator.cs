@@ -10,13 +10,7 @@ namespace LinqAn.Google.Generator.Generators
     {
         protected override string GenerateFileContent(Column column)
         {
-            var valueTypeName = column.Attributes.DestinationTypeName;
             var fileContent = new StringBuilder();
-            if (IsUsingSystemRequired(valueTypeName))
-            {
-                fileContent.AppendLine("using System;");
-                fileContent.AppendLine();
-            }
             fileContent.AppendLine("namespace LinqAn.Google.Dimensions");
             fileContent.AppendLine("{");
             var className = column.ToClassName();
@@ -28,7 +22,7 @@ namespace LinqAn.Google.Generator.Generators
             fileContent.AppendLine("\t/// <summary>");
             fileContent.AppendLine($"\t/// \t{description}");
             fileContent.AppendLine("\t/// </summary>");
-            fileContent.AppendLine($"\tpublic class {className}: Dimension<{valueTypeName}>");
+            fileContent.AppendLine($"\tpublic class {className}: Dimension");
             fileContent.AppendLine("\t{");
             fileContent.AppendLine("\t\t/// <summary>");
             fileContent.AppendLine($"\t\t/// \tInstantiates a <seealso cref=\"{className}\" />.");
@@ -40,11 +34,6 @@ namespace LinqAn.Google.Generator.Generators
             fileContent.AppendLine("\t}");
             fileContent.AppendLine("}");
             return fileContent.ToString();
-        }
-
-        private static bool IsUsingSystemRequired(string typeName)
-        {
-            return typeName != "int" && typeName != "float" && typeName != "double" && typeName != "string" && typeName != "decimal";
         }
     }
 }

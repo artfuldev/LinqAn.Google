@@ -29,5 +29,5 @@
     "dnxcore50": { }
   },
 
-  "releaseNotes": "If metric exists with same name, dimension will use its type"
+  "releaseNotes": "Dimensions have only string values."
 }

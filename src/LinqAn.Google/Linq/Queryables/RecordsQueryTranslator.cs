@@ -253,11 +253,11 @@ namespace LinqAn.Google.Linq.Queryables
             {
                 case ExpressionType.Equal:
                     return (value?.GetType() ?? typeof (object)) == typeof (Regex)
-                        ? Operator.EqualsRegex
+                        ? Operator.MatchesRegex
                         : Operator.Equals;
                 case ExpressionType.NotEqual:
                     return (value?.GetType() ?? typeof(object)) == typeof(Regex)
-                        ? Operator.DoesNotEqualRegex
+                        ? Operator.DoesNotMatchRegex
                         : Operator.DoesNotEqual;
                 case ExpressionType.LessThan:
                     return Operator.LessThan;

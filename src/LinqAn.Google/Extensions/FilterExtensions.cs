@@ -38,9 +38,9 @@ namespace LinqAn.Google.Extensions
                     return "=@";
                 case Operator.DoesNotContain:
                     return "!@";
-                case Operator.EqualsRegex:
+                case Operator.MatchesRegex:
                     return "=~";
-                case Operator.DoesNotEqualRegex:
+                case Operator.DoesNotMatchRegex:
                     return "!~";
                 case Operator.LessThan:
                     return "<";

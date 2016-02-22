@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Text;
 using LinqAn.Google.Dimensions;
 using LinqAn.Google.Filters;
@@ -52,28 +53,6 @@ namespace LinqAn.Google.Extensions
                 default:
                     throw new ArgumentOutOfRangeException(nameof(op), op, null);
             }
-        }
-
-        public static string ToStringRepresentation(this IFilter filter)
-        {
-            var dimension = filter.DimensionOrMetric as IDimension;
-            if (dimension == null)
-            {
-            }
-            return dimension.Id + filter.Operator.ToStringRepresentation() + filter.Expression;
-        }
-
-        public static string ToStringRepresentation(this IFilterGroup filterGroup)
-        {
-            return filterGroup.Operator.ToStringRepresentation() + filterGroup.Filter.ToStringRepresentation();
-        }
-
-        public static string ToStringRepresentation(this IFilters filters)
-        {
-            var returnable = new StringBuilder();
-            foreach (var filterGroup in filters.FilterGroups)
-                returnable.Append(filterGroup.ToStringRepresentation());
-            return returnable.ToString();
         }
     }
 }

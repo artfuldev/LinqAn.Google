@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace LinqAn.Google.Filters
 {
@@ -13,5 +14,10 @@ namespace LinqAn.Google.Filters
         }
 
         public IEnumerable<IFilterGroup> FilterGroups => FilterGroupsList;
+
+        public override string ToString()
+        {
+            return FilterGroups.Aggregate("", (current, filterGroup) => current + filterGroup);
+        }
     }
 }

@@ -13,8 +13,5 @@ namespace LinqAn.Google.Linq.Clients
         GaData GetAllGaData(IRecordQuery query);
         GaData GetGaData(IRecordQuery query, out int? totalRecords, uint startIndex = 1,
             uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery);
-        IEnumerable<IQueryableRecord> GetAllRecords(IRecordQuery query);
-        IEnumerable<IQueryableRecord> GetRecords(IRecordQuery query, out int? totalRecords, uint startIndex = 1,
-            uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery);
     }
 }

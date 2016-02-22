@@ -12,7 +12,6 @@ using LinqAn.Google.Filters;
 using LinqAn.Google.Metrics;
 using LinqAn.Google.Profiles;
 using LinqAn.Google.Queries;
-using LinqAn.Google.Records;
 using LinqAn.Google.Sorting;
 
 namespace LinqAn.Google.Linq.Clients
@@ -43,26 +42,6 @@ namespace LinqAn.Google.Linq.Clients
                 });
         }
 
-        private IEnumerable<IRecord> GetAllRecords(uint viewId, DateTime startDate, DateTime endDate,
-            IEnumerable<IMetric> metrics, IEnumerable<IDimension> dimensions, IFilters filters,
-            IEnumerable<ISortRule> sortRules)
-        {
-            var records = new List<IRecord>();
-            int? totalRecords;
-            var metricsList = metrics as IList<IMetric> ?? metrics.ToList();
-            var dimensionsList = dimensions as IList<IDimension> ?? dimensions.ToList();
-            records.AddRange(GetRecords(viewId, startDate, endDate, metricsList, out totalRecords, dimensionsList,
-                filters, sortRules));
-            if (totalRecords == null || totalRecords < 10000)
-                return records;
-            while (totalRecords > records.Count)
-            {
-                records.AddRange(GetRecords(viewId, startDate, endDate, metricsList, out totalRecords, dimensionsList,
-                    filters, sortRules, Convert.ToUInt32(records.Count + 1)));
-            }
-            return records;
-        }
-
         private GaData GetAllGaData(uint viewId, DateTime startDate, DateTime endDate,
             IEnumerable<IMetric> metrics, IEnumerable<IDimension> dimensions, IFilters filters,
             IEnumerable<ISortRule> sortRules)
@@ -82,19 +61,6 @@ namespace LinqAn.Google.Linq.Clients
                 data.Rows = newRows;
             }
             return data;
-        }
-
-        private IEnumerable<IRecord> GetRecords(uint viewId, DateTime startDate, DateTime endDate,
-            IEnumerable<IMetric> metrics, out int? totalRecords, IEnumerable<IDimension> dimensions = null, IFilters filters = null,
-            IEnumerable<ISortRule> sortRules = null, uint startIndex = 1, uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
-        {
-            dimensions = dimensions ?? Enumerable.Empty<IDimension>();
-            var metricsList = metrics as IList<IMetric> ?? metrics.ToList();
-            var dimensionsList = dimensions as IList<IDimension> ?? dimensions.ToList();
-            var queryResult = GetGaData(viewId, startDate, endDate, metricsList, out totalRecords, dimensionsList, filters, sortRules, startIndex, maxRecordsCount);
-            totalRecords = queryResult.Rows == null || queryResult.Rows.Count == 0 ? 0 : queryResult.TotalResults;
-            return queryResult.Rows?.Select(row => row.ToRecord(metricsList, viewId, dimensionsList)) ??
-                   Enumerable.Empty<IRecord>();
         }
 
         private GaData GetGaData(uint viewId, DateTime startDate, DateTime endDate, IEnumerable<IMetric> metrics, out int? totalRecords, IEnumerable<IDimension> dimensions = null,
@@ -138,22 +104,6 @@ namespace LinqAn.Google.Linq.Clients
         {
             return GetGaData(query.ViewId, query.StartDate, query.EndDate, query.Metrics, out totalRecords,
                 query.Dimensions, query.Filters, query.SortRules, startIndex, maxRecordsCount);
-        }
-
-        public IEnumerable<IQueryableRecord> GetAllRecords(IRecordQuery query)
-        {
-            return
-                GetAllRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, query.Dimensions,
-                    query.Filters, query.SortRules)
-                    .Select(x => x.ToQueryableRecord(query.ViewId));
-        }
-
-        public IEnumerable<IQueryableRecord> GetRecords(IRecordQuery query, out int? totalRecords, uint startIndex = 1,
-            uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
-        {
-            return GetRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, out totalRecords,
-                query.Dimensions, query.Filters, query.SortRules, startIndex, maxRecordsCount)
-                .Select(x => x.ToQueryableRecord(query.ViewId));
         }
 
         public void Dispose()

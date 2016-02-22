@@ -32,7 +32,7 @@ namespace LinqAn.Google.Linq.Queryables
             set { _includes = value; }
         }
 
-        public void Include<TProperty>(Expression<Func<IQueryableRecord, TProperty>> includeExpression)
+        public void Include<TProperty>(Expression<Func<IRecord, TProperty>> includeExpression)
         {
             if (includeExpression == null)
                 throw new ArgumentNullException(nameof(includeExpression));

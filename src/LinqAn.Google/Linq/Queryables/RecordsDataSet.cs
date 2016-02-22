@@ -9,7 +9,7 @@ using LinqAn.Google.Records;
 
 namespace LinqAn.Google.Linq.Queryables
 {
-    public class RecordsDataSet : Query<IQueryableRecord>
+    public class RecordsDataSet : Query<IRecord>
     {
         public RecordsDataSet(IAnalyticsProfile profile)
             : base(new RecordsQueryProvider(profile))

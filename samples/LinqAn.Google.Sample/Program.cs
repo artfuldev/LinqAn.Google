@@ -29,7 +29,7 @@ namespace LinqAn.Google.Sample
                 .Include(x => x.Source)
                 .Include(x => x.Medium)
                 // Include Metrics
-                .Include(x => x.Hits)
+                .Include(x => x.Pageviews)
                 .Include(x => x.Sessions)
                 .Include(x => x.SessionDuration)
                 // Skip 1 record

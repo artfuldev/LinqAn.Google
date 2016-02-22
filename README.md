@@ -19,7 +19,7 @@ var records = client.Records
                 .Include(x => x.Source)
                 .Include(x => x.Medium)
                 // Metrics
-                .Include(x => x.Hits)
+                .Include(x => x.Pageviews)
                 .Include(x => x.Sessions)
                 .Include(x => x.SessionDuration)
                 // Filters

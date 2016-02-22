@@ -42,6 +42,11 @@ namespace LinqAn.Google.Dimensions
             return !(dimension == value);
         }
 
+        public bool Contains(string subString)
+        {
+            return Value?.Contains(subString) ?? false;
+        }
+
         public override string ToString() => $"{Name} : {Value}";
     }
 }

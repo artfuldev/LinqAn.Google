@@ -52,7 +52,6 @@ namespace LinqAn.Google.Linq.Queryables
                     {
                         var startIndex = (int) skip.Value + 1;
                         _query.StartIndex = Convert.ToUInt32(startIndex);
-                        _query.QueryAll = false;
                     }
                     break;
                 case "Take":

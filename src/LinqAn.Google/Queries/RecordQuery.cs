@@ -8,7 +8,7 @@ using LinqAn.Google.Sorting;
 
 namespace LinqAn.Google.Queries
 {
-    public class RecordQuery : IRecordQuery
+    internal class RecordQuery : IRecordQuery
     {
         public const uint MaxRecordsPerQuery = 10000U;
 

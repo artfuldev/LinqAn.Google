@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using LinqAn.Google.Dimensions;
 using LinqAn.Google.Filters;
 using LinqAn.Google.Metrics;
@@ -43,7 +44,7 @@ namespace LinqAn.Google.Linq.RecordQueries
         public IEnumerable<IDimension> Dimensions => DimensionsList;
         public Filters.Filters FiltersList { get; set; } = new Filters.Filters();
         public IFilters Filters => FiltersList;
-        public IEnumerable<ISortRule> SortRules => SortRulesList;
+        public IEnumerable<ISortRule> SortRules => SortRulesList.AsReadOnly().Reverse();
 
         public List<ISortRule> SortRulesList
         {

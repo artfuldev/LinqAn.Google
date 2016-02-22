@@ -2,7 +2,7 @@
 
 namespace LinqAn.Google.Filters
 {
-    public interface IFilter
+    internal interface IFilter
     {
         string DimensionOrMetric { get; }
         Operator Operator { get; }

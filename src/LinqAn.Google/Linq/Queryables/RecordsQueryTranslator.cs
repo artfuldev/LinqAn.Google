@@ -64,7 +64,16 @@ namespace LinqAn.Google.Linq.Queryables
                         ? ListSortDirection.Descending
                         : ListSortDirection.Ascending;
                     // TODO: replace column name
-                    _query.SortRulesList.Add(new SortRule() {ColumnName = "", SortDirection = direction});
+                    var unaryExpression = m.Arguments[1] as UnaryExpression;
+                    var operand = unaryExpression?.Operand;
+                    var memberEx = operand?.GetType()?.GetRuntimeProperty("Body")?.GetValue(operand) as MemberExpression;
+                    var info = memberEx?.Member as PropertyInfo;
+                    var propertyType = info?.PropertyType;
+                    if (propertyType == null
+                        || (!typeof (IDimension).IsAssignableFrom(propertyType)
+                            && !typeof (IMetric).IsAssignableFrom(propertyType)))
+                        throw new NotSupportedException($"The method '{m.Method.Name}' is not supported");
+                    _query.SortRulesList.Add(new SortRule(propertyType, direction));
                     break;
                 case "Skip":
                     Visit(m.Arguments[0]);

@@ -2,7 +2,7 @@
 
 namespace LinqAn.Google.Sorting
 {
-    public interface ISortRule
+    internal interface ISortRule
     {
         string ColumnName { get; }
         ListSortDirection SortDirection { get; }

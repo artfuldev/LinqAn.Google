@@ -7,7 +7,7 @@ using LinqAn.Google.Sorting;
 
 namespace LinqAn.Google.Queries
 {
-    public interface IRecordQuery
+    internal interface IRecordQuery
     {
         uint ViewId { get; }
         DateTime StartDate { get; }

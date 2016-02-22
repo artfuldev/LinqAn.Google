@@ -127,28 +127,29 @@ namespace LinqAn.Google.Linq.Queryables
             }
 
             var member = memberExpression.Member;
+            var value = constantExpression.Value;
             switch (member.Name)
             {
                 case "ViewId":
                     if (nodeType != ExpressionType.Equal)
                         throw new InvalidOperationException("ViewId can only be queried for Equal condition.");
-                    _query.ViewId = (uint) constantExpression.Value;
+                    _query.ViewId = (uint) value;
                     return;
                 case "RecordDate":
                     switch (nodeType)
                     {
                         case ExpressionType.Equal:
                         case ExpressionType.GreaterThanOrEqual:
-                            _query.StartDate = (DateTime) constantExpression.Value;
+                            _query.StartDate = (DateTime) value;
                             return;
                         case ExpressionType.GreaterThan:
-                            _query.StartDate = ((DateTime)constantExpression.Value).AddDays(1);
+                            _query.StartDate = ((DateTime)value).AddDays(1);
                             return;
                         case ExpressionType.LessThan:
-                            _query.OptionalEndDate = ((DateTime)constantExpression.Value).AddDays(-1);
+                            _query.OptionalEndDate = ((DateTime)value).AddDays(-1);
                             return;
                         case ExpressionType.LessThanOrEqual:
-                            _query.OptionalEndDate = (DateTime) constantExpression.Value;
+                            _query.OptionalEndDate = (DateTime) value;
                             return;
                         default:
                             throw new ArgumentOutOfRangeException(nameof(nodeType),
@@ -172,7 +173,7 @@ namespace LinqAn.Google.Linq.Queryables
                             case ExpressionType.Equal:
                             case ExpressionType.NotEqual:
                                 _query.FiltersList.Add(
-                                    new Filter(propertyType, GetOperator(nodeType), constantExpression.Value.ToString()),
+                                    new Filter(propertyType, GetOperator(nodeType, value), value.ToString()),
                                     _combineOperator);
                                 return;
                             default:
@@ -193,7 +194,7 @@ namespace LinqAn.Google.Linq.Queryables
                             case ExpressionType.GreaterThan:
                             case ExpressionType.GreaterThanOrEqual:
                                 _query.FiltersList.Add(
-                                    new Filter(propertyType, GetOperator(nodeType), GetFilterValue(constantExpression.Value)),
+                                    new Filter(propertyType, GetOperator(nodeType, value), GetFilterValue(value)),
                                     _combineOperator);
                                 return;
                             default:

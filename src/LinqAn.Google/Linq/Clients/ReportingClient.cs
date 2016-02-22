@@ -89,15 +89,17 @@ namespace LinqAn.Google.Linq.Clients
         public IEnumerable<IQueryableRecord> GetAllRecords(IRecordQuery query)
         {
             return
-                GetAllRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, query.Dimensions, query.Filters)
-                    .Select(x => x.ToQueryableRecord());
+                GetAllRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, query.Dimensions,
+                    query.Filters)
+                    .Select(x => x.ToQueryableRecord(query.ViewId));
         }
 
         public IEnumerable<IQueryableRecord> GetRecords(IRecordQuery query, out int? totalRecords, uint startIndex = 1,
             uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
         {
             return GetRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, out totalRecords,
-                query.Dimensions, query.Filters, startIndex, maxRecordsCount).Select(x => x.ToQueryableRecord());
+                query.Dimensions, query.Filters, startIndex, maxRecordsCount)
+                .Select(x => x.ToQueryableRecord(query.ViewId));
         }
 
         public void Dispose()

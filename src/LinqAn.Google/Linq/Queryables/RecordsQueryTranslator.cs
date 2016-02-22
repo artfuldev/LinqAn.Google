@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
@@ -8,6 +9,7 @@ using LinqAn.Google.Dimensions;
 using LinqAn.Google.Filters;
 using LinqAn.Google.Linq.RecordQueries;
 using LinqAn.Google.Metrics;
+using LinqAn.Google.Sorting;
 using ExpressionVisitor = LinqAn.Google.Linq.Core.ExpressionVisitor;
 
 namespace LinqAn.Google.Linq.Queryables
@@ -56,6 +58,13 @@ namespace LinqAn.Google.Linq.Queryables
                     break;
                 case "OrderBy":
                 case "OrderByDescending":
+                case "ThenBy":
+                case "ThenByDescending":
+                    var direction = m.Method.Name.Contains("Descending")
+                        ? ListSortDirection.Descending
+                        : ListSortDirection.Ascending;
+                    // TODO: replace column name
+                    _query.SortRulesList.Add(new SortRule() {ColumnName = "", SortDirection = direction});
                     break;
                 case "Skip":
                     Visit(m.Arguments[0]);

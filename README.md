@@ -9,8 +9,9 @@ Core Reporting API v3. Currently this supports .NET 4.5 & 4.6 frameworks, in add
 The aim of the project is to let you query Google Analytics this way:
 
 ```
-var profile = new AnalyticsProfile(serviceAccountEmail, keyFilePath, applicationName);
-var googleAnalytics = new GoogleAnalyticsContext(profile);
+var profile = new LinqAn.Google.Profiles.AnalyticsProfile(serviceAccountEmail,
+                    keyFilePath, applicationName);
+var googleAnalytics = new LinqAn.Google.AnalyticsContext(profile);
 var query = googleAnalytics.Records
                 // View Id
                 .Where(x => x.ViewId == viewId)

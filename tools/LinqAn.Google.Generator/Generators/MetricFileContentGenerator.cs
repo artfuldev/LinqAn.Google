@@ -12,11 +12,12 @@ namespace LinqAn.Google.Generator.Generators
         {
             var valueTypeName = column.Attributes.DestinationTypeName;
             var fileContent = new StringBuilder();
+            fileContent.AppendLine("using System.ComponentModel;");
             if (IsUsingSystemRequired(valueTypeName))
             {
                 fileContent.AppendLine("using System;");
-                fileContent.AppendLine();
             }
+            fileContent.AppendLine();
             fileContent.AppendLine("namespace LinqAn.Google.Metrics");
             fileContent.AppendLine("{");
             var className = column.ToClassName();
@@ -28,12 +29,13 @@ namespace LinqAn.Google.Generator.Generators
             fileContent.AppendLine("\t/// <summary>");
             fileContent.AppendLine($"\t/// \t{description}");
             fileContent.AppendLine("\t/// </summary>");
+            fileContent.AppendLine($"\t[Description(\"{escapedDescription}\")]");
             fileContent.AppendLine($"\tpublic class {className}: Metric<{valueTypeName}>");
             fileContent.AppendLine("\t{");
             fileContent.AppendLine("\t\t/// <summary>");
             fileContent.AppendLine($"\t\t/// \tInstantiates a <seealso cref=\"{className}\" />.");
             fileContent.AppendLine("\t\t/// </summary>");
-            fileContent.AppendLine($"\t\tpublic {className}(): base(\"{name}\",\"{escapedDescription}\",{isAllowedInSegments},\"{id}\")");
+            fileContent.AppendLine($"\t\tpublic {className}(): base(\"{name}\",{isAllowedInSegments},\"{id}\")");
             fileContent.AppendLine("\t\t{");
             fileContent.AppendLine("\t\t\t");
             fileContent.AppendLine("\t\t}");

@@ -29,5 +29,5 @@
     "dnxcore50": { }
   },
 
-  "releaseNotes": "Dimensions have only string values."
+  "releaseNotes": "Added missing using statement."
 }

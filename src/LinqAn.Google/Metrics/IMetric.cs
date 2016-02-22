@@ -17,7 +17,7 @@ namespace LinqAn.Google.Metrics
     /// <summary>
     ///     Represents a metric in Google Analytics which measures measurements.
     /// </summary>
-    public interface IMetric : IDescribable, ISupportSegmentation, IIndexable
+    public interface IMetric : IIdentifiable, ISupportSegmentation, IIndexable
     {
     }
 }

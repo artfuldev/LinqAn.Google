@@ -5,7 +5,7 @@ namespace LinqAn.Google.Dimensions
     /// <summary>
     ///     Represents a dimension in Google Analytics which is used to tag measurements.
     /// </summary>
-    public interface IDimension : IDescribable, ISupportSegmentation, IIndexable
+    public interface IDimension : IIdentifiable, ISupportSegmentation, IIndexable
     {
         /// <summary>
         ///     The value of this <seealso cref="IDimension" />.

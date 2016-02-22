@@ -3,11 +3,11 @@ using LinqAn.Google.Profiles;
 
 namespace LinqAn.Google
 {
-    public sealed class GoogleAnalyticsContext : IAnalyticsContext
+    public sealed class AnalyticsContext : IAnalyticsContext
     {
         private readonly IAnalyticsProfile _profile;
 
-        public GoogleAnalyticsContext(IAnalyticsProfile profile)
+        public AnalyticsContext(IAnalyticsProfile profile)
         {
             _profile = profile;
         }

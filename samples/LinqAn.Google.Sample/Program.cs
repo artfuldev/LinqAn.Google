@@ -6,7 +6,6 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
-using LinqAn.Google.Metrics;
 
 namespace LinqAn.Google.Sample
 {
@@ -22,7 +21,7 @@ namespace LinqAn.Google.Sample
             var keyFilePath = Directory.GetCurrentDirectory() + "\\" + config["profile:key_file_name"];
 
             var profile = new AnalyticsProfile(serviceAccountEmail, keyFilePath, applicationName);
-            var googleAnalytics = new GoogleAnalyticsContext(profile);
+            var googleAnalytics = new AnalyticsContext(profile);
             var query = googleAnalytics.Records
                 // View Id
                 .Where(x => x.ViewId == viewId)

@@ -11,6 +11,7 @@ namespace LinqAn.Google.Generator.Generators
         protected override string GenerateFileContent(Column column)
         {
             var fileContent = new StringBuilder();
+            fileContent.AppendLine("using System.ComponentModel;\n");
             fileContent.AppendLine("namespace LinqAn.Google.Dimensions");
             fileContent.AppendLine("{");
             var className = column.ToClassName();
@@ -22,12 +23,13 @@ namespace LinqAn.Google.Generator.Generators
             fileContent.AppendLine("\t/// <summary>");
             fileContent.AppendLine($"\t/// \t{description}");
             fileContent.AppendLine("\t/// </summary>");
+            fileContent.AppendLine($"\t[Description(\"{escapedDescription}\")]");
             fileContent.AppendLine($"\tpublic class {className}: Dimension");
             fileContent.AppendLine("\t{");
             fileContent.AppendLine("\t\t/// <summary>");
             fileContent.AppendLine($"\t\t/// \tInstantiates a <seealso cref=\"{className}\" />.");
             fileContent.AppendLine("\t\t/// </summary>");
-            fileContent.AppendLine($"\t\tpublic {className}(): base(\"{name}\",\"{escapedDescription}\",{isAllowedInSegments},\"{id}\")");
+            fileContent.AppendLine($"\t\tpublic {className}(): base(\"{name}\",{isAllowedInSegments},\"{id}\")");
             fileContent.AppendLine("\t\t{");
             fileContent.AppendLine("\t\t\t");
             fileContent.AppendLine("\t\t}");

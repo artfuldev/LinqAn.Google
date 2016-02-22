@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using LinqAn.Google.Dimensions;
+using LinqAn.Google.Filters;
 using LinqAn.Google.Metrics;
 using LinqAn.Google.Queries;
 
@@ -38,5 +39,7 @@ namespace LinqAn.Google.Linq.RecordQueries
         public IEnumerable<IMetric> Metrics => MetricsList;
 
         public IEnumerable<IDimension> Dimensions => DimensionsList;
+        public Filters.Filters FiltersList { get; set; } = new Filters.Filters();
+        public IFilters Filters => FiltersList;
     }
 }

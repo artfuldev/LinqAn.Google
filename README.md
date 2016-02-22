@@ -9,8 +9,9 @@ Core Reporting API v3. Currently this supports .NET 4.5 & 4.6 frameworks, in add
 The aim of the project is to let you query Google Analytics this way:
 
 ```
-var client = new LinqAn.Google.Client(profile);
-var records = client.Records
+var profile = new AnalyticsProfile(serviceAccountEmail, keyFilePath, applicationName);
+var googleAnalytics = new GoogleAnalyticsContext(profile);
+var records = googleAnalytics.Records
                 // Sample View Id
                 .Where(x => x.ViewId == 1351215)
                 // Dates
@@ -19,7 +20,7 @@ var records = client.Records
                 .Include(x => x.Source)
                 .Include(x => x.Medium)
                 // Metrics
-                .Include(x => x.Hits)
+                .Include(x => x.Pageviews)
                 .Include(x => x.Sessions)
                 .Include(x => x.SessionDuration)
                 // Filters

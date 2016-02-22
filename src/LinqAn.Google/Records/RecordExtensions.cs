@@ -50,7 +50,7 @@ namespace LinqAn.Google.Records
                 recordMetrics.Add(newMetric);
             }
 
-            return new Record(recordMetrics.AsReadOnly(), recordDimensions.AsReadOnly(), viewId);
+            return new Record(recordMetrics.AsReadOnly(), recordDimensions.AsReadOnly());
         }
     }
 }

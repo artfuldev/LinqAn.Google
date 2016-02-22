@@ -7,6 +7,7 @@ using LinqAn.Google.Linq.Clients;
 using LinqAn.Google.Linq.Core;
 using LinqAn.Google.Linq.RecordQueries;
 using LinqAn.Google.Metrics;
+using LinqAn.Google.Profiles;
 using LinqAn.Google.Queries;
 using LinqAn.Google.Records;
 
@@ -17,12 +18,12 @@ namespace LinqAn.Google.Linq.Queryables
     /// </summary>
     internal class RecordsQueryProvider : QueryProvider
     {
-        private readonly IReportingClient _client;
+        private readonly IAnalyticsProfile _profile;
         private List<object> _includes;
 
-        public RecordsQueryProvider(IReportingClient client)
+        public RecordsQueryProvider(IAnalyticsProfile profile)
         {
-            _client = client;
+            _profile = profile;
         }
 
         public List<object> Includes
@@ -52,11 +53,14 @@ namespace LinqAn.Google.Linq.Queryables
             var query = Translate(expression);
             query.DimensionsList = Includes.OfType<IDimension>().ToList();
             query.MetricsList = Includes.OfType<IMetric>().ToList();
-            int? totalRecords;
-            return query.QueryAll
-                ? _client.GetAllQueryableRecords(query)
-                : _client.GetQueryableRecords(query, out totalRecords, query.StartIndex ?? 1,
-                    query.RecordsCount ?? RecordQuery.MaxRecordsPerQuery);
+            using (var client = new ReportingClient(_profile))
+            {
+                int? totalRecords;
+                return query.QueryAll
+                    ? client.GetAllRecords(query)
+                    : client.GetRecords(query, out totalRecords, query.StartIndex ?? 1,
+                        query.RecordsCount ?? RecordQuery.MaxRecordsPerQuery);
+            }
         }
     }
 }

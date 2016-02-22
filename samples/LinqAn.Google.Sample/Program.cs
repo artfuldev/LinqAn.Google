@@ -1,11 +1,10 @@
-﻿using System;
-using System.IO;
-using LinqAn.Google.Linq.Clients;
+﻿using LinqAn.Google.Extensions;
+using LinqAn.Google.Linq.Queryables;
 using LinqAn.Google.Profiles;
 using Microsoft.Extensions.Configuration;
+using System;
+using System.IO;
 using System.Linq;
-using LinqAn.Google.Extensions;
-using LinqAn.Google.Linq.Queryables;
 
 namespace LinqAn.Google.Sample
 {
@@ -20,9 +19,8 @@ namespace LinqAn.Google.Sample
             var applicationName = config["profile:application_name"];
             var keyFilePath = Directory.GetCurrentDirectory() + "\\" + config["profile:key_file_name"];
             var profile = new AnalyticsProfile(serviceEmail, keyFilePath, applicationName);
-            var reportingClient = new ReportingClient(profile);
-            var recordsDataSet = new RecordsDataSet(reportingClient);
-            var query = recordsDataSet
+            var googleAnalytics = new GoogleAnalyticsContext(profile);
+            var query = googleAnalytics.Records
                 // View Id
                 .Where(x => x.ViewId == viewId)
                 // Start Date, End Date
@@ -31,11 +29,16 @@ namespace LinqAn.Google.Sample
                 .Include(x => x.Source)
                 .Include(x => x.Medium)
                 // Include Metrics
-                .Include(x => x.Hits)
+                .Include(x => x.Pageviews)
                 .Include(x => x.Sessions)
                 .Include(x => x.SessionDuration)
-                // Take only 20 records
-                .Take(20);
+                // Filters
+                .Where(x => x.Country == "India")
+                .Where(x => x.SessionDuration > TimeSpan.FromMinutes(1))
+                // Skip 1 record
+                .Skip(1)
+                // Take only 5 records
+                .Take(5);
 
             var records = query.ToList().Select(x => x.ToRecord());
             foreach (var record in records)

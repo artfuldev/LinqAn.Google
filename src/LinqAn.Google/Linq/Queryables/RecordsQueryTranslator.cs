@@ -1,7 +1,13 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
+using System.Text.RegularExpressions;
+using LinqAn.Google.Dimensions;
+using LinqAn.Google.Filters;
 using LinqAn.Google.Linq.RecordQueries;
+using LinqAn.Google.Metrics;
 using ExpressionVisitor = LinqAn.Google.Linq.Core.ExpressionVisitor;
 
 namespace LinqAn.Google.Linq.Queryables
@@ -52,7 +58,6 @@ namespace LinqAn.Google.Linq.Queryables
                     {
                         var startIndex = (int) skip.Value + 1;
                         _query.StartIndex = Convert.ToUInt32(startIndex);
-                        _query.QueryAll = false;
                     }
                     break;
                 case "Take":
@@ -86,7 +91,6 @@ namespace LinqAn.Google.Linq.Queryables
                     Visit(b.Left);
                     break;
                 case ExpressionType.NotEqual:
-                    throw new NotSupportedException($"The binary operator '{b.NodeType}' is not supported");
                 case ExpressionType.Equal:
                 case ExpressionType.LessThan:
                 case ExpressionType.LessThanOrEqual:
@@ -113,8 +117,9 @@ namespace LinqAn.Google.Linq.Queryables
                 UpdateQuery(right, left, Reverse(nodeType));
                 return;
             }
-            
-            switch (memberExpression.Member.Name)
+
+            var member = memberExpression.Member;
+            switch (member.Name)
             {
                 case "ViewId":
                     if (nodeType != ExpressionType.Equal)
@@ -125,22 +130,95 @@ namespace LinqAn.Google.Linq.Queryables
                     switch (nodeType)
                     {
                         case ExpressionType.Equal:
-                        case ExpressionType.GreaterThan:
                         case ExpressionType.GreaterThanOrEqual:
                             _query.StartDate = (DateTime) constantExpression.Value;
-                            break;
+                            return;
+                        case ExpressionType.GreaterThan:
+                            _query.StartDate = ((DateTime)constantExpression.Value).AddDays(1);
+                            return;
                         case ExpressionType.LessThan:
+                            _query.OptionalEndDate = ((DateTime)constantExpression.Value).AddDays(-1);
+                            return;
                         case ExpressionType.LessThanOrEqual:
                             _query.OptionalEndDate = (DateTime) constantExpression.Value;
-                            break;
+                            return;
                         default:
                             throw new ArgumentOutOfRangeException(nameof(nodeType),
                                 "Expression type has to be ==,>,<,>=, or <= for record date.");
                     }
-                    return;
+                default:
+                    // All other cases, where member name is a dimension or a metric
+                    var propertyType = ((PropertyInfo)member).PropertyType;
+                    if (typeof (IDimension).IsAssignableFrom(propertyType))
+                    {
+                        switch (nodeType)
+                        {
+                            case ExpressionType.Equal:
+                            case ExpressionType.NotEqual:
+                                _query.FiltersList.Add(
+                                    new Filter(propertyType, GetOperator(nodeType), constantExpression.Value.ToString()),
+                                    CombineOperator.And);
+                                return;
+                            default:
+                                throw new ArgumentOutOfRangeException(nameof(nodeType),
+                                $"Expression type has to be == or != for {member.Name}.");
+                        }
+                    }
+                    else if (typeof (IMetric).IsAssignableFrom(propertyType))
+                    {
+                        switch (nodeType)
+                        {
+                            case ExpressionType.Equal:
+                            case ExpressionType.NotEqual:
+                            case ExpressionType.LessThan:
+                            case ExpressionType.LessThanOrEqual:
+                            case ExpressionType.GreaterThan:
+                            case ExpressionType.GreaterThanOrEqual:
+                                _query.FiltersList.Add(
+                                    new Filter(propertyType, GetOperator(nodeType), GetFilterValue(constantExpression.Value)),
+                                    CombineOperator.And);
+                                return;
+                            default:
+                                throw new ArgumentOutOfRangeException(nameof(nodeType),
+                                    $"Expression type has to be == or != for {member.Name}.");
+                        }
+                    }
+                    throw new NotSupportedException("Only dimensions and metrics are allowed in filters.");
             }
+        }
 
-            // Start Date, End Date
+        private static string GetFilterValue(object value)
+        {
+            var type = value.GetType();
+            if (type == typeof (TimeSpan))
+                return ((TimeSpan) value).TotalSeconds.ToString(CultureInfo.InvariantCulture);
+            return value.ToString();
+        }
+
+        private static Operator GetOperator(ExpressionType type, object value = null)
+        {
+            switch (type)
+            {
+                case ExpressionType.Equal:
+                    return (value?.GetType() ?? typeof (object)) == typeof (Regex)
+                        ? Operator.EqualsRegex
+                        : Operator.Equals;
+                case ExpressionType.NotEqual:
+                    return (value?.GetType() ?? typeof(object)) == typeof(Regex)
+                        ? Operator.DoesNotEqualRegex
+                        : Operator.DoesNotEqual;
+                case ExpressionType.LessThan:
+                    return Operator.LessThan;
+                case ExpressionType.LessThanOrEqual:
+                    return Operator.LessThanOrEqualTo;
+                case ExpressionType.GreaterThan:
+                    return Operator.GreaterThan;
+                case ExpressionType.GreaterThanOrEqual:
+                    return Operator.GreaterThanOrEqualTo;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type),
+                        $"Expression type cannot be converted into operator for Google Analytics.");
+            }
         }
 
         private static ExpressionType Reverse(ExpressionType eType)

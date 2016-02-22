@@ -8,9 +8,9 @@ namespace LinqAn.Google.Extensions
 {
     public static class RecordExtensions
     {
-        public static IQueryableRecord ToQueryableRecord(this IRecord source)
+        public static IQueryableRecord ToQueryableRecord(this IRecord source, uint viewId)
         {
-            var record = new QueryableRecord() {ViewId = source.ViewId};
+            var record = new QueryableRecord() {ViewId = viewId};
             foreach (var dimension in source.Dimensions)
             {
                 record.GetType().GetProperty(dimension.GetType().Name).SetValue(record, dimension);
@@ -32,7 +32,7 @@ namespace LinqAn.Google.Extensions
                 .GetProperties()
                 .Where(property => typeof (IDimension).IsAssignableFrom(property.PropertyType))
                 .Select(property => (IDimension) property.GetValue(source)).Where(x => x != null).ToList();
-            return new Record(metrics, dimensions, source.ViewId);
+            return new Record(metrics, dimensions);
         }
     }
 }

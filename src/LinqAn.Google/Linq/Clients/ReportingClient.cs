@@ -83,6 +83,9 @@ namespace LinqAn.Google.Linq.Clients
             var filterString = filters?.ToString();
             if (!string.IsNullOrWhiteSpace(filterString))
                 query.Filters = filterString;
+            var sortString = sortRules.Aggregate("", (current, sortRule) => current + "," + sortRule);
+            if (!string.IsNullOrWhiteSpace(sortString))
+                query.Sort = sortString;
             query.SamplingLevel = DataResource.GaResource.GetRequest.SamplingLevelEnum.HIGHERPRECISION;
             var queryResult = query.Execute();
             totalRecords = queryResult.Rows == null || queryResult.Rows.Count == 0 ? 0 : queryResult.TotalResults;

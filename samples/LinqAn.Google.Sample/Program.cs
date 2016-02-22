@@ -20,6 +20,7 @@ namespace LinqAn.Google.Sample
             var serviceAccountEmail = config["profile:service_account_email"];
             var applicationName = config["profile:application_name"];
             var keyFilePath = Directory.GetCurrentDirectory() + "\\" + config["profile:key_file_name"];
+
             var profile = new AnalyticsProfile(serviceAccountEmail, keyFilePath, applicationName);
             var googleAnalytics = new GoogleAnalyticsContext(profile);
             var query = googleAnalytics.Records
@@ -46,11 +47,8 @@ namespace LinqAn.Google.Sample
                 // Take only 5 records
                 .Take(5);
 
-            var records = query.ToList().Select(x => x.ToRecord());
-            foreach (var record in records)
-            {
+            foreach (var record in query.ToList().Select(x => x.ToRecord()))
                 Console.WriteLine(record.ToStringRepresentation());
-            }
             Console.ReadLine();
         }
     }

@@ -1,9 +1,11 @@
-﻿namespace LinqAn.Google.Filters
+﻿using Org.BouncyCastle.Security.Certificates;
+
+namespace LinqAn.Google.Filters
 {
     public interface IFilter
     {
         object DimensionOrMetric { get; }
         Operator Operator { get; }
-        object Value { get; }
+        object Expression { get; }
     }
 }

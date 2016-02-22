@@ -12,7 +12,7 @@ namespace LinqAn.Google.Generator
     {
         private static readonly IFileContentGenerator MetricsGenerator = new MetricFileContentGenerator();
         private static readonly IFileContentGenerator DimensionsGenerator = new DimensionFileContentGenerator();
-        private static readonly IFileContentGenerator QueryableRecordsGenerator =new QueryableRecordFileContentGenerator();
+        private static readonly IFileContentGenerator RecordsGenerator =new RecordFileContentGenerator();
 
         static void Main(string[] args)
         {
@@ -50,7 +50,7 @@ namespace LinqAn.Google.Generator
 
             // Generate queryable record files
             var queryableRecordsPath = currentDirectory.Replace(@"\tools\LinqAn.Google.Generator", @"\src\LinqAn.Google\Records");
-            QueryableRecordsGenerator.GenerateFiles(queryableRecordsPath, metricsList.Concat(dimensionList));
+            RecordsGenerator.GenerateFiles(queryableRecordsPath, metricsList.Concat(dimensionList));
         }
     }
 }

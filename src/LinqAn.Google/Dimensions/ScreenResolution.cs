@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The screen resolution of users' screens. For example: 1024x738.
 	/// </summary>
-	public class ScreenResolution: Dimension<string>
+	public class ScreenResolution: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="ScreenResolution" />.

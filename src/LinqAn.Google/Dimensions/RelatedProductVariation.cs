@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Variation of the related product.
 	/// </summary>
-	public class RelatedProductVariation: Dimension<string>
+	public class RelatedProductVariation: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="RelatedProductVariation" />.

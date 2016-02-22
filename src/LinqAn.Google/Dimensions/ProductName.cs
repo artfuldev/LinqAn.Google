@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The product name for purchased items as supplied by your ecommerce tracking application.
 	/// </summary>
-	public class ProductName: Dimension<string>
+	public class ProductName: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="ProductName" />.

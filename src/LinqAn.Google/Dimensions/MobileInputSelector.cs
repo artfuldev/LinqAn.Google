@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Selector used on the mobile device (e.g.: touchscreen, joystick, clickwheel, stylus).
 	/// </summary>
-	public class MobileInputSelector: Dimension<string>
+	public class MobileInputSelector: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="MobileInputSelector" />.

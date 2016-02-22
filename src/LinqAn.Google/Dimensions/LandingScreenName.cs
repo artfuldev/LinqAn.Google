@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The name of the first screen viewed.
 	/// </summary>
-	public class LandingScreenName: Dimension<string>
+	public class LandingScreenName: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="LandingScreenName" />.

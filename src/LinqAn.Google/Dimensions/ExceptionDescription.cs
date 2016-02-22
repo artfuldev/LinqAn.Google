@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The description for the exception.
 	/// </summary>
-	public class ExceptionDescription: Dimension<string>
+	public class ExceptionDescription: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="ExceptionDescription" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	DCM Floodlight activity name associated with the floodlight conversion (premium only).
 	/// </summary>
-	public class DcmFloodlightActivity: Dimension<string>
+	public class DcmFloodlightActivity: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="DcmFloodlightActivity" />.

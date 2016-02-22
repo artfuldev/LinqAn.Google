@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The networks used to deliver your ads (Content, Search, Search partners, etc.).
 	/// </summary>
-	public class AdDistributionNetwork: Dimension<string>
+	public class AdDistributionNetwork: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="AdDistributionNetwork" />.

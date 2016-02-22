@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	This dimension rolls up all the page paths in the first hierarchical level in pagePath.
 	/// </summary>
-	public class PagePathLevel1: Dimension<string>
+	public class PagePathLevel1: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="PagePathLevel1" />.

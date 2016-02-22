@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The sub-continent of users, derived from IP addresses or Geographical IDs. For example, Polynesia or Northern Europe.
 	/// </summary>
-	public class SubContinent: Dimension<string>
+	public class SubContinent: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="SubContinent" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The search queries that triggered impressions of your AdWords ads.
 	/// </summary>
-	public class AdMatchedQuery: Dimension<string>
+	public class AdMatchedQuery: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="AdMatchedQuery" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	ID of the product being queried.
 	/// </summary>
-	public class QueryProductId: Dimension<string>
+	public class QueryProductId: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="QueryProductId" />.

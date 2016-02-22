@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The page path or screen name that matched any destination type goal, three steps prior to the goal completion location.
 	/// </summary>
-	public class GoalPreviousStep3: Dimension<string>
+	public class GoalPreviousStep3: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="GoalPreviousStep3" />.

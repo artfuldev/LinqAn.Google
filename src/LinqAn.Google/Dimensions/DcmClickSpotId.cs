@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	DCM Floodlight configuration ID of the DCM click matching the Google Analytics session (premium only).
 	/// </summary>
-	public class DcmClickSpotId: Dimension<string>
+	public class DcmClickSpotId: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="DcmClickSpotId" />.

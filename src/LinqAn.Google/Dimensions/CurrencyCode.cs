@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The local currency code of the transaction based on ISO 4217 standard.
 	/// </summary>
-	public class CurrencyCode: Dimension<string>
+	public class CurrencyCode: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="CurrencyCode" />.

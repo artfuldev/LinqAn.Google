@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The full referring URL including the hostname and path.
 	/// </summary>
-	public class FullReferrer: Dimension<string>
+	public class FullReferrer: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="FullReferrer" />.

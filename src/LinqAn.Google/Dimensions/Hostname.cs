@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The hostname from which the tracking request was made.
 	/// </summary>
-	public class Hostname: Dimension<string>
+	public class Hostname: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Hostname" />.

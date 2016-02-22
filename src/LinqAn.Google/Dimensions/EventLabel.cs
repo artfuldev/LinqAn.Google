@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The label of the event.
 	/// </summary>
-	public class EventLabel: Dimension<string>
+	public class EventLabel: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="EventLabel" />.

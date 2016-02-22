@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	A string. Corresponds to AdWords API AdGroup.id.
 	/// </summary>
-	public class AdwordsAdGroupId: Dimension<string>
+	public class AdwordsAdGroupId: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="AdwordsAdGroupId" />.

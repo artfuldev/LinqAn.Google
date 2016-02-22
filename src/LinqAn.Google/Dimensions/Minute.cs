@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Returns the minute in the hour. The possible values are between 00 and 59.
 	/// </summary>
-	public class Minute: Dimension<string>
+	public class Minute: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Minute" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	For a social data hub activity, this value represents the URL shared by the associated social network user.
 	/// </summary>
-	public class SocialActivityContentUrl: Dimension<string>
+	public class SocialActivityContentUrl: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="SocialActivityContentUrl" />.

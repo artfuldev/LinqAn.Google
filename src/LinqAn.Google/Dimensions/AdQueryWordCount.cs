@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The number of words in the search query.
 	/// </summary>
-	public class AdQueryWordCount: Dimension<string>
+	public class AdQueryWordCount: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="AdQueryWordCount" />.

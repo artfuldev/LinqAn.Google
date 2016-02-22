@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Indicates sessions that arrived to the property from a social source. The possible values are Yes or No where the first letter is capitalized.
 	/// </summary>
-	public class HasSocialSourceReferral: Dimension<string>
+	public class HasSocialSourceReferral: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="HasSocialSourceReferral" />.

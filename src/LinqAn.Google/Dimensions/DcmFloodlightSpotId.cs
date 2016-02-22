@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	DCM Floodlight configuration ID associated with the floodlight conversion (premium only).
 	/// </summary>
-	public class DcmFloodlightSpotId: Dimension<string>
+	public class DcmFloodlightSpotId: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="DcmFloodlightSpotId" />.

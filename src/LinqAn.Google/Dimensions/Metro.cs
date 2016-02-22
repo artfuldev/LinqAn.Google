@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The Designated Market Area (DMA) from where traffic arrived.
 	/// </summary>
-	public class Metro: Dimension<string>
+	public class Metro: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Metro" />.

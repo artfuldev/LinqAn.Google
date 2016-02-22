@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The day of the month. A two-digit number from 01 to 31.
 	/// </summary>
-	public class Day: Dimension<string>
+	public class Day: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Day" />.

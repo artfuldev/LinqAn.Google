@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The month of the session. A two digit integer from 01 to 12.
 	/// </summary>
-	public class Month: Dimension<string>
+	public class Month: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Month" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	A string corresponding to the AdWords API Criterion.id. The geographical targeting Criteria IDs can be found at: https://developers.google.com/analytics/devguides/collection/protocol/v1/geoid
 	/// </summary>
-	public class AdwordsCriteriaId: Dimension<string>
+	public class AdwordsCriteriaId: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="AdwordsCriteriaId" />.

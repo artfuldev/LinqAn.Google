@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The marketing name used for the mobile device.
 	/// </summary>
-	public class MobileDeviceMarketingName: Dimension<string>
+	public class MobileDeviceMarketingName: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="MobileDeviceMarketingName" />.

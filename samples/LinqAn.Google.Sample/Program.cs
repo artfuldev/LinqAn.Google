@@ -20,9 +20,8 @@ namespace LinqAn.Google.Sample
             var applicationName = config["profile:application_name"];
             var keyFilePath = Directory.GetCurrentDirectory() + "\\" + config["profile:key_file_name"];
             var profile = new AnalyticsProfile(serviceEmail, keyFilePath, applicationName);
-            var reportingClient = new ReportingClient(profile);
-            var recordsDataSet = new RecordsDataSet(reportingClient);
-            var query = recordsDataSet
+            var googleAnalytics = new GoogleAnalyticsContext(profile);
+            var query = googleAnalytics.Records
                 // View Id
                 .Where(x => x.ViewId == viewId)
                 // Start Date, End Date
@@ -34,8 +33,10 @@ namespace LinqAn.Google.Sample
                 .Include(x => x.Hits)
                 .Include(x => x.Sessions)
                 .Include(x => x.SessionDuration)
-                // Take only 20 records
-                .Take(20);
+                // Skip 1 record
+                .Skip(1)
+                // Take only 5 records
+                .Take(5);
 
             var records = query.ToList().Select(x => x.ToRecord());
             foreach (var record in records)

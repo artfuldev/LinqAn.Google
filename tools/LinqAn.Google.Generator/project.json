@@ -29,5 +29,5 @@
     "dnxcore50": { }
   },
 
-  "releaseNotes": "Used description attribute."
+  "releaseNotes": "Added missing using statement."
 }

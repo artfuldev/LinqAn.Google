@@ -12,11 +12,12 @@ namespace LinqAn.Google.Generator.Generators
         {
             var valueTypeName = column.Attributes.DestinationTypeName;
             var fileContent = new StringBuilder();
+            fileContent.AppendLine("using System.ComponentModel;");
             if (IsUsingSystemRequired(valueTypeName))
             {
                 fileContent.AppendLine("using System;");
-                fileContent.AppendLine();
             }
+            fileContent.AppendLine();
             fileContent.AppendLine("namespace LinqAn.Google.Metrics");
             fileContent.AppendLine("{");
             var className = column.ToClassName();

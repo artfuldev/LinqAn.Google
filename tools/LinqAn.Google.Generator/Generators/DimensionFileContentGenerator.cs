@@ -11,6 +11,7 @@ namespace LinqAn.Google.Generator.Generators
         protected override string GenerateFileContent(Column column)
         {
             var fileContent = new StringBuilder();
+            fileContent.AppendLine("using System.ComponentModel;\n");
             fileContent.AppendLine("namespace LinqAn.Google.Dimensions");
             fileContent.AppendLine("{");
             var className = column.ToClassName();

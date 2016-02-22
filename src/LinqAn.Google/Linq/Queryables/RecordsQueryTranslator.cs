@@ -125,11 +125,15 @@ namespace LinqAn.Google.Linq.Queryables
                     switch (nodeType)
                     {
                         case ExpressionType.Equal:
-                        case ExpressionType.GreaterThan:
                         case ExpressionType.GreaterThanOrEqual:
                             _query.StartDate = (DateTime) constantExpression.Value;
                             break;
+                        case ExpressionType.GreaterThan:
+                            _query.StartDate = ((DateTime)constantExpression.Value).AddDays(1);
+                            break;
                         case ExpressionType.LessThan:
+                            _query.OptionalEndDate = ((DateTime)constantExpression.Value).AddDays(-1);
+                            break;
                         case ExpressionType.LessThanOrEqual:
                             _query.OptionalEndDate = (DateTime) constantExpression.Value;
                             break;

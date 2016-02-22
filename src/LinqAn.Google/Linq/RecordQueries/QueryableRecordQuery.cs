@@ -44,7 +44,7 @@ namespace LinqAn.Google.Linq.RecordQueries
         public IEnumerable<IDimension> Dimensions => DimensionsList;
         public Filters.Filters FiltersList { get; set; } = new Filters.Filters();
         public IFilters Filters => FiltersList;
-        public IEnumerable<ISortRule> SortRules => SortRulesList.AsReadOnly().Reverse();
+        public IEnumerable<ISortRule> SortRules => SortRulesList;
 
         public List<ISortRule> SortRulesList
         {

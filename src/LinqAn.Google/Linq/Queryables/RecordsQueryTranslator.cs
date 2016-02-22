@@ -60,6 +60,7 @@ namespace LinqAn.Google.Linq.Queryables
                 case "OrderByDescending":
                 case "ThenBy":
                 case "ThenByDescending":
+                    Visit(m.Arguments[0]);
                     var direction = m.Method.Name.Contains("Descending")
                         ? ListSortDirection.Descending
                         : ListSortDirection.Ascending;

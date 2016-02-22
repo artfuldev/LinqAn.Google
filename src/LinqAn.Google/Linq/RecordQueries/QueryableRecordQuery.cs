@@ -39,7 +39,7 @@ namespace LinqAn.Google.Linq.RecordQueries
         public IEnumerable<IMetric> Metrics => MetricsList;
 
         public IEnumerable<IDimension> Dimensions => DimensionsList;
-        public Filters.Filters FiltersList { get; set; }
+        public Filters.Filters FiltersList { get; set; } = new Filters.Filters();
         public IFilters Filters => FiltersList;
     }
 }

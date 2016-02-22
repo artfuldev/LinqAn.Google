@@ -157,7 +157,7 @@ namespace LinqAn.Google.Linq.Queryables
                                 _query.FiltersList.Add(
                                     new Filter(propertyType, GetOperator(nodeType), constantExpression.Value.ToString()),
                                     CombineOperator.And);
-                                break;
+                                return;
                             default:
                                 throw new ArgumentOutOfRangeException(nameof(nodeType),
                                 $"Expression type has to be == or != for {member.Name}.");
@@ -176,7 +176,7 @@ namespace LinqAn.Google.Linq.Queryables
                                 _query.FiltersList.Add(
                                     new Filter(propertyType, GetOperator(nodeType), constantExpression.Value.ToString()),
                                     CombineOperator.And);
-                                break;
+                                return;
                             default:
                                 throw new ArgumentOutOfRangeException(nameof(nodeType),
                                     $"Expression type has to be == or != for {member.Name}.");

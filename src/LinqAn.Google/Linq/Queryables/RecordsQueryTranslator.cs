@@ -15,7 +15,8 @@ namespace LinqAn.Google.Linq.Queryables
     internal class RecordsQueryTranslator : ExpressionVisitor
     {
         private readonly QueryableRecordQuery _query;
-
+        private CombineOperator _combineOperator = CombineOperator.And;
+        private Type _previousOrType;
         internal RecordsQueryTranslator()
         {
             _query = new QueryableRecordQuery();
@@ -44,6 +45,8 @@ namespace LinqAn.Google.Linq.Queryables
             switch (m.Method.Name)
             {
                 case "Where":
+                    _combineOperator = CombineOperator.And;
+                    _previousOrType = null;
                     Visit(m.Arguments[0]);
                     var lambda = (LambdaExpression) StripQuotes(m.Arguments[1]);
                     Visit(lambda.Body);
@@ -85,10 +88,13 @@ namespace LinqAn.Google.Linq.Queryables
         {
             switch (b.NodeType)
             {
-                case ExpressionType.And:
-                case ExpressionType.Or:
                 case ExpressionType.AndAlso:
                     Visit(b.Left);
+                    _combineOperator = CombineOperator.And;
+                    break;
+                case ExpressionType.OrElse:
+                    Visit(b.Left);
+                    _combineOperator = CombineOperator.Or;
                     break;
                 case ExpressionType.NotEqual:
                 case ExpressionType.Equal:
@@ -97,11 +103,13 @@ namespace LinqAn.Google.Linq.Queryables
                 case ExpressionType.GreaterThan:
                 case ExpressionType.GreaterThanOrEqual:
                     UpdateQuery(b.Left, b.Right, b.NodeType);
+                    _combineOperator = CombineOperator.And;
                     return b;
                 default:
                     throw new NotSupportedException($"The binary operator '{b.NodeType}' is not supported");
             }
             Visit(b.Right);
+            _combineOperator = CombineOperator.And;
             return b;
         }
 
@@ -119,28 +127,29 @@ namespace LinqAn.Google.Linq.Queryables
             }
 
             var member = memberExpression.Member;
+            var value = constantExpression.Value;
             switch (member.Name)
             {
                 case "ViewId":
                     if (nodeType != ExpressionType.Equal)
                         throw new InvalidOperationException("ViewId can only be queried for Equal condition.");
-                    _query.ViewId = (uint) constantExpression.Value;
+                    _query.ViewId = (uint) value;
                     return;
                 case "RecordDate":
                     switch (nodeType)
                     {
                         case ExpressionType.Equal:
                         case ExpressionType.GreaterThanOrEqual:
-                            _query.StartDate = (DateTime) constantExpression.Value;
+                            _query.StartDate = (DateTime) value;
                             return;
                         case ExpressionType.GreaterThan:
-                            _query.StartDate = ((DateTime)constantExpression.Value).AddDays(1);
+                            _query.StartDate = ((DateTime)value).AddDays(1);
                             return;
                         case ExpressionType.LessThan:
-                            _query.OptionalEndDate = ((DateTime)constantExpression.Value).AddDays(-1);
+                            _query.OptionalEndDate = ((DateTime)value).AddDays(-1);
                             return;
                         case ExpressionType.LessThanOrEqual:
-                            _query.OptionalEndDate = (DateTime) constantExpression.Value;
+                            _query.OptionalEndDate = (DateTime) value;
                             return;
                         default:
                             throw new ArgumentOutOfRangeException(nameof(nodeType),
@@ -149,23 +158,33 @@ namespace LinqAn.Google.Linq.Queryables
                 default:
                     // All other cases, where member name is a dimension or a metric
                     var propertyType = ((PropertyInfo)member).PropertyType;
+                    // Dimensions and Metrics cannot be combined in OR expression
+                    if (_previousOrType != null && _combineOperator == CombineOperator.Or)
+                        if (!_previousOrType.IsAssignableFrom(propertyType))
+                            throw new NotSupportedException(
+                                "Dimensions and Metrics cannot be combined using OR operators.");
+                    
                     if (typeof (IDimension).IsAssignableFrom(propertyType))
                     {
+                        if (_combineOperator == CombineOperator.Or)
+                            _previousOrType = typeof (IDimension);
                         switch (nodeType)
                         {
                             case ExpressionType.Equal:
                             case ExpressionType.NotEqual:
                                 _query.FiltersList.Add(
-                                    new Filter(propertyType, GetOperator(nodeType), constantExpression.Value.ToString()),
-                                    CombineOperator.And);
+                                    new Filter(propertyType, GetOperator(nodeType, value), value.ToString()),
+                                    _combineOperator);
                                 return;
                             default:
                                 throw new ArgumentOutOfRangeException(nameof(nodeType),
                                 $"Expression type has to be == or != for {member.Name}.");
                         }
                     }
-                    else if (typeof (IMetric).IsAssignableFrom(propertyType))
+                    if (typeof (IMetric).IsAssignableFrom(propertyType))
                     {
+                        if (_combineOperator == CombineOperator.Or)
+                            _previousOrType = typeof(IMetric);
                         switch (nodeType)
                         {
                             case ExpressionType.Equal:
@@ -175,8 +194,8 @@ namespace LinqAn.Google.Linq.Queryables
                             case ExpressionType.GreaterThan:
                             case ExpressionType.GreaterThanOrEqual:
                                 _query.FiltersList.Add(
-                                    new Filter(propertyType, GetOperator(nodeType), GetFilterValue(constantExpression.Value)),
-                                    CombineOperator.And);
+                                    new Filter(propertyType, GetOperator(nodeType, value), GetFilterValue(value)),
+                                    _combineOperator);
                                 return;
                             default:
                                 throw new ArgumentOutOfRangeException(nameof(nodeType),

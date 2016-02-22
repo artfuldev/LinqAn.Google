@@ -18,7 +18,6 @@ namespace LinqAn.Google.Linq.Queryables
     {
         private readonly QueryableRecordQuery _query;
         private CombineOperator _combineOperator = CombineOperator.And;
-        private Type _previousOrType;
         internal RecordsQueryTranslator()
         {
             _query = new QueryableRecordQuery();
@@ -51,7 +50,6 @@ namespace LinqAn.Google.Linq.Queryables
             {
                 case "Where":
                     _combineOperator = CombineOperator.And;
-                    _previousOrType = null;
                     Visit(m.Arguments[0]);
                     var lambda = (LambdaExpression) StripQuotes(m.Arguments[1]);
                     Visit(lambda.Body);
@@ -210,16 +208,9 @@ namespace LinqAn.Google.Linq.Queryables
                 default:
                     // All other cases, where member name is a dimension or a metric
                     var propertyType = ((PropertyInfo)member).PropertyType;
-                    // Dimensions and Metrics cannot be combined in OR expression
-                    if (_previousOrType != null && _combineOperator == CombineOperator.Or)
-                        if (!_previousOrType.IsAssignableFrom(propertyType))
-                            throw new NotSupportedException(
-                                "Dimensions and Metrics cannot be combined using OR operators.");
                     
                     if (typeof (IDimension).IsAssignableFrom(propertyType))
                     {
-                        if (_combineOperator == CombineOperator.Or)
-                            _previousOrType = typeof (IDimension);
                         switch (nodeType)
                         {
                             case ExpressionType.Equal:
@@ -235,8 +226,6 @@ namespace LinqAn.Google.Linq.Queryables
                     }
                     if (typeof (IMetric).IsAssignableFrom(propertyType))
                     {
-                        if (_combineOperator == CombineOperator.Or)
-                            _previousOrType = typeof(IMetric);
                         switch (nodeType)
                         {
                             case ExpressionType.Equal:

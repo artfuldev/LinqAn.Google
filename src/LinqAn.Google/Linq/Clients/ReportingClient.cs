@@ -82,8 +82,9 @@ namespace LinqAn.Google.Linq.Clients
                 query.Filters = filterString;
             query.SamplingLevel = DataResource.GaResource.GetRequest.SamplingLevelEnum.HIGHERPRECISION;
             var queryResult = query.Execute();
-            totalRecords = queryResult.TotalResults;
-            return queryResult.Rows.Select(row => row.ToRecord(metricsList, viewId, dimensionsList));
+            totalRecords = queryResult.Rows == null || queryResult.Rows.Count == 0 ? 0 : queryResult.TotalResults;
+            return queryResult.Rows?.Select(row => row.ToRecord(metricsList, viewId, dimensionsList)) ??
+                   Enumerable.Empty<IRecord>();
         }
 
         public IEnumerable<IQueryableRecord> GetAllRecords(IRecordQuery query)

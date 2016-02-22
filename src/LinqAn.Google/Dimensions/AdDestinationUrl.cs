@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The URLs to which your AdWords ads referred traffic.
 	/// </summary>
-	public class AdDestinationUrl: Dimension<string>
+	public class AdDestinationUrl: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="AdDestinationUrl" />.

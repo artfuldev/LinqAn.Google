@@ -31,7 +31,7 @@ namespace LinqAn.Google.Records
             foreach (var dimension in dimensions)
             {
                 var newDimension = Activator.CreateInstance(dimension.GetType()) as IDimension;
-                var stringDimension = (IDimension<string>) newDimension;
+                var stringDimension = newDimension;
                 if (stringDimension != null)
                     stringDimension.Value = row[iterator++];
                 recordDimensions.Add(newDimension);

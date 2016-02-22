@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The names of browsers used by users to your website. For example, Internet Explorer or Firefox.
 	/// </summary>
-	public class Browser: Dimension<string>
+	public class Browser: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Browser" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	DCM creative version of the DCM click matching the Google Analytics session (premium only).
 	/// </summary>
-	public class DcmClickCreativeVersion: Dimension<string>
+	public class DcmClickCreativeVersion: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="DcmClickCreativeVersion" />.

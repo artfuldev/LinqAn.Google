@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The name of the product list in which the product appears (Enhanced Ecommerce).
 	/// </summary>
-	public class ProductListName: Dimension<string>
+	public class ProductListName: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="ProductListName" />.

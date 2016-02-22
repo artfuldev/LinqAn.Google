@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The user-scoped id of the content experiment that the user was exposed to when the metrics were reported.
 	/// </summary>
-	public class ExperimentId: Dimension<string>
+	public class ExperimentId: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="ExperimentId" />.

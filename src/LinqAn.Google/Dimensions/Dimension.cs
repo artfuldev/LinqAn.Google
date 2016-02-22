@@ -3,7 +3,7 @@
 namespace LinqAn.Google.Dimensions
 {
 #pragma warning disable 660,661
-    public abstract class Dimension<T> : IDimension<T>
+    public abstract class Dimension : IDimension
 #pragma warning restore 660,661
     {
         internal Dimension(string name, string description, bool allowedInSegments, string id)
@@ -18,29 +18,33 @@ namespace LinqAn.Google.Dimensions
         public string Description { get; }
         public bool AllowedInSegments { get; }
         public string Id { get; }
-        public T Value { get; set; }
+        public string Value { get; set; }
 
-        public static bool operator ==(Dimension<T> dimension, T value)
+        public static bool operator ==(Dimension dimension, string value)
         {
-            if (ReferenceEquals(dimension, value))
-                return true;
-            return !ReferenceEquals(dimension, null) && Equals(dimension.Value, value);
+            return ReferenceEquals(dimension, null) && value == null ||
+                   !ReferenceEquals(dimension, null) && Equals(dimension.Value, value);
         }
 
-        public static bool operator !=(Dimension<T> dimension, T value)
+        public static bool operator !=(Dimension dimension, string value)
         {
             return !(dimension == value);
         }
 
-        public static bool operator ==(Dimension<T> dimension, Regex value)
+        public static bool operator ==(Dimension dimension, Regex value)
         {
             return !ReferenceEquals(dimension, null) && !ReferenceEquals(value, null) &&
-                   value.IsMatch(dimension.Value.ToString());
+                   value.IsMatch(dimension.Value);
         }
 
-        public static bool operator !=(Dimension<T> dimension, Regex value)
+        public static bool operator !=(Dimension dimension, Regex value)
         {
             return !(dimension == value);
+        }
+
+        public bool Contains(string subString)
+        {
+            return Value?.Contains(subString) ?? false;
         }
 
         public override string ToString() => $"{Name} : {Value}";

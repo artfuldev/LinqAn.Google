@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	DCM advertiser ID of the DCM click matching the Google Analytics session (premium only).
 	/// </summary>
-	public class DcmClickAdvertiserId: Dimension<string>
+	public class DcmClickAdvertiserId: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="DcmClickAdvertiserId" />.

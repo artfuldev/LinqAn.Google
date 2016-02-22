@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	A page where the user initiated an internal search.
 	/// </summary>
-	public class SearchStartPage: Dimension<string>
+	public class SearchStartPage: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="SearchStartPage" />.

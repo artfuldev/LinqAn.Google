@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The continents of users, derived from IP addresses or Geographical IDs.
 	/// </summary>
-	public class Continent: Dimension<string>
+	public class Continent: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Continent" />.

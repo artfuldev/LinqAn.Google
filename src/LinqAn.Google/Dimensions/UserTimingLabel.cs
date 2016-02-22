@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The name of the resource's action being tracked.
 	/// </summary>
-	public class UserTimingLabel: Dimension<string>
+	public class UserTimingLabel: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="UserTimingLabel" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The name of the promotion (Enhanced Ecommerce).
 	/// </summary>
-	public class InternalPromotionName: Dimension<string>
+	public class InternalPromotionName: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="InternalPromotionName" />.

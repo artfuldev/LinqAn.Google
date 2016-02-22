@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The first page in a user's session, or landing page.
 	/// </summary>
-	public class LandingPagePath: Dimension<string>
+	public class LandingPagePath: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="LandingPagePath" />.

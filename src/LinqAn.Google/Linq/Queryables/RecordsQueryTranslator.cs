@@ -39,7 +39,10 @@ namespace LinqAn.Google.Linq.Queryables
 
         protected override Expression VisitMethodCall(MethodCallExpression m)
         {
-            if (m.Method.DeclaringType != typeof (Queryable))
+            var declaringType = m.Method.DeclaringType;
+            if (declaringType != typeof (Queryable) &&
+                !typeof (IMetric).IsAssignableFrom(declaringType) &&
+                !typeof (IDimension).IsAssignableFrom(declaringType))
                 throw new NotSupportedException($"The method '{m.Method.Name}' is not supported");
 
             switch (m.Method.Name)
@@ -73,6 +76,18 @@ namespace LinqAn.Google.Linq.Queryables
                         _query.QueryAll = false;
                     }
                     break;
+                case "Contains":
+                    var memberExpression = m.Object as MemberExpression;
+                    var propertyInfo = memberExpression?.Member as PropertyInfo;
+                    var dimensionType = propertyInfo?.PropertyType;
+                    if(dimensionType == null || !typeof (IDimension).IsAssignableFrom(dimensionType))
+                        throw new NotSupportedException($"The method '{m.Method.Name}' is not supported");
+                    var expression = m.Arguments.First() as ConstantExpression;
+                    var value = expression?.Value?.ToString();
+                    if (string.IsNullOrWhiteSpace(value))
+                        break;
+                    _query.FiltersList.Add(new Filter(dimensionType, Operator.Contains, value), _combineOperator);
+                    break;
                 default:
                     throw new NotSupportedException($"The method '{m.Method.Name}' is not supported");
             }
@@ -81,7 +96,25 @@ namespace LinqAn.Google.Linq.Queryables
 
         protected override Expression VisitUnary(UnaryExpression u)
         {
-            throw new NotSupportedException($"The unary operator '{u.NodeType}' is not supported");
+            if (u.NodeType != ExpressionType.Not)
+                throw new NotSupportedException($"The unary operator '{u.NodeType}' is not supported");
+            var m = u.Operand as MethodCallExpression;
+            var declaringType = m?.Method?.DeclaringType;
+            if (declaringType == null ||
+                !typeof (IMetric).IsAssignableFrom(declaringType) &&
+                !typeof (IDimension).IsAssignableFrom(declaringType))
+                throw new NotSupportedException($"The unary operator '{u.NodeType}' is not supported");
+            var memberExpression = m.Object as MemberExpression;
+            var propertyInfo = memberExpression?.Member as PropertyInfo;
+            var dimensionType = propertyInfo?.PropertyType;
+            if (dimensionType == null || !typeof(IDimension).IsAssignableFrom(dimensionType))
+                throw new NotSupportedException($"The method '{m.Method.Name}' is not supported");
+            var expression = m.Arguments.First() as ConstantExpression;
+            var value = expression?.Value?.ToString();
+            if (string.IsNullOrWhiteSpace(value))
+                return u;
+            _query.FiltersList.Add(new Filter(dimensionType, Operator.DoesNotContain, value), _combineOperator);
+            return u;
         }
 
         protected override Expression VisitBinary(BinaryExpression b)

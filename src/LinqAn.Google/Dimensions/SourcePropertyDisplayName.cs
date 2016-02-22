@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Source property display name of roll-up properties. This is valid only for roll-up properties.
 	/// </summary>
-	public class SourcePropertyDisplayName: Dimension<string>
+	public class SourcePropertyDisplayName: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="SourcePropertyDisplayName" />.

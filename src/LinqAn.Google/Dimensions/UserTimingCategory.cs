@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	A string for categorizing all user timing variables into logical groups for easier reporting purposes.
 	/// </summary>
-	public class UserTimingCategory: Dimension<string>
+	public class UserTimingCategory: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="UserTimingCategory" />.

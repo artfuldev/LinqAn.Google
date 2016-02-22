@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The default channel grouping that is shared within the View (Profile).
 	/// </summary>
-	public class ChannelGrouping: Dimension<string>
+	public class ChannelGrouping: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="ChannelGrouping" />.

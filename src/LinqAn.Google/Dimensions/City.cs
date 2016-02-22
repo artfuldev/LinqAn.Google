@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The cities of users, derived from IP addresses or Geographical IDs.
 	/// </summary>
-	public class City: Dimension<string>
+	public class City: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="City" />.

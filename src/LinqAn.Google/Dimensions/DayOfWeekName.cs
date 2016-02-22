@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The name of the day of the week (in English).
 	/// </summary>
-	public class DayOfWeekName: Dimension<string>
+	public class DayOfWeekName: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="DayOfWeekName" />.

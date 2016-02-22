@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Mobile manufacturer or branded name.
 	/// </summary>
-	public class MobileDeviceBranding: Dimension<string>
+	public class MobileDeviceBranding: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="MobileDeviceBranding" />.

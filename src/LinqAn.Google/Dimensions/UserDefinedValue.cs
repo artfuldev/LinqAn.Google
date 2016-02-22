@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The value provided when you define custom user segments for your property.
 	/// </summary>
-	public class UserDefinedValue: Dimension<string>
+	public class UserDefinedValue: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="UserDefinedValue" />.

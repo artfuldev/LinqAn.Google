@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Combined values of ga:year and ga:week.
 	/// </summary>
-	public class YearWeek: Dimension<string>
+	public class YearWeek: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="YearWeek" />.

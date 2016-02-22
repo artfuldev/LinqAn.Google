@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	DCM ad type name of the DCM click matching the Google Analytics session (premium only).
 	/// </summary>
-	public class DcmClickAdType: Dimension<string>
+	public class DcmClickAdType: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="DcmClickAdType" />.

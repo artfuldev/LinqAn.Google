@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Typically used to designate a supplying company or brick and mortar location; product affiliation.
 	/// </summary>
-	public class Affiliation: Dimension<string>
+	public class Affiliation: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Affiliation" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The week of the session. A two-digit number from 01 to 53. Each week starts on Sunday.
 	/// </summary>
-	public class Week: Dimension<string>
+	public class Week: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Week" />.

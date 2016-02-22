@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The URLs where your ads on the content network were placed.
 	/// </summary>
-	public class AdPlacementUrl: Dimension<string>
+	public class AdPlacementUrl: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="AdPlacementUrl" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The name of the application.
 	/// </summary>
-	public class AppName: Dimension<string>
+	public class AppName: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="AppName" />.

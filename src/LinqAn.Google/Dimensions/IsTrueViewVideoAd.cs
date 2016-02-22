@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Yes' or 'No' - Indicates whether the ad is an AdWords TrueView video ad.
 	/// </summary>
-	public class IsTrueViewVideoAd: Dimension<string>
+	public class IsTrueViewVideoAd: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="IsTrueViewVideoAd" />.

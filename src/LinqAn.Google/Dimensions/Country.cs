@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The country of users, derived from IP addresses or Geographical IDs.
 	/// </summary>
-	public class Country: Dimension<string>
+	public class Country: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Country" />.

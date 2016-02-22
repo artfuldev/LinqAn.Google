@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The type of device: desktop, tablet, or mobile.
 	/// </summary>
-	public class DeviceCategory: Dimension<string>
+	public class DeviceCategory: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="DeviceCategory" />.

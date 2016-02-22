@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	A value that can be used to add flexibility in visualizing user timings in the reports.
 	/// </summary>
-	public class UserTimingVariable: Dimension<string>
+	public class UserTimingVariable: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="UserTimingVariable" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	A page that the user visited after performing an internal search on your site.
 	/// </summary>
-	public class SearchAfterDestinationPage: Dimension<string>
+	public class SearchAfterDestinationPage: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="SearchAfterDestinationPage" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The length of a session measured in seconds and reported in second increments. The value returned is a string.
 	/// </summary>
-	public class SessionDurationBucket: Dimension<string>
+	public class SessionDurationBucket: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="SessionDurationBucket" />.

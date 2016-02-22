@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The version of the application.
 	/// </summary>
-	public class AppVersion: Dimension<string>
+	public class AppVersion: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="AppVersion" />.

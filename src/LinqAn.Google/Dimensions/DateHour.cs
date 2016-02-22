@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Combined values of ga:date and ga:hour.
 	/// </summary>
-	public class DateHour: Dimension<string>
+	public class DateHour: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="DateHour" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Code for the order-level coupon (Enhanced Ecommerce).
 	/// </summary>
-	public class OrderCouponCode: Dimension<string>
+	public class OrderCouponCode: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="OrderCouponCode" />.

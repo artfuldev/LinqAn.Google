@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Age bracket of user.
 	/// </summary>
-	public class UserAgeBracket: Dimension<string>
+	public class UserAgeBracket: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="UserAgeBracket" />.

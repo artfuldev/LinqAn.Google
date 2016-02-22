@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Gender of user.
 	/// </summary>
-	public class UserGender: Dimension<string>
+	public class UserGender: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="UserGender" />.

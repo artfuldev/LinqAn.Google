@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The hierarchical category in which the product is classified (Enhanced Ecommerce).
 	/// </summary>
-	public class ProductCategoryHierarchy: Dimension<string>
+	public class ProductCategoryHierarchy: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="ProductCategoryHierarchy" />.

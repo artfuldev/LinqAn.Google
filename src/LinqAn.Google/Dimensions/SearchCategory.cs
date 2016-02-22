@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The categories used for the internal search if you have this enabled for your profile. For example, you might have product categories such as electronics, furniture, or clothing.
 	/// </summary>
-	public class SearchCategory: Dimension<string>
+	public class SearchCategory: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="SearchCategory" />.

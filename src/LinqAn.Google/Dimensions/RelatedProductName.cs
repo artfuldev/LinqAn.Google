@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Name of the related product.
 	/// </summary>
-	public class RelatedProductName: Dimension<string>
+	public class RelatedProductName: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="RelatedProductName" />.

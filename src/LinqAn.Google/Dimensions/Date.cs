@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The date of the session formatted as YYYYMMDD.
 	/// </summary>
-	public class Date: Dimension<string>
+	public class Date: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Date" />.

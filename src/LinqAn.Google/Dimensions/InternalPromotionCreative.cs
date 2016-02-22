@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The creative content designed for a promotion (Enhanced Ecommerce).
 	/// </summary>
-	public class InternalPromotionCreative: Dimension<string>
+	public class InternalPromotionCreative: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="InternalPromotionCreative" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	The region of users, derived from IP addresses or Geographical IDs. In the U.S., a region is a state, such as New York.
 	/// </summary>
-	public class Region: Dimension<string>
+	public class Region: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Region" />.

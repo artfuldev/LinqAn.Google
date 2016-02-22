@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	Mobile device model.
 	/// </summary>
-	public class MobileDeviceModel: Dimension<string>
+	public class MobileDeviceModel: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="MobileDeviceModel" />.

@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	How you manage your ads on the content network. Values are Automatic placements or Managed placements.
 	/// </summary>
-	public class AdTargetingOption: Dimension<string>
+	public class AdTargetingOption: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="AdTargetingOption" />.

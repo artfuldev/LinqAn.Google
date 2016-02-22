@@ -3,7 +3,7 @@ namespace LinqAn.Google.Dimensions
 	/// <summary>
 	/// 	A page on your website specified by path and/or query parameters. Use in conjunction with hostname to get the full URL of the page.
 	/// </summary>
-	public class PagePath: Dimension<string>
+	public class PagePath: Dimension
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="PagePath" />.

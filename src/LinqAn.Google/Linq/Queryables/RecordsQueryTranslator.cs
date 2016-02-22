@@ -15,7 +15,7 @@ namespace LinqAn.Google.Linq.Queryables
     internal class RecordsQueryTranslator : ExpressionVisitor
     {
         private readonly QueryableRecordQuery _query;
-
+        private CombineOperator _combineOperator = CombineOperator.And;
         internal RecordsQueryTranslator()
         {
             _query = new QueryableRecordQuery();
@@ -44,6 +44,7 @@ namespace LinqAn.Google.Linq.Queryables
             switch (m.Method.Name)
             {
                 case "Where":
+                    _combineOperator = CombineOperator.And;
                     Visit(m.Arguments[0]);
                     var lambda = (LambdaExpression) StripQuotes(m.Arguments[1]);
                     Visit(lambda.Body);
@@ -85,10 +86,13 @@ namespace LinqAn.Google.Linq.Queryables
         {
             switch (b.NodeType)
             {
-                case ExpressionType.And:
-                case ExpressionType.Or:
                 case ExpressionType.AndAlso:
                     Visit(b.Left);
+                    _combineOperator = CombineOperator.And;
+                    break;
+                case ExpressionType.OrElse:
+                    Visit(b.Left);
+                    _combineOperator = CombineOperator.Or;
                     break;
                 case ExpressionType.NotEqual:
                 case ExpressionType.Equal:
@@ -157,7 +161,7 @@ namespace LinqAn.Google.Linq.Queryables
                             case ExpressionType.NotEqual:
                                 _query.FiltersList.Add(
                                     new Filter(propertyType, GetOperator(nodeType), constantExpression.Value.ToString()),
-                                    CombineOperator.And);
+                                    _combineOperator);
                                 return;
                             default:
                                 throw new ArgumentOutOfRangeException(nameof(nodeType),
@@ -176,7 +180,7 @@ namespace LinqAn.Google.Linq.Queryables
                             case ExpressionType.GreaterThanOrEqual:
                                 _query.FiltersList.Add(
                                     new Filter(propertyType, GetOperator(nodeType), GetFilterValue(constantExpression.Value)),
-                                    CombineOperator.And);
+                                    _combineOperator);
                                 return;
                             default:
                                 throw new ArgumentOutOfRangeException(nameof(nodeType),

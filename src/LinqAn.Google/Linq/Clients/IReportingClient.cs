@@ -7,7 +7,7 @@ using LinqAn.Google.Records;
 
 namespace LinqAn.Google.Linq.Clients
 {
-    public interface IReportingClient
+    public interface IReportingClient : IDisposable
     {
         IEnumerable<IQueryableRecord> GetAllRecords(IRecordQuery query);
         IEnumerable<IQueryableRecord> GetRecords(IRecordQuery query, out int? totalRecords, uint startIndex = 1,

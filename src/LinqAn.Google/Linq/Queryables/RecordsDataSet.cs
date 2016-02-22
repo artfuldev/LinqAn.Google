@@ -4,24 +4,25 @@ using LinqAn.Google.Dimensions;
 using LinqAn.Google.Linq.Clients;
 using LinqAn.Google.Linq.Core;
 using LinqAn.Google.Metrics;
+using LinqAn.Google.Profiles;
 using LinqAn.Google.Records;
 
 namespace LinqAn.Google.Linq.Queryables
 {
     public class RecordsDataSet : Query<IQueryableRecord>
     {
-        public RecordsDataSet(IReportingClient client)
-            : base(new RecordsQueryProvider(client))
+        public RecordsDataSet(IAnalyticsProfile profile)
+            : base(new RecordsQueryProvider(profile))
         {
         }
 
-        public RecordsDataSet(IReportingClient client, Type staticType)
-            : base(new RecordsQueryProvider(client), staticType)
+        public RecordsDataSet(IAnalyticsProfile profile, Type staticType)
+            : base(new RecordsQueryProvider(profile), staticType)
         {
         }
 
-        public RecordsDataSet(IReportingClient client, Expression expression)
-            : base(new RecordsQueryProvider(client), expression)
+        public RecordsDataSet(IAnalyticsProfile profile, Expression expression)
+            : base(new RecordsQueryProvider(profile), expression)
         {
         }
     }

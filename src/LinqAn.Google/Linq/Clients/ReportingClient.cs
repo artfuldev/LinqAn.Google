@@ -99,5 +99,10 @@ namespace LinqAn.Google.Linq.Clients
             return GetRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, out totalRecords,
                 query.Dimensions, query.Filters, startIndex, maxRecordsCount).Select(x => x.ToQueryableRecord());
         }
+
+        public void Dispose()
+        {
+            _service.Dispose();
+        }
     }
 }

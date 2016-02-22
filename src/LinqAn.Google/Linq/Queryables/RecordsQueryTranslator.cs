@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
@@ -174,7 +175,7 @@ namespace LinqAn.Google.Linq.Queryables
                             case ExpressionType.GreaterThan:
                             case ExpressionType.GreaterThanOrEqual:
                                 _query.FiltersList.Add(
-                                    new Filter(propertyType, GetOperator(nodeType), constantExpression.Value.ToString()),
+                                    new Filter(propertyType, GetOperator(nodeType), GetFilterValue(constantExpression.Value)),
                                     CombineOperator.And);
                                 return;
                             default:
@@ -184,6 +185,14 @@ namespace LinqAn.Google.Linq.Queryables
                     }
                     throw new NotSupportedException("Only dimensions and metrics are allowed in filters.");
             }
+        }
+
+        private static string GetFilterValue(object value)
+        {
+            var type = value.GetType();
+            if (type == typeof (TimeSpan))
+                return ((TimeSpan) value).TotalSeconds.ToString(CultureInfo.InvariantCulture);
+            return value.ToString();
         }
 
         private static Operator GetOperator(ExpressionType type, object value = null)

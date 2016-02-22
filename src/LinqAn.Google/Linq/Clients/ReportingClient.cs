@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Security.Cryptography.X509Certificates;
 using Google.Apis.Analytics.v3;
+using Google.Apis.Analytics.v3.Data;
 using Google.Apis.Auth.OAuth2;
 using Google.Apis.Services;
 using LinqAn.Google.Dimensions;
@@ -62,9 +63,42 @@ namespace LinqAn.Google.Linq.Clients
             return records;
         }
 
+        private GaData GetAllGaData(uint viewId, DateTime startDate, DateTime endDate,
+            IEnumerable<IMetric> metrics, IEnumerable<IDimension> dimensions, IFilters filters,
+            IEnumerable<ISortRule> sortRules)
+        {
+            int? totalRecords;
+            var metricsList = metrics as IList<IMetric> ?? metrics.ToList();
+            var dimensionsList = dimensions as IList<IDimension> ?? dimensions.ToList();
+            var sortRulesList = sortRules as IList<ISortRule> ?? sortRules.ToList();
+            var data = GetGaData(viewId, startDate, endDate, metricsList, out totalRecords, dimensionsList, filters, sortRulesList);
+            if (data.TotalResults == null || data.TotalResults < RecordQuery.MaxRecordsPerQuery)
+                return data;
+            while (data.TotalResults > data.Rows.Count)
+            {
+                var originalRows = data.Rows.Select(row => row.ToList()).ToList();
+                var newRows = GetGaData(viewId, startDate, endDate, metricsList, out totalRecords, dimensionsList, filters, sortRulesList, Convert.ToUInt32(data.Rows.Count + 1)).Rows;
+                originalRows.AddRange(newRows.Select(row => row.ToList()));
+                data.Rows = newRows;
+            }
+            return data;
+        }
+
         private IEnumerable<IRecord> GetRecords(uint viewId, DateTime startDate, DateTime endDate,
             IEnumerable<IMetric> metrics, out int? totalRecords, IEnumerable<IDimension> dimensions = null, IFilters filters = null,
             IEnumerable<ISortRule> sortRules = null, uint startIndex = 1, uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
+        {
+            dimensions = dimensions ?? Enumerable.Empty<IDimension>();
+            var metricsList = metrics as IList<IMetric> ?? metrics.ToList();
+            var dimensionsList = dimensions as IList<IDimension> ?? dimensions.ToList();
+            var queryResult = GetGaData(viewId, startDate, endDate, metricsList, out totalRecords, dimensionsList, filters, sortRules, startIndex, maxRecordsCount);
+            totalRecords = queryResult.Rows == null || queryResult.Rows.Count == 0 ? 0 : queryResult.TotalResults;
+            return queryResult.Rows?.Select(row => row.ToRecord(metricsList, viewId, dimensionsList)) ??
+                   Enumerable.Empty<IRecord>();
+        }
+
+        private GaData GetGaData(uint viewId, DateTime startDate, DateTime endDate, IEnumerable<IMetric> metrics, out int? totalRecords, IEnumerable<IDimension> dimensions = null,
+            IFilters filters = null, IEnumerable<ISortRule> sortRules = null, uint startIndex = 1, uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
         {
             dimensions = dimensions ?? Enumerable.Empty<IDimension>();
             sortRules = sortRules ?? Enumerable.Empty<ISortRule>();
@@ -88,9 +122,22 @@ namespace LinqAn.Google.Linq.Clients
                 query.Sort = sortString;
             query.SamplingLevel = DataResource.GaResource.GetRequest.SamplingLevelEnum.HIGHERPRECISION;
             var queryResult = query.Execute();
-            totalRecords = queryResult.Rows == null || queryResult.Rows.Count == 0 ? 0 : queryResult.TotalResults;
-            return queryResult.Rows?.Select(row => row.ToRecord(metricsList, viewId, dimensionsList)) ??
-                   Enumerable.Empty<IRecord>();
+            totalRecords = queryResult.TotalResults;
+            return queryResult;
+        }
+
+        public GaData GetAllGaData(IRecordQuery query)
+        {
+            return
+                GetAllGaData(query.ViewId, query.StartDate, query.EndDate, query.Metrics, query.Dimensions,
+                    query.Filters, query.SortRules);
+        }
+
+        public GaData GetGaData(IRecordQuery query, out int? totalRecords, uint startIndex = 1,
+            uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
+        {
+            return GetGaData(query.ViewId, query.StartDate, query.EndDate, query.Metrics, out totalRecords,
+                query.Dimensions, query.Filters, query.SortRules, startIndex, maxRecordsCount);
         }
 
         public IEnumerable<IQueryableRecord> GetAllRecords(IRecordQuery query)

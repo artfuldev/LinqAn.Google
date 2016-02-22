@@ -35,7 +35,8 @@ namespace LinqAn.Google.Sample
                 .Include(x => x.Sessions)
                 .Include(x => x.SessionDuration)
                 // Filters
-                .Where(x => x.Country == "India" && x.Source == new Regex("google"))
+                .Where(x => x.Country == "India" && x.Medium == new Regex("organic"))
+                .Where(x => x.Source.Contains("google") && !x.Medium.Contains("mailer"))
                 .Where(x => x.SessionDuration > TimeSpan.FromMinutes(1))
                 // Skip 1 record
                 .Skip(1)

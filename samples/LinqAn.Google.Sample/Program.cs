@@ -32,6 +32,9 @@ namespace LinqAn.Google.Sample
                 .Include(x => x.Pageviews)
                 .Include(x => x.Sessions)
                 .Include(x => x.SessionDuration)
+                // Filters
+                .Where(x => x.Country == "India")
+                .Where(x => x.SessionDuration > TimeSpan.FromMinutes(1))
                 // Skip 1 record
                 .Skip(1)
                 // Take only 5 records

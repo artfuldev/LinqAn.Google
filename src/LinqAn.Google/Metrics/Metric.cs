@@ -65,5 +65,6 @@ namespace LinqAn.Google.Metrics
                 return Convert.ToDecimal(left) < Convert.ToDecimal(right);
             return false;
         }
+        public override string ToString() => $"{Name} : {Value}";
     }
 }

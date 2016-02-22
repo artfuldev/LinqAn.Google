@@ -11,23 +11,28 @@ The aim of the project is to let you query Google Analytics this way:
 ```
 var profile = new AnalyticsProfile(serviceAccountEmail, keyFilePath, applicationName);
 var googleAnalytics = new GoogleAnalyticsContext(profile);
-var records = googleAnalytics.Records
-                // Sample View Id
-                .Where(x => x.ViewId == 1351215)
-                // Dates
-                .Where(x => x.Date == DateTime.Today)
-                // Dimensions
+var query = googleAnalytics.Records
+                // View Id
+                .Where(x => x.ViewId == viewId)
+                // Start Date, End Date
+                .Where(x => x.RecordDate == DateTime.Today)
+                // Include Dimensions
                 .Include(x => x.Source)
                 .Include(x => x.Medium)
-                // Metrics
+                // Include Metrics
                 .Include(x => x.Pageviews)
                 .Include(x => x.Sessions)
                 .Include(x => x.SessionDuration)
                 // Filters
-                .Where(x=> x.Country == "India")
+                .Where(x => x.Country == "India" && x.Source == new Regex("google"))
+                .Where(x => x.SessionDuration > TimeSpan.FromMinutes(1))
                 // Sort
                 .OrderByDescending(x => x.SessionDuration)
-                .ThenBy(x => x.Hits);
+                .ThenBy(x => x.Hits)
+                // Skip 1 record
+                .Skip(1)
+                // Take only 5 records
+                .Take(5);
 ```
 
 To run the sample project,

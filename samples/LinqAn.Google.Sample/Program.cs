@@ -5,6 +5,8 @@ using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
+using LinqAn.Google.Metrics;
 
 namespace LinqAn.Google.Sample
 {
@@ -15,10 +17,10 @@ namespace LinqAn.Google.Sample
             var builder = new ConfigurationBuilder().AddJsonFile("gasettings.json");
             var config = builder.Build();
             var viewId = Convert.ToUInt32(config["profile:view_id"]);
-            var serviceEmail = config["profile:service_account_email"];
+            var serviceAccountEmail = config["profile:service_account_email"];
             var applicationName = config["profile:application_name"];
             var keyFilePath = Directory.GetCurrentDirectory() + "\\" + config["profile:key_file_name"];
-            var profile = new AnalyticsProfile(serviceEmail, keyFilePath, applicationName);
+            var profile = new AnalyticsProfile(serviceAccountEmail, keyFilePath, applicationName);
             var googleAnalytics = new GoogleAnalyticsContext(profile);
             var query = googleAnalytics.Records
                 // View Id
@@ -33,7 +35,7 @@ namespace LinqAn.Google.Sample
                 .Include(x => x.Sessions)
                 .Include(x => x.SessionDuration)
                 // Filters
-                .Where(x => x.Country == "India")
+                .Where(x => x.Country == "India" && x.Source == new Regex("google"))
                 .Where(x => x.SessionDuration > TimeSpan.FromMinutes(1))
                 // Skip 1 record
                 .Skip(1)

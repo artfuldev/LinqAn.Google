@@ -40,32 +40,32 @@ namespace LinqAn.Google.Linq.Clients
                 });
         }
 
-        public IEnumerable<IRecord> GetAllRecords(IRecordQuery query)
+        internal IEnumerable<IRecord> GetAllRecords(IRecordQuery query)
         {
             return GetAllRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, query.Dimensions);
         }
 
-        public IEnumerable<IRecord> GetRecords(IRecordQuery query, out int? totalRecords, uint startIndex = 1,
+        internal IEnumerable<IRecord> GetRecords(IRecordQuery query, out int? totalRecords, uint startIndex = 1,
             uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
         {
             return GetRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, out totalRecords,
                 query.Dimensions, startIndex, maxRecordsCount);
         }
 
-        public IEnumerable<IRecord> GetAllRecords(uint viewId, DateTime date, IEnumerable<IMetric> metrics,
+        internal IEnumerable<IRecord> GetAllRecords(uint viewId, DateTime date, IEnumerable<IMetric> metrics,
             IEnumerable<IDimension> dimensions)
         {
             return GetAllRecords(viewId, date, date, metrics, dimensions);
         }
 
-        public IEnumerable<IRecord> GetRecords(uint viewId, DateTime date, IEnumerable<IMetric> metrics,
+        internal IEnumerable<IRecord> GetRecords(uint viewId, DateTime date, IEnumerable<IMetric> metrics,
             out int? totalRecords, IEnumerable<IDimension> dimensions = null, uint startIndex = 1,
             uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
         {
             return GetRecords(viewId, date, date, metrics, out totalRecords, dimensions, startIndex, maxRecordsCount);
         }
 
-        public IEnumerable<IRecord> GetAllRecords(uint viewId, DateTime startDate, DateTime endDate,
+        internal IEnumerable<IRecord> GetAllRecords(uint viewId, DateTime startDate, DateTime endDate,
             IEnumerable<IMetric> metrics, IEnumerable<IDimension> dimensions)
         {
             var records = new List<IRecord>();
@@ -83,7 +83,7 @@ namespace LinqAn.Google.Linq.Clients
             return records;
         }
 
-        public IEnumerable<IRecord> GetRecords(uint viewId, DateTime startDate, DateTime endDate,
+        internal IEnumerable<IRecord> GetRecords(uint viewId, DateTime startDate, DateTime endDate,
             IEnumerable<IMetric> metrics, out int? totalRecords, IEnumerable<IDimension> dimensions = null,
             uint startIndex = 1, uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
         {

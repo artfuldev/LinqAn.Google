@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using LinqAn.Google.Dimensions;
+using LinqAn.Google.Filters;
 using LinqAn.Google.Metrics;
 
 namespace LinqAn.Google.Queries
@@ -11,13 +12,14 @@ namespace LinqAn.Google.Queries
         public const uint MaxRecordsPerQuery = 10000U;
 
         public RecordQuery(uint viewId, DateTime startDate, DateTime endDate, IEnumerable<IMetric> metrics,
-            IEnumerable<IDimension> dimensions = null)
+            IEnumerable<IDimension> dimensions = null, IFilters filters = null)
         {
             ViewId = viewId;
             StartDate = startDate;
             EndDate = endDate;
             Metrics = metrics;
             Dimensions = dimensions ?? Enumerable.Empty<IDimension>();
+            Filters = filters;
         }
 
         public uint ViewId { get; }
@@ -25,5 +27,6 @@ namespace LinqAn.Google.Queries
         public DateTime EndDate { get; }
         public IEnumerable<IMetric> Metrics { get; }
         public IEnumerable<IDimension> Dimensions { get; }
+        public IFilters Filters { get; }
     }
 }

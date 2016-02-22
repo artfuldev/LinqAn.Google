@@ -1,11 +1,10 @@
-﻿using System;
-using System.IO;
-using LinqAn.Google.Linq.Clients;
+﻿using LinqAn.Google.Extensions;
+using LinqAn.Google.Linq.Queryables;
 using LinqAn.Google.Profiles;
 using Microsoft.Extensions.Configuration;
+using System;
+using System.IO;
 using System.Linq;
-using LinqAn.Google.Extensions;
-using LinqAn.Google.Linq.Queryables;
 
 namespace LinqAn.Google.Sample
 {

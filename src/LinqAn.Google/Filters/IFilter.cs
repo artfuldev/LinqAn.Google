@@ -4,8 +4,8 @@ namespace LinqAn.Google.Filters
 {
     public interface IFilter
     {
-        object DimensionOrMetric { get; }
+        string DimensionOrMetric { get; }
         Operator Operator { get; }
-        object Expression { get; }
+        string Expression { get; }
     }
 }

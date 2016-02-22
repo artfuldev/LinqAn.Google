@@ -2,7 +2,9 @@
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Text.RegularExpressions;
 using LinqAn.Google.Dimensions;
+using LinqAn.Google.Filters;
 using LinqAn.Google.Linq.RecordQueries;
 using LinqAn.Google.Metrics;
 using ExpressionVisitor = LinqAn.Google.Linq.Core.ExpressionVisitor;
@@ -152,7 +154,9 @@ namespace LinqAn.Google.Linq.Queryables
                         {
                             case ExpressionType.Equal:
                             case ExpressionType.NotEqual:
-                                // TODO: Update dimension filters
+                                _query.FiltersList.Add(
+                                    new Filter(propertyType, GetOperator(nodeType), constantExpression.Value.ToString()),
+                                    CombineOperator.And);
                                 break;
                             default:
                                 throw new ArgumentOutOfRangeException(nameof(nodeType),
@@ -169,7 +173,9 @@ namespace LinqAn.Google.Linq.Queryables
                             case ExpressionType.LessThanOrEqual:
                             case ExpressionType.GreaterThan:
                             case ExpressionType.GreaterThanOrEqual:
-                                // TODO: Update metric filters
+                                _query.FiltersList.Add(
+                                    new Filter(propertyType, GetOperator(nodeType), constantExpression.Value.ToString()),
+                                    CombineOperator.And);
                                 break;
                             default:
                                 throw new ArgumentOutOfRangeException(nameof(nodeType),
@@ -177,6 +183,32 @@ namespace LinqAn.Google.Linq.Queryables
                         }
                     }
                     throw new NotSupportedException("Only dimensions and metrics are allowed in filters.");
+            }
+        }
+
+        private static Operator GetOperator(ExpressionType type, object value = null)
+        {
+            switch (type)
+            {
+                case ExpressionType.Equal:
+                    return (value?.GetType() ?? typeof (object)) == typeof (Regex)
+                        ? Operator.EqualsRegex
+                        : Operator.Equals;
+                case ExpressionType.NotEqual:
+                    return (value?.GetType() ?? typeof(object)) == typeof(Regex)
+                        ? Operator.DoesNotEqualRegex
+                        : Operator.DoesNotEqual;
+                case ExpressionType.LessThan:
+                    return Operator.LessThan;
+                case ExpressionType.LessThanOrEqual:
+                    return Operator.LessThanOrEqualTo;
+                case ExpressionType.GreaterThan:
+                    return Operator.GreaterThan;
+                case ExpressionType.GreaterThanOrEqual:
+                    return Operator.GreaterThanOrEqualTo;
+                default:
+                    throw new ArgumentOutOfRangeException(nameof(type),
+                        $"Expression type cannot be converted into operator for Google Analytics.");
             }
         }
 

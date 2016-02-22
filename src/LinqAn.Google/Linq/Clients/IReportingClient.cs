@@ -9,8 +9,8 @@ namespace LinqAn.Google.Linq.Clients
 {
     public interface IReportingClient
     {
-        IEnumerable<IQueryableRecord> GetAllQueryableRecords(IRecordQuery query);
-        IEnumerable<IQueryableRecord> GetQueryableRecords(IRecordQuery query, out int? totalRecords, uint startIndex = 1,
+        IEnumerable<IQueryableRecord> GetAllRecords(IRecordQuery query);
+        IEnumerable<IQueryableRecord> GetRecords(IRecordQuery query, out int? totalRecords, uint startIndex = 1,
             uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery);
     }
 }

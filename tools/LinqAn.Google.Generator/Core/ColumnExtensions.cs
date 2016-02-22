@@ -8,7 +8,14 @@ namespace LinqAn.Google.Generator.Core
     {
         public static string ToClassName(this Column column)
         {
-            var className = column.Id.Replace("ga:", "").Pascalize().Replace("ID", "Id");
+            var id = column.Id;
+            var className = GetClassName(id);
+            return className;
+        }
+
+        private static string GetClassName(string id)
+        {
+            var className = id.Replace("ga:", "").Pascalize().Replace("ID", "Id");
             var match = Regex.Match(className, "^[0-9]+");
             if (!match.Success) return className;
             var number = match.ToString();

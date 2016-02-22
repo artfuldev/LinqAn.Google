@@ -56,10 +56,11 @@ namespace LinqAn.Google.Linq.Queryables
             using (var client = new ReportingClient(_profile))
             {
                 int? totalRecords;
-                return query.QueryAll
-                    ? client.GetAllRecords(query)
-                    : client.GetRecords(query, out totalRecords, query.StartIndex ?? 1,
+                var records = query.QueryAll
+                    ? client.GetAllGaData(query)
+                    : client.GetGaData(query, out totalRecords, query.StartIndex ?? 1,
                         query.RecordsCount ?? RecordQuery.MaxRecordsPerQuery);
+                return Activator.CreateInstance(typeof(RecordReader), records);
             }
         }
     }

@@ -1,18 +1,19 @@
 {
   "authors": [ "Sudarsan Balaji" ],
   "dependencies": {
-    "Google.Apis.Analytics.v3": "1.10.0.1240"
+    "Google.Apis.Analytics.v3": "1.10.0.1240",
+    "Humanizer.Core": "2.0.1"
   },
   "description": "LinqAn (LINQ ANalytics, pronounced \"Lincoln\") is a .NET companion library for analytics platforms, allowing for LINQ-based queries. LinqAn.Google is the Google version, which uses Google Analytics Core Reporting API v3.",
   "frameworks": {
-    "dnx451": { },
-    "net45": { }
+    "dnx451": { "frameworkAssemblies": { "System.Globalization": "4.0.0.0" } },
+    "net45": { "frameworkAssemblies": { "System.Globalization": "4.0.0.0" } }
   },
   "licenseUrl": "https://github.com/kenshinthebattosai/LinqAn.Google/blob/master/LICENSE",
   "projectUrl": "https://github.com/kenshinthebattosai/LinqAn.Google",
   "summary": "LinqAn (LINQ ANalytics, pronounced \"Lincoln\") is a .NET companion library for analytics platforms, allowing for LINQ-based queries. LinqAn.Google is the Google version, which uses Google Analytics Core Reporting API v3. Currently this supports .NET 4.5 & 4.6 frameworks, in addition to DNX4.5.1.",
   "tags": [ "anlaytics", "linqan", "google", "google analytics", "helper", "ga", "linq" ],
   "title": "LinqAn.Google",
-  "version": "1.0.0-beta10566",
-  "releaseNotes": "Removed OrElse checks. These can be done by Google."
+  "version": "1.0.0-beta10582",
+  "releaseNotes": "Added RecordReader."
 }

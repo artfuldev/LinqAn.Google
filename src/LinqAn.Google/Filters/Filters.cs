@@ -17,7 +17,7 @@ namespace LinqAn.Google.Filters
 
         public override string ToString()
         {
-            return FilterGroups.Aggregate("", (current, filterGroup) => current + filterGroup);
+            return FilterGroups.Aggregate("", (current, filterGroup) => current + filterGroup).TrimStart(';');
         }
 
         public void Add(IFilter filter, CombineOperator op = CombineOperator.None)

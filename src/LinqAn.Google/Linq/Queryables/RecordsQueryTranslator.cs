@@ -16,6 +16,7 @@ namespace LinqAn.Google.Linq.Queryables
     {
         private readonly QueryableRecordQuery _query;
         private CombineOperator _combineOperator = CombineOperator.And;
+        private Type _previousOrType;
         internal RecordsQueryTranslator()
         {
             _query = new QueryableRecordQuery();
@@ -45,6 +46,7 @@ namespace LinqAn.Google.Linq.Queryables
             {
                 case "Where":
                     _combineOperator = CombineOperator.And;
+                    _previousOrType = null;
                     Visit(m.Arguments[0]);
                     var lambda = (LambdaExpression) StripQuotes(m.Arguments[1]);
                     Visit(lambda.Body);
@@ -101,11 +103,13 @@ namespace LinqAn.Google.Linq.Queryables
                 case ExpressionType.GreaterThan:
                 case ExpressionType.GreaterThanOrEqual:
                     UpdateQuery(b.Left, b.Right, b.NodeType);
+                    _combineOperator = CombineOperator.And;
                     return b;
                 default:
                     throw new NotSupportedException($"The binary operator '{b.NodeType}' is not supported");
             }
             Visit(b.Right);
+            _combineOperator = CombineOperator.And;
             return b;
         }
 
@@ -153,8 +157,16 @@ namespace LinqAn.Google.Linq.Queryables
                 default:
                     // All other cases, where member name is a dimension or a metric
                     var propertyType = ((PropertyInfo)member).PropertyType;
+                    // Dimensions and Metrics cannot be combined in OR expression
+                    if (_previousOrType != null && _combineOperator == CombineOperator.Or)
+                        if (!_previousOrType.IsAssignableFrom(propertyType))
+                            throw new NotSupportedException(
+                                "Dimensions and Metrics cannot be combined using OR operators.");
+                    
                     if (typeof (IDimension).IsAssignableFrom(propertyType))
                     {
+                        if (_combineOperator == CombineOperator.Or)
+                            _previousOrType = typeof (IDimension);
                         switch (nodeType)
                         {
                             case ExpressionType.Equal:
@@ -168,8 +180,10 @@ namespace LinqAn.Google.Linq.Queryables
                                 $"Expression type has to be == or != for {member.Name}.");
                         }
                     }
-                    else if (typeof (IMetric).IsAssignableFrom(propertyType))
+                    if (typeof (IMetric).IsAssignableFrom(propertyType))
                     {
+                        if (_combineOperator == CombineOperator.Or)
+                            _previousOrType = typeof(IMetric);
                         switch (nodeType)
                         {
                             case ExpressionType.Equal:

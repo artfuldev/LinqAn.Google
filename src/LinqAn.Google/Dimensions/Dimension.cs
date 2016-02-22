@@ -6,16 +6,14 @@ namespace LinqAn.Google.Dimensions
     public abstract class Dimension : IDimension
 #pragma warning restore 660,661
     {
-        internal Dimension(string name, string description, bool allowedInSegments, string id)
+        internal Dimension(string name, bool allowedInSegments, string id)
         {
             Name = name;
-            Description = description;
             AllowedInSegments = allowedInSegments;
             Id = id;
         }
 
         public string Name { get; }
-        public string Description { get; }
         public bool AllowedInSegments { get; }
         public string Id { get; }
         public string Value { get; set; }

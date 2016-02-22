@@ -46,7 +46,7 @@ namespace LinqAn.Google.Sample
                 // Take only 5 records
                 .Take(5);
 
-            foreach (var record in query.ToList().Select(x => x.ToRecord()))
+            foreach (var record in query.ToList())
                 Console.WriteLine(record.ToStringRepresentation());
             Console.ReadLine();
         }

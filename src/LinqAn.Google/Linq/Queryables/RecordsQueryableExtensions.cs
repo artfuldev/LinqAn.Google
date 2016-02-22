@@ -7,8 +7,8 @@ namespace LinqAn.Google.Linq.Queryables
 {
     public static class RecordsQueryableExtensions
     {
-        public static IQueryable<IQueryableRecord> Include<T>(this IQueryable<IQueryableRecord> source,
-            Expression<Func<IQueryableRecord, T>> includeExpression)
+        public static IQueryable<IRecord> Include<T>(this IQueryable<IRecord> source,
+            Expression<Func<IRecord, T>> includeExpression)
         {
             var provider = source.Provider;
             var method = provider.GetType().GetMethod("Include");

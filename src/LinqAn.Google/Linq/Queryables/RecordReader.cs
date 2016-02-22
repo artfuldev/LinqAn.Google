@@ -14,7 +14,7 @@ using LinqAn.Google.Dimensions;
 
 namespace LinqAn.Google.Linq.Queryables
 {
-    internal class RecordReader : IEnumerable<IQueryableRecord>
+    internal class RecordReader : IEnumerable<IRecord>
     {
         Enumerator enumerator;
 
@@ -23,7 +23,7 @@ namespace LinqAn.Google.Linq.Queryables
             enumerator = new Enumerator(records);
         }
 
-        public IEnumerator<IQueryableRecord> GetEnumerator()
+        public IEnumerator<IRecord> GetEnumerator()
         {
             Enumerator e = enumerator;
             if (e == null)
@@ -39,7 +39,7 @@ namespace LinqAn.Google.Linq.Queryables
             return GetEnumerator();
         }
 
-        private class Enumerator : IEnumerator<IQueryableRecord>
+        private class Enumerator : IEnumerator<IRecord>
         {
             private readonly GaData _reader;
             private readonly PropertyInfo[] _propertyInfo;
@@ -49,11 +49,11 @@ namespace LinqAn.Google.Linq.Queryables
             internal Enumerator(GaData reader)
             {
                 _reader = reader;
-                _propertyInfo = typeof(QueryableRecord).GetProperties();
+                _propertyInfo = typeof(Record).GetProperties();
                 _current = 0;
             }
 
-            public IQueryableRecord Current { get; private set; }
+            public IRecord Current { get; private set; }
 
             object IEnumerator.Current => Current;
 
@@ -66,7 +66,7 @@ namespace LinqAn.Google.Linq.Queryables
                 {
                     InitPropertyLookup();
                 }
-                var instance = new QueryableRecord();
+                var instance = new Record();
                 for (var i = 0; i < row.Count; i++)
                 {
                     Debug.Assert(_propertyLookup != null, "_propertyLookup != null");

@@ -7,7 +7,7 @@ using LinqAn.Google.Metrics;
 
 namespace LinqAn.Google.Extensions
 {
-    public static class FilterExtensions
+    internal static class FilterExtensions
     {
         public static string ToStringRepresentation(this CombineOperator op)
         {

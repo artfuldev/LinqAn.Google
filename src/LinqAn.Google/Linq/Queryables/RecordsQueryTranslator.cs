@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel;
 using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
@@ -8,6 +9,7 @@ using LinqAn.Google.Dimensions;
 using LinqAn.Google.Filters;
 using LinqAn.Google.Linq.RecordQueries;
 using LinqAn.Google.Metrics;
+using LinqAn.Google.Sorting;
 using ExpressionVisitor = LinqAn.Google.Linq.Core.ExpressionVisitor;
 
 namespace LinqAn.Google.Linq.Queryables
@@ -56,6 +58,23 @@ namespace LinqAn.Google.Linq.Queryables
                     break;
                 case "OrderBy":
                 case "OrderByDescending":
+                case "ThenBy":
+                case "ThenByDescending":
+                    Visit(m.Arguments[0]);
+                    var direction = m.Method.Name.Contains("Descending")
+                        ? ListSortDirection.Descending
+                        : ListSortDirection.Ascending;
+                    // TODO: replace column name
+                    var unaryExpression = m.Arguments[1] as UnaryExpression;
+                    var operand = unaryExpression?.Operand;
+                    var memberEx = operand?.GetType()?.GetRuntimeProperty("Body")?.GetValue(operand) as MemberExpression;
+                    var info = memberEx?.Member as PropertyInfo;
+                    var propertyType = info?.PropertyType;
+                    if (propertyType == null
+                        || (!typeof (IDimension).IsAssignableFrom(propertyType)
+                            && !typeof (IMetric).IsAssignableFrom(propertyType)))
+                        throw new NotSupportedException($"The method '{m.Method.Name}' is not supported");
+                    _query.SortRulesList.Add(new SortRule(propertyType, direction));
                     break;
                 case "Skip":
                     Visit(m.Arguments[0]);

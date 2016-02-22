@@ -1,6 +1,6 @@
 ﻿namespace LinqAn.Google.Filters
 {
-    public interface IFilterGroup
+    internal interface IFilterGroup
     {
         CombineOperator Operator { get; }
         IFilter Filter { get; } 

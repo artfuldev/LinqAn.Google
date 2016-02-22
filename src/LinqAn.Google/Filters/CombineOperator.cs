@@ -1,6 +1,6 @@
 ﻿namespace LinqAn.Google.Filters
 {
-    public enum CombineOperator
+    internal enum CombineOperator
     {
         None,
         And,

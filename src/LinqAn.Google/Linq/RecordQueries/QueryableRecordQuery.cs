@@ -1,9 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using LinqAn.Google.Dimensions;
 using LinqAn.Google.Filters;
 using LinqAn.Google.Metrics;
 using LinqAn.Google.Queries;
+using LinqAn.Google.Sorting;
 
 namespace LinqAn.Google.Linq.RecordQueries
 {
@@ -14,6 +16,7 @@ namespace LinqAn.Google.Linq.RecordQueries
     {
         private List<IDimension> _dimensionsList;
         private List<IMetric> _metricsList;
+        private List<ISortRule> _sortRulesList;
         public DateTime? OptionalEndDate { get; set; }
 
         public List<IMetric> MetricsList
@@ -41,5 +44,12 @@ namespace LinqAn.Google.Linq.RecordQueries
         public IEnumerable<IDimension> Dimensions => DimensionsList;
         public Filters.Filters FiltersList { get; set; } = new Filters.Filters();
         public IFilters Filters => FiltersList;
+        public IEnumerable<ISortRule> SortRules => SortRulesList;
+
+        public List<ISortRule> SortRulesList
+        {
+            get { return _sortRulesList ?? (_sortRulesList = new List<ISortRule>()); }
+            set { _sortRulesList = value; }
+        }
     }
 }

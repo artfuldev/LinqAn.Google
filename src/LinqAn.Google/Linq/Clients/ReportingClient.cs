@@ -12,6 +12,7 @@ using LinqAn.Google.Metrics;
 using LinqAn.Google.Profiles;
 using LinqAn.Google.Queries;
 using LinqAn.Google.Records;
+using LinqAn.Google.Sorting;
 
 namespace LinqAn.Google.Linq.Clients
 {
@@ -42,29 +43,31 @@ namespace LinqAn.Google.Linq.Clients
         }
 
         private IEnumerable<IRecord> GetAllRecords(uint viewId, DateTime startDate, DateTime endDate,
-            IEnumerable<IMetric> metrics, IEnumerable<IDimension> dimensions, IFilters filters)
+            IEnumerable<IMetric> metrics, IEnumerable<IDimension> dimensions, IFilters filters,
+            IEnumerable<ISortRule> sortRules)
         {
             var records = new List<IRecord>();
             int? totalRecords;
             var metricsList = metrics as IList<IMetric> ?? metrics.ToList();
             var dimensionsList = dimensions as IList<IDimension> ?? dimensions.ToList();
             records.AddRange(GetRecords(viewId, startDate, endDate, metricsList, out totalRecords, dimensionsList,
-                filters));
+                filters, sortRules));
             if (totalRecords == null || totalRecords < 10000)
                 return records;
             while (totalRecords > records.Count)
             {
                 records.AddRange(GetRecords(viewId, startDate, endDate, metricsList, out totalRecords, dimensionsList,
-                    filters, Convert.ToUInt32(records.Count + 1)));
+                    filters, sortRules, Convert.ToUInt32(records.Count + 1)));
             }
             return records;
         }
 
         private IEnumerable<IRecord> GetRecords(uint viewId, DateTime startDate, DateTime endDate,
             IEnumerable<IMetric> metrics, out int? totalRecords, IEnumerable<IDimension> dimensions = null, IFilters filters = null,
-            uint startIndex = 1, uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
+            IEnumerable<ISortRule> sortRules = null, uint startIndex = 1, uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
         {
             dimensions = dimensions ?? Enumerable.Empty<IDimension>();
+            sortRules = sortRules ?? Enumerable.Empty<ISortRule>();
             if (startDate < _minimumDate)
                 throw new ArgumentOutOfRangeException(nameof(startDate),
                     "start date cannot be less than " + _minimumDate.ToShortDateString());
@@ -80,6 +83,9 @@ namespace LinqAn.Google.Linq.Clients
             var filterString = filters?.ToString();
             if (!string.IsNullOrWhiteSpace(filterString))
                 query.Filters = filterString;
+            var sortString = sortRules.Aggregate("", (current, sortRule) => current + "," + sortRule).Trim(',');
+            if (!string.IsNullOrWhiteSpace(sortString))
+                query.Sort = sortString;
             query.SamplingLevel = DataResource.GaResource.GetRequest.SamplingLevelEnum.HIGHERPRECISION;
             var queryResult = query.Execute();
             totalRecords = queryResult.Rows == null || queryResult.Rows.Count == 0 ? 0 : queryResult.TotalResults;
@@ -91,7 +97,7 @@ namespace LinqAn.Google.Linq.Clients
         {
             return
                 GetAllRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, query.Dimensions,
-                    query.Filters)
+                    query.Filters, query.SortRules)
                     .Select(x => x.ToQueryableRecord(query.ViewId));
         }
 
@@ -99,7 +105,7 @@ namespace LinqAn.Google.Linq.Clients
             uint maxRecordsCount = RecordQuery.MaxRecordsPerQuery)
         {
             return GetRecords(query.ViewId, query.StartDate, query.EndDate, query.Metrics, out totalRecords,
-                query.Dimensions, query.Filters, startIndex, maxRecordsCount)
+                query.Dimensions, query.Filters, query.SortRules, startIndex, maxRecordsCount)
                 .Select(x => x.ToQueryableRecord(query.ViewId));
         }
 

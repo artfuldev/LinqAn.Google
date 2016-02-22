@@ -2,7 +2,7 @@
 
 namespace LinqAn.Google.Filters
 {
-    public interface IFilters
+    internal interface IFilters
     {
         IEnumerable<IFilterGroup> FilterGroups { get; }  
     }

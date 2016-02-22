@@ -19,5 +19,10 @@ namespace LinqAn.Google.Filters
         {
             return FilterGroups.Aggregate("", (current, filterGroup) => current + filterGroup);
         }
+
+        public void Add(IFilter filter, CombineOperator op = CombineOperator.None)
+        {
+            FilterGroupsList.Add(new FilterGroup() {Filter = filter, Operator = op});
+        }
     }
 }

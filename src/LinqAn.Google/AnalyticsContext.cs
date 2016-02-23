@@ -1,7 +1,9 @@
-﻿using Google.Apis.Analytics.v3;
+﻿using System.Linq;
+using Google.Apis.Analytics.v3;
 using Google.Apis.Services;
 using LinqAn.Google.Linq.Queryables;
 using LinqAn.Google.Profiles;
+using LinqAn.Google.Records;
 
 namespace LinqAn.Google
 {
@@ -20,7 +22,7 @@ namespace LinqAn.Google
             _profile = profile;
         }
 
-        public RecordsDataSet Records
+        public IOrderedQueryable<IRecord> Records
             => _profile == null ? new RecordsDataSet(_initializer) : new RecordsDataSet(_profile);
     }
 }

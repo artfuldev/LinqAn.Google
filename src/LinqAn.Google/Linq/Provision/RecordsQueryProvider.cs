@@ -2,18 +2,18 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
-using Google.Apis.Analytics.v3;
+using System.Reflection;
 using Google.Apis.Services;
 using LinqAn.Google.Dimensions;
-using LinqAn.Google.Linq.Clients;
 using LinqAn.Google.Linq.Core;
-using LinqAn.Google.Linq.RecordQueries;
+using LinqAn.Google.Linq.Queryables;
+using LinqAn.Google.Linq.Resolution;
+using LinqAn.Google.Linq.Translation;
 using LinqAn.Google.Metrics;
 using LinqAn.Google.Profiles;
-using LinqAn.Google.Queries;
 using LinqAn.Google.Records;
 
-namespace LinqAn.Google.Linq.Queryables
+namespace LinqAn.Google.Linq.Provision
 {
     /// <summary>
     ///     A LINQ Provider that executes API Queries over an API Client
@@ -50,7 +50,7 @@ namespace LinqAn.Google.Linq.Queryables
             Includes.Add(instance);
         }
 
-        private static QueryableRecordQuery Translate(Expression expression)
+        private static TranslateResult Translate(Expression expression)
         {
             expression = Evaluator.PartialEval(expression);
             return new RecordsQueryTranslator().Translate(expression);
@@ -58,7 +58,8 @@ namespace LinqAn.Google.Linq.Queryables
 
         public override object Execute(Expression expression)
         {
-            var query = Translate(expression);
+            var translateResult = Translate(expression);
+            var query = translateResult.Query;
             query.DimensionsList = Includes.OfType<IDimension>().ToList();
             query.MetricsList = Includes.OfType<IMetric>().ToList();
             using (var client = _profile == null ? new ReportingClient(_initializer) : new ReportingClient(_profile))
@@ -68,7 +69,15 @@ namespace LinqAn.Google.Linq.Queryables
                     ? client.GetAllGaData(query)
                     : client.GetGaData(query, out totalRecords, query.StartIndex ?? 1,
                         query.RecordsCount ?? RecordQuery.MaxRecordsPerQuery);
-                return Activator.CreateInstance(typeof (RecordReader), records);
+                if (translateResult.Selector == null)
+                    return new RecordReader(records);
+                var projector = translateResult.Selector.Compile();
+                var returnType = projector.GetType().GenericTypeArguments[1];
+                return
+                    typeof (ProjectionReader<>).MakeGenericType(returnType)
+                        .GetTypeInfo()
+                        .DeclaredConstructors.Single()
+                        .Invoke(new object[] {records, projector});
             }
         }
     }

@@ -5,7 +5,7 @@ using LinqAn.Google.Filters;
 using LinqAn.Google.Metrics;
 using LinqAn.Google.Sorting;
 
-namespace LinqAn.Google.Queries
+namespace LinqAn.Google.Linq.Provision
 {
     internal interface IRecordQuery
     {

@@ -7,26 +7,30 @@ using System.Reflection;
 using System.Text.RegularExpressions;
 using LinqAn.Google.Dimensions;
 using LinqAn.Google.Filters;
-using LinqAn.Google.Linq.RecordQueries;
+using LinqAn.Google.Linq.Provision;
 using LinqAn.Google.Metrics;
 using LinqAn.Google.Sorting;
 using ExpressionVisitor = LinqAn.Google.Linq.Core.ExpressionVisitor;
 
-namespace LinqAn.Google.Linq.Queryables
+namespace LinqAn.Google.Linq.Translation
 {
     internal class RecordsQueryTranslator : ExpressionVisitor
     {
-        private readonly QueryableRecordQuery _query;
-        private CombineOperator _combineOperator = CombineOperator.And;
-        internal RecordsQueryTranslator()
-        {
-            _query = new QueryableRecordQuery();
-        }
+        private RecordQuery _query;
+        private CombineOperator _combineOperator;
+        private LambdaExpression _selector;
 
-        internal QueryableRecordQuery Translate(Expression expression)
+        internal TranslateResult Translate(Expression expression)
         {
+            _query = new RecordQuery();
+            _combineOperator = CombineOperator.And;
+
             Visit(expression);
-            return _query;
+            return new TranslateResult
+            {
+                Query = _query,
+                Selector = _selector
+            };
         }
 
         private static Expression StripQuotes(Expression e)
@@ -104,6 +108,11 @@ namespace LinqAn.Google.Linq.Queryables
                     if (string.IsNullOrWhiteSpace(value))
                         break;
                     _query.FiltersList.Add(new Filter(dimensionType, Operator.Contains, value), _combineOperator);
+                    break;
+                case "Select":
+                    var lambdaExpression = (LambdaExpression)StripQuotes(m.Arguments[1]);
+                    Visit(m.Arguments[0]);
+                    _selector = lambdaExpression;
                     break;
                 default:
                     throw new NotSupportedException($"The method '{m.Method.Name}' is not supported");

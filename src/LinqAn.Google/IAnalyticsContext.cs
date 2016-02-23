@@ -1,9 +1,11 @@
-﻿using LinqAn.Google.Linq.Queryables;
+﻿using System.Linq;
+using LinqAn.Google.Linq.Queryables;
+using LinqAn.Google.Records;
 
 namespace LinqAn.Google
 {
     public interface IAnalyticsContext
     {
-        RecordsDataSet Records { get; }
+        IOrderedQueryable<IRecord> Records { get; }
     }
 }

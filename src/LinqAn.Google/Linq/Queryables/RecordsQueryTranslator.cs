@@ -4,6 +4,7 @@ using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Text;
 using System.Text.RegularExpressions;
 using LinqAn.Google.Dimensions;
 using LinqAn.Google.Filters;
@@ -16,17 +17,25 @@ namespace LinqAn.Google.Linq.Queryables
 {
     internal class RecordsQueryTranslator : ExpressionVisitor
     {
-        private readonly QueryableRecordQuery _query;
-        private CombineOperator _combineOperator = CombineOperator.And;
-        internal RecordsQueryTranslator()
+        private QueryableRecordQuery _query;
+        private CombineOperator _combineOperator;
+        private ColumnProjection _projection;
+        private ParameterExpression _row;
+        private StringBuilder _sb;
+
+        internal TranslateResult Translate(Expression expression)
         {
             _query = new QueryableRecordQuery();
-        }
+            _combineOperator = CombineOperator.And;
+            _sb = new StringBuilder();
+            _row = Expression.Parameter(typeof(ProjectionRow), "row");
 
-        internal QueryableRecordQuery Translate(Expression expression)
-        {
             Visit(expression);
-            return _query;
+            return new TranslateResult
+            {
+                Query = _query,
+                Projector = _projection != null ? Expression.Lambda(_projection.Selector, _row) : null
+            };
         }
 
         private static Expression StripQuotes(Expression e)
@@ -104,6 +113,16 @@ namespace LinqAn.Google.Linq.Queryables
                     if (string.IsNullOrWhiteSpace(value))
                         break;
                     _query.FiltersList.Add(new Filter(dimensionType, Operator.Contains, value), _combineOperator);
+                    break;
+                case "Select":
+                    var lambdaExpression = (LambdaExpression)StripQuotes(m.Arguments[1]);
+                    var projection = new ColumnProjector().ProjectColumns(lambdaExpression.Body, _row);
+                    _sb.Append("SELECT ");
+                    _sb.Append(projection.Columns);
+                    _sb.Append(" FROM (");
+                    this.Visit(m.Arguments[0]);
+                    _sb.Append(") AS T ");
+                    _projection = projection;
                     break;
                 default:
                     throw new NotSupportedException($"The method '{m.Method.Name}' is not supported");

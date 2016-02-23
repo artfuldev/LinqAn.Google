@@ -26,6 +26,8 @@ Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LinqAn.Google.Generator", "
 EndProject
 Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LinqAn.Google.Sample", "samples\LinqAn.Google.Sample\LinqAn.Google.Sample.xproj", "{86E03DB2-6CD9-463E-B075-3498393C64AF}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "LinqAn.Google.Generator.Tests", "tests\LinqAn.Google.Generator.Tests\LinqAn.Google.Generator.Tests.xproj", "{49448EA6-2F85-4698-BEC4-55DFC9F0B96E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,6 +46,10 @@ Global
 		{86E03DB2-6CD9-463E-B075-3498393C64AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{86E03DB2-6CD9-463E-B075-3498393C64AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{86E03DB2-6CD9-463E-B075-3498393C64AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49448EA6-2F85-4698-BEC4-55DFC9F0B96E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49448EA6-2F85-4698-BEC4-55DFC9F0B96E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49448EA6-2F85-4698-BEC4-55DFC9F0B96E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49448EA6-2F85-4698-BEC4-55DFC9F0B96E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -52,6 +58,7 @@ Global
 		{D2B2F42E-93CC-48E5-8DA5-AC77F84A99C5} = {34C4F9B5-2F0D-404E-9CB0-EE24810CA4ED}
 		{1B32563D-5265-4F8A-BA32-5945FDCC6FB7} = {8E0034AB-ABD1-4294-A985-02199A6AEE7C}
 		{86E03DB2-6CD9-463E-B075-3498393C64AF} = {ACBF099C-9920-4773-B15A-F6C407A8E16A}
+		{49448EA6-2F85-4698-BEC4-55DFC9F0B96E} = {3A346B6C-99A5-4682-A1B4-B89F234E418B}
 	EndGlobalSection
 	GlobalSection(CodealikeProperties) = postSolution
 		SolutionGuid = 55245f6b-4637-468b-950b-8362e9e3fea8

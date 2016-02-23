@@ -22,6 +22,7 @@ var profile = new LinqAn.Google.Profiles.AnalyticsProfile(serviceAccountEmail,
                     keyFilePath, applicationName);
 
 // This is the context over which queries can be executed
+// It can also be instantiated from a BaseClientService.Initializer
 var googleAnalytics = new LinqAn.Google.AnalyticsContext(profile);
 
 // Records can be filtered and sorted

@@ -26,14 +26,14 @@ var googleAnalytics = new LinqAn.Google.AnalyticsContext(profile);
 
 // Records can be filtered and sorted
 var records = googleAnalytics.Records
-                // View Id
+                // View Id - Always Required
                 .Where(x => x.ViewId == viewId)
-                // Start Date, End Date
+                // Start Date, End Date - Always Required
                 .Where(x => x.RecordDate == DateTime.Today)
                 // Include Dimensions
                 .Include(x => x.Source)
                 .Include(x => x.Medium)
-                // Include Metrics
+                // Include Metrics - At least one required
                 .Include(x => x.Pageviews)
                 .Include(x => x.Sessions)
                 .Include(x => x.SessionDuration)
@@ -41,7 +41,7 @@ var records = googleAnalytics.Records
                 .Where(x => x.Country == "India" && x.Medium == new Regex("organic"))
                 .Where(x => x.Source.Contains("a") && !x.Source.Contains("x"))
                 .Where(x => x.SessionDuration > TimeSpan.FromMinutes(1))
-                // Sort
+                // Sort - Only by those included
                 .OrderByDescending(x => x.SessionDuration)
                 .ThenBy(x => x.Source)
                 // Skip 1 record

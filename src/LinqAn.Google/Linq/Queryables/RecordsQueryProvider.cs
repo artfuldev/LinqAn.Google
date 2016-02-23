@@ -50,7 +50,7 @@ namespace LinqAn.Google.Linq.Queryables
             Includes.Add(instance);
         }
 
-        private static QueryableRecordQuery Translate(Expression expression)
+        private static TranslateResult Translate(Expression expression)
         {
             expression = Evaluator.PartialEval(expression);
             return new RecordsQueryTranslator().Translate(expression);
@@ -58,7 +58,8 @@ namespace LinqAn.Google.Linq.Queryables
 
         public override object Execute(Expression expression)
         {
-            var query = Translate(expression);
+            var translateResult = Translate(expression);
+            var query = translateResult.Query;
             query.DimensionsList = Includes.OfType<IDimension>().ToList();
             query.MetricsList = Includes.OfType<IMetric>().ToList();
             using (var client = _profile == null ? new ReportingClient(_initializer) : new ReportingClient(_profile))

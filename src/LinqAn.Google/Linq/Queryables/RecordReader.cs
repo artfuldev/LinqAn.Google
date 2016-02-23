@@ -16,21 +16,19 @@ namespace LinqAn.Google.Linq.Queryables
 {
     internal class RecordReader : IEnumerable<IRecord>
     {
-        Enumerator enumerator;
+        Enumerator _enumerator;
 
-        public RecordReader(GaData records)
+        public RecordReader(GaData data)
         {
-            enumerator = new Enumerator(records);
+            _enumerator = new Enumerator(data);
         }
 
         public IEnumerator<IRecord> GetEnumerator()
         {
-            Enumerator e = enumerator;
+            var e = _enumerator;
             if (e == null)
-            {
                 throw new InvalidOperationException("Cannot enumerate more than once");
-            }
-            enumerator = null;
+            _enumerator = null;
             return e;
         }
 
@@ -59,7 +57,7 @@ namespace LinqAn.Google.Linq.Queryables
 
             public bool MoveNext()
             {
-                if (_reader.Rows.Count <= _current) return false;
+                if (_reader.Rows == null || _reader.Rows.Count <= _current) return false;
                 var row = _reader.Rows[_current];
                 if (row == null) return false;
                 if (_propertyLookup == null)

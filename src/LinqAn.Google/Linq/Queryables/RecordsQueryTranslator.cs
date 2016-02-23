@@ -120,7 +120,7 @@ namespace LinqAn.Google.Linq.Queryables
                     _sb.Append("SELECT ");
                     _sb.Append(projection.Columns);
                     _sb.Append(" FROM (");
-                    this.Visit(m.Arguments[0]);
+                    Visit(m.Arguments[0]);
                     _sb.Append(") AS T ");
                     _projection = projection;
                     break;

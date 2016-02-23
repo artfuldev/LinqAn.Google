@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq.Expressions;
 using Google.Apis.Analytics.v3;
+using Google.Apis.Services;
 using LinqAn.Google.Linq.Core;
 using LinqAn.Google.Profiles;
 using LinqAn.Google.Records;
@@ -24,18 +25,18 @@ namespace LinqAn.Google.Linq.Queryables
         {
         }
 
-        public RecordsDataSet(AnalyticsService service)
-            : base(new RecordsQueryProvider(service))
+        public RecordsDataSet(BaseClientService.Initializer initializer)
+            : base(new RecordsQueryProvider(initializer))
         {
         }
 
-        public RecordsDataSet(AnalyticsService service, Type staticType)
-            : base(new RecordsQueryProvider(service), staticType)
+        public RecordsDataSet(BaseClientService.Initializer initializer, Type staticType)
+            : base(new RecordsQueryProvider(initializer), staticType)
         {
         }
 
-        public RecordsDataSet(AnalyticsService service, Expression expression)
-            : base(new RecordsQueryProvider(service), expression)
+        public RecordsDataSet(BaseClientService.Initializer initializer, Expression expression)
+            : base(new RecordsQueryProvider(initializer), expression)
         {
         }
     }

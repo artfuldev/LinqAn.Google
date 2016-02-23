@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using Google.Apis.Analytics.v3;
+using Google.Apis.Services;
 using LinqAn.Google.Dimensions;
 using LinqAn.Google.Linq.Clients;
 using LinqAn.Google.Linq.Core;
@@ -20,12 +21,12 @@ namespace LinqAn.Google.Linq.Queryables
     internal class RecordsQueryProvider : QueryProvider
     {
         private readonly IAnalyticsProfile _profile;
-        private readonly AnalyticsService _service;
+        private readonly BaseClientService.Initializer _initializer;
         private List<object> _includes;
 
-        public RecordsQueryProvider(AnalyticsService service)
+        public RecordsQueryProvider(BaseClientService.Initializer initializer)
         {
-            _service = service;
+            _initializer = initializer;
         }
 
         public RecordsQueryProvider(IAnalyticsProfile profile)
@@ -60,7 +61,7 @@ namespace LinqAn.Google.Linq.Queryables
             var query = Translate(expression);
             query.DimensionsList = Includes.OfType<IDimension>().ToList();
             query.MetricsList = Includes.OfType<IMetric>().ToList();
-            using (var client = _profile == null ? new ReportingClient(_service) : new ReportingClient(_profile))
+            using (var client = _profile == null ? new ReportingClient(_initializer) : new ReportingClient(_profile))
             {
                 int? totalRecords;
                 var records = query.QueryAll

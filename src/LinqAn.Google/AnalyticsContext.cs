@@ -1,4 +1,5 @@
 ﻿using Google.Apis.Analytics.v3;
+using Google.Apis.Services;
 using LinqAn.Google.Linq.Queryables;
 using LinqAn.Google.Profiles;
 
@@ -7,14 +8,11 @@ namespace LinqAn.Google
     public sealed class AnalyticsContext : IAnalyticsContext
     {
         private readonly IAnalyticsProfile _profile;
-        private readonly AnalyticsService _service;
+        private readonly BaseClientService.Initializer _initializer;
 
-        // TODO: Create service from _service
-        private AnalyticsService Service => new AnalyticsService();
-
-        public AnalyticsContext(AnalyticsService service)
+        public AnalyticsContext(BaseClientService.Initializer initializer)
         {
-            _service = service;
+            _initializer = initializer;
         }
 
         public AnalyticsContext(IAnalyticsProfile profile)
@@ -22,6 +20,7 @@ namespace LinqAn.Google
             _profile = profile;
         }
 
-        public RecordsDataSet Records => _profile == null ? new RecordsDataSet(Service) : new RecordsDataSet(_profile);
+        public RecordsDataSet Records
+            => _profile == null ? new RecordsDataSet(_initializer) : new RecordsDataSet(_profile);
     }
 }

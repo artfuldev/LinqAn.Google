@@ -21,9 +21,9 @@ namespace LinqAn.Google.Linq.Clients
         private readonly DateTime _minimumDate = new DateTime(2000, 1, 1);
         private readonly AnalyticsService _service;
 
-        public ReportingClient(AnalyticsService service)
+        public ReportingClient(BaseClientService.Initializer initializer)
         {
-            _service = service;
+            _service = new AnalyticsService(initializer);
         }
 
         public ReportingClient(IAnalyticsProfile profile)

@@ -24,19 +24,19 @@ namespace LinqAn.Google.Records
 		/// <summary>
 		/// 	Total number of 1-day active users for each day in the requested time period. At least one of ga:nthDay, ga:date, or ga:day must be specified as a dimension in order to query this metric. For the given date the returned value will be the total unique users for the 1 day period ending on the given date.
 		/// </summary>
-		public OnedayUsers OnedayUsers { get; set; }
+		public OneDayUsers OneDayUsers { get; set; }
 		/// <summary>
 		/// 	Total number of 7-day active users for each day in the requested time period. At least one of ga:nthDay, ga:date, or ga:day must be specified as a dimension in order to query this metric. For the given date the returned value will be the total unique users for the 7 day period ending on the given date.
 		/// </summary>
-		public SevendayUsers SevendayUsers { get; set; }
+		public SevenDayUsers SevenDayUsers { get; set; }
 		/// <summary>
 		/// 	Total number of 14-day active users for each day in the requested time period. At least one of ga:nthDay, ga:date, or ga:day must be specified as a dimension in order to query this metric. For the given date the returned value will be the total unique users for the 14 day period ending on the given date.
 		/// </summary>
-		public FourteendayUsers FourteendayUsers { get; set; }
+		public FourteenDayUsers FourteenDayUsers { get; set; }
 		/// <summary>
 		/// 	Total number of 30-day active users for each day in the requested time period. At least one of ga:nthDay, ga:date, or ga:day must be specified as a dimension in order to query this metric. For the given date the returned value will be the total unique users for the 30 day period ending on the given date.
 		/// </summary>
-		public ThirtydayUsers ThirtydayUsers { get; set; }
+		public ThirtyDayUsers ThirtyDayUsers { get; set; }
 		/// <summary>
 		/// 	The total number of sessions.
 		/// </summary>

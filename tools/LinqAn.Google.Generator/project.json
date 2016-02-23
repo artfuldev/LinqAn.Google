@@ -29,5 +29,5 @@
     "dnxcore50": { }
   },
 
-  "releaseNotes": "Added missing using statement."
+  "releaseNotes": "Changed GetClassName."
 }

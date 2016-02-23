@@ -106,8 +106,9 @@ namespace LinqAn.Google.Linq.Queryables
                 if (!match.Success) return className;
                 var number = match.ToString();
                 var numberAsInt = Convert.ToInt32(number);
-                var replacement = numberAsInt.ToWords().Dehumanize();
-                className = className.Replace(number, replacement);
+                var replacement = numberAsInt.ToWords().Dehumanize().Pascalize();
+                var remaining = className.Replace(number, "").Pascalize();
+                className = replacement + remaining;
                 return className;
             }
 

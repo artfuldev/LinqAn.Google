@@ -13,15 +13,16 @@ namespace LinqAn.Google.Generator.Core
             return className;
         }
 
-        private static string GetClassName(string id)
+        public static string GetClassName(this string id)
         {
             var className = id.Replace("ga:", "").Pascalize().Replace("ID", "Id");
             var match = Regex.Match(className, "^[0-9]+");
             if (!match.Success) return className;
             var number = match.ToString();
             var numberAsInt = Convert.ToInt32(number);
-            var replacement = numberAsInt.ToWords().Dehumanize();
-            className = className.Replace(number, replacement);
+            var replacement = numberAsInt.ToWords().Dehumanize().Pascalize();
+            var remaining = className.Replace(number, "").Pascalize();
+            className = replacement + remaining;
             return className;
         }
     }

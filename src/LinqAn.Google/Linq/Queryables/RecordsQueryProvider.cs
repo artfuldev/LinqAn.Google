@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Reflection;
 using Google.Apis.Analytics.v3;
 using Google.Apis.Services;
 using LinqAn.Google.Dimensions;
@@ -69,8 +70,51 @@ namespace LinqAn.Google.Linq.Queryables
                     ? client.GetAllGaData(query)
                     : client.GetGaData(query, out totalRecords, query.StartIndex ?? 1,
                         query.RecordsCount ?? RecordQuery.MaxRecordsPerQuery);
-                return Activator.CreateInstance(typeof (RecordReader), records);
+                if (translateResult.Projector == null)
+                    return Activator.CreateInstance(typeof (RecordReader), records);
+                var elementType = GetElementType(expression.Type);
+                var projector = translateResult.Projector.Compile();
+                return Activator.CreateInstance(
+                    typeof (ProjectionReader<>).MakeGenericType(elementType),
+                    BindingFlags.Instance | BindingFlags.NonPublic, null,
+                    new object[] {records, projector},
+                    null
+                    );
             }
+        }
+
+        public static Type GetElementType(Type seqType)
+        {
+            var ienum = FindIEnumerable(seqType);
+            return ienum == null ? seqType : ienum.GetGenericArguments()[0];
+        }
+
+        public static Type FindIEnumerable(Type seqType)
+        {
+            if (seqType == null || seqType == typeof(string))
+                return null;
+            if (seqType.IsArray)
+                return typeof(IEnumerable<>).MakeGenericType(seqType.GetElementType());
+            if (seqType.IsGenericType)
+            {
+                foreach (var ienum in seqType.GetGenericArguments().Select(arg => typeof(IEnumerable<>).MakeGenericType(arg)).Where(ienum => ienum.IsAssignableFrom(seqType)))
+                {
+                    return ienum;
+                }
+            }
+            var ifaces = seqType.GetInterfaces();
+            if (ifaces.Length > 0)
+            {
+                foreach (var ienum in ifaces.Select(FindIEnumerable).Where(ienum => ienum != null))
+                {
+                    return ienum;
+                }
+            }
+            if (seqType.BaseType != null && seqType.BaseType != typeof(object))
+            {
+                return FindIEnumerable(seqType.BaseType);
+            }
+            return null;
         }
     }
 }

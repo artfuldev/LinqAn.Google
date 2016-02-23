@@ -70,10 +70,10 @@ namespace LinqAn.Google.Linq.Queryables
                     ? client.GetAllGaData(query)
                     : client.GetGaData(query, out totalRecords, query.StartIndex ?? 1,
                         query.RecordsCount ?? RecordQuery.MaxRecordsPerQuery);
-                if (translateResult.Projector == null)
+                if (translateResult.Selector == null)
                     return Activator.CreateInstance(typeof (RecordReader), records);
                 var elementType = GetElementType(expression.Type);
-                var projector = translateResult.Projector.Compile();
+                var projector = translateResult.Selector.Compile();
                 return Activator.CreateInstance(
                     typeof (ProjectionReader<>).MakeGenericType(elementType),
                     BindingFlags.Instance | BindingFlags.NonPublic, null,

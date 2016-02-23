@@ -10,6 +10,7 @@ using LinqAn.Google.Dimensions;
 using LinqAn.Google.Filters;
 using LinqAn.Google.Linq.RecordQueries;
 using LinqAn.Google.Metrics;
+using LinqAn.Google.Records;
 using LinqAn.Google.Sorting;
 using ExpressionVisitor = LinqAn.Google.Linq.Core.ExpressionVisitor;
 
@@ -19,7 +20,7 @@ namespace LinqAn.Google.Linq.Queryables
     {
         private QueryableRecordQuery _query;
         private CombineOperator _combineOperator;
-        private ColumnProjection _projection;
+        private LambdaExpression _selector;
         private ParameterExpression _row;
         private StringBuilder _sb;
 
@@ -34,7 +35,7 @@ namespace LinqAn.Google.Linq.Queryables
             return new TranslateResult
             {
                 Query = _query,
-                Projector = _projection != null ? Expression.Lambda(_projection.Selector, _row) : null
+                Selector = _selector
             };
         }
 
@@ -116,13 +117,8 @@ namespace LinqAn.Google.Linq.Queryables
                     break;
                 case "Select":
                     var lambdaExpression = (LambdaExpression)StripQuotes(m.Arguments[1]);
-                    var projection = new ColumnProjector().ProjectColumns(lambdaExpression.Body, _row);
-                    _sb.Append("SELECT ");
-                    _sb.Append(projection.Columns);
-                    _sb.Append(" FROM (");
                     Visit(m.Arguments[0]);
-                    _sb.Append(") AS T ");
-                    _projection = projection;
+                    _selector = lambdaExpression;
                     break;
                 default:
                     throw new NotSupportedException($"The method '{m.Method.Name}' is not supported");

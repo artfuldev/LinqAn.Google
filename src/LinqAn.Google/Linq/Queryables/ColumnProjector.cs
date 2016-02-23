@@ -7,37 +7,37 @@ namespace LinqAn.Google.Linq.Queryables
 {
     internal class ColumnProjector : ExpressionVisitor
     {
-        StringBuilder sb;
-        int iColumn;
-        ParameterExpression row;
-        static MethodInfo miGetValue;
+        private StringBuilder _columns;
+        private int _iterator;
+        private ParameterExpression _row;
+        private static MethodInfo _getValue;
 
         internal ColumnProjector()
         {
-            if (miGetValue == null)
+            if (_getValue == null)
             {
-                miGetValue = typeof(ProjectionRow).GetMethod("GetValue");
+                _getValue = typeof(ProjectionRow).GetMethod("GetValue");
             }
         }
 
         internal ColumnProjection ProjectColumns(Expression expression, ParameterExpression row)
         {
-            sb = new StringBuilder();
-            this.row = row;
+            _columns = new StringBuilder();
+            _row = row;
             var selector = Visit(expression);
-            return new ColumnProjection { Columns = sb.ToString(), Selector = selector };
+            return new ColumnProjection { Columns = _columns.ToString(), Selector = selector };
         }
 
         protected override Expression VisitMemberAccess(MemberExpression m)
         {
             if (m.Expression == null || m.Expression.NodeType != ExpressionType.Parameter)
                 return base.VisitMemberAccess(m);
-            if (sb.Length > 0)
+            if (_columns.Length > 0)
             {
-                sb.Append(", ");
+                _columns.Append(", ");
             }
-            sb.Append(m.Member.Name);
-            return Expression.Convert(Expression.Call(row, miGetValue, Expression.Constant(iColumn++)), m.Type);
+            _columns.Append(m.Member.Name);
+            return Expression.Convert(Expression.Call(_row, _getValue, Expression.Constant(_iterator++)), m.Type);
         }
     }
 }

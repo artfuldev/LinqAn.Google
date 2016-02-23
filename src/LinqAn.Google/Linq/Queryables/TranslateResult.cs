@@ -6,6 +6,6 @@ namespace LinqAn.Google.Linq.Queryables
     internal class TranslateResult
     {
         internal QueryableRecordQuery Query;
-        internal LambdaExpression Projector;
+        internal LambdaExpression Selector;
     }
 }

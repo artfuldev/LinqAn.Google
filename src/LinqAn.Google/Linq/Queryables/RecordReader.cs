@@ -60,10 +60,10 @@ namespace LinqAn.Google.Linq.Queryables
                 if (_reader.Rows == null || _reader.Rows.Count <= _current) return false;
                 var row = _reader.Rows[_current];
                 if (row == null) return false;
+
                 if (_propertyLookup == null)
-                {
                     InitPropertyLookup();
-                }
+
                 var instance = new Record();
                 for (var i = 0; i < row.Count; i++)
                 {

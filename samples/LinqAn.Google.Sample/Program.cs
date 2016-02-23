@@ -1,6 +1,4 @@
-﻿using LinqAn.Google.Extensions;
-using LinqAn.Google.Linq.Queryables;
-using LinqAn.Google.Profiles;
+﻿using LinqAn.Google.Profiles;
 using Microsoft.Extensions.Configuration;
 using System;
 using System.IO;
@@ -22,11 +20,11 @@ namespace LinqAn.Google.Sample
 
             var profile = new AnalyticsProfile(serviceAccountEmail, keyFilePath, applicationName);
             var googleAnalytics = new AnalyticsContext(profile);
-            var query = googleAnalytics.Records
+            var records = googleAnalytics.Records
                 // View Id
                 .Where(x => x.ViewId == viewId)
                 // Start Date, End Date
-                .Where(x => x.RecordDate == DateTime.Today)
+                .Where(x => x.RecordDate == DateTime.Today.AddDays(-1))
                 // Include Dimensions
                 .Include(x => x.Source)
                 .Include(x => x.Medium)
@@ -46,7 +44,7 @@ namespace LinqAn.Google.Sample
                 // Take only 5 records
                 .Take(5);
 
-            foreach (var record in query.ToList())
+            foreach (var record in records)
                 Console.WriteLine(record.ToStringRepresentation());
             Console.ReadLine();
         }

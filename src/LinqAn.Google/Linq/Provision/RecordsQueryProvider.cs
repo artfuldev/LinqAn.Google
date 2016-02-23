@@ -73,8 +73,11 @@ namespace LinqAn.Google.Linq.Provision
                     return new RecordReader(records);
                 var projector = translateResult.Selector.Compile();
                 var returnType = projector.GetType().GenericTypeArguments[1];
-                return Activator.CreateInstance(typeof (ProjectionReader<>).MakeGenericType(returnType),
-                    BindingFlags.NonPublic | BindingFlags.Instance, null, new object[] {records, projector});
+                return
+                    typeof (ProjectionReader<>).MakeGenericType(returnType)
+                        .GetTypeInfo()
+                        .DeclaredConstructors.Single()
+                        .Invoke(new object[] {records, projector});
             }
         }
     }

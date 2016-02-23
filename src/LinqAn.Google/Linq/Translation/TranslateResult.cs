@@ -1,7 +1,7 @@
 ﻿using System.Linq.Expressions;
 using LinqAn.Google.Linq.Provision;
 
-namespace LinqAn.Google.Linq.Queryables
+namespace LinqAn.Google.Linq.Translation
 {
     internal class TranslateResult
     {

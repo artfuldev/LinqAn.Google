@@ -10,7 +10,7 @@ using Humanizer;
 using LinqAn.Google.Dimensions;
 using LinqAn.Google.Records;
 
-namespace LinqAn.Google.Linq.Queryables
+namespace LinqAn.Google.Linq.Resolution
 {
     internal class RecordEnumerator : IEnumerator<IRecord>
     {

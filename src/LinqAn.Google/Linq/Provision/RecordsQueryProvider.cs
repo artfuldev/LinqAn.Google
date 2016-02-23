@@ -7,6 +7,8 @@ using Google.Apis.Services;
 using LinqAn.Google.Dimensions;
 using LinqAn.Google.Linq.Core;
 using LinqAn.Google.Linq.Queryables;
+using LinqAn.Google.Linq.Resolution;
+using LinqAn.Google.Linq.Translation;
 using LinqAn.Google.Metrics;
 using LinqAn.Google.Profiles;
 using LinqAn.Google.Records;
@@ -68,15 +70,10 @@ namespace LinqAn.Google.Linq.Provision
                     : client.GetGaData(query, out totalRecords, query.StartIndex ?? 1,
                         query.RecordsCount ?? RecordQuery.MaxRecordsPerQuery);
                 if (translateResult.Selector == null)
-                    return Activator.CreateInstance(typeof (RecordReader), records);
+                    return new RecordReader(records);
                 var elementType = GetElementType(expression.Type);
                 var projector = translateResult.Selector.Compile();
-                return Activator.CreateInstance(
-                    typeof (ProjectionReader<>).MakeGenericType(elementType),
-                    BindingFlags.Instance | BindingFlags.NonPublic, null,
-                    new object[] {records, projector},
-                    null
-                    );
+                return new ProjectionReader(records, (dynamic)projector);
             }
         }
 

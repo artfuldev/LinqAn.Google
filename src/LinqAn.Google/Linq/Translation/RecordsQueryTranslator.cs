@@ -4,17 +4,15 @@ using System.Globalization;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using System.Text;
 using System.Text.RegularExpressions;
 using LinqAn.Google.Dimensions;
 using LinqAn.Google.Filters;
 using LinqAn.Google.Linq.Provision;
 using LinqAn.Google.Metrics;
-using LinqAn.Google.Records;
 using LinqAn.Google.Sorting;
 using ExpressionVisitor = LinqAn.Google.Linq.Core.ExpressionVisitor;
 
-namespace LinqAn.Google.Linq.Queryables
+namespace LinqAn.Google.Linq.Translation
 {
     internal class RecordsQueryTranslator : ExpressionVisitor
     {

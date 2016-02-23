@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Google.Apis.Analytics.v3.Data;
 using LinqAn.Google.Records;
 
-namespace LinqAn.Google.Linq.Queryables
+namespace LinqAn.Google.Linq.Resolution
 {
     internal class RecordReader : IEnumerable<IRecord>
     {

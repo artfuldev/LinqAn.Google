@@ -39,22 +39,14 @@ namespace LinqAn.Google.Linq.Queryables
 
         private class Enumerator<T> : IEnumerator<T>
         {
-            private readonly GaData _reader;
+            private readonly RecordEnumerator _enumerator;
             private readonly Func<IRecord, T> _projector;
-            private Type[] _propertyTypeLookup;
-            private int _current;
-            private IList<string> _currentRow;
-            private readonly PropertyInfo[] _propertyInfo;
-            private int[] _propertyLookup;
 
 
             internal Enumerator(GaData reader, Func<IRecord, T> projector)
             {
-                _reader = reader;
+                _enumerator = new RecordEnumerator(reader);
                 _projector = projector;
-                _current = 0;
-                _propertyInfo = typeof (Record).GetProperties();
-                _currentRow = null;
             }
 
             public T Current { get; private set; }
@@ -63,58 +55,10 @@ namespace LinqAn.Google.Linq.Queryables
 
             public bool MoveNext()
             {
-                if (_reader.Rows == null || _reader.Rows.Count <= _current) return false;
-                _currentRow = _reader.Rows[_current];
-                if (_currentRow == null) return false;
-
-                if (_propertyLookup == null)
-                    InitPropertyLookup();
-
-                var record = new Record();
-                for (var i = 0; i < _currentRow.Count; i++)
-                {
-                    Debug.Assert(_propertyLookup != null, "_propertyLookup != null");
-                    var infoIndex = _propertyLookup[i];
-                    if (infoIndex < 0) continue;
-                    var propertyInfo = _propertyInfo[infoIndex];
-                    var propertyType = propertyInfo.PropertyType;
-                    Debug.Assert(propertyType.BaseType != null, "propertyType.BaseType != null");
-                    var propertyInstance = Activator.CreateInstance(propertyType);
-                    var valueType = typeof(IDimension).IsAssignableFrom(propertyType)
-                        ? typeof(string)
-                        : propertyType.BaseType.GenericTypeArguments[0];
-                    var value = _currentRow[i];
-                    var newValue = valueType.Name == "TimeSpan"
-                    ? TimeSpan.FromSeconds(Convert.ToDouble(value))
-                    : Convert.ChangeType(value, valueType);
-                    propertyType.GetRuntimeProperty("Value")
-                        .SetValue(propertyInstance, string.IsNullOrWhiteSpace(value) ? null : newValue);
-                    propertyInfo.SetValue(record, propertyInstance);
-                }
-
-                Current = _projector(record);
-                _current++;
+                if (!_enumerator.MoveNext())
+                    return false;
+                Current = _projector(_enumerator.Current);
                 return true;
-            }
-
-            private void InitPropertyLookup()
-            {
-                var propertyNames = _reader.ColumnHeaders.Select(x => GetClassName(x.Name)).ToArray();
-                _propertyLookup =
-                    propertyNames.Select(name => _propertyInfo.ToList().FindIndex(x => x.Name == name)).ToArray();
-            }
-
-            private static string GetClassName(string id)
-            {
-                var className = id.Replace("ga:", "").Pascalize().Replace("ID", "Id");
-                var match = Regex.Match(className, "^[0-9]+");
-                if (!match.Success) return className;
-                var number = match.ToString();
-                var numberAsInt = Convert.ToInt32(number);
-                var replacement = numberAsInt.ToWords().Dehumanize().Pascalize();
-                var remaining = className.Replace(number, "").Pascalize();
-                className = replacement + remaining;
-                return className;
             }
 
             public void Reset()

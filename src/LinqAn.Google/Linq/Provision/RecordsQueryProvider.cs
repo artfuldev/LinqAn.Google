@@ -71,44 +71,11 @@ namespace LinqAn.Google.Linq.Provision
                         query.RecordsCount ?? RecordQuery.MaxRecordsPerQuery);
                 if (translateResult.Selector == null)
                     return new RecordReader(records);
-                var elementType = GetElementType(expression.Type);
                 var projector = translateResult.Selector.Compile();
-                return new ProjectionReader(records, (dynamic)projector);
+                var returnType = projector.GetType().GenericTypeArguments[1];
+                return Activator.CreateInstance(typeof (ProjectionReader<>).MakeGenericType(returnType),
+                    BindingFlags.NonPublic | BindingFlags.Instance, null, new object[] {records, projector});
             }
-        }
-
-        public static Type GetElementType(Type seqType)
-        {
-            var ienum = FindIEnumerable(seqType);
-            return ienum == null ? seqType : ienum.GetGenericArguments()[0];
-        }
-
-        public static Type FindIEnumerable(Type seqType)
-        {
-            if (seqType == null || seqType == typeof(string))
-                return null;
-            if (seqType.IsArray)
-                return typeof(IEnumerable<>).MakeGenericType(seqType.GetElementType());
-            if (seqType.IsGenericType)
-            {
-                foreach (var ienum in seqType.GetGenericArguments().Select(arg => typeof(IEnumerable<>).MakeGenericType(arg)).Where(ienum => ienum.IsAssignableFrom(seqType)))
-                {
-                    return ienum;
-                }
-            }
-            var ifaces = seqType.GetInterfaces();
-            if (ifaces.Length > 0)
-            {
-                foreach (var ienum in ifaces.Select(FindIEnumerable).Where(ienum => ienum != null))
-                {
-                    return ienum;
-                }
-            }
-            if (seqType.BaseType != null && seqType.BaseType != typeof(object))
-            {
-                return FindIEnumerable(seqType.BaseType);
-            }
-            return null;
         }
     }
 }

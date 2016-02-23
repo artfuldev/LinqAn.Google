@@ -9,7 +9,7 @@ namespace LinqAn.Google.Linq.Resolution
     {
         private readonly GaData _data;
 
-        public RecordReader(GaData data)
+        internal RecordReader(GaData data)
         {
             _data = data;
         }

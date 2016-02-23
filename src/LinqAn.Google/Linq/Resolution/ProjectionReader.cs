@@ -11,7 +11,7 @@ namespace LinqAn.Google.Linq.Resolution
         private readonly GaData _data;
         private readonly Func<IRecord, T> _projector;
 
-        public ProjectionReader(GaData data, Func<IRecord, T> projector)
+        internal ProjectionReader(GaData data, Func<IRecord, T> projector)
         {
             _data = data;
             _projector = projector;

@@ -14,6 +14,6 @@
   "summary": "LinqAn (LINQ ANalytics, pronounced \"Lincoln\") is a .NET companion library for analytics platforms, allowing for LINQ-based queries. LinqAn.Google is the Google version, which uses Google Analytics Core Reporting API v3. Currently this supports .NET framework 4.5, in addition to DNX4.5.1.",
   "tags": [ "anlaytics", "linqan", "google", "google analytics", "helper", "ga", "linq" ],
   "title": "LinqAn.Google",
-  "version": "1.1.0-alpha10698",
-  "releaseNotes": "Fixed namespaces."
+  "version": "1.1.0-alpha10713",
+  "releaseNotes": "Fixed projection."
 }

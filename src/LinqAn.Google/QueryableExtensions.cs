@@ -3,9 +3,9 @@ using System.Linq;
 using System.Linq.Expressions;
 using LinqAn.Google.Records;
 
-namespace LinqAn.Google.Linq.Queryables
+namespace LinqAn.Google
 {
-    public static class RecordsQueryableExtensions
+    public static class QueryableExtensions
     {
         public static IQueryable<IRecord> Include<T>(this IQueryable<IRecord> source,
             Expression<Func<IRecord, T>> includeExpression)

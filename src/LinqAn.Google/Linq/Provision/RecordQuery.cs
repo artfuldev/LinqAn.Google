@@ -1,19 +1,18 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using LinqAn.Google.Dimensions;
 using LinqAn.Google.Filters;
 using LinqAn.Google.Metrics;
-using LinqAn.Google.Queries;
 using LinqAn.Google.Sorting;
 
-namespace LinqAn.Google.Linq.RecordQueries
+namespace LinqAn.Google.Linq.Provision
 {
     /// <summary>
     ///     Represents a query to the records in Google Analytics
     /// </summary>
-    internal class QueryableRecordQuery : IRecordQuery
+    internal class RecordQuery : IRecordQuery
     {
+        internal const uint MaxRecordsPerQuery = 10000U;
         private List<IDimension> _dimensionsList;
         private List<IMetric> _metricsList;
         private List<ISortRule> _sortRulesList;
@@ -33,7 +32,7 @@ namespace LinqAn.Google.Linq.RecordQueries
 
         public bool QueryAll { get; set; } = true;
         public uint? StartIndex { get; set; } = 1U;
-        public uint? RecordsCount { get; set; } = RecordQuery.MaxRecordsPerQuery;
+        public uint? RecordsCount { get; set; } = MaxRecordsPerQuery;
 
         public uint ViewId { get; set; }
         public DateTime StartDate { get; set; }

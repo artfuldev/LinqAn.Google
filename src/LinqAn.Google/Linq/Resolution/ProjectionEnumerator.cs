@@ -36,6 +36,7 @@ namespace LinqAn.Google.Linq.Queryables
 
         public void Dispose()
         {
+            _enumerator.Dispose();
         }
     }
 }

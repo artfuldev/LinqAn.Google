@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using Google.Apis.Analytics.v3.Data;
-using LinqAn.Google.Dimensions;
-using LinqAn.Google.Metrics;
-using LinqAn.Google.Queries;
-using LinqAn.Google.Records;
 
-namespace LinqAn.Google.Linq.Clients
+namespace LinqAn.Google.Linq.Provision
 {
     internal interface IReportingClient : IDisposable
     {

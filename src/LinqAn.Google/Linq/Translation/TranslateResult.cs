@@ -1,11 +1,11 @@
 ﻿using System.Linq.Expressions;
-using LinqAn.Google.Linq.RecordQueries;
+using LinqAn.Google.Linq.Provision;
 
 namespace LinqAn.Google.Linq.Queryables
 {
     internal class TranslateResult
     {
-        internal QueryableRecordQuery Query;
+        internal RecordQuery Query;
         internal LambdaExpression Selector;
     }
 }

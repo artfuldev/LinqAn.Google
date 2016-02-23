@@ -1,14 +1,14 @@
 ﻿using System;
 using System.Linq.Expressions;
-using Google.Apis.Analytics.v3;
 using Google.Apis.Services;
 using LinqAn.Google.Linq.Core;
+using LinqAn.Google.Linq.Provision;
 using LinqAn.Google.Profiles;
 using LinqAn.Google.Records;
 
 namespace LinqAn.Google.Linq.Queryables
 {
-    public class RecordsDataSet : Query<IRecord>
+    internal class RecordsDataSet : Query<IRecord>
     {
         public RecordsDataSet(IAnalyticsProfile profile)
             : base(new RecordsQueryProvider(profile))

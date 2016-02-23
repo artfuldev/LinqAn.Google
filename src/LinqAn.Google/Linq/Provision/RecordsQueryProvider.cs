@@ -3,18 +3,15 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
-using Google.Apis.Analytics.v3;
 using Google.Apis.Services;
 using LinqAn.Google.Dimensions;
-using LinqAn.Google.Linq.Clients;
 using LinqAn.Google.Linq.Core;
-using LinqAn.Google.Linq.RecordQueries;
+using LinqAn.Google.Linq.Queryables;
 using LinqAn.Google.Metrics;
 using LinqAn.Google.Profiles;
-using LinqAn.Google.Queries;
 using LinqAn.Google.Records;
 
-namespace LinqAn.Google.Linq.Queryables
+namespace LinqAn.Google.Linq.Provision
 {
     /// <summary>
     ///     A LINQ Provider that executes API Queries over an API Client

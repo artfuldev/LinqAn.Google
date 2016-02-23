@@ -8,7 +8,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using LinqAn.Google.Dimensions;
 using LinqAn.Google.Filters;
-using LinqAn.Google.Linq.RecordQueries;
+using LinqAn.Google.Linq.Provision;
 using LinqAn.Google.Metrics;
 using LinqAn.Google.Records;
 using LinqAn.Google.Sorting;
@@ -18,13 +18,13 @@ namespace LinqAn.Google.Linq.Queryables
 {
     internal class RecordsQueryTranslator : ExpressionVisitor
     {
-        private QueryableRecordQuery _query;
+        private RecordQuery _query;
         private CombineOperator _combineOperator;
         private LambdaExpression _selector;
 
         internal TranslateResult Translate(Expression expression)
         {
-            _query = new QueryableRecordQuery();
+            _query = new RecordQuery();
             _combineOperator = CombineOperator.And;
 
             Visit(expression);

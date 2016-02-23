@@ -11,10 +11,9 @@ using LinqAn.Google.Extensions;
 using LinqAn.Google.Filters;
 using LinqAn.Google.Metrics;
 using LinqAn.Google.Profiles;
-using LinqAn.Google.Queries;
 using LinqAn.Google.Sorting;
 
-namespace LinqAn.Google.Linq.Clients
+namespace LinqAn.Google.Linq.Provision
 {
     internal class ReportingClient : IReportingClient
     {

@@ -7,7 +7,6 @@ using System.Text.RegularExpressions;
 using Google.Apis.Analytics.v3.Data;
 using Humanizer;
 using LinqAn.Google.Dimensions;
-using LinqAn.Google.Metrics;
 using LinqAn.Google.Records;
 using System.Reflection;
 
@@ -38,7 +37,7 @@ namespace LinqAn.Google.Linq.Queryables
             return GetEnumerator();
         }
 
-        private class Enumerator<T> : ProjectionRow, IEnumerator<T>
+        private class Enumerator<T> : IEnumerator<T>
         {
             private readonly GaData _reader;
             private readonly Func<IRecord, T> _projector;
@@ -58,24 +57,6 @@ namespace LinqAn.Google.Linq.Queryables
                 _currentRow = null;
             }
 
-            public override object GetValue(int index)
-            {
-                if (index < 0) throw new IndexOutOfRangeException();
-                var value = _currentRow.ElementAtOrDefault(index);
-                var propertyType = _propertyTypeLookup[index];
-                Debug.Assert(propertyType.BaseType != null, "propertyType.BaseType != null");
-                var propertyInstance = Activator.CreateInstance(propertyType);
-                var valueType = typeof(IDimension).IsAssignableFrom(propertyType)
-                    ? typeof(string)
-                    : propertyType.BaseType.GenericTypeArguments[0];
-                var newValue = valueType.Name == "TimeSpan"
-                ? TimeSpan.FromSeconds(Convert.ToDouble(value))
-                : Convert.ChangeType(value, valueType);
-                propertyType.GetRuntimeProperty("Value")
-                    .SetValue(propertyInstance, string.IsNullOrWhiteSpace(value) ? null : newValue);
-                return propertyInstance;
-            }
-
             public T Current { get; private set; }
 
             object IEnumerator.Current => Current;
@@ -86,13 +67,10 @@ namespace LinqAn.Google.Linq.Queryables
                 _currentRow = _reader.Rows[_current];
                 if (_currentRow == null) return false;
 
-                if (_propertyTypeLookup == null)
-                    InitializePropertyTypeLookup();
-
                 if (_propertyLookup == null)
                     InitPropertyLookup();
 
-                var instance = new Record();
+                var record = new Record();
                 for (var i = 0; i < _currentRow.Count; i++)
                 {
                     Debug.Assert(_propertyLookup != null, "_propertyLookup != null");
@@ -111,11 +89,10 @@ namespace LinqAn.Google.Linq.Queryables
                     : Convert.ChangeType(value, valueType);
                     propertyType.GetRuntimeProperty("Value")
                         .SetValue(propertyInstance, string.IsNullOrWhiteSpace(value) ? null : newValue);
-                    propertyInfo.SetValue(instance, propertyInstance);
+                    propertyInfo.SetValue(record, propertyInstance);
                 }
 
-                Record = instance;
-                Current = _projector(Record);
+                Current = _projector(record);
                 _current++;
                 return true;
             }
@@ -125,28 +102,6 @@ namespace LinqAn.Google.Linq.Queryables
                 var propertyNames = _reader.ColumnHeaders.Select(x => GetClassName(x.Name)).ToArray();
                 _propertyLookup =
                     propertyNames.Select(name => _propertyInfo.ToList().FindIndex(x => x.Name == name)).ToArray();
-            }
-
-            private void InitializePropertyTypeLookup()
-            {
-                var propertyNames = _reader.ColumnHeaders.Select(x => GetClassName(x.Name)).ToArray();
-                _propertyTypeLookup = propertyNames.Select(GetPropertyType).ToArray();
-            }
-
-            private static Type GetPropertyType(string id)
-            {
-                var typeName = GetClassName(id);
-                return typeof(Record).GetProperty(typeName).PropertyType;
-            }
-
-            private static Type GetValueType(string id)
-            {
-                var propertyType = GetPropertyType(id);
-                if (typeof (IDimension).IsAssignableFrom(propertyType))
-                    return typeof (string);
-                if (typeof (IMetric).IsAssignableFrom(propertyType))
-                    return propertyType.BaseType?.GenericTypeArguments[0];
-                return null;
             }
 
             private static string GetClassName(string id)

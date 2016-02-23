@@ -21,15 +21,11 @@ namespace LinqAn.Google.Linq.Queryables
         private QueryableRecordQuery _query;
         private CombineOperator _combineOperator;
         private LambdaExpression _selector;
-        private ParameterExpression _row;
-        private StringBuilder _sb;
 
         internal TranslateResult Translate(Expression expression)
         {
             _query = new QueryableRecordQuery();
             _combineOperator = CombineOperator.And;
-            _sb = new StringBuilder();
-            _row = Expression.Parameter(typeof(ProjectionRow), "row");
 
             Visit(expression);
             return new TranslateResult

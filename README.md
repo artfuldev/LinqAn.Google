@@ -16,7 +16,7 @@ comments to help you out along the way, and you can always have a discussion ove
 
 You can query like this:
 
-```
+```c#
 // IAnalyticsProfile supports Service Account Authorzization
 var profile = new LinqAn.Google.Profiles.AnalyticsProfile(serviceAccountEmail,
                     keyFilePath, applicationName);
@@ -64,7 +64,7 @@ To run the sample project, you need a service account. More details on this can 
 the outlined process to get a service account and have added it to the appropriate profile (view),
 add a `gasettings.json` file to the root of the samples project folder
 `$/samples/LinqAn.Google.Sample` with the following content:
-```
+```json
 {
   "profile": {
     "application_name": "YOUE_APP_NAME",

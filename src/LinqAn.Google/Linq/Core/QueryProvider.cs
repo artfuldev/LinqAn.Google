@@ -2,6 +2,7 @@
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace LinqAn.Google.Linq.Core
@@ -41,14 +42,14 @@ namespace LinqAn.Google.Linq.Core
             return Execute(expression);
         }
 
-        public virtual Task<object> ExecuteAsync(Expression expression)
+        public virtual Task<object> ExecuteAsync(Expression expression, CancellationToken token = default(CancellationToken))
         {
-            return Task.Run(() => Execute(expression));
+            return Task.Run(() => Execute(expression), token);
         }
 
-        public virtual Task<S> ExecuteAsync<S>(Expression expression)
+        public virtual Task<S> ExecuteAsync<S>(Expression expression, CancellationToken token = default(CancellationToken))
         {
-            return Task.Run(() => (S)Execute(expression));
+            return Task.Run(() => (S)Execute(expression), token);
         }
 
         public abstract object Execute(Expression expression);

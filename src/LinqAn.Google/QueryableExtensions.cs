@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Linq.Expressions;
+using System.Threading;
 using System.Threading.Tasks;
 using LinqAn.Google.Linq.Core;
 using LinqAn.Google.Records;
@@ -20,13 +21,14 @@ namespace LinqAn.Google
             return query;
         }
 
-        public static async Task<List<IRecord>> ToListAsync(this IQueryable<IRecord> query)
+        public static async Task<List<IRecord>> ToListAsync(this IQueryable<IRecord> query, CancellationToken token = default(CancellationToken))
         {
             var queryExpression = query.Expression;
             var asyncProvider = query.Provider as IAsyncQueryProvider;
-            return asyncProvider != null
-                ? (await asyncProvider.ExecuteAsync<IEnumerable<IRecord>>(queryExpression)).ToList()
-                : (await Task.Run(() => query.Provider.Execute<IEnumerable<IRecord>>(queryExpression))).ToList();
+            var enumerable = asyncProvider != null
+                ? (await asyncProvider.ExecuteAsync<IEnumerable<IRecord>>(queryExpression, token))
+                : (await Task.Run(() => query.Provider.Execute<IEnumerable<IRecord>>(queryExpression), token));
+            return enumerable?.ToList() ?? new List<IRecord>();
         } 
     }
 }

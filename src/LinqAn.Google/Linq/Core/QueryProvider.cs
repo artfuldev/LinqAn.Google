@@ -2,13 +2,14 @@
 using System.Linq;
 using System.Linq.Expressions;
 using System.Reflection;
+using System.Threading.Tasks;
 
 namespace LinqAn.Google.Linq.Core
 {
     /// <summary>
     ///     A basic abstract LINQ query provider
     /// </summary>
-    public abstract class QueryProvider : IQueryProvider
+    public abstract class QueryProvider : IAsyncQueryProvider
     {
         IQueryable<S> IQueryProvider.CreateQuery<S>(Expression expression)
         {
@@ -38,6 +39,16 @@ namespace LinqAn.Google.Linq.Core
         object IQueryProvider.Execute(Expression expression)
         {
             return Execute(expression);
+        }
+
+        public virtual Task<object> ExecuteAsync(Expression expression)
+        {
+            return Task.Run(() => Execute(expression));
+        }
+
+        public virtual Task<S> ExecuteAsync<S>(Expression expression)
+        {
+            return Task.Run(() => (S)Execute(expression));
         }
 
         public abstract object Execute(Expression expression);

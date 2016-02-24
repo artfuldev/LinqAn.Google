@@ -24,8 +24,6 @@ namespace LinqAn.Google.Generator
             var selectedColumns = columns
                 // Remove deprecated
                 .Where(x => !x.Attributes.IsDeprecated)
-                // Remove calculated
-                .Where(x => string.IsNullOrWhiteSpace(x.Attributes.Calculation))
                 // Remove templates
                 .Where(x => !x.Attributes.IsTemplated)
                 .ToList();

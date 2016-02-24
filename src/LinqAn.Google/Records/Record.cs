@@ -22,6 +22,10 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public NewUsers NewUsers { get; set; }
 		/// <summary>
+		/// 	The percentage of sessions by people who had never visited your property before.
+		/// </summary>
+		public PercentNewSessions PercentNewSessions { get; set; }
+		/// <summary>
 		/// 	Total number of 1-day active users for each day in the requested time period. At least one of ga:nthDay, ga:date, or ga:day must be specified as a dimension in order to query this metric. For the given date the returned value will be the total unique users for the 1 day period ending on the given date.
 		/// </summary>
 		public OneDayUsers OneDayUsers { get; set; }
@@ -46,9 +50,17 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public Bounces Bounces { get; set; }
 		/// <summary>
+		/// 	The percentage of single-page session (i.e., session in which the person left your property from the first page).
+		/// </summary>
+		public BounceRate BounceRate { get; set; }
+		/// <summary>
 		/// 	The total duration of user sessions represented in total seconds.
 		/// </summary>
 		public SessionDuration SessionDuration { get; set; }
+		/// <summary>
+		/// 	The average duration of user sessions represented in total seconds.
+		/// </summary>
+		public AvgSessionDuration AvgSessionDuration { get; set; }
 		/// <summary>
 		/// 	The number of organic searches that happened within a session. This metric is search engine agnostic.
 		/// </summary>
@@ -66,6 +78,38 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public AdCost AdCost { get; set; }
 		/// <summary>
+		/// 	Cost per thousand impressions.
+		/// </summary>
+		public CPM CPM { get; set; }
+		/// <summary>
+		/// 	Cost to advertiser per click.
+		/// </summary>
+		public CPC CPC { get; set; }
+		/// <summary>
+		/// 	Click-through-rate for your ad. This is equal to the number of clicks divided by the number of impressions for your ad (e.g. how many times users clicked on one of your ads where that ad appeared).
+		/// </summary>
+		public CTR CTR { get; set; }
+		/// <summary>
+		/// 	The cost per transaction for your property.
+		/// </summary>
+		public CostPerTransaction CostPerTransaction { get; set; }
+		/// <summary>
+		/// 	The cost per goal conversion for your property.
+		/// </summary>
+		public CostPerGoalConversion CostPerGoalConversion { get; set; }
+		/// <summary>
+		/// 	The cost per conversion (including ecommerce and goal conversions) for your property.
+		/// </summary>
+		public CostPerConversion CostPerConversion { get; set; }
+		/// <summary>
+		/// 	RPC or revenue-per-click is the average revenue (from ecommerce sales and/or goal value) you received for each click on one of your search ads.
+		/// </summary>
+		public RPC RPC { get; set; }
+		/// <summary>
+		/// 	Return On Ad Spend (ROAS) is the total transaction revenue and goal value divided by derived advertising cost.
+		/// </summary>
+		public ROAS ROAS { get; set; }
+		/// <summary>
 		/// 	The total number of starts for all goals defined for your profile.
 		/// </summary>
 		public GoalStartsAll GoalStartsAll { get; set; }
@@ -77,6 +121,22 @@ namespace LinqAn.Google.Records
 		/// 	The total numeric value for all goals defined for your profile.
 		/// </summary>
 		public GoalValueAll GoalValueAll { get; set; }
+		/// <summary>
+		/// 	The average goal value of a session.
+		/// </summary>
+		public GoalValuePerSession GoalValuePerSession { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to at least one of your goals.
+		/// </summary>
+		public GoalConversionRateAll GoalConversionRateAll { get; set; }
+		/// <summary>
+		/// 	The overall number of times users started goals without actually completing them.
+		/// </summary>
+		public GoalAbandonsAll GoalAbandonsAll { get; set; }
+		/// <summary>
+		/// 	The rate at which goals were abandoned.
+		/// </summary>
+		public GoalAbandonRateAll GoalAbandonRateAll { get; set; }
 		/// <summary>
 		/// 	The total number of activities where a content URL was shared / mentioned on a social data hub partner network.
 		/// </summary>
@@ -90,9 +150,17 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public Entrances Entrances { get; set; }
 		/// <summary>
+		/// 	The percentage of pageviews in which this page was the entrance.
+		/// </summary>
+		public EntranceRate EntranceRate { get; set; }
+		/// <summary>
 		/// 	The total number of pageviews for your property.
 		/// </summary>
 		public Pageviews Pageviews { get; set; }
+		/// <summary>
+		/// 	The average number of pages viewed during a session, including repeated views of a single page.
+		/// </summary>
+		public PageviewsPerSession PageviewsPerSession { get; set; }
 		/// <summary>
 		/// 	The number of unique page views. Page views within different sessions count as separate unique page views. This takes into account both the pagePath and pageTitle to determine uniqueness.
 		/// </summary>
@@ -102,9 +170,17 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public TimeOnPage TimeOnPage { get; set; }
 		/// <summary>
+		/// 	The average amount of time users spent viewing this page or a set of pages.
+		/// </summary>
+		public AvgTimeOnPage AvgTimeOnPage { get; set; }
+		/// <summary>
 		/// 	The number of exits from your property.
 		/// </summary>
 		public Exits Exits { get; set; }
+		/// <summary>
+		/// 	The percentage of exits from your property that occurred out of the total page views.
+		/// </summary>
+		public ExitRate ExitRate { get; set; }
 		/// <summary>
 		/// 	The number of times a search result page was viewed after performing a search.
 		/// </summary>
@@ -114,25 +190,57 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public SearchUniques SearchUniques { get; set; }
 		/// <summary>
+		/// 	The average number of times people viewed a search results page after performing a search.
+		/// </summary>
+		public AvgSearchResultViews AvgSearchResultViews { get; set; }
+		/// <summary>
 		/// 	The total number of sessions that included an internal search
 		/// </summary>
 		public SearchSessions SearchSessions { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions with search.
+		/// </summary>
+		public PercentSessionsWithSearch PercentSessionsWithSearch { get; set; }
 		/// <summary>
 		/// 	The total number of subsequent page views made after a use of your internal search feature.
 		/// </summary>
 		public SearchDepth SearchDepth { get; set; }
 		/// <summary>
+		/// 	The average number of pages people viewed after performing a search.
+		/// </summary>
+		public AvgSearchDepth AvgSearchDepth { get; set; }
+		/// <summary>
 		/// 	The total number of times a refinement (transition) occurs between internal search keywords within a session. For example if the sequence of keywords is: "shoes", "shoes", "pants", "pants", this metric will be one because the transition between "shoes" and "pants" is different.
 		/// </summary>
 		public SearchRefinements SearchRefinements { get; set; }
+		/// <summary>
+		/// 	The percentage of number of times a refinement (i.e., transition) occurs between internal search keywords within a session.
+		/// </summary>
+		public PercentSearchRefinements PercentSearchRefinements { get; set; }
 		/// <summary>
 		/// 	The session duration where a use of your internal search feature occurred.
 		/// </summary>
 		public SearchDuration SearchDuration { get; set; }
 		/// <summary>
+		/// 	The average time (in seconds) users spent on your property after searching.
+		/// </summary>
+		public AvgSearchDuration AvgSearchDuration { get; set; }
+		/// <summary>
 		/// 	The number of exits on your site that occurred following a search result from your internal search feature.
 		/// </summary>
 		public SearchExits SearchExits { get; set; }
+		/// <summary>
+		/// 	The percentage of searches that resulted in an immediate exit from your property.
+		/// </summary>
+		public SearchExitRate SearchExitRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to at least one of your goals.
+		/// </summary>
+		public SearchGoalConversionRateAll SearchGoalConversionRateAll { get; set; }
+		/// <summary>
+		/// 	The average goal value of a search.
+		/// </summary>
+		public GoalValueAllPerSearch GoalValueAllPerSearch { get; set; }
 		/// <summary>
 		/// 	Total Page Load Time is the amount of time (in milliseconds) it takes for pages from the sample set to load, from initiation of the pageview (e.g. click on a page link) to load completion in the browser.
 		/// </summary>
@@ -142,25 +250,49 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public PageLoadSample PageLoadSample { get; set; }
 		/// <summary>
+		/// 	The average amount of time (in seconds) it takes for pages from the sample set to load, from initiation of the pageview (e.g. click on a page link) to load completion in the browser.
+		/// </summary>
+		public AvgPageLoadTime AvgPageLoadTime { get; set; }
+		/// <summary>
 		/// 	The total amount of time (in milliseconds) spent in DNS lookup for this page among all samples.
 		/// </summary>
 		public DomainLookupTime DomainLookupTime { get; set; }
+		/// <summary>
+		/// 	The average amount of time (in seconds) spent in DNS lookup for this page.
+		/// </summary>
+		public AvgDomainLookupTime AvgDomainLookupTime { get; set; }
 		/// <summary>
 		/// 	The total amount of time (in milliseconds) to download this page among all samples.
 		/// </summary>
 		public PageDownloadTime PageDownloadTime { get; set; }
 		/// <summary>
+		/// 	The average amount of time (in seconds) to download this page.
+		/// </summary>
+		public AvgPageDownloadTime AvgPageDownloadTime { get; set; }
+		/// <summary>
 		/// 	The total amount of time (in milliseconds) spent in redirects before fetching this page among all samples. If there are no redirects, the value for this metric is expected to be 0.
 		/// </summary>
 		public RedirectionTime RedirectionTime { get; set; }
+		/// <summary>
+		/// 	The average amount of time (in seconds) spent in redirects before fetching this page. If there are no redirects, the value for this metric is expected to be 0.
+		/// </summary>
+		public AvgRedirectionTime AvgRedirectionTime { get; set; }
 		/// <summary>
 		/// 	The total amount of time (in milliseconds) spent in establishing TCP connection for this page among all samples.
 		/// </summary>
 		public ServerConnectionTime ServerConnectionTime { get; set; }
 		/// <summary>
+		/// 	The average amount of time (in seconds) spent in establishing TCP connection for this page.
+		/// </summary>
+		public AvgServerConnectionTime AvgServerConnectionTime { get; set; }
+		/// <summary>
 		/// 	The total amount of time (in milliseconds) your server takes to respond to a user request among all samples, including the network time from user's location to your server.
 		/// </summary>
 		public ServerResponseTime ServerResponseTime { get; set; }
+		/// <summary>
+		/// 	The average amount of time (in seconds) your server takes to respond to a user request, including the network time from user's location to your server.
+		/// </summary>
+		public AvgServerResponseTime AvgServerResponseTime { get; set; }
 		/// <summary>
 		/// 	The sample set (or count) of pageviews used to calculate the averages for site speed metrics. This metric is used in all site speed average calculations including avgDomainLookupTime, avgPageDownloadTime, avgRedirectionTime, avgServerConnectionTime, and avgServerResponseTime.
 		/// </summary>
@@ -170,9 +302,17 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public DomInteractiveTime DomInteractiveTime { get; set; }
 		/// <summary>
+		/// 	The average time (in seconds) it takes the browser to parse the document and execute deferred and parser-inserted scripts including the network time from the user's location to your server.
+		/// </summary>
+		public AvgDomInteractiveTime AvgDomInteractiveTime { get; set; }
+		/// <summary>
 		/// 	The time the browser takes (in milliseconds) to parse the document and execute deferred and parser-inserted scripts (DOMContentLoaded), including the network time from the user's location to your server. Parsing of the document is finished, the Document Object Model is ready, but referenced style sheets, images, and subframes may not be finished loading. This event is often the starting point for javascript framework execution, e.g., JQuery's onready() callback, etc.
 		/// </summary>
 		public DomContentLoadedTime DomContentLoadedTime { get; set; }
+		/// <summary>
+		/// 	The average time (in seconds) it takes the browser to parse the document.
+		/// </summary>
+		public AvgDomContentLoadedTime AvgDomContentLoadedTime { get; set; }
 		/// <summary>
 		/// 	The sample set (or count) of pageviews used to calculate the averages for site speed DOM metrics. This metric is used in the avgDomContentLoadedTime and avgDomInteractiveTime calculations.
 		/// </summary>
@@ -185,6 +325,10 @@ namespace LinqAn.Google.Records
 		/// 	The number of unique screen views. Screen views in different sessions count a separate screen views.
 		/// </summary>
 		public UniqueScreenviews UniqueScreenviews { get; set; }
+		/// <summary>
+		/// 	The average number of screenviews per session.
+		/// </summary>
+		public ScreenviewsPerSession ScreenviewsPerSession { get; set; }
 		/// <summary>
 		/// 	The time spent viewing the current screen.
 		/// </summary>
@@ -206,17 +350,37 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public EventValue EventValue { get; set; }
 		/// <summary>
+		/// 	The average value of an event.
+		/// </summary>
+		public AvgEventValue AvgEventValue { get; set; }
+		/// <summary>
 		/// 	The total number of sessions with events.
 		/// </summary>
 		public SessionsWithEvent SessionsWithEvent { get; set; }
+		/// <summary>
+		/// 	The average number of events per session with event.
+		/// </summary>
+		public EventsPerSessionWithEvent EventsPerSessionWithEvent { get; set; }
 		/// <summary>
 		/// 	The total number of transactions.
 		/// </summary>
 		public Transactions Transactions { get; set; }
 		/// <summary>
+		/// 	The average number of transactions for a session.
+		/// </summary>
+		public TransactionsPerSession TransactionsPerSession { get; set; }
+		/// <summary>
 		/// 	The total sale revenue provided in the transaction excluding shipping and tax.
 		/// </summary>
 		public TransactionRevenue TransactionRevenue { get; set; }
+		/// <summary>
+		/// 	The average revenue for an e-commerce transaction.
+		/// </summary>
+		public RevenuePerTransaction RevenuePerTransaction { get; set; }
+		/// <summary>
+		/// 	Average transaction revenue for a session.
+		/// </summary>
+		public TransactionRevenuePerSession TransactionRevenuePerSession { get; set; }
 		/// <summary>
 		/// 	The total cost of shipping.
 		/// </summary>
@@ -226,6 +390,10 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public TransactionTax TransactionTax { get; set; }
 		/// <summary>
+		/// 	Total value for your property (including total revenue and total goal value).
+		/// </summary>
+		public TotalValue TotalValue { get; set; }
+		/// <summary>
 		/// 	The total number of items purchased. For example, if users purchase 2 frisbees and 5 tennis balls, 7 items have been purchased.
 		/// </summary>
 		public ItemQuantity ItemQuantity { get; set; }
@@ -234,9 +402,17 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public UniquePurchases UniquePurchases { get; set; }
 		/// <summary>
+		/// 	The average revenue per item.
+		/// </summary>
+		public RevenuePerItem RevenuePerItem { get; set; }
+		/// <summary>
 		/// 	The total revenue from purchased product items.
 		/// </summary>
 		public ItemRevenue ItemRevenue { get; set; }
+		/// <summary>
+		/// 	The average quantity of this item (or group of items) sold per purchase.
+		/// </summary>
+		public ItemsPerPurchase ItemsPerPurchase { get; set; }
 		/// <summary>
 		/// 	Transaction revenue in local currency.
 		/// </summary>
@@ -262,6 +438,10 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public UniqueSocialInteractions UniqueSocialInteractions { get; set; }
 		/// <summary>
+		/// 	The number of social interactions per session.
+		/// </summary>
+		public SocialInteractionsPerSession SocialInteractionsPerSession { get; set; }
+		/// <summary>
 		/// 	The total number of milliseconds for a user timing.
 		/// </summary>
 		public UserTimingValue UserTimingValue { get; set; }
@@ -270,13 +450,25 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public UserTimingSample UserTimingSample { get; set; }
 		/// <summary>
+		/// 	The average amount of elapsed time.
+		/// </summary>
+		public AvgUserTimingValue AvgUserTimingValue { get; set; }
+		/// <summary>
 		/// 	The number of exceptions that were sent to Google Analytics.
 		/// </summary>
 		public Exceptions Exceptions { get; set; }
 		/// <summary>
+		/// 	The number of exceptions thrown divided by the number of screenviews.
+		/// </summary>
+		public ExceptionsPerScreenview ExceptionsPerScreenview { get; set; }
+		/// <summary>
 		/// 	The number of exceptions where isFatal is set to true.
 		/// </summary>
 		public FatalExceptions FatalExceptions { get; set; }
+		/// <summary>
+		/// 	The number of fatal exceptions thrown divided by the number of screenviews.
+		/// </summary>
+		public FatalExceptionsPerScreenview FatalExceptionsPerScreenview { get; set; }
 		/// <summary>
 		/// 	The number of DCM Floodlight conversions (premium only).
 		/// </summary>
@@ -305,6 +497,14 @@ namespace LinqAn.Google.Records
 		/// 	The number of pageviews during which an AdSense ad was displayed. A page impression can have multiple Ad Units.
 		/// </summary>
 		public AdsensePageImpressions AdsensePageImpressions { get; set; }
+		/// <summary>
+		/// 	The percentage of page impressions that resulted in a click on an AdSense ad.
+		/// </summary>
+		public AdsenseCTR AdsenseCTR { get; set; }
+		/// <summary>
+		/// 	The estimated cost per thousand page impressions. It is your AdSense Revenue per 1000 page impressions.
+		/// </summary>
+		public AdsenseECPM AdsenseECPM { get; set; }
 		/// <summary>
 		/// 	The number of sessions that ended due to a user clicking on an AdSense ad.
 		/// </summary>
@@ -402,6 +602,10 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public Hits Hits { get; set; }
 		/// <summary>
+		/// 	The rate at which users clicked through to view the internal promotion (ga:internalPromotionClicks / ga:internalPromotionViews) - (Enhanced Ecommerce).
+		/// </summary>
+		public InternalPromotionCTR InternalPromotionCTR { get; set; }
+		/// <summary>
 		/// 	The number of clicks on an internal promotion (Enhanced Ecommerce).
 		/// </summary>
 		public InternalPromotionClicks InternalPromotionClicks { get; set; }
@@ -430,6 +634,10 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public ProductDetailViews ProductDetailViews { get; set; }
 		/// <summary>
+		/// 	The rate at which users clicked through on the product in a product list (ga:productListClicks / ga:productListViews) - (Enhanced Ecommerce).
+		/// </summary>
+		public ProductListCTR ProductListCTR { get; set; }
+		/// <summary>
 		/// 	Number of times users clicked the product when it appeared in the product list (Enhanced Ecommerce).
 		/// </summary>
 		public ProductListClicks ProductListClicks { get; set; }
@@ -449,6 +657,10 @@ namespace LinqAn.Google.Records
 		/// 	Number of times the product was removed from shopping cart (Enhanced Ecommerce).
 		/// </summary>
 		public ProductRemovesFromCart ProductRemovesFromCart { get; set; }
+		/// <summary>
+		/// 	Average product revenue per purchase (commonly used with Product Coupon Code) (ga:itemRevenue / ga:uniquePurchases) - (Enhanced Ecommerce).
+		/// </summary>
+		public ProductRevenuePerPurchase ProductRevenuePerPurchase { get; set; }
 		/// <summary>
 		/// 	Number of product units added to the shopping cart (Enhanced Ecommerce).
 		/// </summary>

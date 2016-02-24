@@ -4,6 +4,7 @@ using System;
 using System.IO;
 using System.Linq;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 
 namespace LinqAn.Google.Sample
 {
@@ -46,6 +47,14 @@ namespace LinqAn.Google.Sample
 
             foreach (var record in records)
                 Console.WriteLine(record.ToStringRepresentation());
+
+            Task.Run(async () =>
+            {
+                var list = await records.ToListAsync();
+                foreach (var item in list)
+                    Console.WriteLine(item.ToStringRepresentation());
+            }).Wait();
+
             Console.ReadLine();
         }
     }

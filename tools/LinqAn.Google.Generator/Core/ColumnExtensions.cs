@@ -55,7 +55,10 @@ namespace LinqAn.Google.Generator.Core
                         Description = column.Attributes.Description.Replace("XX", i.ToString()),
                         Id = column.Id.Replace("XX", i.ToString()),
                         Name = column.Attributes.UiName.Replace("XX", i.ToString()),
-                        TypeName = column.Attributes.Type == "DIMENSION" ? "string" : "float"
+                        TypeName =
+                            column.Attributes.UiName.StartsWith("Custom")
+                                ? column.Attributes.Type == "DIMENSION" ? "string" : "float"
+                                : column.Attributes.DestinationTypeName
                     };
             }
         }

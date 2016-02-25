@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	/// 	The total number of starts for the requested goal number.
 	/// </summary>
 	[Description("The total number of starts for the requested goal number.")]
-	public class Goal8Starts: Metric<float>
+	public class Goal8Starts: Metric<int>
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Goal8Starts" />.

@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	/// 	The total number of completions for the requested goal number.
 	/// </summary>
 	[Description("The total number of completions for the requested goal number.")]
-	public class Goal20Completions: Metric<float>
+	public class Goal20Completions: Metric<int>
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Goal20Completions" />.

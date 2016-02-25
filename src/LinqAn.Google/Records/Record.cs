@@ -110,13 +110,253 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public ROAS ROAS { get; set; }
 		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal1Starts Goal1Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal2Starts Goal2Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal3Starts Goal3Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal4Starts Goal4Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal5Starts Goal5Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal6Starts Goal6Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal7Starts Goal7Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal8Starts Goal8Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal9Starts Goal9Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal10Starts Goal10Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal11Starts Goal11Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal12Starts Goal12Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal13Starts Goal13Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal14Starts Goal14Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal15Starts Goal15Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal16Starts Goal16Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal17Starts Goal17Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal18Starts Goal18Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal19Starts Goal19Starts { get; set; }
+		/// <summary>
+		/// 	The total number of starts for the requested goal number.
+		/// </summary>
+		public Goal20Starts Goal20Starts { get; set; }
+		/// <summary>
 		/// 	The total number of starts for all goals defined for your profile.
 		/// </summary>
 		public GoalStartsAll GoalStartsAll { get; set; }
 		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal1Completions Goal1Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal2Completions Goal2Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal3Completions Goal3Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal4Completions Goal4Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal5Completions Goal5Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal6Completions Goal6Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal7Completions Goal7Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal8Completions Goal8Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal9Completions Goal9Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal10Completions Goal10Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal11Completions Goal11Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal12Completions Goal12Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal13Completions Goal13Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal14Completions Goal14Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal15Completions Goal15Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal16Completions Goal16Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal17Completions Goal17Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal18Completions Goal18Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal19Completions Goal19Completions { get; set; }
+		/// <summary>
+		/// 	The total number of completions for the requested goal number.
+		/// </summary>
+		public Goal20Completions Goal20Completions { get; set; }
+		/// <summary>
 		/// 	The total number of completions for all goals defined for your profile.
 		/// </summary>
 		public GoalCompletionsAll GoalCompletionsAll { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal1Value Goal1Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal2Value Goal2Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal3Value Goal3Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal4Value Goal4Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal5Value Goal5Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal6Value Goal6Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal7Value Goal7Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal8Value Goal8Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal9Value Goal9Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal10Value Goal10Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal11Value Goal11Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal12Value Goal12Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal13Value Goal13Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal14Value Goal14Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal15Value Goal15Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal16Value Goal16Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal17Value Goal17Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal18Value Goal18Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal19Value Goal19Value { get; set; }
+		/// <summary>
+		/// 	The total numeric value for the requested goal number.
+		/// </summary>
+		public Goal20Value Goal20Value { get; set; }
 		/// <summary>
 		/// 	The total numeric value for all goals defined for your profile.
 		/// </summary>
@@ -126,13 +366,253 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public GoalValuePerSession GoalValuePerSession { get; set; }
 		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal1ConversionRate Goal1ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal2ConversionRate Goal2ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal3ConversionRate Goal3ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal4ConversionRate Goal4ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal5ConversionRate Goal5ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal6ConversionRate Goal6ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal7ConversionRate Goal7ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal8ConversionRate Goal8ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal9ConversionRate Goal9ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal10ConversionRate Goal10ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal11ConversionRate Goal11ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal12ConversionRate Goal12ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal13ConversionRate Goal13ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal14ConversionRate Goal14ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal15ConversionRate Goal15ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal16ConversionRate Goal16ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal17ConversionRate Goal17ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal18ConversionRate Goal18ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal19ConversionRate Goal19ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of sessions which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public Goal20ConversionRate Goal20ConversionRate { get; set; }
+		/// <summary>
 		/// 	The percentage of sessions which resulted in a conversion to at least one of your goals.
 		/// </summary>
 		public GoalConversionRateAll GoalConversionRateAll { get; set; }
 		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal1Abandons Goal1Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal2Abandons Goal2Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal3Abandons Goal3Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal4Abandons Goal4Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal5Abandons Goal5Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal6Abandons Goal6Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal7Abandons Goal7Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal8Abandons Goal8Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal9Abandons Goal9Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal10Abandons Goal10Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal11Abandons Goal11Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal12Abandons Goal12Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal13Abandons Goal13Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal14Abandons Goal14Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal15Abandons Goal15Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal16Abandons Goal16Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal17Abandons Goal17Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal18Abandons Goal18Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal19Abandons Goal19Abandons { get; set; }
+		/// <summary>
+		/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
+		/// </summary>
+		public Goal20Abandons Goal20Abandons { get; set; }
+		/// <summary>
 		/// 	The overall number of times users started goals without actually completing them.
 		/// </summary>
 		public GoalAbandonsAll GoalAbandonsAll { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal1AbandonRate Goal1AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal2AbandonRate Goal2AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal3AbandonRate Goal3AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal4AbandonRate Goal4AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal5AbandonRate Goal5AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal6AbandonRate Goal6AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal7AbandonRate Goal7AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal8AbandonRate Goal8AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal9AbandonRate Goal9AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal10AbandonRate Goal10AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal11AbandonRate Goal11AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal12AbandonRate Goal12AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal13AbandonRate Goal13AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal14AbandonRate Goal14AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal15AbandonRate Goal15AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal16AbandonRate Goal16AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal17AbandonRate Goal17AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal18AbandonRate Goal18AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal19AbandonRate Goal19AbandonRate { get; set; }
+		/// <summary>
+		/// 	The rate at which the requested goal number was abandoned.
+		/// </summary>
+		public Goal20AbandonRate Goal20AbandonRate { get; set; }
 		/// <summary>
 		/// 	The rate at which goals were abandoned.
 		/// </summary>
@@ -161,6 +641,26 @@ namespace LinqAn.Google.Records
 		/// 	The average number of pages viewed during a session, including repeated views of a single page.
 		/// </summary>
 		public PageviewsPerSession PageviewsPerSession { get; set; }
+		/// <summary>
+		/// 	The number of unique content group views. Content group views within different sessions count as separate unique content view. This takes into account both the pagePath and pageTitle to determine uniqueness.
+		/// </summary>
+		public ContentGroupUniqueViews1 ContentGroupUniqueViews1 { get; set; }
+		/// <summary>
+		/// 	The number of unique content group views. Content group views within different sessions count as separate unique content view. This takes into account both the pagePath and pageTitle to determine uniqueness.
+		/// </summary>
+		public ContentGroupUniqueViews2 ContentGroupUniqueViews2 { get; set; }
+		/// <summary>
+		/// 	The number of unique content group views. Content group views within different sessions count as separate unique content view. This takes into account both the pagePath and pageTitle to determine uniqueness.
+		/// </summary>
+		public ContentGroupUniqueViews3 ContentGroupUniqueViews3 { get; set; }
+		/// <summary>
+		/// 	The number of unique content group views. Content group views within different sessions count as separate unique content view. This takes into account both the pagePath and pageTitle to determine uniqueness.
+		/// </summary>
+		public ContentGroupUniqueViews4 ContentGroupUniqueViews4 { get; set; }
+		/// <summary>
+		/// 	The number of unique content group views. Content group views within different sessions count as separate unique content view. This takes into account both the pagePath and pageTitle to determine uniqueness.
+		/// </summary>
+		public ContentGroupUniqueViews5 ContentGroupUniqueViews5 { get; set; }
 		/// <summary>
 		/// 	The number of unique page views. Page views within different sessions count as separate unique page views. This takes into account both the pagePath and pageTitle to determine uniqueness.
 		/// </summary>
@@ -233,6 +733,86 @@ namespace LinqAn.Google.Records
 		/// 	The percentage of searches that resulted in an immediate exit from your property.
 		/// </summary>
 		public SearchExitRate SearchExitRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal1ConversionRate SearchGoal1ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal2ConversionRate SearchGoal2ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal3ConversionRate SearchGoal3ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal4ConversionRate SearchGoal4ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal5ConversionRate SearchGoal5ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal6ConversionRate SearchGoal6ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal7ConversionRate SearchGoal7ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal8ConversionRate SearchGoal8ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal9ConversionRate SearchGoal9ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal10ConversionRate SearchGoal10ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal11ConversionRate SearchGoal11ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal12ConversionRate SearchGoal12ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal13ConversionRate SearchGoal13ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal14ConversionRate SearchGoal14ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal15ConversionRate SearchGoal15ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal16ConversionRate SearchGoal16ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal17ConversionRate SearchGoal17ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal18ConversionRate SearchGoal18ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal19ConversionRate SearchGoal19ConversionRate { get; set; }
+		/// <summary>
+		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to the requested goal number.
+		/// </summary>
+		public SearchGoal20ConversionRate SearchGoal20ConversionRate { get; set; }
 		/// <summary>
 		/// 	The percentage of search sessions (i.e., sessions that included at least one search) which resulted in a conversion to at least one of your goals.
 		/// </summary>
@@ -469,6 +1049,806 @@ namespace LinqAn.Google.Records
 		/// 	The number of fatal exceptions thrown divided by the number of screenviews.
 		/// </summary>
 		public FatalExceptionsPerScreenview FatalExceptionsPerScreenview { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 1 refers the number/index of the custom metric. Note that the data type of ga:metric1 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric1 Metric1 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 2 refers the number/index of the custom metric. Note that the data type of ga:metric2 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric2 Metric2 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 3 refers the number/index of the custom metric. Note that the data type of ga:metric3 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric3 Metric3 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 4 refers the number/index of the custom metric. Note that the data type of ga:metric4 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric4 Metric4 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 5 refers the number/index of the custom metric. Note that the data type of ga:metric5 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric5 Metric5 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 6 refers the number/index of the custom metric. Note that the data type of ga:metric6 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric6 Metric6 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 7 refers the number/index of the custom metric. Note that the data type of ga:metric7 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric7 Metric7 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 8 refers the number/index of the custom metric. Note that the data type of ga:metric8 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric8 Metric8 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 9 refers the number/index of the custom metric. Note that the data type of ga:metric9 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric9 Metric9 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 10 refers the number/index of the custom metric. Note that the data type of ga:metric10 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric10 Metric10 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 11 refers the number/index of the custom metric. Note that the data type of ga:metric11 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric11 Metric11 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 12 refers the number/index of the custom metric. Note that the data type of ga:metric12 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric12 Metric12 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 13 refers the number/index of the custom metric. Note that the data type of ga:metric13 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric13 Metric13 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 14 refers the number/index of the custom metric. Note that the data type of ga:metric14 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric14 Metric14 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 15 refers the number/index of the custom metric. Note that the data type of ga:metric15 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric15 Metric15 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 16 refers the number/index of the custom metric. Note that the data type of ga:metric16 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric16 Metric16 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 17 refers the number/index of the custom metric. Note that the data type of ga:metric17 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric17 Metric17 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 18 refers the number/index of the custom metric. Note that the data type of ga:metric18 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric18 Metric18 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 19 refers the number/index of the custom metric. Note that the data type of ga:metric19 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric19 Metric19 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 20 refers the number/index of the custom metric. Note that the data type of ga:metric20 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric20 Metric20 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 21 refers the number/index of the custom metric. Note that the data type of ga:metric21 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric21 Metric21 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 22 refers the number/index of the custom metric. Note that the data type of ga:metric22 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric22 Metric22 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 23 refers the number/index of the custom metric. Note that the data type of ga:metric23 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric23 Metric23 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 24 refers the number/index of the custom metric. Note that the data type of ga:metric24 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric24 Metric24 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 25 refers the number/index of the custom metric. Note that the data type of ga:metric25 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric25 Metric25 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 26 refers the number/index of the custom metric. Note that the data type of ga:metric26 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric26 Metric26 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 27 refers the number/index of the custom metric. Note that the data type of ga:metric27 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric27 Metric27 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 28 refers the number/index of the custom metric. Note that the data type of ga:metric28 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric28 Metric28 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 29 refers the number/index of the custom metric. Note that the data type of ga:metric29 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric29 Metric29 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 30 refers the number/index of the custom metric. Note that the data type of ga:metric30 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric30 Metric30 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 31 refers the number/index of the custom metric. Note that the data type of ga:metric31 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric31 Metric31 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 32 refers the number/index of the custom metric. Note that the data type of ga:metric32 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric32 Metric32 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 33 refers the number/index of the custom metric. Note that the data type of ga:metric33 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric33 Metric33 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 34 refers the number/index of the custom metric. Note that the data type of ga:metric34 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric34 Metric34 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 35 refers the number/index of the custom metric. Note that the data type of ga:metric35 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric35 Metric35 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 36 refers the number/index of the custom metric. Note that the data type of ga:metric36 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric36 Metric36 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 37 refers the number/index of the custom metric. Note that the data type of ga:metric37 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric37 Metric37 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 38 refers the number/index of the custom metric. Note that the data type of ga:metric38 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric38 Metric38 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 39 refers the number/index of the custom metric. Note that the data type of ga:metric39 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric39 Metric39 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 40 refers the number/index of the custom metric. Note that the data type of ga:metric40 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric40 Metric40 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 41 refers the number/index of the custom metric. Note that the data type of ga:metric41 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric41 Metric41 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 42 refers the number/index of the custom metric. Note that the data type of ga:metric42 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric42 Metric42 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 43 refers the number/index of the custom metric. Note that the data type of ga:metric43 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric43 Metric43 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 44 refers the number/index of the custom metric. Note that the data type of ga:metric44 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric44 Metric44 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 45 refers the number/index of the custom metric. Note that the data type of ga:metric45 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric45 Metric45 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 46 refers the number/index of the custom metric. Note that the data type of ga:metric46 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric46 Metric46 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 47 refers the number/index of the custom metric. Note that the data type of ga:metric47 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric47 Metric47 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 48 refers the number/index of the custom metric. Note that the data type of ga:metric48 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric48 Metric48 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 49 refers the number/index of the custom metric. Note that the data type of ga:metric49 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric49 Metric49 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 50 refers the number/index of the custom metric. Note that the data type of ga:metric50 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric50 Metric50 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 51 refers the number/index of the custom metric. Note that the data type of ga:metric51 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric51 Metric51 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 52 refers the number/index of the custom metric. Note that the data type of ga:metric52 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric52 Metric52 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 53 refers the number/index of the custom metric. Note that the data type of ga:metric53 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric53 Metric53 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 54 refers the number/index of the custom metric. Note that the data type of ga:metric54 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric54 Metric54 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 55 refers the number/index of the custom metric. Note that the data type of ga:metric55 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric55 Metric55 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 56 refers the number/index of the custom metric. Note that the data type of ga:metric56 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric56 Metric56 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 57 refers the number/index of the custom metric. Note that the data type of ga:metric57 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric57 Metric57 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 58 refers the number/index of the custom metric. Note that the data type of ga:metric58 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric58 Metric58 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 59 refers the number/index of the custom metric. Note that the data type of ga:metric59 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric59 Metric59 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 60 refers the number/index of the custom metric. Note that the data type of ga:metric60 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric60 Metric60 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 61 refers the number/index of the custom metric. Note that the data type of ga:metric61 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric61 Metric61 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 62 refers the number/index of the custom metric. Note that the data type of ga:metric62 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric62 Metric62 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 63 refers the number/index of the custom metric. Note that the data type of ga:metric63 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric63 Metric63 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 64 refers the number/index of the custom metric. Note that the data type of ga:metric64 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric64 Metric64 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 65 refers the number/index of the custom metric. Note that the data type of ga:metric65 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric65 Metric65 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 66 refers the number/index of the custom metric. Note that the data type of ga:metric66 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric66 Metric66 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 67 refers the number/index of the custom metric. Note that the data type of ga:metric67 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric67 Metric67 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 68 refers the number/index of the custom metric. Note that the data type of ga:metric68 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric68 Metric68 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 69 refers the number/index of the custom metric. Note that the data type of ga:metric69 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric69 Metric69 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 70 refers the number/index of the custom metric. Note that the data type of ga:metric70 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric70 Metric70 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 71 refers the number/index of the custom metric. Note that the data type of ga:metric71 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric71 Metric71 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 72 refers the number/index of the custom metric. Note that the data type of ga:metric72 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric72 Metric72 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 73 refers the number/index of the custom metric. Note that the data type of ga:metric73 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric73 Metric73 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 74 refers the number/index of the custom metric. Note that the data type of ga:metric74 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric74 Metric74 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 75 refers the number/index of the custom metric. Note that the data type of ga:metric75 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric75 Metric75 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 76 refers the number/index of the custom metric. Note that the data type of ga:metric76 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric76 Metric76 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 77 refers the number/index of the custom metric. Note that the data type of ga:metric77 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric77 Metric77 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 78 refers the number/index of the custom metric. Note that the data type of ga:metric78 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric78 Metric78 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 79 refers the number/index of the custom metric. Note that the data type of ga:metric79 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric79 Metric79 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 80 refers the number/index of the custom metric. Note that the data type of ga:metric80 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric80 Metric80 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 81 refers the number/index of the custom metric. Note that the data type of ga:metric81 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric81 Metric81 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 82 refers the number/index of the custom metric. Note that the data type of ga:metric82 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric82 Metric82 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 83 refers the number/index of the custom metric. Note that the data type of ga:metric83 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric83 Metric83 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 84 refers the number/index of the custom metric. Note that the data type of ga:metric84 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric84 Metric84 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 85 refers the number/index of the custom metric. Note that the data type of ga:metric85 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric85 Metric85 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 86 refers the number/index of the custom metric. Note that the data type of ga:metric86 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric86 Metric86 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 87 refers the number/index of the custom metric. Note that the data type of ga:metric87 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric87 Metric87 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 88 refers the number/index of the custom metric. Note that the data type of ga:metric88 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric88 Metric88 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 89 refers the number/index of the custom metric. Note that the data type of ga:metric89 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric89 Metric89 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 90 refers the number/index of the custom metric. Note that the data type of ga:metric90 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric90 Metric90 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 91 refers the number/index of the custom metric. Note that the data type of ga:metric91 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric91 Metric91 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 92 refers the number/index of the custom metric. Note that the data type of ga:metric92 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric92 Metric92 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 93 refers the number/index of the custom metric. Note that the data type of ga:metric93 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric93 Metric93 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 94 refers the number/index of the custom metric. Note that the data type of ga:metric94 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric94 Metric94 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 95 refers the number/index of the custom metric. Note that the data type of ga:metric95 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric95 Metric95 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 96 refers the number/index of the custom metric. Note that the data type of ga:metric96 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric96 Metric96 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 97 refers the number/index of the custom metric. Note that the data type of ga:metric97 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric97 Metric97 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 98 refers the number/index of the custom metric. Note that the data type of ga:metric98 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric98 Metric98 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 99 refers the number/index of the custom metric. Note that the data type of ga:metric99 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric99 Metric99 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 100 refers the number/index of the custom metric. Note that the data type of ga:metric100 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric100 Metric100 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 101 refers the number/index of the custom metric. Note that the data type of ga:metric101 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric101 Metric101 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 102 refers the number/index of the custom metric. Note that the data type of ga:metric102 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric102 Metric102 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 103 refers the number/index of the custom metric. Note that the data type of ga:metric103 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric103 Metric103 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 104 refers the number/index of the custom metric. Note that the data type of ga:metric104 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric104 Metric104 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 105 refers the number/index of the custom metric. Note that the data type of ga:metric105 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric105 Metric105 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 106 refers the number/index of the custom metric. Note that the data type of ga:metric106 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric106 Metric106 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 107 refers the number/index of the custom metric. Note that the data type of ga:metric107 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric107 Metric107 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 108 refers the number/index of the custom metric. Note that the data type of ga:metric108 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric108 Metric108 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 109 refers the number/index of the custom metric. Note that the data type of ga:metric109 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric109 Metric109 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 110 refers the number/index of the custom metric. Note that the data type of ga:metric110 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric110 Metric110 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 111 refers the number/index of the custom metric. Note that the data type of ga:metric111 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric111 Metric111 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 112 refers the number/index of the custom metric. Note that the data type of ga:metric112 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric112 Metric112 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 113 refers the number/index of the custom metric. Note that the data type of ga:metric113 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric113 Metric113 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 114 refers the number/index of the custom metric. Note that the data type of ga:metric114 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric114 Metric114 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 115 refers the number/index of the custom metric. Note that the data type of ga:metric115 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric115 Metric115 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 116 refers the number/index of the custom metric. Note that the data type of ga:metric116 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric116 Metric116 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 117 refers the number/index of the custom metric. Note that the data type of ga:metric117 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric117 Metric117 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 118 refers the number/index of the custom metric. Note that the data type of ga:metric118 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric118 Metric118 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 119 refers the number/index of the custom metric. Note that the data type of ga:metric119 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric119 Metric119 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 120 refers the number/index of the custom metric. Note that the data type of ga:metric120 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric120 Metric120 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 121 refers the number/index of the custom metric. Note that the data type of ga:metric121 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric121 Metric121 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 122 refers the number/index of the custom metric. Note that the data type of ga:metric122 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric122 Metric122 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 123 refers the number/index of the custom metric. Note that the data type of ga:metric123 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric123 Metric123 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 124 refers the number/index of the custom metric. Note that the data type of ga:metric124 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric124 Metric124 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 125 refers the number/index of the custom metric. Note that the data type of ga:metric125 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric125 Metric125 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 126 refers the number/index of the custom metric. Note that the data type of ga:metric126 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric126 Metric126 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 127 refers the number/index of the custom metric. Note that the data type of ga:metric127 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric127 Metric127 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 128 refers the number/index of the custom metric. Note that the data type of ga:metric128 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric128 Metric128 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 129 refers the number/index of the custom metric. Note that the data type of ga:metric129 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric129 Metric129 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 130 refers the number/index of the custom metric. Note that the data type of ga:metric130 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric130 Metric130 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 131 refers the number/index of the custom metric. Note that the data type of ga:metric131 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric131 Metric131 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 132 refers the number/index of the custom metric. Note that the data type of ga:metric132 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric132 Metric132 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 133 refers the number/index of the custom metric. Note that the data type of ga:metric133 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric133 Metric133 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 134 refers the number/index of the custom metric. Note that the data type of ga:metric134 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric134 Metric134 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 135 refers the number/index of the custom metric. Note that the data type of ga:metric135 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric135 Metric135 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 136 refers the number/index of the custom metric. Note that the data type of ga:metric136 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric136 Metric136 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 137 refers the number/index of the custom metric. Note that the data type of ga:metric137 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric137 Metric137 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 138 refers the number/index of the custom metric. Note that the data type of ga:metric138 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric138 Metric138 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 139 refers the number/index of the custom metric. Note that the data type of ga:metric139 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric139 Metric139 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 140 refers the number/index of the custom metric. Note that the data type of ga:metric140 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric140 Metric140 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 141 refers the number/index of the custom metric. Note that the data type of ga:metric141 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric141 Metric141 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 142 refers the number/index of the custom metric. Note that the data type of ga:metric142 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric142 Metric142 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 143 refers the number/index of the custom metric. Note that the data type of ga:metric143 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric143 Metric143 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 144 refers the number/index of the custom metric. Note that the data type of ga:metric144 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric144 Metric144 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 145 refers the number/index of the custom metric. Note that the data type of ga:metric145 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric145 Metric145 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 146 refers the number/index of the custom metric. Note that the data type of ga:metric146 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric146 Metric146 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 147 refers the number/index of the custom metric. Note that the data type of ga:metric147 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric147 Metric147 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 148 refers the number/index of the custom metric. Note that the data type of ga:metric148 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric148 Metric148 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 149 refers the number/index of the custom metric. Note that the data type of ga:metric149 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric149 Metric149 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 150 refers the number/index of the custom metric. Note that the data type of ga:metric150 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric150 Metric150 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 151 refers the number/index of the custom metric. Note that the data type of ga:metric151 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric151 Metric151 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 152 refers the number/index of the custom metric. Note that the data type of ga:metric152 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric152 Metric152 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 153 refers the number/index of the custom metric. Note that the data type of ga:metric153 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric153 Metric153 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 154 refers the number/index of the custom metric. Note that the data type of ga:metric154 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric154 Metric154 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 155 refers the number/index of the custom metric. Note that the data type of ga:metric155 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric155 Metric155 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 156 refers the number/index of the custom metric. Note that the data type of ga:metric156 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric156 Metric156 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 157 refers the number/index of the custom metric. Note that the data type of ga:metric157 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric157 Metric157 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 158 refers the number/index of the custom metric. Note that the data type of ga:metric158 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric158 Metric158 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 159 refers the number/index of the custom metric. Note that the data type of ga:metric159 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric159 Metric159 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 160 refers the number/index of the custom metric. Note that the data type of ga:metric160 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric160 Metric160 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 161 refers the number/index of the custom metric. Note that the data type of ga:metric161 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric161 Metric161 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 162 refers the number/index of the custom metric. Note that the data type of ga:metric162 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric162 Metric162 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 163 refers the number/index of the custom metric. Note that the data type of ga:metric163 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric163 Metric163 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 164 refers the number/index of the custom metric. Note that the data type of ga:metric164 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric164 Metric164 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 165 refers the number/index of the custom metric. Note that the data type of ga:metric165 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric165 Metric165 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 166 refers the number/index of the custom metric. Note that the data type of ga:metric166 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric166 Metric166 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 167 refers the number/index of the custom metric. Note that the data type of ga:metric167 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric167 Metric167 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 168 refers the number/index of the custom metric. Note that the data type of ga:metric168 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric168 Metric168 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 169 refers the number/index of the custom metric. Note that the data type of ga:metric169 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric169 Metric169 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 170 refers the number/index of the custom metric. Note that the data type of ga:metric170 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric170 Metric170 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 171 refers the number/index of the custom metric. Note that the data type of ga:metric171 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric171 Metric171 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 172 refers the number/index of the custom metric. Note that the data type of ga:metric172 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric172 Metric172 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 173 refers the number/index of the custom metric. Note that the data type of ga:metric173 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric173 Metric173 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 174 refers the number/index of the custom metric. Note that the data type of ga:metric174 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric174 Metric174 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 175 refers the number/index of the custom metric. Note that the data type of ga:metric175 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric175 Metric175 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 176 refers the number/index of the custom metric. Note that the data type of ga:metric176 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric176 Metric176 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 177 refers the number/index of the custom metric. Note that the data type of ga:metric177 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric177 Metric177 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 178 refers the number/index of the custom metric. Note that the data type of ga:metric178 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric178 Metric178 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 179 refers the number/index of the custom metric. Note that the data type of ga:metric179 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric179 Metric179 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 180 refers the number/index of the custom metric. Note that the data type of ga:metric180 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric180 Metric180 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 181 refers the number/index of the custom metric. Note that the data type of ga:metric181 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric181 Metric181 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 182 refers the number/index of the custom metric. Note that the data type of ga:metric182 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric182 Metric182 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 183 refers the number/index of the custom metric. Note that the data type of ga:metric183 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric183 Metric183 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 184 refers the number/index of the custom metric. Note that the data type of ga:metric184 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric184 Metric184 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 185 refers the number/index of the custom metric. Note that the data type of ga:metric185 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric185 Metric185 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 186 refers the number/index of the custom metric. Note that the data type of ga:metric186 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric186 Metric186 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 187 refers the number/index of the custom metric. Note that the data type of ga:metric187 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric187 Metric187 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 188 refers the number/index of the custom metric. Note that the data type of ga:metric188 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric188 Metric188 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 189 refers the number/index of the custom metric. Note that the data type of ga:metric189 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric189 Metric189 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 190 refers the number/index of the custom metric. Note that the data type of ga:metric190 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric190 Metric190 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 191 refers the number/index of the custom metric. Note that the data type of ga:metric191 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric191 Metric191 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 192 refers the number/index of the custom metric. Note that the data type of ga:metric192 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric192 Metric192 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 193 refers the number/index of the custom metric. Note that the data type of ga:metric193 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric193 Metric193 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 194 refers the number/index of the custom metric. Note that the data type of ga:metric194 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric194 Metric194 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 195 refers the number/index of the custom metric. Note that the data type of ga:metric195 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric195 Metric195 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 196 refers the number/index of the custom metric. Note that the data type of ga:metric196 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric196 Metric196 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 197 refers the number/index of the custom metric. Note that the data type of ga:metric197 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric197 Metric197 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 198 refers the number/index of the custom metric. Note that the data type of ga:metric198 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric198 Metric198 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 199 refers the number/index of the custom metric. Note that the data type of ga:metric199 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric199 Metric199 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom metric, where 200 refers the number/index of the custom metric. Note that the data type of ga:metric200 can be INTEGER, CURRENCY or TIME.
+		/// </summary>
+		public Metric200 Metric200 { get; set; }
 		/// <summary>
 		/// 	The number of DCM Floodlight conversions (premium only).
 		/// </summary>
@@ -1206,6 +2586,1206 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public ExperimentVariant ExperimentVariant { get; set; }
 		/// <summary>
+		/// 	The name of the requested custom dimension, where 1 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension1 Dimension1 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 2 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension2 Dimension2 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 3 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension3 Dimension3 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 4 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension4 Dimension4 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 5 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension5 Dimension5 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 6 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension6 Dimension6 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 7 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension7 Dimension7 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 8 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension8 Dimension8 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 9 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension9 Dimension9 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 10 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension10 Dimension10 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 11 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension11 Dimension11 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 12 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension12 Dimension12 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 13 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension13 Dimension13 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 14 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension14 Dimension14 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 15 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension15 Dimension15 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 16 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension16 Dimension16 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 17 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension17 Dimension17 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 18 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension18 Dimension18 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 19 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension19 Dimension19 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 20 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension20 Dimension20 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 21 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension21 Dimension21 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 22 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension22 Dimension22 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 23 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension23 Dimension23 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 24 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension24 Dimension24 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 25 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension25 Dimension25 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 26 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension26 Dimension26 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 27 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension27 Dimension27 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 28 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension28 Dimension28 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 29 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension29 Dimension29 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 30 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension30 Dimension30 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 31 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension31 Dimension31 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 32 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension32 Dimension32 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 33 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension33 Dimension33 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 34 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension34 Dimension34 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 35 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension35 Dimension35 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 36 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension36 Dimension36 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 37 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension37 Dimension37 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 38 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension38 Dimension38 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 39 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension39 Dimension39 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 40 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension40 Dimension40 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 41 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension41 Dimension41 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 42 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension42 Dimension42 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 43 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension43 Dimension43 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 44 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension44 Dimension44 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 45 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension45 Dimension45 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 46 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension46 Dimension46 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 47 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension47 Dimension47 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 48 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension48 Dimension48 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 49 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension49 Dimension49 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 50 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension50 Dimension50 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 51 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension51 Dimension51 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 52 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension52 Dimension52 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 53 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension53 Dimension53 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 54 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension54 Dimension54 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 55 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension55 Dimension55 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 56 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension56 Dimension56 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 57 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension57 Dimension57 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 58 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension58 Dimension58 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 59 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension59 Dimension59 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 60 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension60 Dimension60 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 61 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension61 Dimension61 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 62 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension62 Dimension62 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 63 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension63 Dimension63 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 64 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension64 Dimension64 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 65 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension65 Dimension65 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 66 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension66 Dimension66 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 67 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension67 Dimension67 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 68 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension68 Dimension68 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 69 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension69 Dimension69 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 70 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension70 Dimension70 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 71 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension71 Dimension71 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 72 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension72 Dimension72 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 73 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension73 Dimension73 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 74 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension74 Dimension74 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 75 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension75 Dimension75 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 76 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension76 Dimension76 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 77 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension77 Dimension77 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 78 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension78 Dimension78 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 79 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension79 Dimension79 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 80 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension80 Dimension80 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 81 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension81 Dimension81 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 82 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension82 Dimension82 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 83 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension83 Dimension83 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 84 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension84 Dimension84 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 85 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension85 Dimension85 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 86 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension86 Dimension86 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 87 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension87 Dimension87 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 88 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension88 Dimension88 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 89 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension89 Dimension89 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 90 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension90 Dimension90 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 91 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension91 Dimension91 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 92 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension92 Dimension92 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 93 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension93 Dimension93 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 94 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension94 Dimension94 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 95 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension95 Dimension95 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 96 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension96 Dimension96 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 97 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension97 Dimension97 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 98 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension98 Dimension98 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 99 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension99 Dimension99 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 100 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension100 Dimension100 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 101 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension101 Dimension101 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 102 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension102 Dimension102 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 103 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension103 Dimension103 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 104 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension104 Dimension104 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 105 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension105 Dimension105 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 106 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension106 Dimension106 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 107 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension107 Dimension107 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 108 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension108 Dimension108 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 109 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension109 Dimension109 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 110 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension110 Dimension110 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 111 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension111 Dimension111 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 112 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension112 Dimension112 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 113 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension113 Dimension113 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 114 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension114 Dimension114 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 115 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension115 Dimension115 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 116 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension116 Dimension116 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 117 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension117 Dimension117 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 118 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension118 Dimension118 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 119 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension119 Dimension119 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 120 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension120 Dimension120 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 121 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension121 Dimension121 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 122 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension122 Dimension122 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 123 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension123 Dimension123 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 124 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension124 Dimension124 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 125 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension125 Dimension125 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 126 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension126 Dimension126 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 127 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension127 Dimension127 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 128 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension128 Dimension128 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 129 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension129 Dimension129 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 130 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension130 Dimension130 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 131 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension131 Dimension131 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 132 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension132 Dimension132 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 133 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension133 Dimension133 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 134 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension134 Dimension134 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 135 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension135 Dimension135 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 136 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension136 Dimension136 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 137 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension137 Dimension137 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 138 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension138 Dimension138 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 139 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension139 Dimension139 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 140 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension140 Dimension140 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 141 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension141 Dimension141 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 142 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension142 Dimension142 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 143 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension143 Dimension143 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 144 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension144 Dimension144 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 145 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension145 Dimension145 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 146 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension146 Dimension146 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 147 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension147 Dimension147 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 148 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension148 Dimension148 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 149 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension149 Dimension149 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 150 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension150 Dimension150 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 151 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension151 Dimension151 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 152 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension152 Dimension152 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 153 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension153 Dimension153 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 154 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension154 Dimension154 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 155 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension155 Dimension155 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 156 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension156 Dimension156 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 157 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension157 Dimension157 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 158 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension158 Dimension158 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 159 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension159 Dimension159 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 160 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension160 Dimension160 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 161 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension161 Dimension161 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 162 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension162 Dimension162 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 163 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension163 Dimension163 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 164 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension164 Dimension164 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 165 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension165 Dimension165 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 166 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension166 Dimension166 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 167 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension167 Dimension167 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 168 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension168 Dimension168 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 169 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension169 Dimension169 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 170 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension170 Dimension170 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 171 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension171 Dimension171 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 172 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension172 Dimension172 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 173 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension173 Dimension173 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 174 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension174 Dimension174 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 175 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension175 Dimension175 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 176 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension176 Dimension176 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 177 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension177 Dimension177 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 178 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension178 Dimension178 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 179 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension179 Dimension179 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 180 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension180 Dimension180 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 181 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension181 Dimension181 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 182 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension182 Dimension182 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 183 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension183 Dimension183 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 184 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension184 Dimension184 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 185 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension185 Dimension185 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 186 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension186 Dimension186 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 187 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension187 Dimension187 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 188 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension188 Dimension188 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 189 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension189 Dimension189 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 190 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension190 Dimension190 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 191 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension191 Dimension191 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 192 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension192 Dimension192 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 193 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension193 Dimension193 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 194 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension194 Dimension194 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 195 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension195 Dimension195 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 196 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension196 Dimension196 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 197 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension197 Dimension197 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 198 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension198 Dimension198 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 199 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension199 Dimension199 { get; set; }
+		/// <summary>
+		/// 	The name of the requested custom dimension, where 200 refers the number/index of the custom dimension.
+		/// </summary>
+		public Dimension200 Dimension200 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName1 CustomVarName1 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName2 CustomVarName2 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName3 CustomVarName3 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName4 CustomVarName4 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName5 CustomVarName5 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName6 CustomVarName6 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName7 CustomVarName7 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName8 CustomVarName8 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName9 CustomVarName9 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName10 CustomVarName10 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName11 CustomVarName11 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName12 CustomVarName12 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName13 CustomVarName13 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName14 CustomVarName14 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName15 CustomVarName15 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName16 CustomVarName16 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName17 CustomVarName17 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName18 CustomVarName18 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName19 CustomVarName19 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName20 CustomVarName20 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName21 CustomVarName21 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName22 CustomVarName22 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName23 CustomVarName23 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName24 CustomVarName24 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName25 CustomVarName25 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName26 CustomVarName26 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName27 CustomVarName27 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName28 CustomVarName28 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName29 CustomVarName29 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName30 CustomVarName30 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName31 CustomVarName31 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName32 CustomVarName32 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName33 CustomVarName33 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName34 CustomVarName34 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName35 CustomVarName35 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName36 CustomVarName36 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName37 CustomVarName37 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName38 CustomVarName38 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName39 CustomVarName39 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName40 CustomVarName40 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName41 CustomVarName41 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName42 CustomVarName42 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName43 CustomVarName43 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName44 CustomVarName44 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName45 CustomVarName45 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName46 CustomVarName46 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName47 CustomVarName47 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName48 CustomVarName48 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName49 CustomVarName49 { get; set; }
+		/// <summary>
+		/// 	The name for the requested custom variable.
+		/// </summary>
+		public CustomVarName50 CustomVarName50 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue1 CustomVarValue1 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue2 CustomVarValue2 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue3 CustomVarValue3 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue4 CustomVarValue4 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue5 CustomVarValue5 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue6 CustomVarValue6 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue7 CustomVarValue7 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue8 CustomVarValue8 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue9 CustomVarValue9 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue10 CustomVarValue10 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue11 CustomVarValue11 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue12 CustomVarValue12 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue13 CustomVarValue13 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue14 CustomVarValue14 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue15 CustomVarValue15 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue16 CustomVarValue16 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue17 CustomVarValue17 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue18 CustomVarValue18 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue19 CustomVarValue19 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue20 CustomVarValue20 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue21 CustomVarValue21 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue22 CustomVarValue22 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue23 CustomVarValue23 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue24 CustomVarValue24 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue25 CustomVarValue25 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue26 CustomVarValue26 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue27 CustomVarValue27 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue28 CustomVarValue28 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue29 CustomVarValue29 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue30 CustomVarValue30 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue31 CustomVarValue31 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue32 CustomVarValue32 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue33 CustomVarValue33 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue34 CustomVarValue34 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue35 CustomVarValue35 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue36 CustomVarValue36 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue37 CustomVarValue37 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue38 CustomVarValue38 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue39 CustomVarValue39 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue40 CustomVarValue40 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue41 CustomVarValue41 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue42 CustomVarValue42 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue43 CustomVarValue43 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue44 CustomVarValue44 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue45 CustomVarValue45 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue46 CustomVarValue46 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue47 CustomVarValue47 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue48 CustomVarValue48 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue49 CustomVarValue49 { get; set; }
+		/// <summary>
+		/// 	The value for the requested custom variable.
+		/// </summary>
+		public CustomVarValue50 CustomVarValue50 { get; set; }
+		/// <summary>
 		/// 	The date of the session formatted as YYYYMMDD.
 		/// </summary>
 		public Date Date { get; set; }
@@ -1466,6 +4046,66 @@ namespace LinqAn.Google.Records
 		/// </summary>
 		public DcmLastEventSpotId DcmLastEventSpotId { get; set; }
 		/// <summary>
+		/// 	Content group of a user's landing page.
+		/// </summary>
+		public LandingContentGroup1 LandingContentGroup1 { get; set; }
+		/// <summary>
+		/// 	Content group of a user's landing page.
+		/// </summary>
+		public LandingContentGroup2 LandingContentGroup2 { get; set; }
+		/// <summary>
+		/// 	Content group of a user's landing page.
+		/// </summary>
+		public LandingContentGroup3 LandingContentGroup3 { get; set; }
+		/// <summary>
+		/// 	Content group of a user's landing page.
+		/// </summary>
+		public LandingContentGroup4 LandingContentGroup4 { get; set; }
+		/// <summary>
+		/// 	Content group of a user's landing page.
+		/// </summary>
+		public LandingContentGroup5 LandingContentGroup5 { get; set; }
+		/// <summary>
+		/// 	Refers to content group that was visited before another content group.
+		/// </summary>
+		public PreviousContentGroup1 PreviousContentGroup1 { get; set; }
+		/// <summary>
+		/// 	Refers to content group that was visited before another content group.
+		/// </summary>
+		public PreviousContentGroup2 PreviousContentGroup2 { get; set; }
+		/// <summary>
+		/// 	Refers to content group that was visited before another content group.
+		/// </summary>
+		public PreviousContentGroup3 PreviousContentGroup3 { get; set; }
+		/// <summary>
+		/// 	Refers to content group that was visited before another content group.
+		/// </summary>
+		public PreviousContentGroup4 PreviousContentGroup4 { get; set; }
+		/// <summary>
+		/// 	Refers to content group that was visited before another content group.
+		/// </summary>
+		public PreviousContentGroup5 PreviousContentGroup5 { get; set; }
+		/// <summary>
+		/// 	Content group on a property. A content group is a collection of content providing a logical structure that can be determined by tracking code or page title/url regex match, or predefined rules.
+		/// </summary>
+		public ContentGroup1 ContentGroup1 { get; set; }
+		/// <summary>
+		/// 	Content group on a property. A content group is a collection of content providing a logical structure that can be determined by tracking code or page title/url regex match, or predefined rules.
+		/// </summary>
+		public ContentGroup2 ContentGroup2 { get; set; }
+		/// <summary>
+		/// 	Content group on a property. A content group is a collection of content providing a logical structure that can be determined by tracking code or page title/url regex match, or predefined rules.
+		/// </summary>
+		public ContentGroup3 ContentGroup3 { get; set; }
+		/// <summary>
+		/// 	Content group on a property. A content group is a collection of content providing a logical structure that can be determined by tracking code or page title/url regex match, or predefined rules.
+		/// </summary>
+		public ContentGroup4 ContentGroup4 { get; set; }
+		/// <summary>
+		/// 	Content group on a property. A content group is a collection of content providing a logical structure that can be determined by tracking code or page title/url regex match, or predefined rules.
+		/// </summary>
+		public ContentGroup5 ContentGroup5 { get; set; }
+		/// <summary>
 		/// 	Age bracket of user.
 		/// </summary>
 		public UserAgeBracket UserAgeBracket { get; set; }
@@ -1553,6 +4193,26 @@ namespace LinqAn.Google.Records
 		/// 	The hierarchical category in which the product is classified (Enhanced Ecommerce).
 		/// </summary>
 		public ProductCategoryHierarchy ProductCategoryHierarchy { get; set; }
+		/// <summary>
+		/// 	Level (1-5) in the product category hierarchy, starting from the top (Enhanced Ecommerce).
+		/// </summary>
+		public ProductCategoryLevel1 ProductCategoryLevel1 { get; set; }
+		/// <summary>
+		/// 	Level (1-5) in the product category hierarchy, starting from the top (Enhanced Ecommerce).
+		/// </summary>
+		public ProductCategoryLevel2 ProductCategoryLevel2 { get; set; }
+		/// <summary>
+		/// 	Level (1-5) in the product category hierarchy, starting from the top (Enhanced Ecommerce).
+		/// </summary>
+		public ProductCategoryLevel3 ProductCategoryLevel3 { get; set; }
+		/// <summary>
+		/// 	Level (1-5) in the product category hierarchy, starting from the top (Enhanced Ecommerce).
+		/// </summary>
+		public ProductCategoryLevel4 ProductCategoryLevel4 { get; set; }
+		/// <summary>
+		/// 	Level (1-5) in the product category hierarchy, starting from the top (Enhanced Ecommerce).
+		/// </summary>
+		public ProductCategoryLevel5 ProductCategoryLevel5 { get; set; }
 		/// <summary>
 		/// 	Code for the product-level coupon (Enhanced Ecommerce).
 		/// </summary>

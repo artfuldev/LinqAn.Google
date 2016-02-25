@@ -4,20 +4,28 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Threading;
 using System.Threading.Tasks;
+using LinqAn.Google.Dimensions;
 using LinqAn.Google.Linq.Core;
+using LinqAn.Google.Linq.Provision;
+using LinqAn.Google.Metrics;
 using LinqAn.Google.Records;
 
 namespace LinqAn.Google
 {
     public static class QueryableExtensions
     {
-        public static IQueryable<IRecord> Include<T>(this IQueryable<IRecord> query,
-            Expression<Func<IRecord, T>> includeExpression)
+        public static IQueryable<IRecord> Include<TProperty>(this IQueryable<IRecord> query,
+            Expression<Func<IRecord, TProperty>> includeExpression) where TProperty : class, new()
         {
-            var provider = query.Provider;
-            var method = provider.GetType().GetMethod("Include");
-            method = method?.MakeGenericMethod(typeof(T));
-            method?.Invoke(provider, new object[] { includeExpression });
+            var provider = query.Provider as IInclusionProvider;
+            if (provider == null)
+                return query;
+            if (includeExpression == null)
+                throw new ArgumentNullException(nameof(includeExpression));
+            if (!typeof (IDimension).IsAssignableFrom(typeof (TProperty)) &&
+                !typeof (IMetric).IsAssignableFrom(typeof (TProperty)))
+                throw new InvalidOperationException("Only metrics and dimensions can be included.");
+            provider.Include(includeExpression);
             return query;
         }
 

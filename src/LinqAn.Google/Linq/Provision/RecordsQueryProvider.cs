@@ -18,7 +18,7 @@ namespace LinqAn.Google.Linq.Provision
     /// <summary>
     ///     A LINQ Provider that executes API Queries over an API Client
     /// </summary>
-    internal class RecordsQueryProvider : QueryProvider
+    internal class RecordsQueryProvider : QueryProvider, IInclusionProvider
     {
         private readonly IAnalyticsProfile _profile;
         private readonly BaseClientService.Initializer _initializer;
@@ -41,12 +41,9 @@ namespace LinqAn.Google.Linq.Provision
         }
 
         public void Include<TProperty>(Expression<Func<IRecord, TProperty>> includeExpression)
+            where TProperty : class, new()
         {
-            if (includeExpression == null)
-                throw new ArgumentNullException(nameof(includeExpression));
-            if (!typeof(IDimension).IsAssignableFrom(typeof(TProperty)) && !typeof(IMetric).IsAssignableFrom(typeof(TProperty)))
-                throw new InvalidOperationException("Only metrics and dimensions can be included.");
-            var instance = Activator.CreateInstance<TProperty>();
+            var instance = new TProperty();
             Includes.Add(instance);
         }
 

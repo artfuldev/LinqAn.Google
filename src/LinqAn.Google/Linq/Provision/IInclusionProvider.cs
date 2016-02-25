@@ -6,6 +6,6 @@ namespace LinqAn.Google.Linq.Provision
 {
     internal interface IInclusionProvider
     {
-        void Include<TProperty>(Expression<Func<IRecord, TProperty>> includeExpression);
+        void Include<TProperty>(Expression<Func<IRecord, TProperty>> includeExpression) where TProperty : class, new();
     }
 }

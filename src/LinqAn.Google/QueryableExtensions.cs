@@ -14,23 +14,18 @@ namespace LinqAn.Google
 {
     public static class QueryableExtensions
     {
-        public static IQueryable<IRecord> Include(this IQueryable<IRecord> query,
-            Expression<Func<IRecord, IDimension>> includeDimensionExpression)
+        public static IQueryable<IRecord> Include<TProperty>(this IQueryable<IRecord> query,
+            Expression<Func<IRecord, TProperty>> includeExpression) where TProperty : class, new()
         {
             var provider = query.Provider as IInclusionProvider;
             if (provider == null)
                 return query;
-            provider.Include(includeDimensionExpression);
-            return query;
-        }
-
-        public static IQueryable<IRecord> Include(this IQueryable<IRecord> query,
-            Expression<Func<IRecord, IMetric>> includeMetricExpression)
-        {
-            var provider = query.Provider as IInclusionProvider;
-            if (provider == null)
-                return query;
-            provider.Include(includeMetricExpression);
+            if (includeExpression == null)
+                throw new ArgumentNullException(nameof(includeExpression));
+            if (!typeof (IDimension).IsAssignableFrom(typeof (TProperty)) &&
+                !typeof (IMetric).IsAssignableFrom(typeof (TProperty)))
+                throw new InvalidOperationException("Only metrics and dimensions can be included.");
+            provider.Include(includeExpression);
             return query;
         }
 

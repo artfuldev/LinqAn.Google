@@ -18,7 +18,7 @@ namespace LinqAn.Google.Linq.Provision
     /// <summary>
     ///     A LINQ Provider that executes API Queries over an API Client
     /// </summary>
-    internal class RecordsQueryProvider : QueryProvider
+    internal class RecordsQueryProvider : QueryProvider, IInclusionProvider
     {
         private readonly IAnalyticsProfile _profile;
         private readonly BaseClientService.Initializer _initializer;

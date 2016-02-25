@@ -29,5 +29,5 @@
     "dnxcore50": { }
   },
 
-  "releaseNotes": "Changed GetClassName."
+  "releaseNotes": "Added templated dimensions and metrics."
 }

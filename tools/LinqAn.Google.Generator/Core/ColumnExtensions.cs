@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text.RegularExpressions;
 using Humanizer;
 
@@ -24,6 +25,39 @@ namespace LinqAn.Google.Generator.Core
             var remaining = className.Replace(number, "").Pascalize();
             className = replacement + remaining;
             return className;
+        }
+
+        public static IEnumerable<TypeInfo> ToTypeInfos(this Column column)
+        {
+            if (!column.Attributes.IsTemplated)
+            {
+                yield return
+                    new TypeInfo()
+                    {
+                        AllowedInSegments = column.Attributes.IsAllowedInSegments,
+                        Description = column.Attributes.Description,
+                        Id = column.Id,
+                        Name = column.Attributes.UiName,
+                        TypeName = column.Attributes.DestinationTypeName
+                    };
+                yield break;
+            }
+            var maxIndex =
+                Convert.ToInt32(column.Attributes.PremiumMaxTemplateIndex ?? column.Attributes.MaxTemplateIndex);
+            var minIndex =
+                Convert.ToInt32(column.Attributes.PremiumMinTemplateIndex ?? column.Attributes.MinTemplateIndex);
+            for (var i = minIndex; i <= maxIndex; i++)
+            {
+                yield return
+                    new TypeInfo()
+                    {
+                        AllowedInSegments = column.Attributes.IsAllowedInSegments,
+                        Description = column.Attributes.Description.Replace("XX", i.ToString()),
+                        Id = column.Id.Replace("XX", i.ToString()),
+                        Name = column.Attributes.UiName.Replace("XX", i.ToString()),
+                        TypeName = column.Attributes.Type == "DIMENSION" ? "string" : "float"
+                    };
+            }
         }
     }
 }

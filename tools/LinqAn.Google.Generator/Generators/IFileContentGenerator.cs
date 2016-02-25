@@ -5,7 +5,7 @@ namespace LinqAn.Google.Generator.Generators
 {
     public interface IFileContentGenerator
     {
-        void GenerateFiles(string rootPath, IEnumerable<Column> columns);
-        void GenerateFiles(string rootPath, IEnumerable<Column> columns, bool clearFiles, params string[] exclusions);
+        void GenerateFiles(string rootPath, IEnumerable<ITypeInfo> typeInfos);
+        void GenerateFiles(string rootPath, IEnumerable<ITypeInfo> typeInfos, bool clearFiles, params string[] exclusions);
     }
 }

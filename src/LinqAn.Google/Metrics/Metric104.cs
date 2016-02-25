@@ -1,0 +1,20 @@
+using System.ComponentModel;
+
+namespace LinqAn.Google.Metrics
+{
+	/// <summary>
+	/// 	The name of the requested custom metric, where 104 refers the number/index of the custom metric. Note that the data type of ga:metric104 can be INTEGER, CURRENCY or TIME.
+	/// </summary>
+	[Description("The name of the requested custom metric, where 104 refers the number/index of the custom metric. Note that the data type of ga:metric104 can be INTEGER, CURRENCY or TIME.")]
+	public class Metric104: Metric<float>
+	{
+		/// <summary>
+		/// 	Instantiates a <seealso cref="Metric104" />.
+		/// </summary>
+		public Metric104(): base("Custom Metric 104 Value",true,"ga:metric104")
+		{
+			
+		}
+	}
+}
+

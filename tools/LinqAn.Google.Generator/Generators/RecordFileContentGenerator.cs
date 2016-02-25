@@ -7,7 +7,7 @@ namespace LinqAn.Google.Generator.Generators
 {
     public class RecordFileContentGenerator : FileContentGenerator
     {
-        public override void GenerateFiles(string rootPath, IEnumerable<Column> columns)
+        public override void GenerateFiles(string rootPath, IEnumerable<ITypeInfo> typeInfos)
         {
             Directory.CreateDirectory(rootPath);
 
@@ -31,10 +31,10 @@ namespace LinqAn.Google.Generator.Generators
             classContent.AppendLine("\t\t/// <summary>\n\t\t /// \tThe date of the record to query.\n\t\t/// </summary>");
             classContent.AppendLine("\t\tpublic System.DateTime RecordDate { get; set; }");
 
-            foreach (var column in columns)
+            foreach (var typeInfo in typeInfos)
             {
-                var name = column.ToClassName();
-                var description = column.Attributes.Description;
+                var name = typeInfo.Id.GetClassName();
+                var description = typeInfo.Description;
 
                 interfaceContent.AppendLine($"\t\t/// <summary>\n\t\t/// \t{description}\n\t\t/// </summary>");
                 interfaceContent.AppendLine($"\t\t{name} {name} {{ get; }}");

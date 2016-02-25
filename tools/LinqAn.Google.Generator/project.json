@@ -29,5 +29,5 @@
     "dnxcore50": { }
   },
 
-  "releaseNotes": "Added templated dimensions and metrics."
+  "releaseNotes": "Fixed data types of templated metrics."
 }

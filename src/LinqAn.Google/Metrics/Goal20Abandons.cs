@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	/// 	The number of times users started conversion activity on the requested goal number without actually completing it.
 	/// </summary>
 	[Description("The number of times users started conversion activity on the requested goal number without actually completing it.")]
-	public class Goal20Abandons: Metric<float>
+	public class Goal20Abandons: Metric<int>
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Goal20Abandons" />.

@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
 	/// 	The total numeric value for the requested goal number.
 	/// </summary>
 	[Description("The total numeric value for the requested goal number.")]
-	public class Goal17Value: Metric<float>
+	public class Goal17Value: Metric<decimal>
 	{
 		/// <summary>
 		/// 	Instantiates a <seealso cref="Goal17Value" />.

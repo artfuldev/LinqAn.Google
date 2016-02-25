@@ -1,16 +1,15 @@
 ﻿using System;
 using System.Text;
 using System.Text.RegularExpressions;
-using Humanizer;
 using LinqAn.Google.Generator.Core;
 
 namespace LinqAn.Google.Generator.Generators
 {
     public class MetricFileContentGenerator : FileContentGenerator
     {
-        protected override string GenerateFileContent(Column column)
+        protected override string GenerateFileContent(ITypeInfo typeInfo)
         {
-            var valueTypeName = column.Attributes.DestinationTypeName;
+            var valueTypeName = typeInfo.TypeName;
             var fileContent = new StringBuilder();
             fileContent.AppendLine("using System.ComponentModel;");
             if (IsUsingSystemRequired(valueTypeName))
@@ -20,12 +19,12 @@ namespace LinqAn.Google.Generator.Generators
             fileContent.AppendLine();
             fileContent.AppendLine("namespace LinqAn.Google.Metrics");
             fileContent.AppendLine("{");
-            var className = column.ToClassName();
-            var name = column.Attributes.UiName;
-            var description = column.Attributes.Description;
+            var className = typeInfo.Id.GetClassName();
+            var name = typeInfo.Name;
+            var description = typeInfo.Description;
             var escapedDescription = description.Replace("\"", "\\\"");
-            var isAllowedInSegments = column.Attributes.IsAllowedInSegments.ToString().ToLowerInvariant();
-            var id = column.Id;
+            var isAllowedInSegments = typeInfo.AllowedInSegments.ToString().ToLowerInvariant();
+            var id = typeInfo.Id;
             fileContent.AppendLine("\t/// <summary>");
             fileContent.AppendLine($"\t/// \t{description}");
             fileContent.AppendLine("\t/// </summary>");

@@ -1,6 +1,6 @@
 ﻿namespace LinqAn.Google.Generator.Core
 {
-    public interface ITypeDetails
+    public interface ITypeInfo
     {
         bool AllowedInSegments { get; }
         string Description { get; }

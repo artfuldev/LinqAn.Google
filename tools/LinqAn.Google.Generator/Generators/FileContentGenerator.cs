@@ -7,14 +7,14 @@ namespace LinqAn.Google.Generator.Generators
 {
     public abstract class FileContentGenerator : IFileContentGenerator
     {
-        public virtual void GenerateFiles(string rootPath, IEnumerable<Column> columns)
+        public virtual void GenerateFiles(string rootPath, IEnumerable<ITypeInfo> typeInfos)
         {
             Directory.CreateDirectory(rootPath);
-            foreach (var column in columns)
+            foreach (var typeInfo in typeInfos)
             {
-                var name = column.ToClassName();
+                var name = typeInfo.Id.GetClassName();
                 var filePath = $"{rootPath}\\{name}.cs";
-                var fileContent = GenerateFileContent(column);
+                var fileContent = GenerateFileContent(typeInfo);
                 using (var tw = new StreamWriter(File.OpenWrite(filePath)))
                 {
                     tw.WriteLine(fileContent);
@@ -22,7 +22,7 @@ namespace LinqAn.Google.Generator.Generators
             }
         }
 
-        public virtual void GenerateFiles(string rootPath, IEnumerable<Column> columns, bool clearFiles, params string[] exclusions)
+        public virtual void GenerateFiles(string rootPath, IEnumerable<ITypeInfo> typeInfos, bool clearFiles, params string[] exclusions)
         {
             Directory.CreateDirectory(rootPath);
             var allFiles = new DirectoryInfo(rootPath).GetFiles();
@@ -30,8 +30,8 @@ namespace LinqAn.Google.Generator.Generators
             var files = allFiles.Where(x => !exclusions.Contains(x.Name));
             foreach (var file in files)
                 file.Delete();
-            GenerateFiles(rootPath, columns);
+            GenerateFiles(rootPath, typeInfos);
         }
-        protected virtual string GenerateFileContent(Column column) => column.ToString();
+        protected virtual string GenerateFileContent(ITypeInfo typeInfo) => typeInfo.ToString();
     }
 }

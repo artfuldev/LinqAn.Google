@@ -1,25 +1,22 @@
-﻿using System;
-using System.Text;
-using System.Text.RegularExpressions;
-using Humanizer;
+﻿using System.Text;
 using LinqAn.Google.Generator.Core;
 
 namespace LinqAn.Google.Generator.Generators
 {
     public class DimensionFileContentGenerator : FileContentGenerator
     {
-        protected override string GenerateFileContent(Column column)
+        protected override string GenerateFileContent(ITypeInfo typeInfo)
         {
             var fileContent = new StringBuilder();
             fileContent.AppendLine("using System.ComponentModel;\n");
             fileContent.AppendLine("namespace LinqAn.Google.Dimensions");
             fileContent.AppendLine("{");
-            var className = column.ToClassName();
-            var name = column.Attributes.UiName;
-            var description = column.Attributes.Description;
+            var className = typeInfo.Id.GetClassName();
+            var name = typeInfo.Name;
+            var description = typeInfo.Description;
             var escapedDescription = description.Replace("\"", "\\\"");
-            var isAllowedInSegments = column.Attributes.IsAllowedInSegments.ToString().ToLowerInvariant();
-            var id = column.Id;
+            var isAllowedInSegments = typeInfo.AllowedInSegments.ToString().ToLowerInvariant();
+            var id = typeInfo.Id;
             fileContent.AppendLine("\t/// <summary>");
             fileContent.AppendLine($"\t/// \t{description}");
             fileContent.AppendLine("\t/// </summary>");

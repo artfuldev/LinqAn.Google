@@ -27,12 +27,12 @@ namespace LinqAn.Google.Generator.Core
             return className;
         }
 
-        public static IEnumerable<TypeDetails> ToTypeDetails(this Column column)
+        public static IEnumerable<TypeInfo> ToTypeInfos(this Column column)
         {
             if (!column.Attributes.IsTemplated)
             {
                 yield return
-                    new TypeDetails()
+                    new TypeInfo()
                     {
                         AllowedInSegments = column.Attributes.IsAllowedInSegments,
                         Description = column.Attributes.Description,
@@ -49,13 +49,13 @@ namespace LinqAn.Google.Generator.Core
             for (var i = minIndex; i <= maxIndex; i++)
             {
                 yield return
-                    new TypeDetails()
+                    new TypeInfo()
                     {
                         AllowedInSegments = column.Attributes.IsAllowedInSegments,
-                        Description = column.Attributes.Description,
+                        Description = column.Attributes.Description.Replace("XX", i.ToString()),
                         Id = column.Id.Replace("XX", i.ToString()),
                         Name = column.Attributes.UiName.Replace("XX", i.ToString()),
-                        TypeName = column.Attributes.DestinationTypeName
+                        TypeName = column.Attributes.Type == "DIMENSION" ? "string" : "float"
                     };
             }
         }

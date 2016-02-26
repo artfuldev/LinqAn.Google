@@ -3,6 +3,9 @@ using LinqAn.Google.Dimensions;
 
 namespace LinqAn.Google.Records
 {
+    /// <summary>
+    ///     A single record that can be queried from the Google Analytics Core Reporting API v3. This interface allows for an IQueryable implementation. Where queries must compulsarily contain a ViewId condition and a RecordDate condition.
+    /// </summary>
 	public interface IRecord
 	{
 		/// <summary>

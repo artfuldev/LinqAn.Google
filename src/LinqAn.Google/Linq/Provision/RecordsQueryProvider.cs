@@ -20,18 +20,12 @@ namespace LinqAn.Google.Linq.Provision
     /// </summary>
     internal class RecordsQueryProvider : QueryProvider, IInclusionProvider
     {
-        private readonly IAnalyticsProfile _profile;
         private readonly BaseClientService.Initializer _initializer;
         private List<object> _includes;
 
         public RecordsQueryProvider(BaseClientService.Initializer initializer)
         {
             _initializer = initializer;
-        }
-
-        public RecordsQueryProvider(IAnalyticsProfile profile)
-        {
-            _profile = profile;
         }
 
         public List<object> Includes
@@ -59,7 +53,7 @@ namespace LinqAn.Google.Linq.Provision
             var query = translateResult.Query;
             query.DimensionsList = Includes.OfType<IDimension>().ToList();
             query.MetricsList = Includes.OfType<IMetric>().ToList();
-            using (var client = _profile == null ? new ReportingClient(_initializer) : new ReportingClient(_profile))
+            using (var client = new ReportingClient(_initializer))
             {
                 int? totalRecords;
                 var records = query.QueryAll

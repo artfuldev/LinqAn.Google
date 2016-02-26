@@ -47,6 +47,30 @@ namespace LinqAn.Google.Linq.Provision
         }
 
         private GaData GetAllGaData(uint viewId, DateTime startDate, DateTime endDate,
+            IEnumerable<IMetric> metrics, out int? totalRecords, IEnumerable<IDimension> dimensions, IFilters filters,
+            IEnumerable<ISortRule> sortRules, uint startIndex)
+        {
+            var metricsList = metrics as IList<IMetric> ?? metrics.ToList();
+            var dimensionsList = dimensions as IList<IDimension> ?? dimensions.ToList();
+            var sortRulesList = sortRules as IList<ISortRule> ?? sortRules.ToList();
+            var data = GetGaData(viewId, startDate, endDate, metricsList, out totalRecords, dimensionsList, filters,
+                sortRulesList, startIndex);
+            if (data.TotalResults == null || data.TotalResults < (RecordQuery.MaxRecordsPerQuery + startIndex))
+                return data;
+            while (data.TotalResults > data.Rows.Count)
+            {
+                var originalRows = data.Rows.Select(row => row.ToList()).ToList();
+                var newRows =
+                    GetGaData(viewId, startDate, endDate, metricsList, out totalRecords, dimensionsList, filters,
+                        sortRulesList, Convert.ToUInt32(data.Rows.Count + 1)).Rows;
+                originalRows.AddRange(newRows.Select(row => row.ToList()));
+                data.Rows = newRows;
+                totalRecords = data.TotalResults;
+            }
+            return data;
+        }
+
+        private GaData GetAllGaData(uint viewId, DateTime startDate, DateTime endDate,
             IEnumerable<IMetric> metrics, IEnumerable<IDimension> dimensions, IFilters filters,
             IEnumerable<ISortRule> sortRules)
         {
@@ -101,6 +125,12 @@ namespace LinqAn.Google.Linq.Provision
             return
                 GetAllGaData(query.ViewId, query.StartDate, query.EndDate, query.Metrics, query.Dimensions,
                     query.Filters, query.SortRules);
+        }
+
+        public GaData GetAllGaData(IRecordQuery query, uint startIndex, out int? totalRecords)
+        {
+            return GetAllGaData(query.ViewId, query.StartDate, query.EndDate, query.Metrics, out totalRecords,
+                query.Dimensions, query.Filters, query.SortRules, startIndex);
         }
 
         public GaData GetGaData(IRecordQuery query, out int? totalRecords, uint startIndex = 1,

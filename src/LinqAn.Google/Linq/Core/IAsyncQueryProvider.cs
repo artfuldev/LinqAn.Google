@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace LinqAn.Google.Linq.Core
 {
-    public interface IAsyncQueryProvider : IQueryProvider
+    internal interface IAsyncQueryProvider : IQueryProvider
     {
         Task<object> ExecuteAsync(Expression query, CancellationToken token = default(CancellationToken));
         Task<TResult> ExecuteAsync<TResult>(Expression query, CancellationToken token = default(CancellationToken));

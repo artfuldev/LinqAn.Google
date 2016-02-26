@@ -15,6 +15,12 @@ namespace LinqAn.Google.Generator.Generators
             interfaceContent.AppendLine("using LinqAn.Google.Metrics;\nusing LinqAn.Google.Dimensions;\n");
             interfaceContent.AppendLine("namespace LinqAn.Google.Records");
             interfaceContent.AppendLine("{");
+            interfaceContent.AppendLine("\t/// <summary>");
+            interfaceContent.AppendLine(
+                "\t/// \tA single record that can be queried from the Google Analytics Core Reporting API v3. " +
+                "This interface allows for an IQueryable implementation. " +
+                "Where queries must compulsarily contain a ViewId condition and a RecordDate condition.");
+            interfaceContent.AppendLine("\t/// </summary>");
             interfaceContent.AppendLine("\tpublic interface IRecord");
             interfaceContent.AppendLine("\t{\n\t\t/// <summary>\n\t\t /// \tThe id of the view to query.\n\t\t/// </summary>");
             interfaceContent.AppendLine("\t\tuint ViewId { get; }");
@@ -25,7 +31,7 @@ namespace LinqAn.Google.Generator.Generators
             classContent.AppendLine("using LinqAn.Google.Metrics;\nusing LinqAn.Google.Dimensions;\n");
             classContent.AppendLine("namespace LinqAn.Google.Records");
             classContent.AppendLine("{");
-            classContent.AppendLine("\tpublic class Record : IRecord");
+            classContent.AppendLine("\tinternal class Record : IRecord");
             classContent.AppendLine("\t{\n\t\t/// <summary>\n\t\t /// \tThe id of the view to query.\n\t\t/// </summary>");
             classContent.AppendLine("\t\tpublic uint ViewId { get; set; }");
             classContent.AppendLine("\t\t/// <summary>\n\t\t /// \tThe date of the record to query.\n\t\t/// </summary>");

@@ -1,6 +1,5 @@
-﻿using System.Linq;
-using LinqAn.Google.Dimensions;
-using LinqAn.Google.Metrics;
+﻿using System;
+using System.Linq;
 using LinqAn.Google.Records;
 
 namespace LinqAn.Google.Sample
@@ -11,12 +10,15 @@ namespace LinqAn.Google.Sample
         {
             return record.GetType().GetProperties().Where(propertyInfo =>
             {
-                var propertyType = propertyInfo.PropertyType;
-                return typeof (IDimension).IsAssignableFrom(propertyType) ||
-                       typeof (IMetric).IsAssignableFrom(propertyType);
+                var value = propertyInfo.GetValue(record);
+                return value != null &&
+                       value.ToString() != ((object) new DateTime()).ToString() &&
+                       value.ToString() != ((object) 0).ToString() &&
+                       value.ToString() != ((object) 0F).ToString() &&
+                       value.ToString() != ((object) 0M).ToString() &&
+                       value.ToString() != ((object) TimeSpan.Zero).ToString();
             })
                 .Select(propertyInfo => propertyInfo.GetValue(record))
-                .Where(value => value != null)
                 .Aggregate("", (current, value) => current + (value + "\n"));
         }
     }

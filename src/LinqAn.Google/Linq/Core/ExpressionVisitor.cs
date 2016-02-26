@@ -9,7 +9,7 @@ using System.Reflection;
 
 namespace LinqAn.Google.Linq.Core
 {
-    public abstract class ExpressionVisitor
+    internal abstract class ExpressionVisitor
     {
         protected virtual Expression Visit(Expression exp)
         {

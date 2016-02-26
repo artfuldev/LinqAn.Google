@@ -25,27 +25,6 @@ namespace LinqAn.Google.Linq.Provision
             _service = new AnalyticsService(initializer);
         }
 
-        public ReportingClient(IAnalyticsProfile profile)
-        {
-            var serviceAccountEmail = profile.ServiceAccountEmail;
-            var keyFile = profile.KeyFilePath;
-            var applicationName = profile.ApplicationName;
-            var certificate = new X509Certificate2(keyFile, "notasecret",
-                X509KeyStorageFlags.Exportable | X509KeyStorageFlags.MachineKeySet);
-            var credential =
-                new ServiceAccountCredential(
-                    new ServiceAccountCredential.Initializer(serviceAccountEmail)
-                    {
-                        Scopes = new[] {AnalyticsService.Scope.Analytics}
-                    }.FromCertificate(certificate));
-            _service =
-                new AnalyticsService(new BaseClientService.Initializer
-                {
-                    HttpClientInitializer = credential,
-                    ApplicationName = applicationName
-                });
-        }
-
         private GaData GetAllGaData(uint viewId, DateTime startDate, DateTime endDate,
             IEnumerable<IMetric> metrics, out int? totalRecords, IEnumerable<IDimension> dimensions, IFilters filters,
             IEnumerable<ISortRule> sortRules, uint startIndex)

@@ -10,21 +10,6 @@ namespace LinqAn.Google.Linq.Queryables
 {
     internal class RecordsDataSet : Query<IRecord>
     {
-        public RecordsDataSet(IAnalyticsProfile profile)
-            : base(new RecordsQueryProvider(profile))
-        {
-        }
-
-        public RecordsDataSet(IAnalyticsProfile profile, Type staticType)
-            : base(new RecordsQueryProvider(profile), staticType)
-        {
-        }
-
-        public RecordsDataSet(IAnalyticsProfile profile, Expression expression)
-            : base(new RecordsQueryProvider(profile), expression)
-        {
-        }
-
         public RecordsDataSet(BaseClientService.Initializer initializer)
             : base(new RecordsQueryProvider(initializer))
         {

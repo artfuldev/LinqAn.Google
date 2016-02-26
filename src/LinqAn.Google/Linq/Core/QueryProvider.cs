@@ -10,7 +10,7 @@ namespace LinqAn.Google.Linq.Core
     /// <summary>
     ///     A basic abstract LINQ query provider
     /// </summary>
-    public abstract class QueryProvider : IAsyncQueryProvider
+    internal abstract class QueryProvider : IAsyncQueryProvider
     {
         IQueryable<S> IQueryProvider.CreateQuery<S>(Expression expression)
         {

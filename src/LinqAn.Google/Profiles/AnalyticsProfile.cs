@@ -1,4 +1,9 @@
-﻿namespace LinqAn.Google.Profiles
+﻿using System.Security.Cryptography.X509Certificates;
+using Google.Apis.Analytics.v3;
+using Google.Apis.Auth.OAuth2;
+using Google.Apis.Services;
+
+namespace LinqAn.Google.Profiles
 {
     /// <summary>
     ///     Encapsulates profile information used to connect to the Google Analytics API.
@@ -33,5 +38,30 @@
         ///     The name of the application requesting analytics, for reporting purposes.
         /// </summary>
         public string ApplicationName { get; }
+
+        /// <summary>
+        ///     Creates a <seealso cref="BaseClientService.Initializer" /> instance corresponding to this
+        ///     <seealso cref="IAnalyticsProfile" />.
+        /// </summary>
+        /// <returns>
+        ///     A <seealso cref="BaseClientService.Initializer" /> instance corresponding to this
+        ///     <seealso cref="IAnalyticsProfile" />.
+        /// </returns>
+        public BaseClientService.Initializer ToBaseClientServiceInitializer()
+        {
+            var certificate = new X509Certificate2(KeyFilePath, "notasecret",
+                X509KeyStorageFlags.Exportable | X509KeyStorageFlags.MachineKeySet);
+            var credential =
+                new ServiceAccountCredential(
+                    new ServiceAccountCredential.Initializer(ServiceAccountEmail)
+                    {
+                        Scopes = new[] { AnalyticsService.Scope.Analytics }
+                    }.FromCertificate(certificate));
+            return new BaseClientService.Initializer
+            {
+                HttpClientInitializer = credential,
+                ApplicationName = ApplicationName
+            };
+        }
     }
 }

@@ -6,7 +6,7 @@ namespace LinqAn.Google.Linq.Core
     /// <summary>
     ///     Finds the first sub-expression that is of a specified type
     /// </summary>
-    public class TypedSubtreeFinder : ExpressionVisitor
+    internal class TypedSubtreeFinder : ExpressionVisitor
     {
         private readonly Type _type;
         private Expression _root;

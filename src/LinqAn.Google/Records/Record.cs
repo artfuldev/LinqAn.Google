@@ -3,7 +3,7 @@ using LinqAn.Google.Dimensions;
 
 namespace LinqAn.Google.Records
 {
-	public class Record : IRecord
+	internal class Record : IRecord
 	{
 		/// <summary>
 		 /// 	The id of the view to query.

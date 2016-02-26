@@ -1,6 +1,6 @@
 ﻿namespace LinqAn.Google.Filters
 {
-    public enum Operator
+    internal enum Operator
     {
         None,
         Equals,

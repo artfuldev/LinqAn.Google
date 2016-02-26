@@ -9,7 +9,7 @@ namespace LinqAn.Google.Linq.Core
     /// <summary>
     ///     A default implementation of <seealso cref="IQueryable" /> for use with <seealso cref="QueryProvider" />
     /// </summary>
-    public class Query<T> : IOrderedQueryable<T>
+    internal class Query<T> : IOrderedQueryable<T>
     {
         public Query(QueryProvider provider)
             : this(provider, (Type) null)
@@ -42,15 +42,6 @@ namespace LinqAn.Google.Linq.Core
             }
             Provider = provider;
             Expression = expression;
-        }
-
-        public string QueryText
-        {
-            get
-            {
-                var iqt = Provider as IQueryText;
-                return iqt != null ? iqt.GetQueryText(Expression) : "";
-            }
         }
 
         public Expression Expression { get; }

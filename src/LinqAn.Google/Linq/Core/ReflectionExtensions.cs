@@ -6,7 +6,7 @@ using System.Reflection;
 
 namespace LinqAn.Google.Linq.Core
 {
-    public static class ReflectionExtensions
+    internal static class ReflectionExtensions
     {
         private static readonly HashSet<Type> IntegralTypes = new HashSet<Type>
         {

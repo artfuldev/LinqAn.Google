@@ -1,13 +1,21 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
 namespace LinqAn.Google.Metrics
 {
 #pragma warning disable 660,661
-    public abstract class Metric<T> : Metric, IMetric<T>
+    public abstract class Metric<T> : IMetric<T>
 #pragma warning restore 660,661
     {
-        internal Metric(string name, bool allowedInSegments, string id):base(name, allowedInSegments, id) { }
+        internal Metric(string name, bool allowedInSegments, string id)
+        {
+            Name = name;
+            AllowedInSegments = allowedInSegments;
+            Id = id;
+        }
+
+        public string Name { get; }
+        public bool AllowedInSegments { get; }
+        public string Id { get; }
         public T Value { get; set; }
 
         public static bool operator ==(Metric<T> metric, T value)
@@ -55,19 +63,5 @@ namespace LinqAn.Google.Metrics
             return false;
         }
         public override string ToString() => $"{Name} : {Value}";
-    }
-
-    public abstract class Metric : IMetric
-    {
-        internal Metric(string name, bool allowedInSegments, string id)
-        {
-            Name = name;
-            AllowedInSegments = allowedInSegments;
-            Id = id;
-        }
-
-        public string Name { get; }
-        public bool AllowedInSegments { get; }
-        public string Id { get; }
     }
 }

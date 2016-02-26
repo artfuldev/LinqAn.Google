@@ -6,7 +6,7 @@ namespace LinqAn.Google.Metrics
     ///     Represents a metric in Google Analytics which measures measurements of type <see cref="T" />.
     /// </summary>
     /// <typeparam name="T">The type of measure this metric measures.</typeparam>
-    public interface IMetric<T> : IMetric
+    internal interface IMetric<T> : IMetric
     {
         /// <summary>
         ///     The value measured by this <seealso cref="IMetric{T}" />.
@@ -17,7 +17,7 @@ namespace LinqAn.Google.Metrics
     /// <summary>
     ///     Represents a metric in Google Analytics which measures measurements.
     /// </summary>
-    public interface IMetric : IIdentifiable, ISupportSegmentation, IIndexable
+    internal interface IMetric : IIdentifiable, ISupportSegmentation, IIndexable
     {
     }
 }

@@ -8,7 +8,7 @@ namespace LinqAn.Google.Extensions
     /// <summary>
     ///     Useful extensions for the <seealso cref="IMetric" />.
     /// </summary>
-    public static class MetricExtensions
+    internal static class MetricExtensions
     {
         public static string ToStringRepresentation(this IEnumerable<IMetric> metrics)
         {

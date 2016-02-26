@@ -8,7 +8,7 @@ namespace LinqAn.Google.Extensions
     /// <summary>
     ///     Useful extensions for the <seealso cref="IDimension" />.
     /// </summary>
-    public static class DimensionExtensions
+    internal static class DimensionExtensions
     {
         public static string ToStringRepresentation(this IEnumerable<IDimension> dimensions)
         {

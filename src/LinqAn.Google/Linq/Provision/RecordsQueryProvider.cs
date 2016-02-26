@@ -63,7 +63,9 @@ namespace LinqAn.Google.Linq.Provision
             {
                 int? totalRecords;
                 var records = query.QueryAll
-                    ? client.GetAllGaData(query)
+                    ? !query.StartIndex.HasValue
+                        ? client.GetAllGaData(query)
+                        : client.GetAllGaData(query, query.StartIndex.Value, out totalRecords)
                     : client.GetGaData(query, out totalRecords, query.StartIndex ?? 1,
                         query.RecordsCount ?? RecordQuery.MaxRecordsPerQuery);
                 if (translateResult.Selector == null)
